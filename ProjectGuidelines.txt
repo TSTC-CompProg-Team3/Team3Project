@@ -1,0 +1,153 @@
+GRADEBOOK, ATTENDANCE, and SEATING CHART PROJECT
+
+Code:              *The language, database and IDE used must be approved by instructor.
+
+                        *Use of external APIs, Frameworks, Interfaces, Libraries and other tools must be approved by the instructor.
+
+Security:         *Three levels of security (instructor/teacher, academic officer, administrator)
+
+                        *The program must support password recovery/reset via email.
+
+Database:       *The program must interface with a database such as MySql or MS SQL.
+
+                        *The database structure must be normalized to 3NF.
+
+                        *Server and database details may be specified by the instructor.
+
+Reports:          *The program must be able to produce several printable reports.
+
+                        *The reports will be HTML reports.
+
+Help Files:      *They need to be contextual, detailed and specific to each form.
+
+Distribution:  *In addition to source code, the project must have an installer or standalone executable with icon.
+
+Grade Percentage Example:  
+
+                       *This category can be changed up by the team depending on the teams assigned grade levels.
+
+                       *Homework                                                                       10% of final grade
+
+                       *Quiz                                                                                  15% of final grade
+
+                       *Lab                                                                                    25% of final grade
+
+                       *Code & Written Tests                                                      25% of final grade
+
+                       *Final Code & Final Written Tests                                    20% of final grade
+
+                       *Class Participation                                                            5% of final grade
+
+                       *Final Grade = homework + quiz + lab + (code & written tests) + (final code and written tests) + participation
+
+                       *MUST have at least 5 categories to make up final grade
+
+                       *Other requirements as determined by the team.
+
+Courses/Classes: 
+
+                      *MUST be able to make any type of course/class (examples: English, Math)
+
+                      *MUST be able to make as many courses/classes as needed
+
+                      *MUST have
+
+                            ~3 courses/classes for 1 teacher set up in database
+
+                            ~2 courses/classes for 2 teachers set up in database
+
+                            ~1 course/class for 3 teachers set up in database
+
+                       *Other requirements as determined by team
+
+Instructors/Teachers: 
+
+                    *MUST have 6 instructors/teachers set up in the database with the guidelines below.
+
+                    *MUST have
+
+                           ~1 instructor/teacher set up with 10 students with student id #'s
+
+                           ~1 instructor/teacher set up with 20 students with student id #'s
+
+                           ~4 instructors/teachers set up with 5 students with student id #'s
+
+                    *MUST be able to take attendance.
+
+                    *MUST be able to input grades and final grades be automatically calculated, even without a grade
+
+                    *Other requirements as determined by the team.
+
+Academic Officer: 
+
+                   *MUST be able to Add New, Edit and Delete (Only if they are not tied to a course.  If tied to a course, then make them Not Active) Instructors/Teachers
+
+                   *MUST be able to Add New, Edit and Delete (Only if they are not tied to a course.  If tied to a course, then make them Not Active) Students
+
+                   *Other requirements as determined by the team.
+
+Administrator: 
+
+                   *MUST have at least one capability that is different from the Instructor/Teacher and Academic Officer.
+
+                   *All other rights of an administrator as determined by the team.
+
+Student Demographics: 
+
+                   *First, Middle, Last Name
+
+                   *Student ID#
+
+                   *Date of Birth
+
+                   *Mailing Address
+
+                   *Street Address
+
+                   *City
+
+                   *State
+
+                   *Zip
+
+                   *Phone number
+
+                   *Emergency Contact
+
+                   *Emergency Contact Phone
+
+                   *Guardian 1 name (if under 18)
+
+                   *Cell phone number Guardian 1
+
+                   *Work number Guardian 1
+
+                   *Place of work Guardian 1
+
+                   *Guardian 2 name (if under 18)-not required
+
+                   *Cell phone number Guardian 2-not required
+
+                   *Work number Guardian 2-not required
+
+                   *Place of work Guardian 2-not required
+
+                   *Other requirements as determined by the team
+
+Midterm Grade Report: 
+
+                  *Process a Midterm Grade Report that is addresses to the Parents of the said student.  Unless the student is 18 then the Midterm Grade Report is addressed to the said     
+
+                   student.
+
+                 *MUST display Midterm Grades for all courses that student on the report.
+
+                 *MUST create 2 or more reports throughout the program.
+
+                 *Other requirements as determined by the team.
+
+Seating Charts:
+
+                 *Allow instructor/teacher to assign or pick random seating assignments by the computer.
+
+                 *Charts MUST include 20, 10, and 5 class sizes.
