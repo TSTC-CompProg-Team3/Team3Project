@@ -28,6 +28,14 @@ CREATE TABLE [Student] (
 )
 GO
 
+CREATE TABLE [Parent] (
+  [StudentID] INT,
+  [LoginID] INT,
+  [FirstName] VARCHAR(255),
+  [LastName] VARCHAR(255)
+)
+GO
+
 CREATE TABLE [RanSeatingChart] (
   [StudentID] INT,
   [SeatNumber] INT
@@ -58,6 +66,7 @@ GO
 
 CREATE TABLE [Login] (
   [LoginID] INT PRIMARY KEY,
+  [AccountType] VARCHAR(255),
   [UserName] VARCHAR(255),
   [Password] VARCHAR(255)
 )
@@ -101,4 +110,13 @@ ALTER TABLE [Class] ADD FOREIGN KEY ([ClassID]) REFERENCES [Grades] ([ClassID])
 GO
 
 ALTER TABLE [Student] ADD FOREIGN KEY ([StudentID]) REFERENCES [Attendance] ([StudentID])
+GO
+
+ALTER TABLE [Student] ADD FOREIGN KEY ([StudentID]) REFERENCES [Parent] ([StudentID])
+GO
+
+ALTER TABLE [Login] ADD FOREIGN KEY ([LoginID]) REFERENCES [Parent] ([LoginID])
+GO
+
+ALTER TABLE [Student] ADD FOREIGN KEY ([StudentID]) REFERENCES [RanSeatingChart] ([StudentID])
 GO
