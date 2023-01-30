@@ -1,0 +1,17 @@
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\bin\Debug\net7.0-windows\Team3Project.exe
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\bin\Debug\net7.0-windows\Team3Project.deps.json
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\bin\Debug\net7.0-windows\Team3Project.runtimeconfig.json
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\bin\Debug\net7.0-windows\Team3Project.dll
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\bin\Debug\net7.0-windows\Team3Project.pdb
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.csproj.AssemblyReference.cache
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.frmLogin.resources
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.csproj.GenerateResource.cache
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.AssemblyInfoInputs.cache
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.AssemblyInfo.cs
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.csproj.CoreCompileInputs.cache
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.dll
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\refint\Team3Project.dll
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.pdb
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\Team3Project.genruntimeconfig.cache
+C:\Users\corys\Desktop\Team3Project\Team3Project\Team3Project\obj\Debug\net7.0-windows\ref\Team3Project.dll
