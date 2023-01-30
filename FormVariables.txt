@@ -1,0 +1,11 @@
+Form Variables
+
+LOGIN FORM
+	frmLogin - login form
+	tbxUsername - username textbox
+	tbxPassword - password textbox
+	lblUsername - username label
+	lblPassword - password label
+	btnClear - clear textbox button
+	btnLogin - login button
+	btnForgotPass - forgot password button
