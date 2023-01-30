@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\corys\\Desktop\\Team3Project\\Team3Project\\Team3Project\\Team3Project.csproj": {}
+    "C:\\Users\\Cory\\Desktop\\Team3Project\\Team3Project\\Team3Project\\Team3Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\corys\\Desktop\\Team3Project\\Team3Project\\Team3Project\\Team3Project.csproj": {
+    "C:\\Users\\Cory\\Desktop\\Team3Project\\Team3Project\\Team3Project\\Team3Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\corys\\Desktop\\Team3Project\\Team3Project\\Team3Project\\Team3Project.csproj",
+        "projectUniqueName": "C:\\Users\\Cory\\Desktop\\Team3Project\\Team3Project\\Team3Project\\Team3Project.csproj",
         "projectName": "Team3Project",
-        "projectPath": "C:\\Users\\corys\\Desktop\\Team3Project\\Team3Project\\Team3Project\\Team3Project.csproj",
-        "packagesPath": "C:\\Users\\corys\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\corys\\Desktop\\Team3Project\\Team3Project\\Team3Project\\obj\\",
+        "projectPath": "C:\\Users\\Cory\\Desktop\\Team3Project\\Team3Project\\Team3Project\\Team3Project.csproj",
+        "packagesPath": "C:\\Users\\Cory\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Cory\\Desktop\\Team3Project\\Team3Project\\Team3Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\corys\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cory\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
