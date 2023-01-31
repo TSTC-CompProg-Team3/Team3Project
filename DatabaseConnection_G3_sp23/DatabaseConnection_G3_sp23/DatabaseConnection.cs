@@ -13,6 +13,7 @@ namespace Team3Project_Fixed
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
         public List<Student> studentList = new List<Student>();
+        public List<User> userList = new List<User>();
 
         public void OpenDatabase()
         {
@@ -75,6 +76,33 @@ namespace Team3Project_Fixed
                     studentList.Add(new Student(studentID, loginID, firstName, middleName, lastName, dateOfBirth, mailingAddress, streetAddress,
                         city, state, zip, phoneNumber, emergencyContactName, emergencyContactPhone, guardian1Name, guardian1CellPhone, guardian1WorkPhone, guardian1WorkPlace));
                 }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        public void UserInfo()
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Login", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int loginID = (int)reader["LoginID"];
+                    string accountType = (string)reader["AccountType"];
+                    string userName = (string)reader["UserName"];
+                    string password = (string)reader["Password"];
+                    
+                    userList.Add(new User(loginID,accountType,userName,password));
+                }
+                reader.Close();
             }
             catch (Exception ex)
             {

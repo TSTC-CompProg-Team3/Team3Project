@@ -35,11 +35,27 @@ namespace Team3Project_Fixed
         {
             database.OpenDatabase();
             database.StudentInfo();
+            database.UserInfo();
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             database.CloseDatabase();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = tbxUsername.Text;
+            string password = tbxPassword.Text;
+
+            foreach (User item in database.userList)
+            {
+                if (username == item.userName && password == item.passWord)
+                {
+                    frmMenu menu = new frmMenu();
+                    menu.ShowDialog();
+                }
+            }
         }
     }
 }
