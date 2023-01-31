@@ -30,8 +30,8 @@
         {
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnForgotPass = new System.Windows.Forms.Button();
@@ -61,19 +61,19 @@
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
             // 
-            // textBox1
+            // tbxUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(154, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 23);
-            this.textBox1.TabIndex = 2;
+            this.tbxUsername.Location = new System.Drawing.Point(154, 135);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(350, 23);
+            this.tbxUsername.TabIndex = 2;
             // 
-            // textBox2
+            // tbxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(154, 234);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(350, 23);
-            this.textBox2.TabIndex = 3;
+            this.tbxPassword.Location = new System.Drawing.Point(154, 234);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.Size = new System.Drawing.Size(350, 23);
+            this.tbxPassword.TabIndex = 3;
             // 
             // btnClear
             // 
@@ -84,6 +84,7 @@
             this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnLogin
             // 
@@ -107,6 +108,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -128,6 +130,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // frmLogin
             // 
@@ -137,14 +140,17 @@
             this.Controls.Add(this.btnForgotPass);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxPassword);
+            this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -156,8 +162,8 @@
 
         private Label lblUsername;
         private Label lblPassword;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox tbxUsername;
+        private TextBox tbxPassword;
         private Button btnClear;
         private Button btnLogin;
         private Button btnForgotPass;
