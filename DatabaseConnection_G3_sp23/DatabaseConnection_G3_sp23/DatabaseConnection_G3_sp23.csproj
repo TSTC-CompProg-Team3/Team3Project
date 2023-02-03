@@ -66,6 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="frmAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAttendance.Designer.cs">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,10 +84,18 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="inew2330gsp23DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inew2330gsp23DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="frmAttendance.resx">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +108,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="inew2330gsp23DataSet.xsc">
+      <DependentUpon>inew2330gsp23DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inew2330gsp23DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inew2330gsp23DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inew2330gsp23DataSet.xss">
+      <DependentUpon>inew2330gsp23DataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
