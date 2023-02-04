@@ -9,6 +9,17 @@ LOGIN FORM
 	btnClear - clear textbox button
 	btnLogin - login button
 	btnForgotPass - forgot password button
+	
+ATTENDANCE FORM
+	dgvAttendance - data grid view for attendance
+	btnBackAttend - back button for attendance form
+	btnEditAttend - edit button for attendance form
+	
+	
+ATTENDANCE EDIT FORM
+	btnSubmitAttendEdit - submit changes button
+	btnClearAttendEdit - clear changes button
+	btnBackAttendEdit - back/close form button
 
 MENU FORM
 	frmMenu - menu Form
