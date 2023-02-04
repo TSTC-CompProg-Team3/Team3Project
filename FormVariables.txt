@@ -9,3 +9,12 @@ LOGIN FORM
 	btnClear - clear textbox button
 	btnLogin - login button
 	btnForgotPass - forgot password button
+
+MENU FORM
+	frmMenu - menu Form
+	pbxBanner - banner picture box
+	cbxCourseSelect - course selection combo box
+	btnGradeBook - grade book button
+	btnAttendence - attendence button
+	btnSeatingChart - seating chart button
+	btnLogOut - log out button 
