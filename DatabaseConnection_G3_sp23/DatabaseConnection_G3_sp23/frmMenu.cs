@@ -16,5 +16,18 @@ namespace Team3Project_Fixed
         {
             InitializeComponent();
         }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            //opens form attendance - CS
+            frmAttendance frmAttendance = new frmAttendance();
+            frmAttendance.ShowDialog();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            //closes this form - Might decide to clear frmLogin textboxes -CS
+            this.Close();
+        }
     }
 }

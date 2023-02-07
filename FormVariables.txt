@@ -26,6 +26,6 @@ MENU FORM
 	pbxBanner - banner picture box
 	cbxCourseSelect - course selection combo box
 	btnGradeBook - grade book button
-	btnAttendence - attendence button
+	btnAttendance - attendence button
 	btnSeatingChart - seating chart button
 	btnLogOut - log out button 

@@ -22,29 +22,35 @@ namespace Team3Project_Fixed
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //exit application - CS
             Application.Exit();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            //clear textboxes - CS
             tbxPassword.Text = string.Empty;
             tbxUsername.Text = string.Empty;
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            //calls open database method from Database Connection -CS
             database.OpenDatabase();
+            //gets student and user info and puts them in arrays -CS
             database.StudentInfo();
             database.UserInfo();
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //calls close database method -CS
             database.CloseDatabase();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //takes user input and checks against the data in the database connection -CS
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
 

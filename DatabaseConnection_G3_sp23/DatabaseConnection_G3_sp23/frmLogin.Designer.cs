@@ -47,7 +47,7 @@
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(154, 102);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(146, 37);
+            this.lblUsername.Size = new System.Drawing.Size(110, 30);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
@@ -57,7 +57,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(154, 201);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 37);
+            this.label1.Size = new System.Drawing.Size(105, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Password";
             // 
@@ -97,14 +97,14 @@
             // 
             this.tbxUsername.Location = new System.Drawing.Point(154, 135);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(350, 27);
+            this.tbxUsername.Size = new System.Drawing.Size(350, 23);
             this.tbxUsername.TabIndex = 5;
             // 
             // tbxPassword
             // 
             this.tbxPassword.Location = new System.Drawing.Point(154, 234);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(350, 27);
+            this.tbxPassword.Size = new System.Drawing.Size(350, 23);
             this.tbxPassword.TabIndex = 6;
             // 
             // mnuStrip
@@ -114,7 +114,7 @@
             this.fileToolStripMenuItem});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuStrip.Name = "mnuStrip";
-            this.mnuStrip.Size = new System.Drawing.Size(659, 28);
+            this.mnuStrip.Size = new System.Drawing.Size(659, 24);
             this.mnuStrip.TabIndex = 7;
             this.mnuStrip.Text = "menuStrip1";
             // 
@@ -123,19 +123,19 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.Controls.Add(this.tbxPassword);

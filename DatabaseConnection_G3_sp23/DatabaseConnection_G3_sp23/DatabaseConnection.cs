@@ -11,10 +11,12 @@ namespace Team3Project_Fixed
 {
     internal class DatabaseConnection
     {
+        //establish database connection - CS
         SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
         public List<Student> studentList = new List<Student>();
         public List<User> userList = new List<User>();
 
+        //OpenDatabase Method to open database - CS
         public void OpenDatabase()
         {
 
@@ -30,6 +32,7 @@ namespace Team3Project_Fixed
 
         }
 
+        //CloseDatabase method to close database - CS
         public void CloseDatabase()
         {
 
@@ -46,6 +49,7 @@ namespace Team3Project_Fixed
 
         }
 
+        //Method to pull student info from database and put in array - CS
         public void StudentInfo()
         {
             try
@@ -86,6 +90,7 @@ namespace Team3Project_Fixed
 
         }
 
+        //Method to grab userinfo from database and put in array -CS
         public void UserInfo()
         {
             try
