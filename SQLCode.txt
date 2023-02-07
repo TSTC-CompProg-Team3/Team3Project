@@ -24,4 +24,3 @@ SELECT COUNT(*) FROM Student WHERE DateOfBirth BETWEEN 'Add Date Number' AND 'Ad
 SELECT FirstName, LastName, ClassIDE FROM Student LEFT JOIN Class ON Student.ClassIDE = Class.ClassID;
 INSERT INTO RanSeatingChart (StudentID, SeatNumber) VALUES (1, 5);
 ALTER TABLE Class ADD COLUMN RoomNumber INT;
-CREATE INDEX idx_Student_LastName ON Student (LastName);
