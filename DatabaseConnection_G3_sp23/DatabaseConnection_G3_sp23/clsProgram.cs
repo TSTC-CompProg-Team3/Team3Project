@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Team3Project_Fixed
+namespace DatabaseConnection_G3_sp23
 {
-    internal static class Program
+    internal static class clsProgram
     {
         /// <summary>
         /// The main entry point for the application.

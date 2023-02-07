@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Team3Project_Fixed
+
+namespace DatabaseConnection_G3_sp23
 {
     public partial class frmLogin : Form
     {
@@ -54,7 +55,7 @@ namespace Team3Project_Fixed
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
 
-            foreach (User item in database.userList)
+            foreach (clsUser item in database.userList)
             {
                 if (username == item.userName && password == item.passWord)
                 {
@@ -63,5 +64,17 @@ namespace Team3Project_Fixed
                 }
             }
         }
+
+        private void btnForgotPass_Click(object sender, EventArgs e)
+        {
+            frmForgotPass forgotPass = new frmForgotPass();
+            forgotPass.ShowDialog();
+
+        }
+
+        
+
+        
+
     }
 }

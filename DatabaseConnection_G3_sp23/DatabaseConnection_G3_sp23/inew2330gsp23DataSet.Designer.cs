@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Team3Project_Fixed {
+namespace DatabaseConnection_G3_sp23 {
     
     
     /// <summary>
@@ -5581,7 +5581,7 @@ namespace Team3Project_Fixed {
         }
     }
 }
-namespace Team3Project_Fixed.inew2330gsp23DataSetTableAdapters {
+namespace DatabaseConnection_G3_sp23.inew2330gsp23DataSetTableAdapters {
     
     
     /// <summary>
@@ -5754,7 +5754,7 @@ SELECT AdminID, LoginID, FirstName, LastName FROM team3sp232330.Administrator WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6119,7 +6119,7 @@ SELECT AdminID, LoginID, FirstName, LastName FROM team3sp232330.Administrator WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6395,7 +6395,7 @@ SELECT ClassID, TeacherID, SubjectID, ClassSize FROM team3sp232330.Class WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6765,7 +6765,7 @@ SELECT ClassID, TeacherID, SubjectID, ClassSize FROM team3sp232330.Class WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7054,7 +7054,7 @@ SELECT LoginID, AccountType, UserName, Password FROM team3sp232330.Login WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7421,7 +7421,7 @@ SELECT LoginID, AccountType, UserName, Password FROM team3sp232330.Login WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7670,7 +7670,7 @@ SELECT LoginID, AccountType, UserName, Password FROM team3sp232330.Login WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8092,7 +8092,7 @@ SELECT StudentID, LoginID, FirstName, MiddleName, LastName, DateOfBirth, Mailing
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8974,7 +8974,7 @@ SELECT SubjectID, SubjectName FROM team3sp232330.Subject WHERE (SubjectID = @Sub
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9314,7 +9314,7 @@ SELECT TeacherID, LoginID, FirstName, LastName FROM team3sp232330.Teacher WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Team3Project_Fixed.Properties.Settings.Default.inew2330gsp23ConnectionString;
+            this._connection.ConnectionString = global::DatabaseConnection_G3_sp23.Properties.Settings.Default.inew2330gsp23ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

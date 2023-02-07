@@ -1,4 +1,4 @@
-﻿namespace Team3Project_Fixed
+﻿namespace DatabaseConnection_G3_sp23
 {
     partial class frmMenu
     {
@@ -100,6 +100,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
+            this.ControlBox = false;
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnSeatingChart);
             this.Controls.Add(this.btnAttendance);

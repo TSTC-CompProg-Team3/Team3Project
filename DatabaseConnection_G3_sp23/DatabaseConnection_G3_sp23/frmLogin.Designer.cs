@@ -1,4 +1,4 @@
-﻿namespace Team3Project_Fixed
+﻿namespace DatabaseConnection_G3_sp23
 {
     partial class frmLogin
     {
@@ -92,6 +92,7 @@
             this.btnForgotPass.TabIndex = 4;
             this.btnForgotPass.Text = "Forgot My Password";
             this.btnForgotPass.UseVisualStyleBackColor = true;
+            this.btnForgotPass.Click += new System.EventHandler(this.btnForgotPass_Click);
             // 
             // tbxUsername
             // 

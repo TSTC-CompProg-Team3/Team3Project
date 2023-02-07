@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Team3Project_Fixed.Properties {
+namespace DatabaseConnection_G3_sp23.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
