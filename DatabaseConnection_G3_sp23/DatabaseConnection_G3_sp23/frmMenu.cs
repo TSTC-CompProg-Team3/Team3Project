@@ -8,13 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Team3Project_Fixed
+namespace DatabaseConnection_G3_sp23
 {
     public partial class frmMenu : Form
     {
         public frmMenu()
         {
             InitializeComponent();
+        }
+
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            //opens form attendance - CS
+            frmAttendance frmAttendance = new frmAttendance();
+            frmAttendance.ShowDialog();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            //closes this form - Might decide to clear frmLogin textboxes -CS
+            this.Close();
         }
     }
 }

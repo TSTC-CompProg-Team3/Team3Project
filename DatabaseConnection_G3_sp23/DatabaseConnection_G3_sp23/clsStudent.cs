@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Team3Project_Fixed
+namespace DatabaseConnection_G3_sp23
 {
-    internal class Student
+    internal class clsStudent
     {
 
         public int studentID { get; set; }
@@ -46,7 +46,7 @@ namespace Team3Project_Fixed
         public string guardian1WorkPlace { get; set; }
 
 
-        public Student(int studentID, int loginID, string firstName, string middleName, string lastName, string dateOfBirth, string mailingAddress,
+        public clsStudent(int studentID, int loginID, string firstName, string middleName, string lastName, string dateOfBirth, string mailingAddress,
             string streetAddress, string city, string state, string zip, string phoneNumber, string emergencyContactName,
             string emergencyContactPhone, string guardian1Name, string guardian1CellPhone, string guardian1WorkPhone, string guardian1WorkPlace)
         {

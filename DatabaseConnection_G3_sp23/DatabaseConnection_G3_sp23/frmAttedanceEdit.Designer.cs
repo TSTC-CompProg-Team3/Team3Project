@@ -1,4 +1,4 @@
-﻿namespace Team3Project_Fixed
+﻿namespace DatabaseConnection_G3_sp23
 {
     partial class frmAttedanceEdit
     {
@@ -33,7 +33,7 @@
             this.btnClearAttendEdit = new System.Windows.Forms.Button();
             this.btnBackAttendEdit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.inew2330gsp23DataSet = new Team3Project_Fixed.inew2330gsp23DataSet();
+            this.inew2330gsp23DataSet = new DatabaseConnection_G3_sp23.inew2330gsp23DataSet();
             this.inew2330gsp23DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSet)).BeginInit();

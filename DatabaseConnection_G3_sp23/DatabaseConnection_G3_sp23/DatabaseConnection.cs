@@ -7,14 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Team3Project_Fixed
+namespace DatabaseConnection_G3_sp23
 {
     internal class DatabaseConnection
     {
+        //establish database connection - CS
         SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
-        public List<Student> studentList = new List<Student>();
-        public List<User> userList = new List<User>();
+        public List<clsStudent> studentList = new List<clsStudent>();
+        public List<clsUser> userList = new List<clsUser>();
+        public List<clsClass> classList = new List<clsClass>();
+        public List<clsSubject> subjectList = new List<clsSubject>();
 
+        //OpenDatabase Method to open database - CS
         public void OpenDatabase()
         {
 
@@ -30,6 +34,7 @@ namespace Team3Project_Fixed
 
         }
 
+        //CloseDatabase method to close database - CS
         public void CloseDatabase()
         {
 
@@ -46,6 +51,7 @@ namespace Team3Project_Fixed
 
         }
 
+        //Method to pull student info from database and put in array - CS
         public void StudentInfo()
         {
             try
@@ -73,7 +79,7 @@ namespace Team3Project_Fixed
                     string guardian1CellPhone = (string)reader["Guardian1CellPhone"];
                     string guardian1WorkPhone = (string)reader["Guardian1WorkPhone"];
                     string guardian1WorkPlace = (string)reader["Guardian1WorkPlace"];
-                    studentList.Add(new Student(studentID, loginID, firstName, middleName, lastName, dateOfBirth, mailingAddress, streetAddress,
+                    studentList.Add(new clsStudent(studentID, loginID, firstName, middleName, lastName, dateOfBirth, mailingAddress, streetAddress,
                         city, state, zip, phoneNumber, emergencyContactName, emergencyContactPhone, guardian1Name, guardian1CellPhone, guardian1WorkPhone, guardian1WorkPlace));
                 }
                 reader.Close();
@@ -86,6 +92,7 @@ namespace Team3Project_Fixed
 
         }
 
+        //Method to grab userinfo from database and put in array -CS
         public void UserInfo()
         {
             try
@@ -99,8 +106,10 @@ namespace Team3Project_Fixed
                     string accountType = (string)reader["AccountType"];
                     string userName = (string)reader["UserName"];
                     string password = (string)reader["Password"];
-                    
-                    userList.Add(new User(loginID,accountType,userName,password));
+                    string resetCode = (string)reader["ResetCode"];
+                    string email = (string)reader["Email"];
+
+                    userList.Add(new clsUser(loginID,accountType,userName,password, resetCode, email));
                 }
                 reader.Close();
             }
@@ -110,6 +119,78 @@ namespace Team3Project_Fixed
             }
 
 
+        }
+
+        //Method to grab classInfo from database and put in array -CS
+        public void ClassInfo()
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Class", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int classID = (int)reader["ClassID"];
+                    int teacherID = (int)reader["TeacherID"];
+                    int subjectID = (int)reader["SubjectID"];
+                    int classSize = (int)reader["ClassSize"];
+
+                    classList.Add(new clsClass(classID, teacherID, subjectID, classSize));
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        //Method to grab subjectInfo from database and put in array -CS
+        public void SubjectInfo()
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Subject", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int subjectID = (int)reader["SubjectID"];
+                    string subjectName = (string)reader["SubjectName"];
+
+                    subjectList.Add(new clsSubject(subjectID, subjectName));
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        public void StoreResetCodeInDatabase(string email, string resetCode)
+        {
+            try
+            {
+                string query = "UPDATE team3sp232330.Login SET ResetCode = @resetCode WHERE Email = @email";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@resetCode", resetCode);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
