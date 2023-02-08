@@ -38,8 +38,6 @@ namespace DatabaseConnection_G3_sp23
         {
             //calls open database method from Database Connection -CS
             database.OpenDatabase();
-            //gets student and user info and puts them in arrays -CS
-            database.StudentInfo();
             database.UserInfo();
         }
 
@@ -67,6 +65,7 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnForgotPass_Click(object sender, EventArgs e)
         {
+            //open form for forgot password -CS
             frmForgotPass forgotPass = new frmForgotPass();
             forgotPass.ShowDialog();
 

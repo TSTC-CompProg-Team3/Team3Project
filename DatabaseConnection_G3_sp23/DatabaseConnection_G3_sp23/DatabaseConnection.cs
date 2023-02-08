@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DatabaseConnection_G3_sp23
 {
@@ -121,6 +122,8 @@ namespace DatabaseConnection_G3_sp23
 
         }
 
+        
+
         //Method to grab classInfo from database and put in array -CS
         public void ClassInfo()
         {
@@ -173,6 +176,7 @@ namespace DatabaseConnection_G3_sp23
 
         }
 
+        //Stores the reset password in database -CS
         public void StoreResetCodeInDatabase(string email, string resetCode)
         {
             try
@@ -182,6 +186,27 @@ namespace DatabaseConnection_G3_sp23
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@resetCode", resetCode);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Resets the password in database -CS
+        public void ResetPassword(string newPass, string resetCode)
+        {
+            try
+            {
+                string query = "UPDATE team3sp232330.Login SET Password = @password WHERE ResetCode = @resetCode";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@password", newPass);
                     command.Parameters.AddWithValue("@resetCode", resetCode);
 
                     command.ExecuteNonQuery();
