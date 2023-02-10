@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Team3Project_Fixed
+namespace DatabaseConnection_G3_sp23
 {
-    internal class User
+    internal class clsUser
     {
         public int loginID { get; set; }
 
@@ -16,9 +16,13 @@ namespace Team3Project_Fixed
 
         public string passWord { get; set; }
 
+        public string resetCode { get; set; }
+
+        public string email { get; set; }
 
 
-        public User(int loginID, string accountType, string userName, string passWord)
+
+        public clsUser(int loginID, string accountType, string userName, string passWord, string resetCode, string email)
         {
             this.loginID = loginID;
 
@@ -27,6 +31,10 @@ namespace Team3Project_Fixed
             this.userName = userName;
 
             this.passWord = passWord;
+
+            this.resetCode = resetCode;
+
+            this.email = email;
             
         }
     }
