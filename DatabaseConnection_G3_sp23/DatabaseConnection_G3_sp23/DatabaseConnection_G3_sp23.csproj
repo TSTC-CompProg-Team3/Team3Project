@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -109,10 +109,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>inew2330gsp23DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="clsProgram.cs" />
+    <Compile Include="inew2330gsp23DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inew2330gsp23DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="clsclsProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="clsStudent.cs" />
-    <Compile Include="clsUser.cs" />
+    <Compile Include="clsclsStudent.cs" />
+    <Compile Include="clsclsUser.cs" />
+    <EmbeddedResource Include="frmAttedanceEdit.resx">
+      <DependentUpon>frmAttedanceEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAttendance.resx">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmForgotPass.resx">
+      <DependentUpon>frmForgotPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAttedanceEdit.resx">
       <DependentUpon>frmAttedanceEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +145,9 @@
     <EmbeddedResource Include="frmSeatingChart.resx">
       <DependentUpon>frmSeatingChart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -140,6 +157,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="inew2330gsp23DataSet.xsc">
+      <DependentUpon>inew2330gsp23DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inew2330gsp23DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inew2330gsp23DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inew2330gsp23DataSet.xss">
+      <DependentUpon>inew2330gsp23DataSet.xsd</DependentUpon>
+    </None>
     <None Include="inew2330gsp23DataSet.xsc">
       <DependentUpon>inew2330gsp23DataSet.xsd</DependentUpon>
     </None>
