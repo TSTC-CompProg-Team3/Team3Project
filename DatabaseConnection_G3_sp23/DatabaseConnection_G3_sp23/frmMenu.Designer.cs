@@ -34,6 +34,7 @@
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnSeatingChart = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,12 +96,24 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdmin.Location = new System.Drawing.Point(450, 239);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(117, 40);
+            this.btnAdmin.TabIndex = 6;
+            this.btnAdmin.Text = "Administrator";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Visible = false;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnSeatingChart);
             this.Controls.Add(this.btnAttendance);
@@ -112,6 +125,7 @@
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenu";
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).EndInit();
             this.ResumeLayout(false);
 
@@ -125,5 +139,6 @@
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnSeatingChart;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }

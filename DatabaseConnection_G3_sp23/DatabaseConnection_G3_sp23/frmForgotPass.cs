@@ -106,6 +106,11 @@ namespace DatabaseConnection_G3_sp23
         {
             this.Close();
         }
+
+        private void frmForgotPass_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            database.CloseDatabase();
+        }
     }
 
 

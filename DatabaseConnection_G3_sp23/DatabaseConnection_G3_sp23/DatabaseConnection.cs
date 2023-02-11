@@ -151,31 +151,6 @@ namespace DatabaseConnection_G3_sp23
 
         }
 
-        //Method to grab subjectInfo from database and put in array -CS
-        public void SubjectInfo()
-        {
-            try
-            {
-                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Subject", connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    int subjectID = (int)reader["SubjectID"];
-                    string subjectName = (string)reader["SubjectName"];
-
-                    subjectList.Add(new clsSubject(subjectID, subjectName));
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-        }
-
         //Stores the reset password in database -CS
         public void StoreResetCodeInDatabase(string email, string resetCode)
         {
@@ -211,6 +186,36 @@ namespace DatabaseConnection_G3_sp23
 
                     command.ExecuteNonQuery();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Updates the userlist after password reset -CS
+        public void UpdateUserList()
+        {
+            userList.Clear();
+            UserInfo();
+        }
+
+        //Gets teachers classes for Cbx -CS
+        public void TeacherClasses(int loginID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject Join team3sp232330.Teacher ON team3sp232330.Subject.TeacherID = team3sp232330.Teacher.TeacherID WHERE team3sp232330.Teacher.LoginID = " + loginID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int subjectID = (int)reader["SubjectID"];
+                    string subjectName = (string)reader["SubjectName"];
+
+                    subjectList.Add(new clsSubject(subjectID, subjectName));
+                }
+                reader.Close();
             }
             catch (Exception ex)
             {

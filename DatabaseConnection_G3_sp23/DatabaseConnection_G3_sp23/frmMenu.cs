@@ -12,8 +12,13 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        DatabaseConnection database = new DatabaseConnection();
+        public int loginID;
+        public string accountType;
+        public frmMenu(int loginid, string accounttype)
         {
+            loginID = loginid;
+            accountType = accounttype;
             InitializeComponent();
         }
 
@@ -28,6 +33,26 @@ namespace DatabaseConnection_G3_sp23
         {
             //closes this form - Might decide to clear frmLogin textboxes -CS
             this.Close();
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            //gets subjects that teacher is teaching for the cbx -CS
+            database.OpenDatabase();
+            frmLogin login = new frmLogin();
+            database.TeacherClasses(loginID);
+
+            foreach (clsSubject subject in database.subjectList)
+            {
+                cbxCourseSelect.Items.Add(subject.subjectName.ToString());
+            }
+
+
+            //Makes admin button visible if user is admin -CS
+            if (accountType.Equals("Admin"))
+            {
+                btnAdmin.Visible = true;
+            }
         }
     }
 }

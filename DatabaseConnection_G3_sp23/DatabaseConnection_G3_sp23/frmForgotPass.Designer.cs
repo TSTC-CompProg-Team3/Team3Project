@@ -164,6 +164,7 @@
             this.Name = "frmForgotPass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgot Password";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmForgotPass_FormClosing);
             this.Load += new System.EventHandler(this.frmForgotPass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
