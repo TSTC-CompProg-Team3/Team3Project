@@ -106,6 +106,7 @@
             this.btnAdmin.Text = "Administrator";
             this.btnAdmin.UseVisualStyleBackColor = true;
             this.btnAdmin.Visible = false;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // frmMenu
             // 

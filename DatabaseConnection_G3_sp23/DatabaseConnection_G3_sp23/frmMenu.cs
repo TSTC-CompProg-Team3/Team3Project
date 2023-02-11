@@ -42,9 +42,9 @@ namespace DatabaseConnection_G3_sp23
             frmLogin login = new frmLogin();
             database.TeacherClasses(loginID);
 
-            foreach (clsSubject subject in database.subjectList)
+            foreach (string subject in database.classList)
             {
-                cbxCourseSelect.Items.Add(subject.subjectName.ToString());
+                cbxCourseSelect.Items.Add(subject);
             }
 
 
@@ -53,6 +53,12 @@ namespace DatabaseConnection_G3_sp23
             {
                 btnAdmin.Visible = true;
             }
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            frmAdminMenu adminMenu = new frmAdminMenu();
+            adminMenu.ShowDialog();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace DatabaseConnection_G3_sp23
         SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
         public List<clsStudent> studentList = new List<clsStudent>();
         public List<clsUser> userList = new List<clsUser>();
-        public List<clsClass> classList = new List<clsClass>();
+        public List<string> classList = new List<string>();
         public List<clsSubject> subjectList = new List<clsSubject>();
 
         //OpenDatabase Method to open database - CS
@@ -124,32 +124,32 @@ namespace DatabaseConnection_G3_sp23
 
         
 
-        //Method to grab classInfo from database and put in array -CS
-        public void ClassInfo()
-        {
-            try
-            {
-                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Class", connection);
-                SqlDataReader reader = command.ExecuteReader();
+        ////Method to grab classInfo from database and put in array -CS
+        //public void ClassInfo()
+        //{
+        //    try
+        //    {
+        //        SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Class", connection);
+        //        SqlDataReader reader = command.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    int classID = (int)reader["ClassID"];
-                    int teacherID = (int)reader["TeacherID"];
-                    int subjectID = (int)reader["SubjectID"];
-                    int classSize = (int)reader["ClassSize"];
+        //        while (reader.Read())
+        //        {
+        //            int classID = (int)reader["ClassID"];
+        //            int teacherID = (int)reader["TeacherID"];
+        //            int subjectID = (int)reader["SubjectID"];
+        //            int classSize = (int)reader["ClassSize"];
 
-                    classList.Add(new clsClass(classID, teacherID, subjectID, classSize));
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        //            classList.Add(new clsClass(classID, teacherID, subjectID, classSize));
+        //        }
+        //        reader.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
 
 
-        }
+        //}
 
         //Stores the reset password in database -CS
         public void StoreResetCodeInDatabase(string email, string resetCode)
@@ -205,15 +205,39 @@ namespace DatabaseConnection_G3_sp23
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject Join team3sp232330.Teacher ON team3sp232330.Subject.TeacherID = team3sp232330.Teacher.TeacherID WHERE team3sp232330.Teacher.LoginID = " + loginID, connection);
+                SqlCommand command = new SqlCommand("Select ClassID, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID WHERE LoginID =  " + loginID, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    int subjectID = (int)reader["SubjectID"];
+                    int classID = (int)reader["ClassID"];
                     string subjectName = (string)reader["SubjectName"];
 
-                    subjectList.Add(new clsSubject(subjectID, subjectName));
+                    classList.Add(classID + " - " + subjectName);
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Gets all classes for Cbx -CS
+        public void AllClasses()
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("Select ClassID, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int classID = (int)reader["ClassID"];
+                    string subjectName = (string)reader["SubjectName"];
+
+                    classList.Add(classID + " - " + subjectName);
                 }
                 reader.Close();
             }
@@ -221,6 +245,25 @@ namespace DatabaseConnection_G3_sp23
             {
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        //Removes selected course in admin menu -CS
+        public void RemoveCourse(string course)
+        {
+            //try
+            //{
+            //    string query = "DELETE team3sp232330.Subject WHERE SubjectName = @course";
+
+            //    using (SqlCommand command = new SqlCommand(query, connection))
+            //    {
+            //        command.Parameters.AddWithValue("@course", course);
+            //        command.ExecuteNonQuery();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
     }
 }

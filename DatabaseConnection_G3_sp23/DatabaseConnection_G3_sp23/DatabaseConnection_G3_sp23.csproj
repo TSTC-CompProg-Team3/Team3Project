@@ -68,6 +68,12 @@
     <Compile Include="clsClass.cs" />
     <Compile Include="clsSubject.cs" />
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="frmAdminMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminMenu.Designer.cs">
+      <DependentUpon>frmAdminMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAttedanceEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="clsStudent.cs" />
     <Compile Include="clsUser.cs" />
+    <EmbeddedResource Include="frmAdminMenu.resx">
+      <DependentUpon>frmAdminMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAttedanceEdit.resx">
       <DependentUpon>frmAttedanceEdit.cs</DependentUpon>
     </EmbeddedResource>
