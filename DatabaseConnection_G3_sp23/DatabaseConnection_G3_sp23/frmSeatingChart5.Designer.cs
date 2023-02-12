@@ -1,6 +1,6 @@
 ﻿namespace Team3Project_Fixed
 {
-    partial class frmSeatingChart
+    partial class frmSeatingChart5
     {
         /// <summary>
         /// Required designer variable.
@@ -100,7 +100,7 @@
             this.Controls.Add(this.dgvStudentSeats);
             this.Controls.Add(this.lstStudentsAvailable);
             this.Name = "frmSeatingChart";
-            this.Text = "SeatingChart";
+            this.Text = "SeatingChart5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSeatingChart_FormClosing);
             this.Load += new System.EventHandler(this.frmSeatingChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentSeats)).EndInit();

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -98,11 +98,23 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSeatingChart.cs">
+    <Compile Include="frmSeatingChart20.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSeatingChart.Designer.cs">
-      <DependentUpon>frmSeatingChart.cs</DependentUpon>
+    <Compile Include="frmSeatingChart20.Designer.cs">
+      <DependentUpon>frmSeatingChart20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeatingChart5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeatingChart5.Designer.cs">
+      <DependentUpon>frmSeatingChart5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeatingChart10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeatingChart10.Designer.cs">
+      <DependentUpon>frmSeatingChart10.cs</DependentUpon>
     </Compile>
     <Compile Include="inew2330gsp23DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -142,11 +154,17 @@
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSeatingChart.resx">
-      <DependentUpon>frmSeatingChart.cs</DependentUpon>
+    <EmbeddedResource Include="frmSeatingChart20.resx">
+      <DependentUpon>frmSeatingChart20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeatingChart5.resx">
+      <DependentUpon>frmSeatingChart5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeatingChart10.resx">
+      <DependentUpon>frmSeatingChart10.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

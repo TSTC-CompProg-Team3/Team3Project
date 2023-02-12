@@ -11,19 +11,11 @@ using System.Windows.Forms;
 
 namespace Team3Project_Fixed
 {
-    public partial class frmSeatingChart : Form
+    public partial class frmSeatingChart10 : Form
     {
-        public frmSeatingChart()
+        public frmSeatingChart10()
         {
             InitializeComponent();
-
-            // Adding students to the list box to show up when the application runs
-            // We will replace this when the databased is up and running
-            lstStudentsAvailable.Items.Add("John");
-            lstStudentsAvailable.Items.Add("Jane");
-            lstStudentsAvailable.Items.Add("Jim");
-            lstStudentsAvailable.Items.Add("Freddy");
-            lstStudentsAvailable.Items.Add("Josh");
 
             // allow drag and drop needs to be their to work
             dgvStudentSeats.AllowDrop = true;
@@ -36,11 +28,6 @@ namespace Team3Project_Fixed
                 dgvStudentSeats.Columns.Add("Subject", "Subject");
                 dgvStudentSeats.Columns.Add("StudentID", "StudentID");
             }
-
-        }
-
-        private void frmSeatingChart_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -79,6 +66,11 @@ namespace Team3Project_Fixed
             }
         }
 
+        private void frmSeatingChart10_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void lstStudentsAvailable_MouseDown(object sender, MouseEventArgs e)
         {
             // Selects the item under the mouse cursor when the mouse button is pressed
@@ -114,7 +106,7 @@ namespace Team3Project_Fixed
             }
         }
 
-        private void frmSeatingChart_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmSeatingChart10_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
@@ -122,13 +114,14 @@ namespace Team3Project_Fixed
         private void btnClear_Click(object sender, EventArgs e)
         {
             // Clear any previous rows in the dgv if the random button is clicked again
-            dgvStudentSeats.Rows.Clear()
+            dgvStudentSeats.Rows.Clear();
         }
 
         private void btnMain_Click(object sender, EventArgs e)
         {
             new frmLogin().Show();
             this.Hide();
+
         }
     }
 }
