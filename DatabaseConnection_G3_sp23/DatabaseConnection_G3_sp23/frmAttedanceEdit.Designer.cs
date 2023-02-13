@@ -33,11 +33,7 @@
             this.btnClearAttendEdit = new System.Windows.Forms.Button();
             this.btnBackAttendEdit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.inew2330gsp23DataSet = new DatabaseConnection_G3_sp23.inew2330gsp23DataSet();
-            this.inew2330gsp23DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSubmitAttendEdit
@@ -71,21 +67,10 @@
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.inew2330gsp23DataSetBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(189, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(430, 353);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // inew2330gsp23DataSet
-            // 
-            this.inew2330gsp23DataSet.DataSetName = "inew2330gsp23DataSet";
-            this.inew2330gsp23DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // inew2330gsp23DataSetBindingSource
-            // 
-            this.inew2330gsp23DataSetBindingSource.DataSource = this.inew2330gsp23DataSet;
-            this.inew2330gsp23DataSetBindingSource.Position = 0;
             // 
             // frmAttedanceEdit
             // 
@@ -99,8 +84,6 @@
             this.Name = "frmAttedanceEdit";
             this.Text = "frmAttedanceEdit";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -111,7 +94,5 @@
         private System.Windows.Forms.Button btnClearAttendEdit;
         private System.Windows.Forms.Button btnBackAttendEdit;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource inew2330gsp23DataSetBindingSource;
-        private inew2330gsp23DataSet inew2330gsp23DataSet;
     }
 }
