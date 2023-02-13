@@ -28,39 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dgvAttendance = new System.Windows.Forms.DataGridView();
-            this.inew2330gsp23DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inew2330gsp23DataSet = new DatabaseConnection_G3_sp23.inew2330gsp23DataSet();
             this.btnBackAttend = new System.Windows.Forms.Button();
             this.btnEditAttend = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAttendance
             // 
-            this.dgvAttendance.AutoGenerateColumns = false;
             this.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAttendance.DataSource = this.inew2330gsp23DataSetBindingSource;
             this.dgvAttendance.Location = new System.Drawing.Point(95, 58);
-            this.dgvAttendance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAttendance.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAttendance.Name = "dgvAttendance";
             this.dgvAttendance.RowHeadersWidth = 51;
             this.dgvAttendance.RowTemplate.Height = 24;
             this.dgvAttendance.Size = new System.Drawing.Size(496, 322);
             this.dgvAttendance.TabIndex = 0;
-            // 
-            // inew2330gsp23DataSetBindingSource
-            // 
-            this.inew2330gsp23DataSetBindingSource.DataSource = this.inew2330gsp23DataSet;
-            this.inew2330gsp23DataSetBindingSource.Position = 0;
-            // 
-            // inew2330gsp23DataSet
-            // 
-            this.inew2330gsp23DataSet.DataSetName = "inew2330gsp23DataSet";
-            this.inew2330gsp23DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnBackAttend
             // 
@@ -88,12 +71,10 @@
             this.Controls.Add(this.btnEditAttend);
             this.Controls.Add(this.btnBackAttend);
             this.Controls.Add(this.dgvAttendance);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAttendance";
             this.Text = "Attendance";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inew2330gsp23DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -101,8 +82,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvAttendance;
-        private System.Windows.Forms.BindingSource inew2330gsp23DataSetBindingSource;
-        private inew2330gsp23DataSet inew2330gsp23DataSet;
         private System.Windows.Forms.Button btnBackAttend;
         private System.Windows.Forms.Button btnEditAttend;
     }
