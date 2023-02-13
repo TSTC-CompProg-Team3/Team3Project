@@ -14,7 +14,11 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmForgotPass : Form
     {
-        public string resetCode = "";
+        
+        DatabaseConnection database = new DatabaseConnection();
+        //Creates random number object -CS
+        private static Random random = new Random();
+
         public frmForgotPass()
         {
             InitializeComponent();
@@ -22,20 +26,24 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmForgotPass_Load(object sender, EventArgs e)
         {
-
+            //Gets info from database -CS
+            database.OpenDatabase(tssDatabaseConnection);
+            database.UserInfo();
         }
 
+        //sends code to email and stores in database -CS
         private void btnSendCode_Click(object sender, EventArgs e)
         {
             string email = tbxEmail.Text;
-            DatabaseConnection database = new DatabaseConnection();
+            
 
             foreach (clsUser user in database.userList)
             {
                 if (tbxEmail.Text == user.email){
                     try
                     {
-                        resetCode = GenerateResetCode();
+                        string resetCode = "";
+                        resetCode = GenerateResetCode(6);
 
                         database.StoreResetCodeInDatabase(email, resetCode);
 
@@ -58,28 +66,50 @@ namespace DatabaseConnection_G3_sp23
 
 
                     }
+
+                    
                 }
             }
+            //clears userlist and get the info from database - a better implementation is possible -CS
+            database.userList.Clear();
+            database.UserInfo();
         }
 
-
-        private static string GenerateResetCode()
+        //generates the random reset code -CS
+        private static string GenerateResetCode(int length)
         {
-            string code = "example";
-            return code;
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        //resets the password if the reset code is correct and the password fields match -CS
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (tbxEnterCode.Text.Equals(resetCode))
+            foreach  (clsUser user in database.userList)
             {
+                if (tbxEnterCode.Text.Equals(user.resetCode) && tbxNewPassword.Text.Equals(tbxConfirmPassword.Text))
+                {
+                    MessageBox.Show("Password has been changed", "Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    database.ResetPassword(tbxConfirmPassword.Text, user.resetCode);
+                    this.Close();
+                }
+            }
 
+            if (!tbxNewPassword.Text.Equals(tbxConfirmPassword.Text))
+            {
+                MessageBox.Show("Please enter a valid password", "Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmForgotPass_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            database.CloseDatabase(tssDatabaseConnection);
         }
     }
 
