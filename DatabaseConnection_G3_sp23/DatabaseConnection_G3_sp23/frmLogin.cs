@@ -14,6 +14,7 @@ namespace DatabaseConnection_G3_sp23
     public partial class frmLogin : Form
     {
         DatabaseConnection database = new DatabaseConnection();
+        private bool isClosing = false;
 
         public frmLogin()
         {
@@ -37,16 +38,15 @@ namespace DatabaseConnection_G3_sp23
         private void frmLogin_Load(object sender, EventArgs e)
         {
             //calls open database method from Database Connection -CS
-            database.OpenDatabase();
-            //gets student and user info and puts them in arrays -CS
-            database.StudentInfo();
+            database.OpenDatabase(tssDatabaseConnection);
             database.UserInfo();
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             //calls close database method -CS
-            database.CloseDatabase();
+            isClosing = true;
+            database.CloseDatabase(tssDatabaseConnection);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -55,11 +55,14 @@ namespace DatabaseConnection_G3_sp23
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
 
-            foreach (clsUser item in database.userList)
+            List<clsUser> tempList = database.userList.ToList();
+            foreach (clsUser item in tempList)
             {
                 if (username == item.userName && password == item.passWord)
                 {
-                    frmMenu menu = new frmMenu();
+                    int loginID = item.loginID;
+                    string accountType = item.accountType;
+                    frmMenu menu = new frmMenu(loginID, accountType);
                     menu.ShowDialog();
                 }
             }
@@ -67,14 +70,26 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnForgotPass_Click(object sender, EventArgs e)
         {
+            //open form for forgot password -CS
             frmForgotPass forgotPass = new frmForgotPass();
             forgotPass.ShowDialog();
 
         }
 
-        
+        private void frmLogin_Activated(object sender, EventArgs e)
+        {
+            //clears textboxes and updates userlist when form is in focus and not closing -CS
+            if (!isClosing)
+            {
+                tbxPassword.Text = string.Empty;
+                tbxUsername.Text = string.Empty;
+                database.UpdateUserList();
+            }
+        }
 
-        
-
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            isClosing = false;
+        }
     }
 }

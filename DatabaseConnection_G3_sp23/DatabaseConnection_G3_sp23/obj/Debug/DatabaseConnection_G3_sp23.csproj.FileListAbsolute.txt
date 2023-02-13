@@ -82,3 +82,5 @@ C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmLogin.resources
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmMenu.resources
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmForgotPass.resources
+C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAdminMenu.resources
+C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.frmAddCourse.resources
