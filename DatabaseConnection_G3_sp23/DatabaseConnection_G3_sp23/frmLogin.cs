@@ -38,7 +38,7 @@ namespace DatabaseConnection_G3_sp23
         private void frmLogin_Load(object sender, EventArgs e)
         {
             //calls open database method from Database Connection -CS
-            database.OpenDatabase();
+            database.OpenDatabase(tssDatabaseConnection);
             database.UserInfo();
         }
 
@@ -46,7 +46,7 @@ namespace DatabaseConnection_G3_sp23
         {
             //calls close database method -CS
             isClosing = true;
-            database.CloseDatabase();
+            database.CloseDatabase(tssDatabaseConnection);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

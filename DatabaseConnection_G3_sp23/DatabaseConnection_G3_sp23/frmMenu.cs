@@ -38,7 +38,7 @@ namespace DatabaseConnection_G3_sp23
         private void frmMenu_Load(object sender, EventArgs e)
         {
             //gets subjects that teacher is teaching for the cbx -CS
-            database.OpenDatabase();
+            database.OpenDatabase(tssDatabaseConnection);
             frmLogin login = new frmLogin();
             database.TeacherClasses(loginID);
 
@@ -46,6 +46,8 @@ namespace DatabaseConnection_G3_sp23
             {
                 cbxCourseSelect.Items.Add(subject);
             }
+
+            cbxCourseSelect.SelectedIndex = 0;
 
 
             //Makes admin button visible if user is admin -CS
@@ -59,6 +61,11 @@ namespace DatabaseConnection_G3_sp23
         {
             frmAdminMenu adminMenu = new frmAdminMenu();
             adminMenu.ShowDialog();
+        }
+
+        private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            database.CloseDatabase(tssDatabaseConnection);
         }
     }
 }

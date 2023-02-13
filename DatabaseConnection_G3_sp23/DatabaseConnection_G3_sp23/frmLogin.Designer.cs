@@ -38,7 +38,10 @@
             this.mnuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsStatus = new System.Windows.Forms.StatusStrip();
+            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuStrip.SuspendLayout();
+            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -130,15 +133,35 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // tsStatus
+            // 
+            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssDatabaseConnection});
+            this.tsStatus.Location = new System.Drawing.Point(0, 501);
+            this.tsStatus.Name = "tsStatus";
+            this.tsStatus.Size = new System.Drawing.Size(659, 35);
+            this.tsStatus.TabIndex = 8;
+            this.tsStatus.Text = "statusStrip1";
+            // 
+            // tssDatabaseConnection
+            // 
+            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
+            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
+            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
+            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
+            this.tssDatabaseConnection.Text = "Offline";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
+            this.Controls.Add(this.tsStatus);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.btnForgotPass);
@@ -159,6 +182,8 @@
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
+            this.tsStatus.ResumeLayout(false);
+            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,6 +201,8 @@
         private System.Windows.Forms.MenuStrip mnuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip tsStatus;
+        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
     }
 }
 

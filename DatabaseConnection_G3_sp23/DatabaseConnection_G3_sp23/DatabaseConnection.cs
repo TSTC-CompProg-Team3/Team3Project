@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,33 +22,37 @@ namespace DatabaseConnection_G3_sp23
         public List<clsSubject> subjectList = new List<clsSubject>();
 
         //OpenDatabase Method to open database - CS
-        public void OpenDatabase()
+        public void OpenDatabase(ToolStripStatusLabel connect)
         {
 
             try
             {
                 connection.Open();
-                MessageBox.Show("Database is Open", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                connect.Text = "Online";
+                connect.ForeColor = Color.Green;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                connect.Text = "Offline";
+                connect.ForeColor = Color.Red;
             }
 
         }
 
         //CloseDatabase method to close database - CS
-        public void CloseDatabase()
+        public void CloseDatabase(ToolStripStatusLabel connect)
         {
 
             try
             {
                 connection.Close();
-                MessageBox.Show("Database is Closed", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                connect.Text = "Offline";
+                connect.ForeColor = Color.Red;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                connect.Text = "Online";
+                connect.ForeColor = Color.Green;
             }
 
 
@@ -247,23 +253,67 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        //Removes selected course in admin menu -CS
-        public void RemoveCourse(string course)
+        //Gets all classes for Cbx -CS
+        public void UpdateAllClasses()
         {
-            //try
-            //{
-            //    string query = "DELETE team3sp232330.Subject WHERE SubjectName = @course";
+            classList.Clear();
+            AllClasses();
+        }
 
-            //    using (SqlCommand command = new SqlCommand(query, connection))
-            //    {
-            //        command.Parameters.AddWithValue("@course", course);
-            //        command.ExecuteNonQuery();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+        //Removes selected course in admin menu -CS
+        public void RemoveCourse(string classID)
+        {
+            try
+            {
+                string query = "DELETE team3sp232330.Class WHERE ClassID = @classID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@classID", classID);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //
+        public void LoadAddCourse(ComboBox teacherID, ComboBox subjectID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string ID = (string)reader["TeacherID"];
+                    string lastName = (string)reader["LastName"];
+                    string firstName = (string)reader["FirstName"];
+
+                    teacherID.Items.Add(teacherID + " - " + lastName + ", " + firstName);
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT SubjectID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string ID = (string)reader["TeacherID"];
+                    string lastName = (string)reader["LastName"];
+                    string firstName = (string)reader["FirstName"];
+
+                    teacherID.Items.Add(teacherID + " - " + lastName + ", " + firstName);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ namespace DatabaseConnection_G3_sp23
         private void frmForgotPass_Load(object sender, EventArgs e)
         {
             //Gets info from database -CS
-            database.OpenDatabase();
+            database.OpenDatabase(tssDatabaseConnection);
             database.UserInfo();
         }
 
@@ -109,7 +109,7 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmForgotPass_FormClosing(object sender, FormClosingEventArgs e)
         {
-            database.CloseDatabase();
+            database.CloseDatabase(tssDatabaseConnection);
         }
     }
 
