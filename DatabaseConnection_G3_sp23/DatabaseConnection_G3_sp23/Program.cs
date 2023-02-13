@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace DatabaseConnection_G3_sp23
 {
-    internal static class clsProgram
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
