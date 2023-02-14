@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace DatabaseConnection_G3_sp23
         public List<clsUser> userList = new List<clsUser>();
         public List<string> classList = new List<string>();
         public List<clsSubject> subjectList = new List<clsSubject>();
+
 
         //OpenDatabase Method to open database - CS
         public void OpenDatabase(ToolStripStatusLabel connect)
@@ -63,6 +65,7 @@ namespace DatabaseConnection_G3_sp23
         {
             try
             {
+                connection.Open();
                 SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Student", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -88,7 +91,7 @@ namespace DatabaseConnection_G3_sp23
                     string guardian1WorkPlace = (string)reader["Guardian1WorkPlace"];
                     studentList.Add(new clsStudent(studentID, loginID, firstName, middleName, lastName, dateOfBirth, mailingAddress, streetAddress,
                         city, state, zip, phoneNumber, emergencyContactName, emergencyContactPhone, guardian1Name, guardian1CellPhone, guardian1WorkPhone, guardian1WorkPlace));
-                }
+                    }
                 reader.Close();
             }
             catch (Exception ex)
@@ -99,11 +102,33 @@ namespace DatabaseConnection_G3_sp23
 
         }
 
+        public void loadDataGridView(DataGridView dgvStudentSeats)
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT DateOfBirth, MailingAddress, StreetAddress FROM team3sp232330.Student", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable dttable = new DataTable();
+                dttable.Load(reader);
+                dgvStudentSeats.DataSource= dttable;
+
+               
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         //Method to grab userinfo from database and put in array -CS
         public void UserInfo()
         {
             try
             {
+                
                 SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Login", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -315,5 +340,6 @@ namespace DatabaseConnection_G3_sp23
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

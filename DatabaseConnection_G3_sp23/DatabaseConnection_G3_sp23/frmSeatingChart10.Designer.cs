@@ -87,6 +87,7 @@
             this.lstStudentsAvailable.Name = "lstStudentsAvailable";
             this.lstStudentsAvailable.Size = new System.Drawing.Size(186, 379);
             this.lstStudentsAvailable.TabIndex = 20;
+            this.lstStudentsAvailable.SelectedIndexChanged += new System.EventHandler(this.lstStudentsAvailable_SelectedIndexChanged);
             this.lstStudentsAvailable.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstStudentsAvailable_MouseDown);
             this.lstStudentsAvailable.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lstStudentsAvailable_MouseMove);
             // 
@@ -106,6 +107,7 @@
             this.Name = "frmSeatingChart10";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seating Chart";
+            this.Load += new System.EventHandler(this.frmSeatingChart10_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentSeats)).EndInit();
             this.ResumeLayout(false);
 

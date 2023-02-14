@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Team3Project_Fixed;
 
 namespace DatabaseConnection_G3_sp23
 {
@@ -90,6 +90,12 @@ namespace DatabaseConnection_G3_sp23
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             isClosing = false;
+        }
+
+        private void testSeatingChartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSeatingChart10().Show();
+            this.Hide();
         }
     }
 }

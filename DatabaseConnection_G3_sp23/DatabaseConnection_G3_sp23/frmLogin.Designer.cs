@@ -40,6 +40,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsStatus = new System.Windows.Forms.StatusStrip();
             this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
+            this.testSeatingChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             this.tsStatus.SuspendLayout();
             this.SuspendLayout();
@@ -115,7 +116,8 @@
             // 
             this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.testSeatingChartToolStripMenuItem});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuStrip.Name = "mnuStrip";
             this.mnuStrip.Size = new System.Drawing.Size(659, 24);
@@ -155,6 +157,13 @@
             this.tssDatabaseConnection.Name = "tssDatabaseConnection";
             this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
             this.tssDatabaseConnection.Text = "Offline";
+            // 
+            // testSeatingChartToolStripMenuItem
+            // 
+            this.testSeatingChartToolStripMenuItem.Name = "testSeatingChartToolStripMenuItem";
+            this.testSeatingChartToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.testSeatingChartToolStripMenuItem.Text = "TestSeatingChart";
+            this.testSeatingChartToolStripMenuItem.Click += new System.EventHandler(this.testSeatingChartToolStripMenuItem_Click);
             // 
             // frmLogin
             // 
@@ -203,6 +212,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.StatusStrip tsStatus;
         private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
+        private System.Windows.Forms.ToolStripMenuItem testSeatingChartToolStripMenuItem;
     }
 }
 

@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,8 @@ namespace Team3Project_Fixed
 {
     public partial class frmSeatingChart10 : Form
     {
+        DatabaseConnection database = new DatabaseConnection();
+
         public frmSeatingChart10()
         {
             InitializeComponent();
@@ -25,8 +29,9 @@ namespace Team3Project_Fixed
             {
                 dgvStudentSeats.Columns.Add("FirstName", "FirstName");
                 dgvStudentSeats.Columns.Add("LastName", "LastName");
-                dgvStudentSeats.Columns.Add("Subject", "Subject");
+                dgvStudentSeats.Columns.Add("MiddleName", "MiddleName");
                 dgvStudentSeats.Columns.Add("StudentID", "StudentID");
+                dgvStudentSeats.Columns.Add("DateOfBirth", "DateOfBirth");
             }
         }
 
@@ -37,6 +42,7 @@ namespace Team3Project_Fixed
 
             // Create a list to store the items in the listbox
             List<string> students = new List<string>();
+
 
             // Iterates through the items in the listbox and adds each one to the list
             foreach (string name in lstStudentsAvailable.Items)
@@ -60,10 +66,22 @@ namespace Team3Project_Fixed
                 // Removes the selected item from the lstbox so no duplicated
                 students.RemoveAt(stored);
 
+                // Splits the student name into first and last name components
+                string[] nameComponents = student.Split(' ');
+                string firstName = nameComponents[0];
+                string lastName = nameComponents[1];
+                string middleName = nameComponents[2];
+                string studentID = nameComponents[3];
+                string dateOfBirth = nameComponents[4];
+
                 // Adds the selected student to a new row in the dgv
-                dgvStudentSeats.Rows.Add(student);
+                dgvStudentSeats.Rows.Add(firstName, lastName, middleName, studentID, dateOfBirth);
+
+                // Adds the selected student to a new row in the dgv
+                //dgvStudentSeats.Rows.Add(student);
             }
         }
+
 
         private void lstStudentsAvailable_MouseDown(object sender, MouseEventArgs e)
         {
@@ -110,6 +128,33 @@ namespace Team3Project_Fixed
         {
             new frmLogin().Show();
             this.Hide();
+        }
+
+        private void frmSeatingChart10_Load(object sender, EventArgs e)
+        {
+
+
+            // database.LoadFirst10StudentsToListBox(lstStudentsAvailable);
+            database.loadDataGridView(dgvStudentSeats);
+            database.StudentInfo();
+
+            // Loop through each student in the list
+            foreach (clsStudent student in database.studentList)
+            {
+                // Create a string with the student information
+                string studentInfo = string.Format("{0} {1} {2} {3} ",
+                    student.firstName, student.lastName, student.middleName , student.studentID);
+
+                // Add the string to the ListBox
+                lstStudentsAvailable.Items.Add(studentInfo);
+            }
+        }
+
+     
+
+        private void lstStudentsAvailable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
