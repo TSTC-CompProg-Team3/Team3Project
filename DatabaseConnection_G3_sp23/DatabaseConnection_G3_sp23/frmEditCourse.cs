@@ -10,34 +10,32 @@ using System.Windows.Forms;
 
 namespace DatabaseConnection_G3_sp23
 {
-    public partial class frmAddCourse : Form
+    public partial class frmEditCourse : Form
     {
         DatabaseConnection database = new DatabaseConnection();
-        public frmAddCourse()
+        public string courseID;
+        public frmEditCourse(string courseID)
         {
+            this.courseID = courseID;
             InitializeComponent();
         }
 
-        private void frmAddCourse_Load(object sender, EventArgs e)
+        private void frmEditCourse_Load(object sender, EventArgs e)
         {
             database.OpenDatabase(tssDatabaseConnection);
-            database.LoadAddCourse(cbxTeacherID, cbxSubjectID);
-            cbxClassSize.SelectedIndex = 0;
-            cbxSubjectID.SelectedIndex = 0;
-            cbxTeacherID.SelectedIndex = 0;
+            database.LoadEditCourse(courseID,tbxClassID,cbxTeacherID,cbxSubjectID);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            cbxClassSize.Text = string.Empty;
+            cbxSubjectID.Text = string.Empty;
+            cbxTeacherID.Text = string.Empty;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            cbxClassSize.SelectedIndex = 0;
-            cbxSubjectID.SelectedIndex = 0;
-            cbxTeacherID.SelectedIndex = 0;
-            tbxClassID.Text = "";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -51,7 +49,7 @@ namespace DatabaseConnection_G3_sp23
             string subjectID = holdSplit[0].Trim();
             string classSize = cbxClassSize.Text;
 
-            database.AddCourse(classID,teacherID,subjectID,classSize);
+            database.EditCourse(classID, teacherID, subjectID, classSize);
         }
     }
 }
