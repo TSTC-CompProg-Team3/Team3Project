@@ -106,21 +106,45 @@ namespace DatabaseConnection_G3_sp23
         {
             try
             {
+                
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT DateOfBirth, MailingAddress, StreetAddress FROM team3sp232330.Student", connection);
-                SqlDataReader reader = command.ExecuteReader();
+                SqlCommand command = new SqlCommand("SELECT TOP 10 * FROM team3sp232330.Student", connection);
                 DataTable dttable = new DataTable();
-                dttable.Load(reader);
-                dgvStudentSeats.DataSource= dttable;
-
-               
-                reader.Close();
+                // Use a SqlDataAdapter to fill the DataTable
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                da.Fill(dttable);
+                connection.Close();
+                dgvStudentSeats.DataSource = dttable;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void PopulateStudentListBox(ListBox lstStudentsAvailable)
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Student", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string fullName = $"{reader["FirstName"]} {reader["LastName"]}";
+                    lstStudentsAvailable.Items.Add(fullName);
+                }
+
+                reader.Close();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
 
         //Method to grab userinfo from database and put in array -CS
