@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DatabaseConnection_G3_sp23
@@ -15,7 +16,7 @@ namespace DatabaseConnection_G3_sp23
     internal class DatabaseConnection
     {
         //establish database connection - CS
-        SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
+        static SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
         public List<clsStudent> studentList = new List<clsStudent>();
         public List<clsUser> userList = new List<clsUser>();
         public List<string> classList = new List<string>();
@@ -314,6 +315,161 @@ namespace DatabaseConnection_G3_sp23
             {
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        private static DataTable _gradeBookDataTable;
+
+        public static DataTable gradeBookDataTable
+        {
+            get { return _gradeBookDataTable; }
+        }
+        public static void GradeBookDataGrid(DataGridView dgvGradeBook, int counter)
+        {
+            try
+            {
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName ,AssignmentType,Grade From team3sp232330.Grades Where StudentID=" + counter + ";", connection);
+
+                _gradeBookDataTable = new DataTable();
+                gradeBookDataAdapter.Fill(_gradeBookDataTable);
+
+
+                dgvGradeBook.DataSource = gradeBookDataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private DataTable _gradeTable;
+
+        public void GradeCalculations(int counter, DataGridView dgvGradebook, Label lbltotalGrade, Label lblQuiz, Label lblParticipation, Label lblHomework, Label lblLab, Label lblTest)
+        {
+            string query = "Select Grade From team3sp232330.Grades Where StudentID=" + counter + "";
+
+            SqlCommand cmdGrade = new SqlCommand(query, connection);
+
+            SqlDataAdapter gradeAdapter = new SqlDataAdapter(cmdGrade);
+
+            _gradeTable = new DataTable();
+            gradeAdapter.Fill(_gradeTable);
+
+        }
+
+        private DataTable _nameTable;
+        public void GradeBookName(Label lblName)
+        {
+            try
+            {
+                string query = "Select CONCAT(FirstName,' ',LastName) as studentName from team3sp232330.Student";
+
+                SqlCommand cmdName = new SqlCommand(query, connection);
+
+                SqlDataAdapter nameAdapter = new SqlDataAdapter(cmdName);
+
+                _nameTable = new DataTable();
+                nameAdapter.Fill(_nameTable);
+                lblName.DataBindings.Add("Text", _nameTable, "studentName");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+        public void Next(Label lblName, int counter)
+        {
+            try
+            {
+                if (counter > _nameTable.Rows.Count - 1)
+                {
+                    counter = _nameTable.Rows.Count - 1;
+                }
+                lblName.Text = _nameTable.Rows[counter]["studentName"].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void Prev(Label lblName, int counter)
+        {
+            try
+            {
+                if (counter < 0)
+                {
+                    counter = 0;
+                }
+                lblName.Text = _nameTable.Rows[counter]["studentName"].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        static frmGradebook frmGradebook = new frmGradebook();
+        public static void RemoveGradeBook(DataGridView dgvGradebook, int counter)
+        {
+            try
+            {
+                string query = "Delete From team3sp232330.Grades Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + "";
+
+                SqlCommand cmdRemove = new SqlCommand(query, connection);
+                SqlDataAdapter removeAdapter = new SqlDataAdapter(cmdRemove);
+
+                removeAdapter.Fill(_gradeBookDataTable);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public static void AddGradeBook(int counter, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
+        {
+            try
+            {
+                string query = "Insert Into team3sp232330.Grades(StudentID,AssignmentName,AssignmentType,Grade) Values(" + counter + ",'" + tbxAssignName.Text + "','" + tbxAssignType.Text + "'," + tbxGrade.Text + ")";
+                SqlCommand cmdAdd = new SqlCommand(query, connection);
+
+                SqlDataAdapter addAdapter = new SqlDataAdapter(cmdAdd);
+
+                addAdapter.Fill(_gradeBookDataTable);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        public static void EditGradeBook(DataGridView dgvGradebook, int counter, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
+        {
+            try
+            {
+                string query = "Update team3sp232330.Grades set AssignmentName='" + tbxAssignName.Text + "', AssignmentType='" + tbxAssignType.Text + "',Grade=" + tbxGrade.Text + " Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + "";
+                SqlCommand cmdEdit = new SqlCommand(query, connection);
+
+
+                SqlDataAdapter editAdapter = new SqlDataAdapter(cmdEdit);
+                editAdapter.Fill(_gradeBookDataTable);
+                MessageBox.Show("Edit Successful");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

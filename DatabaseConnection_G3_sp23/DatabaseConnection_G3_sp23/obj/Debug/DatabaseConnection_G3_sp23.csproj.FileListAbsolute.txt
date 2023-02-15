@@ -87,3 +87,61 @@ C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.frmSeatingChart10.resources
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.frmSeatingChart20.resources
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.frmSeatingChart5.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\Team3Project_Fixed.exe.config
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\Team3Project_Fixed.exe
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\Team3Project_Fixed.pdb
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.AccessControl.dll
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Permissions.dll
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.AccessControl.xml
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Permissions.xml
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.AssemblyReference.cache
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.SuggestedBindingRedirects.cache
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAdminMenu.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAttedanceEdit.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAttendance.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmForgotPass.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmLogin.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmMenu.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.Properties.Resources.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.GenerateResource.cache
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.CoreCompileInputs.cache
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.CopyComplete
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.exe
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.pdb
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmGradebook.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart10.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart20.resources
+C:\Users\T\OneDrive\Documents\Team Project\Team3Project-master\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart5.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.AssemblyReference.cache
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.SuggestedBindingRedirects.cache
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAdminMenu.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAttedanceEdit.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAttendance.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmForgotPass.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmGradebook.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmLogin.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmMenu.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart10.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart20.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart5.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.Properties.Resources.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.GenerateResource.cache
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.CoreCompileInputs.cache
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.exe
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.pdb
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\Team3Project_Fixed.exe.config
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\Team3Project_Fixed.exe
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\Team3Project_Fixed.pdb
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.AccessControl.dll
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Permissions.dll
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.AccessControl.xml
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Permissions.xml
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.CopyComplete

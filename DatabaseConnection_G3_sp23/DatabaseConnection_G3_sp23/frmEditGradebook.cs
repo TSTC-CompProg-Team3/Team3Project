@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DatabaseConnection_G3_sp23 { 
+    public partial class frmEditGradebook : Form
+    {
+        DatabaseConnection database = new DatabaseConnection();
+        frmGradebook mainGradbook;
+        frmGradebook frmGradebook = new frmGradebook();
+        public frmEditGradebook(frmGradebook grade)
+        {
+            InitializeComponent();
+            mainGradbook = grade;
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DatabaseConnection.EditGradeBook(mainGradbook.grade, mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
+            frmGradebook.Show();
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmGradebook.Show();
+        }
+
+        private void frmAddGradebook_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
