@@ -1,4 +1,4 @@
-﻿namespace Team3Project_Fixed
+﻿namespace DatabaseConnection_G3_sp23
 {
     partial class frmAddCourse
     {
@@ -36,6 +36,12 @@
             this.cbxTeacherID = new System.Windows.Forms.ComboBox();
             this.cbxSubjectID = new System.Windows.Forms.ComboBox();
             this.cbxClassSize = new System.Windows.Forms.ComboBox();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.tsStatus = new System.Windows.Forms.StatusStrip();
+            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClassID
@@ -104,10 +110,66 @@
             // cbxClassSize
             // 
             this.cbxClassSize.FormattingEnabled = true;
+            this.cbxClassSize.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "20"});
             this.cbxClassSize.Location = new System.Drawing.Point(310, 329);
             this.cbxClassSize.Name = "cbxClassSize";
             this.cbxClassSize.Size = new System.Drawing.Size(157, 23);
             this.cbxClassSize.TabIndex = 11;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Location = new System.Drawing.Point(350, 441);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(117, 40);
+            this.btnSubmit.TabIndex = 12;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(183, 441);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(117, 40);
+            this.btnClear.TabIndex = 13;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // tsStatus
+            // 
+            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssDatabaseConnection});
+            this.tsStatus.Location = new System.Drawing.Point(0, 501);
+            this.tsStatus.Name = "tsStatus";
+            this.tsStatus.Size = new System.Drawing.Size(659, 35);
+            this.tsStatus.TabIndex = 14;
+            this.tsStatus.Text = "statusStrip1";
+            // 
+            // tssDatabaseConnection
+            // 
+            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
+            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
+            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
+            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
+            this.tssDatabaseConnection.Text = "Offline";
+            // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(515, 441);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(117, 40);
+            this.btnBack.TabIndex = 15;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmAddCourse
             // 
@@ -115,6 +177,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.tsStatus);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cbxClassSize);
             this.Controls.Add(this.cbxSubjectID);
             this.Controls.Add(this.cbxTeacherID);
@@ -127,7 +193,10 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmAddCourse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddCourse";
+            this.Text = "Add Course";
+            this.Load += new System.EventHandler(this.frmAddCourse_Load);
+            this.tsStatus.ResumeLayout(false);
+            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +211,10 @@
         private System.Windows.Forms.ComboBox cbxTeacherID;
         private System.Windows.Forms.ComboBox cbxSubjectID;
         private System.Windows.Forms.ComboBox cbxClassSize;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.StatusStrip tsStatus;
+        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
+        private System.Windows.Forms.Button btnBack;
     }
 }
