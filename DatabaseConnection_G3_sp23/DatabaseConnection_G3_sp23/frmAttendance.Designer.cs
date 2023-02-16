@@ -41,7 +41,7 @@
             // 
             this.dgvAttendance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAttendance.Location = new System.Drawing.Point(20, 18);
+            this.dgvAttendance.Location = new System.Drawing.Point(20, 20);
             this.dgvAttendance.Margin = new System.Windows.Forms.Padding(2);
             this.dgvAttendance.Name = "dgvAttendance";
             this.dgvAttendance.RowHeadersWidth = 51;
@@ -52,7 +52,7 @@
             // 
             // btnBackAttend
             // 
-            this.btnBackAttend.Location = new System.Drawing.Point(221, 799);
+            this.btnBackAttend.Location = new System.Drawing.Point(697, 771);
             this.btnBackAttend.Name = "btnBackAttend";
             this.btnBackAttend.Size = new System.Drawing.Size(172, 55);
             this.btnBackAttend.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // btnEditAttend
             // 
-            this.btnEditAttend.Location = new System.Drawing.Point(624, 799);
+            this.btnEditAttend.Location = new System.Drawing.Point(248, 771);
             this.btnEditAttend.Name = "btnEditAttend";
             this.btnEditAttend.Size = new System.Drawing.Size(158, 55);
             this.btnEditAttend.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.pnlAttendance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlAttendance.Controls.Add(this.dgvAttendance);
-            this.pnlAttendance.Location = new System.Drawing.Point(95, 12);
+            this.pnlAttendance.Location = new System.Drawing.Point(127, 30);
             this.pnlAttendance.Name = "pnlAttendance";
             this.pnlAttendance.Size = new System.Drawing.Size(840, 640);
             this.pnlAttendance.TabIndex = 3;
@@ -98,6 +98,7 @@
             this.Controls.Add(this.btnBackAttend);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAttendance";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attendance";
             this.Load += new System.EventHandler(this.frmAttendance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();

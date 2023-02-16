@@ -88,7 +88,8 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnEditAttend_Click(object sender, EventArgs e)
         {
-
+            frmAttendanceEdit edit= new frmAttendanceEdit();
+            edit.ShowDialog();
         }
     }
 }

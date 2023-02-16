@@ -102,7 +102,6 @@ C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConne
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.SuggestedBindingRedirects.cache
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.frmAddCourse.resources
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAdminMenu.resources
-C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAttedanceEdit.resources
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAttendance.resources
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmForgotPass.resources
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmLogin.resources
@@ -116,3 +115,4 @@ C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConne
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.CopyComplete
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.exe
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.pdb
+C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAttendanceEdit.resources
