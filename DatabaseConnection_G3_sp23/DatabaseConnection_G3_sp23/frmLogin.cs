@@ -92,10 +92,6 @@ namespace DatabaseConnection_G3_sp23
             isClosing = false;
         }
 
-        private void testSeatingChartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new frmSeatingChart10().Show();
-            this.Hide();
-        }
+        
     }
 }

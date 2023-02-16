@@ -13,9 +13,14 @@ namespace Team3Project_Fixed
 {
     public partial class frmSeatingChart20 : Form
     {
+        DatabaseConnection database = new DatabaseConnection();
         public frmSeatingChart20()
         {
             InitializeComponent();
+
+            // allow drag and drop needs to be their to work
+            dgvStudentSeats.AllowDrop = true;
+            lstStudentsAvailable.AllowDrop = true;
         }
 
         private void lstStudentsAvailable_MouseDown(object sender, MouseEventArgs e)
@@ -37,7 +42,44 @@ namespace Team3Project_Fixed
         private void dgvStudentSeats_DragDrop(object sender, DragEventArgs e)
         {
             // Adds the dragged item to a new row in the DataGridView
-            dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
+            //dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
+
+            // Adds the dragged item to a new row in the DataGridView
+            //dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
+            if (e.Data.GetDataPresent(typeof(string)))
+            {
+                string fullName = e.Data.GetData(typeof(string)).ToString();
+                string[] nameParts = fullName.Split(' ');
+                string firstName = nameParts[0];
+                string lastName = nameParts[1];
+
+                // Check if the student is already in the DataGridView
+                bool isStudentAlreadyAdded = false;
+                foreach (DataGridViewRow row in dgvStudentSeats.Rows)
+                {
+                    if (row.Cells["FirstName"].Value != null &&
+                        row.Cells["LastName"].Value != null &&
+                        row.Cells["FirstName"].Value.ToString() == firstName &&
+                        row.Cells["LastName"].Value.ToString() == lastName)
+                    {
+                        isStudentAlreadyAdded = true;
+                        break;
+                    }
+                }
+                if (!isStudentAlreadyAdded)
+                {
+                    // Add the new row to the DataTable
+                    DataTable dt = (DataTable)dgvStudentSeats.DataSource;
+                    DataRow newRow = dt.NewRow();
+                    newRow["FirstName"] = firstName;
+                    newRow["LastName"] = lastName;
+                    dt.Rows.Add(newRow);
+
+                    // Refresh the DataGridView to reflect the changes
+                    dgvStudentSeats.DataSource = null;
+                    dgvStudentSeats.DataSource = dt;
+                }
+            }
         }
 
         private void dgvStudentSeats_DragEnter(object sender, DragEventArgs e)
@@ -55,14 +97,49 @@ namespace Team3Project_Fixed
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            // Clear any previous rows in the dgv if the random button is clicked again
-            dgvStudentSeats.Rows.Clear();
+            // This clears the data source, since dgv is being called from the database
+            dgvStudentSeats.DataSource = null;
+
+            // Now you need to recall the database back, and this will reset it back in order base on how its set up inside the database
+            database.loadDataGridView20(dgvStudentSeats);
         }
 
         private void btnMain_Click(object sender, EventArgs e)
         {
             new frmLogin().Show();
             this.Hide();
+        }
+
+        private void frmSeatingChart20_Load(object sender, EventArgs e)
+        {
+            database.loadDataGridView20(dgvStudentSeats);
+
+            database.PopulateStudentListBox(lstStudentsAvailable);
+        }
+
+        private void btnRan_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            DataTable dttable = (DataTable)dgvStudentSeats.DataSource;
+
+            // Create a new DataTable with the same structure as the original one
+            DataTable shuffledTable = dttable.Clone();
+
+            // Shuffle the rows
+            DataRow[] rows = dttable.Select();
+            for (int i = rows.Length - 1; i >= 0; i--)
+            {
+                int j = random.Next(i + 1);
+                DataRow row = rows[j];
+                rows[j] = rows[i];
+                rows[i] = row;
+
+                // Add the shuffled row to the new DataTable
+                shuffledTable.ImportRow(row);
+            }
+
+            // Set the shuffled DataTable as the new DataSource of the DataGridView
+            dgvStudentSeats.DataSource = shuffledTable;
         }
     }
 }

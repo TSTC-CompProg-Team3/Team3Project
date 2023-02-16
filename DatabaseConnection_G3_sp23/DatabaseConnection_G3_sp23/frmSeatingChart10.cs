@@ -10,21 +10,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace Team3Project_Fixed
 {
     public partial class frmSeatingChart10 : Form
     {
         DatabaseConnection database = new DatabaseConnection();
-
         public frmSeatingChart10()
         {
             InitializeComponent();
 
             // allow drag and drop needs to be their to work
             dgvStudentSeats.AllowDrop = true;
-            lstStudentsAvailable.AllowDrop = true;  
-           
+            lstStudentsAvailable.AllowDrop = true;
         }
 
         private void btnRan_Click(object sender, EventArgs e)
@@ -77,18 +76,17 @@ namespace Team3Project_Fixed
 
         }
 
+
         private void dgvStudentSeats_DragDrop(object sender, DragEventArgs e)
         {
             // Adds the dragged item to a new row in the DataGridView
             //dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
-
             if (e.Data.GetDataPresent(typeof(string)))
             {
                 string fullName = e.Data.GetData(typeof(string)).ToString();
                 string[] nameParts = fullName.Split(' ');
                 string firstName = nameParts[0];
                 string lastName = nameParts[1];
-                
 
                 // Check if the student is already in the DataGridView
                 bool isStudentAlreadyAdded = false;
@@ -103,23 +101,20 @@ namespace Team3Project_Fixed
                         break;
                     }
                 }
-
-                    if (!isStudentAlreadyAdded)
+                if (!isStudentAlreadyAdded)
                 {
-                    // Get the DataTable from the DataGridView's data source
+                    // Add the new row to the DataTable
                     DataTable dt = (DataTable)dgvStudentSeats.DataSource;
-
-                    // Create a new DataRow for the DataTable
                     DataRow newRow = dt.NewRow();
                     newRow["FirstName"] = firstName;
                     newRow["LastName"] = lastName;
-                    
-
-                    // Add the new row to the DataTable's Rows collection
                     dt.Rows.Add(newRow);
+
+                    // Refresh the DataGridView to reflect the changes
+                    dgvStudentSeats.DataSource = null;
+                    dgvStudentSeats.DataSource = dt;
                 }
             }
-
         }
 
         private void dgvStudentSeats_DragEnter(object sender, DragEventArgs e)

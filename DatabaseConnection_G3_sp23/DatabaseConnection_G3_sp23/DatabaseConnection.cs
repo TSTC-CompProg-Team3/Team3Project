@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -63,6 +64,7 @@ namespace DatabaseConnection_G3_sp23
         //Method to pull student info from database and put in array - CS
         public void StudentInfo()
         {
+            
             try
             {
                 connection.Open();
@@ -122,6 +124,46 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
+        public void loadDataGridView20(DataGridView dgvStudentSeats)
+        {
+            try
+            {
+
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT  * FROM team3sp232330.Student", connection);
+                DataTable dttable = new DataTable();
+                // Use a SqlDataAdapter to fill the DataTable
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                da.Fill(dttable);
+                connection.Close();
+                dgvStudentSeats.DataSource = dttable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void loadDataGridView5(DataGridView dgvStudentSeats)
+        {
+            try
+            {
+
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM team3sp232330.Student", connection);
+                DataTable dttable = new DataTable();
+                // Use a SqlDataAdapter to fill the DataTable
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                da.Fill(dttable);
+                connection.Close();
+                dgvStudentSeats.DataSource = dttable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void PopulateStudentListBox(ListBox lstStudentsAvailable)
         {
             try
@@ -132,8 +174,17 @@ namespace DatabaseConnection_G3_sp23
 
                 while (reader.Read())
                 {
-                    string fullName = $"{reader["FirstName"]} {reader["LastName"]}";
-                    lstStudentsAvailable.Items.Add(fullName);
+                    // Create a string representation of the student's information
+                    string studentInfo = $"{reader["FirstName"]} {reader["MiddleName"]} {reader["LastName"]}, " +
+                                         $"{reader["StudentID"]}, {reader["LoginID"]}, {reader["DateOfBirth"]}, " +
+                                         $"{reader["MailingAddress"]}, {reader["StreetAddress"]}, {reader["City"]}, " +
+                                         $"{reader["State"]}, {reader["Zip"]}, {reader["PhoneNumber"]}, " +
+                                         $"{reader["EmergencyContactName"]}, {reader["EmergencyContactPhone"]}, " +
+                                         $"{reader["Guardian1Name"]}, {reader["Guardian1CellPhone"]}, " +
+                                         $"{reader["Guardian1WorkPhone"]}, {reader["Guardian1WorkPlace"]}";
+
+                    // Add the student's information to the ListBox
+                    lstStudentsAvailable.Items.Add(studentInfo);
                 }
 
                 reader.Close();
@@ -144,8 +195,6 @@ namespace DatabaseConnection_G3_sp23
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         //Method to grab userinfo from database and put in array -CS
         public void UserInfo()
