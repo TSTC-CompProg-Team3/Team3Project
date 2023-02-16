@@ -83,6 +83,7 @@ C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmMenu.resources
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmForgotPass.resources
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAdminMenu.resources
+<<<<<<< HEAD
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.frmAddCourse.resources
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.frmSeatingChart10.resources
 C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.frmSeatingChart20.resources
@@ -116,3 +117,10 @@ C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConne
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.exe
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.pdb
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAttendanceEdit.resources
+=======
+C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAddCourse.resources
+C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart10.resources
+C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart20.resources
+C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmSeatingChart5.resources
+C:\Users\Cory\Desktop\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmEditCourse.resources
+>>>>>>> f24ebd2b46ca508ec03f2e29db617dea0ad4d2be

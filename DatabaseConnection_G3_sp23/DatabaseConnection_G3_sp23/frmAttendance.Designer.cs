@@ -32,7 +32,6 @@
             this.btnBackAttend = new System.Windows.Forms.Button();
             this.btnEditAttend = new System.Windows.Forms.Button();
             this.pnlAttendance = new System.Windows.Forms.Panel();
-            this.cmbNames = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
             this.pnlAttendance.SuspendLayout();
             this.SuspendLayout();
@@ -79,20 +78,11 @@
             this.pnlAttendance.Size = new System.Drawing.Size(840, 640);
             this.pnlAttendance.TabIndex = 3;
             // 
-            // cmbNames
-            // 
-            this.cmbNames.FormattingEnabled = true;
-            this.cmbNames.Location = new System.Drawing.Point(248, 690);
-            this.cmbNames.Name = "cmbNames";
-            this.cmbNames.Size = new System.Drawing.Size(121, 21);
-            this.cmbNames.TabIndex = 1;
-            // 
             // frmAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 866);
-            this.Controls.Add(this.cmbNames);
             this.Controls.Add(this.pnlAttendance);
             this.Controls.Add(this.btnEditAttend);
             this.Controls.Add(this.btnBackAttend);
@@ -113,6 +103,5 @@
         private System.Windows.Forms.Button btnBackAttend;
         private System.Windows.Forms.Button btnEditAttend;
         private System.Windows.Forms.Panel pnlAttendance;
-        private System.Windows.Forms.ComboBox cmbNames;
     }
 }

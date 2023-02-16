@@ -58,47 +58,6 @@ namespace DatabaseConnection_G3_sp23
 
         }
 
-        //Method to pull student info from database and put in array - CS
-        public void StudentInfo()
-        {
-            try
-            {
-                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Student", connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    int studentID = (int)reader["StudentID"];
-                    int loginID = (int)reader["LoginID"];
-                    string firstName = (string)reader["FirstName"];
-                    string middleName = (string)reader["MiddleName"];
-                    string lastName = (string)reader["LastName"];
-                    string dateOfBirth = (string)reader["DateOfBirth"].ToString();
-                    string mailingAddress = (string)reader["MailingAddress"];
-                    string streetAddress = (string)reader["StreetAddress"];
-                    string city = (string)reader["City"];
-                    string state = (string)reader["State"];
-                    string zip = (string)reader["Zip"];
-                    string phoneNumber = (string)reader["PhoneNumber"];
-                    string emergencyContactName = (string)reader["EmergencyContactName"];
-                    string emergencyContactPhone = (string)reader["EmergencyContactPhone"];
-                    string guardian1Name = (string)reader["Guardian1Name"];
-                    string guardian1CellPhone = (string)reader["Guardian1CellPhone"];
-                    string guardian1WorkPhone = (string)reader["Guardian1WorkPhone"];
-                    string guardian1WorkPlace = (string)reader["Guardian1WorkPlace"];
-                    studentList.Add(new clsStudent(studentID, loginID, firstName, middleName, lastName, dateOfBirth, mailingAddress, streetAddress,
-                        city, state, zip, phoneNumber, emergencyContactName, emergencyContactPhone, guardian1Name, guardian1CellPhone, guardian1WorkPhone, guardian1WorkPlace));
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-        }
-
         //Method to grab userinfo from database and put in array -CS
         public void UserInfo()
         {
@@ -127,35 +86,6 @@ namespace DatabaseConnection_G3_sp23
 
 
         }
-
-        
-
-        ////Method to grab classInfo from database and put in array -CS
-        //public void ClassInfo()
-        //{
-        //    try
-        //    {
-        //        SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Class", connection);
-        //        SqlDataReader reader = command.ExecuteReader();
-
-        //        while (reader.Read())
-        //        {
-        //            int classID = (int)reader["ClassID"];
-        //            int teacherID = (int)reader["TeacherID"];
-        //            int subjectID = (int)reader["SubjectID"];
-        //            int classSize = (int)reader["ClassSize"];
-
-        //            classList.Add(new clsClass(classID, teacherID, subjectID, classSize));
-        //        }
-        //        reader.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-
-
-        //}
 
         //Stores the reset password in database -CS
         public void StoreResetCodeInDatabase(string email, string resetCode)
@@ -230,11 +160,22 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        //Gets all classes for Cbx -CS
-        public void AllClasses()
+        //updates admin menu -CS
+        public void UpdateAdminMenu(ComboBox courseList, ComboBox teacherList, ComboBox studentList)
+        {
+            courseList.Items.Clear();
+            teacherList.Items.Clear();
+            studentList.Items.Clear();
+            LoadAdminMenu(courseList,teacherList,studentList);
+        }
+
+
+        //loads the admin menu info -CS
+        public void LoadAdminMenu(ComboBox courseList, ComboBox teacherList, ComboBox studentList)
         {
             try
             {
+
                 SqlCommand command = new SqlCommand("Select ClassID, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -243,7 +184,34 @@ namespace DatabaseConnection_G3_sp23
                     int classID = (int)reader["ClassID"];
                     string subjectName = (string)reader["SubjectName"];
 
-                    classList.Add(classID + " - " + subjectName);
+                    courseList.Items.Add(classID + " - " + subjectName);
+                }
+                reader.Close();
+
+
+                command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int ID = (int)reader["TeacherID"];
+                    string lastName = (string)reader["LastName"];
+                    string firstName = (string)reader["FirstName"];
+
+                    teacherList.Items.Add(ID + " - " + lastName + ", " + firstName);
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT StudentID, LastName, FirstName FROM team3sp232330.Student", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int ID = (int)reader["StudentID"];
+                    string lastName = (string)reader["LastName"];
+                    string firstName = (string)reader["FirstName"];
+
+                    studentList.Items.Add(ID + " - " + lastName + ", " + firstName);
                 }
                 reader.Close();
             }
@@ -253,11 +221,41 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        //Gets all classes for Cbx -CS
-        public void UpdateAllClasses()
+        //loads the add course info -CS
+        public void LoadAddCourse(ComboBox teacherList, ComboBox subjectList)
         {
-            classList.Clear();
-            AllClasses();
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int ID = (int)reader["TeacherID"];
+                    string lastName = (string)reader["LastName"];
+                    string firstName = (string)reader["FirstName"];
+
+                    teacherList.Items.Add(ID + " - " + lastName + ", " + firstName);
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int ID = (int)reader["SubjectID"];
+                    string subjectName = (string)reader["SubjectName"];
+
+                    subjectList.Items.Add(ID + " - " + subjectName);
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //Removes selected course in admin menu -CS
@@ -279,36 +277,77 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        //
-        public void LoadAddCourse(ComboBox teacherID, ComboBox subjectID)
+        //Adds the course entered into the database
+        public void AddCourse(string classID, string teacherID, string subjectID, string classSize)
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                string query = "INSERT INTO team3sp232330.Class VALUES (@classID, @teacherID, @subjectID, @classSize)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@classID", classID);
+                    command.Parameters.AddWithValue("@teacherID", teacherID);
+                    command.Parameters.AddWithValue("@subjectID", subjectID);
+                    command.Parameters.AddWithValue("@classSize", classSize);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //loads the edit course info -CS
+        public void LoadEditCourse(string courseID, TextBox ID,  ComboBox teacherList, ComboBox subjectList)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    string ID = (string)reader["TeacherID"];
-                    string lastName = (string)reader["LastName"];
-                    string firstName = (string)reader["FirstName"];
-
-                    teacherID.Items.Add(teacherID + " - " + lastName + ", " + firstName);
+                    int subjectID = (int)reader["SubjectID"];
+                    string subjectName = (string)reader["SubjectName"];
+                    ID.Text = courseID.ToString();
+                    subjectList.Items.Add(subjectID + " - " + subjectName);
                 }
                 reader.Close();
 
-                command = new SqlCommand("SELECT SubjectID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    string ID = (string)reader["TeacherID"];
+                    int teacherID = (int)reader["TeacherID"];
                     string lastName = (string)reader["LastName"];
                     string firstName = (string)reader["FirstName"];
-
-                    teacherID.Items.Add(teacherID + " - " + lastName + ", " + firstName);
+                    teacherList.Items.Add(teacherID + " - " + lastName + ", " + firstName);
                 }
                 reader.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Edits the course in the database -CS
+        public void EditCourse(string classID, string teacherID, string subjectID, string classSize)
+        {
+            try
+            {
+                string query = "UPDATE team3sp232330.Class SET ClassID = @classID, TeacherID = @teacherID, SubjectID = @subjectID, ClassSize = @classSize WHERE ClassID = " + classID;
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@classID", classID);
+                    command.Parameters.AddWithValue("@teacherID", teacherID);
+                    command.Parameters.AddWithValue("@subjectID", subjectID);
+                    command.Parameters.AddWithValue("@classSize", classSize);
+                    command.ExecuteNonQuery();
+                }
             }
             catch (Exception ex)
             {

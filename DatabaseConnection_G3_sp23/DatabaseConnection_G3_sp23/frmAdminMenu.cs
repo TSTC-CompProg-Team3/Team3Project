@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DatabaseConnection_G3_sp23;
 
 namespace DatabaseConnection_G3_sp23
 {
     public partial class frmAdminMenu : Form
     {
         DatabaseConnection database = new DatabaseConnection();
+        public string courseID;
         public frmAdminMenu()
         {
             InitializeComponent();
@@ -22,12 +24,12 @@ namespace DatabaseConnection_G3_sp23
         {
             //load cbx for all classes -CS
             database.OpenDatabase(tssDatabaseConnection);
-            database.AllClasses();
-            foreach (string subject in database.classList)
-            {
-                cbxCourseSelect.Items.Add(subject);
-            }
+            
+            database.LoadAdminMenu(cbxCourseSelect,cbxTeacherSelect, cbxStudentSelect);
+
             cbxCourseSelect.SelectedIndex = 0;
+            cbxStudentSelect.SelectedIndex = 0;
+            cbxTeacherSelect.SelectedIndex = 0;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -37,7 +39,8 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
-            
+            frmAddCourse addCourse = new frmAddCourse();
+            addCourse.ShowDialog();
         }
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
@@ -49,17 +52,13 @@ namespace DatabaseConnection_G3_sp23
                 DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove the course?", "Course Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    string course = cbxCourseSelect.Text.ToString();
-                    string[] courseSplit = course.Split('-');
-                    string courseTrim = courseSplit[0].Trim();
-                    database.RemoveCourse(courseTrim);
+                    string hold = cbxCourseSelect.Text.ToString();
+                    string[] holdSplit = hold.Split('-');
+                    courseID = holdSplit[0].Trim();
+                    database.RemoveCourse(courseID);
                     cbxCourseSelect.Items.Clear();
                     cbxCourseSelect.Text = "";
-                    database.UpdateAllClasses();
-                    foreach (string subject in database.classList)
-                    {
-                        cbxCourseSelect.Items.Add(subject);
-                    }
+                    database.UpdateAdminMenu(cbxCourseSelect,cbxTeacherSelect,cbxStudentSelect);
                 }
                 else if (dialogResult == DialogResult.No)
                 {
@@ -76,6 +75,15 @@ namespace DatabaseConnection_G3_sp23
         private void frmAdminMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             database.CloseDatabase(tssDatabaseConnection);
+        }
+
+        private void btnEditCourse_Click(object sender, EventArgs e)
+        {
+            string hold = cbxCourseSelect.Text.ToString();
+            string[] holdSplit = hold.Split('-');
+            courseID = holdSplit[0].Trim();
+            frmEditCourse editCourse = new frmEditCourse(courseID);
+            editCourse.ShowDialog();
         }
     }
 }

@@ -59,6 +59,7 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
+            //goes to admin menu -CS
             frmAdminMenu adminMenu = new frmAdminMenu();
             adminMenu.ShowDialog();
         }

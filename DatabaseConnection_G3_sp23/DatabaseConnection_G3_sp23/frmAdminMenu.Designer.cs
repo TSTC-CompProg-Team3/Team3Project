@@ -181,6 +181,7 @@
             this.btnEditCourse.TabIndex = 20;
             this.btnEditCourse.Text = "Edit Course";
             this.btnEditCourse.UseVisualStyleBackColor = true;
+            this.btnEditCourse.Click += new System.EventHandler(this.btnEditCourse_Click);
             // 
             // btnEditTeacher
             // 

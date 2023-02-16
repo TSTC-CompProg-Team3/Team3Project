@@ -40,31 +40,7 @@ namespace DatabaseConnection_G3_sp23
         {
             binding.DataSource = DatabaseQuery("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.Date, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID;");
             dgvAttendance.DataSource = binding;
-
-            NameDropdown();
         }
-
-        private void NameDropdown()
-        {
-            List<string> students = new List<string>();
-
-            foreach (DataRowView row in binding)
-            {
-                string student = row["Student"].ToString();
-                int position = students.IndexOf(student);
-                if (position == -1)
-                {
-                    students.Add(student);
-                }
-            }
-
-            foreach (string student in students)
-            {
-                cmbNames.Items.Add(student);
-            }
-        }
-
-
 
         private void dgvAttendance_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
