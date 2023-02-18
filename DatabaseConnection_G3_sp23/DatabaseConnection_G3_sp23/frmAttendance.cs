@@ -13,7 +13,7 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmAttendance : Form
     {
-        //private DataGridView dgvAttendance= new DataGridView();
+        DatabaseConnection database = new DatabaseConnection();
         private BindingSource binding = new BindingSource();
 
 
@@ -22,11 +22,12 @@ namespace DatabaseConnection_G3_sp23
             InitializeComponent();
         }
 
-        public DataTable DatabaseQuery(String SQLcom)
+        /*public DataTable DatabaseQuery(String SQLcom)
         {
-            String connectionString = "Data Source=3.130.26.194;Initial Catalog=inew2330gsp23;User ID=team3sp232330;Password=fyMU9QpqmW";
-            SqlConnection dBConnect = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(SQLcom, dBConnect);
+            //String connectionString = "Data Source=3.130.26.194;Initial Catalog=inew2330gsp23;User ID=team3sp232330;Password=fyMU9QpqmW";
+            //SqlConnection dBConnect = new SqlConnection(connectionString);
+
+            SqlCommand command = new SqlCommand(SQLcom);
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = command;
 
@@ -34,11 +35,12 @@ namespace DatabaseConnection_G3_sp23
             adapter.Fill(table);
 
             return table;
-        }
+        }*/
 
         private void frmAttendance_Load(object sender, EventArgs e)
         {
-            binding.DataSource = DatabaseQuery("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.Date, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID;");
+            database.OpenDatabase(tssDatabaseConnection);
+            binding.DataSource = database.AttendanceInfo();
             dgvAttendance.DataSource = binding;
         }
 

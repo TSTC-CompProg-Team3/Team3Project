@@ -32,8 +32,11 @@
             this.btnBackAttend = new System.Windows.Forms.Button();
             this.btnEditAttend = new System.Windows.Forms.Button();
             this.pnlAttendance = new System.Windows.Forms.Panel();
+            this.tsStatus = new System.Windows.Forms.StatusStrip();
+            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
             this.pnlAttendance.SuspendLayout();
+            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAttendance
@@ -51,7 +54,7 @@
             // 
             // btnBackAttend
             // 
-            this.btnBackAttend.Location = new System.Drawing.Point(697, 771);
+            this.btnBackAttend.Location = new System.Drawing.Point(692, 718);
             this.btnBackAttend.Name = "btnBackAttend";
             this.btnBackAttend.Size = new System.Drawing.Size(172, 55);
             this.btnBackAttend.TabIndex = 1;
@@ -61,7 +64,7 @@
             // 
             // btnEditAttend
             // 
-            this.btnEditAttend.Location = new System.Drawing.Point(248, 771);
+            this.btnEditAttend.Location = new System.Drawing.Point(248, 718);
             this.btnEditAttend.Name = "btnEditAttend";
             this.btnEditAttend.Size = new System.Drawing.Size(158, 55);
             this.btnEditAttend.TabIndex = 2;
@@ -78,11 +81,31 @@
             this.pnlAttendance.Size = new System.Drawing.Size(840, 640);
             this.pnlAttendance.TabIndex = 3;
             // 
+            // tsStatus
+            // 
+            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssDatabaseConnection});
+            this.tsStatus.Location = new System.Drawing.Point(0, 831);
+            this.tsStatus.Name = "tsStatus";
+            this.tsStatus.Size = new System.Drawing.Size(1095, 35);
+            this.tsStatus.TabIndex = 15;
+            this.tsStatus.Text = "statusStrip1";
+            // 
+            // tssDatabaseConnection
+            // 
+            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
+            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
+            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
+            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
+            this.tssDatabaseConnection.Text = "Offline";
+            // 
             // frmAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 866);
+            this.Controls.Add(this.tsStatus);
             this.Controls.Add(this.pnlAttendance);
             this.Controls.Add(this.btnEditAttend);
             this.Controls.Add(this.btnBackAttend);
@@ -93,7 +116,10 @@
             this.Load += new System.EventHandler(this.frmAttendance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();
             this.pnlAttendance.ResumeLayout(false);
+            this.tsStatus.ResumeLayout(false);
+            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -103,5 +129,7 @@
         private System.Windows.Forms.Button btnBackAttend;
         private System.Windows.Forms.Button btnEditAttend;
         private System.Windows.Forms.Panel pnlAttendance;
+        private System.Windows.Forms.StatusStrip tsStatus;
+        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
     }
 }

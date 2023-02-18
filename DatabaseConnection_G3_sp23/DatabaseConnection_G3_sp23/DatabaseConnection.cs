@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -56,6 +57,32 @@ namespace DatabaseConnection_G3_sp23
             }
 
 
+        }
+
+        public DataTable AttendanceInfo()
+        {
+            SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.Date, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID;", connection);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+
+            return table;
+        }
+
+        public DataTable AttendanceInfo(String editCommand)
+        {
+            SqlCommand command = new SqlCommand(editCommand, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+
+            return table;
         }
 
         //Method to grab userinfo from database and put in array -CS

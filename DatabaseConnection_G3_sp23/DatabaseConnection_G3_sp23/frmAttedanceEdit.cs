@@ -15,6 +15,7 @@ namespace DatabaseConnection_G3_sp23
     public partial class frmAttendanceEdit : Form
     {
         private BindingSource binding = new BindingSource();
+        private DatabaseConnection database = new DatabaseConnection();
 
         public frmAttendanceEdit()
         {
@@ -23,7 +24,8 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmAttedanceEdit_Load(object sender, EventArgs e)
         {
-            binding.DataSource = DatabaseQuery("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.Date, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID;");
+            database.OpenDatabase(tssDatabaseConnection);
+            binding.DataSource = database.AttendanceInfo();
             dgvAttendanceEdit.DataSource = binding;
 
             NameDropdown();
@@ -113,7 +115,10 @@ namespace DatabaseConnection_G3_sp23
             first = selection.Substring(0, space);
             last = selection.Substring(space + 1);
 
-            binding.DataSource = DatabaseQuery("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.Date, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "';");
+            //database.OpenDatabase(tssDatabaseConnection);
+            string singleStudent ="SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.Date, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
+            binding.DataSource = database.AttendanceInfo(singleStudent);
+            //binding.DataSource = DatabaseQuery("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.Date, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "';");
         }
     }
 }

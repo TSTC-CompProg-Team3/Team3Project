@@ -35,8 +35,11 @@
             this.pnlAttendanceEdit = new System.Windows.Forms.Panel();
             this.cmbNamesEdit = new System.Windows.Forms.ComboBox();
             this.dtpAttendanceEdit = new System.Windows.Forms.DateTimePicker();
+            this.tsStatus = new System.Windows.Forms.StatusStrip();
+            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendanceEdit)).BeginInit();
             this.pnlAttendanceEdit.SuspendLayout();
+            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSubmitAttendEdit
@@ -102,11 +105,31 @@
             this.dtpAttendanceEdit.Size = new System.Drawing.Size(207, 20);
             this.dtpAttendanceEdit.TabIndex = 6;
             // 
+            // tsStatus
+            // 
+            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssDatabaseConnection});
+            this.tsStatus.Location = new System.Drawing.Point(0, 831);
+            this.tsStatus.Name = "tsStatus";
+            this.tsStatus.Size = new System.Drawing.Size(1095, 35);
+            this.tsStatus.TabIndex = 16;
+            this.tsStatus.Text = "statusStrip1";
+            // 
+            // tssDatabaseConnection
+            // 
+            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
+            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
+            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
+            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
+            this.tssDatabaseConnection.Text = "Offline";
+            // 
             // frmAttendanceEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 866);
+            this.Controls.Add(this.tsStatus);
             this.Controls.Add(this.dtpAttendanceEdit);
             this.Controls.Add(this.cmbNamesEdit);
             this.Controls.Add(this.pnlAttendanceEdit);
@@ -119,7 +142,10 @@
             this.Load += new System.EventHandler(this.frmAttedanceEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendanceEdit)).EndInit();
             this.pnlAttendanceEdit.ResumeLayout(false);
+            this.tsStatus.ResumeLayout(false);
+            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -132,5 +158,7 @@
         private System.Windows.Forms.Panel pnlAttendanceEdit;
         private System.Windows.Forms.ComboBox cmbNamesEdit;
         private System.Windows.Forms.DateTimePicker dtpAttendanceEdit;
+        private System.Windows.Forms.StatusStrip tsStatus;
+        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
     }
 }
