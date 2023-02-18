@@ -92,6 +92,12 @@
     <Compile Include="frmAttendance.Designer.cs">
       <DependentUpon>frmAttendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditCourse.Designer.cs">
+      <DependentUpon>frmEditCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmForgotPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditCourse.resx">
+      <DependentUpon>frmEditCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmForgotPass.resx">
       <DependentUpon>frmForgotPass.cs</DependentUpon>
