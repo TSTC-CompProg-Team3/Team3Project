@@ -37,6 +37,18 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            btnClear.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnClear.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnLogin.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnLogin.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnForgotPass.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnForgotPass.ForeColor = ColorTranslator.FromHtml("#191919");
+            lblUsername.ForeColor = ColorTranslator.FromHtml("#191919");
+            lblPassword.ForeColor = ColorTranslator.FromHtml("#191919");
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
             //calls open database method from Database Connection -CS
             database.OpenDatabase(tssDatabaseConnection);
             database.UserInfo();

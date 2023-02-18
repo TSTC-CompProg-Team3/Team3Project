@@ -30,6 +30,27 @@ namespace DatabaseConnection_G3_sp23
             cbxCourseSelect.SelectedIndex = 0;
             cbxStudentSelect.SelectedIndex = 0;
             cbxTeacherSelect.SelectedIndex = 0;
+
+            this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            btnAddCourse.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAddCourse.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnEditCourse.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnEditCourse.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnRemoveCourse.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnRemoveCourse.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnAddTeacher.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAddTeacher.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnEditTeacher.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnEditTeacher.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnRemoveTeacher.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnRemoveTeacher.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnAddStudent.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAddStudent.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnEditStudent.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnEditStudent.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnRemoveStudent.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnRemoveStudent.ForeColor = ColorTranslator.FromHtml("#191919");
         }
 
         private void btnBack_Click(object sender, EventArgs e)
