@@ -74,6 +74,7 @@
             // 
             // tbxAssignName
             // 
+            this.tbxAssignName.BackColor = System.Drawing.SystemColors.Control;
             this.tbxAssignName.Location = new System.Drawing.Point(17, 60);
             this.tbxAssignName.Name = "tbxAssignName";
             this.tbxAssignName.Size = new System.Drawing.Size(185, 26);
@@ -81,6 +82,7 @@
             // 
             // tbxAssignType
             // 
+            this.tbxAssignType.BackColor = System.Drawing.SystemColors.Control;
             this.tbxAssignType.Location = new System.Drawing.Point(223, 57);
             this.tbxAssignType.Name = "tbxAssignType";
             this.tbxAssignType.Size = new System.Drawing.Size(185, 26);
@@ -88,6 +90,7 @@
             // 
             // tbxGrade
             // 
+            this.tbxGrade.BackColor = System.Drawing.SystemColors.Control;
             this.tbxGrade.Location = new System.Drawing.Point(444, 60);
             this.tbxGrade.Name = "tbxGrade";
             this.tbxGrade.Size = new System.Drawing.Size(75, 26);
@@ -95,22 +98,28 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnSubmit.Location = new System.Drawing.Point(127, 92);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(128, 49);
             this.btnSubmit.TabIndex = 6;
             this.btnSubmit.Text = "&Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnCancel.Location = new System.Drawing.Point(310, 92);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(128, 49);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "&Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblCount
@@ -125,6 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(543, 150);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.btnCancel);

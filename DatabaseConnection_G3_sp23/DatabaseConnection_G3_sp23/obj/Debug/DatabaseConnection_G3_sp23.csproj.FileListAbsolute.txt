@@ -145,3 +145,5 @@ C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnec
 C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Permissions.xml
 C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.CopyComplete
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmAddGradebook.resources
+C:\Users\T\OneDrive\Documents\Final Project SchoolDB\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmEditGradebook.resources

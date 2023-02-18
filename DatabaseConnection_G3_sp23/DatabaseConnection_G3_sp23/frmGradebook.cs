@@ -81,5 +81,20 @@ namespace DatabaseConnection_G3_sp23
             frmEditGradebook frmEditGradebook = new frmEditGradebook(this);
             frmEditGradebook.Show();
         }
+
+        private void lblName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblParticipation_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblHomework_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

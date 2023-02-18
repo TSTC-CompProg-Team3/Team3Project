@@ -55,6 +55,7 @@
             // 
             // dgvGradeBook
             // 
+            this.dgvGradeBook.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvGradeBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGradeBook.Location = new System.Drawing.Point(12, 12);
             this.dgvGradeBook.Name = "dgvGradeBook";
@@ -65,11 +66,13 @@
             // 
             // lblName
             // 
+            this.lblName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblName.Location = new System.Drawing.Point(772, 10);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(226, 37);
             this.lblName.TabIndex = 1;
+            this.lblName.Click += new System.EventHandler(this.lblName_Click);
             // 
             // lblNameCap
             // 
@@ -83,22 +86,27 @@
             // 
             // lblParticipation
             // 
+            this.lblParticipation.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblParticipation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblParticipation.Location = new System.Drawing.Point(866, 86);
             this.lblParticipation.Name = "lblParticipation";
             this.lblParticipation.Size = new System.Drawing.Size(132, 37);
             this.lblParticipation.TabIndex = 3;
+            this.lblParticipation.Click += new System.EventHandler(this.lblParticipation_Click);
             // 
             // lblHomework
             // 
+            this.lblHomework.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblHomework.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblHomework.Location = new System.Drawing.Point(866, 155);
             this.lblHomework.Name = "lblHomework";
             this.lblHomework.Size = new System.Drawing.Size(132, 37);
             this.lblHomework.TabIndex = 4;
+            this.lblHomework.Click += new System.EventHandler(this.lblHomework_Click);
             // 
             // lblQuiz
             // 
+            this.lblQuiz.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblQuiz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblQuiz.Location = new System.Drawing.Point(866, 215);
             this.lblQuiz.Name = "lblQuiz";
@@ -107,6 +115,7 @@
             // 
             // lblLab
             // 
+            this.lblLab.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblLab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblLab.Location = new System.Drawing.Point(866, 270);
             this.lblLab.Name = "lblLab";
@@ -115,6 +124,7 @@
             // 
             // lblTest
             // 
+            this.lblTest.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTest.Location = new System.Drawing.Point(866, 323);
             this.lblTest.Name = "lblTest";
@@ -123,6 +133,7 @@
             // 
             // lblTotal
             // 
+            this.lblTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotal.Location = new System.Drawing.Point(820, 385);
             this.lblTotal.Name = "lblTotal";
@@ -191,77 +202,99 @@
             // 
             // btnBack
             // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnBack.Location = new System.Drawing.Point(28, 443);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(129, 58);
             this.btnBack.TabIndex = 15;
             this.btnBack.Text = "B&ack";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnMidterm
             // 
+            this.btnMidterm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnMidterm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMidterm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnMidterm.Location = new System.Drawing.Point(163, 443);
             this.btnMidterm.Name = "btnMidterm";
             this.btnMidterm.Size = new System.Drawing.Size(129, 58);
             this.btnMidterm.TabIndex = 16;
             this.btnMidterm.Text = "Midterm &Grades";
-            this.btnMidterm.UseVisualStyleBackColor = true;
+            this.btnMidterm.UseVisualStyleBackColor = false;
             // 
             // btnPrev
             // 
+            this.btnPrev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnPrev.Location = new System.Drawing.Point(298, 443);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(129, 58);
             this.btnPrev.TabIndex = 17;
             this.btnPrev.Text = "Pr&evious";
-            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.UseVisualStyleBackColor = false;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnNext
             // 
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnNext.Location = new System.Drawing.Point(433, 443);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(129, 58);
             this.btnNext.TabIndex = 18;
             this.btnNext.Text = "Ne&xt";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnRemove
             // 
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnRemove.Location = new System.Drawing.Point(568, 442);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(129, 58);
             this.btnRemove.TabIndex = 19;
             this.btnRemove.Text = "&Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnEdit.Location = new System.Drawing.Point(701, 443);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(129, 58);
             this.btnEdit.TabIndex = 20;
             this.btnEdit.Text = "&Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btnAdd.Location = new System.Drawing.Point(836, 443);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(129, 58);
             this.btnAdd.TabIndex = 21;
             this.btnAdd.Text = "&Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmGradebook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(1010, 513);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnEdit);
