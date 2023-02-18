@@ -22,21 +22,6 @@ namespace DatabaseConnection_G3_sp23
             InitializeComponent();
         }
 
-        /*public DataTable DatabaseQuery(String SQLcom)
-        {
-            //String connectionString = "Data Source=3.130.26.194;Initial Catalog=inew2330gsp23;User ID=team3sp232330;Password=fyMU9QpqmW";
-            //SqlConnection dBConnect = new SqlConnection(connectionString);
-
-            SqlCommand command = new SqlCommand(SQLcom);
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-
-            return table;
-        }*/
-
         private void frmAttendance_Load(object sender, EventArgs e)
         {
             database.OpenDatabase(tssDatabaseConnection);
