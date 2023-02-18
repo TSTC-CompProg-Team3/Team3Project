@@ -55,6 +55,20 @@ namespace DatabaseConnection_G3_sp23
             {
                 btnAdmin.Visible = true;
             }
+
+            this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            btnGradeBook.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnGradeBook.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnAttendance.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAttendance.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnSeatingChart.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnSeatingChart.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnLogOut.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnLogOut.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnAdmin.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAdmin.ForeColor = ColorTranslator.FromHtml("#191919");
+            
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)

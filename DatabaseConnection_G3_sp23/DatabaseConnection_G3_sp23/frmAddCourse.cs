@@ -25,6 +25,19 @@ namespace DatabaseConnection_G3_sp23
             cbxClassSize.SelectedIndex = 0;
             cbxSubjectID.SelectedIndex = 0;
             cbxTeacherID.SelectedIndex = 0;
+
+            this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            btnClear.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnClear.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnSubmit.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnSubmit.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
+            lblClassID.ForeColor = ColorTranslator.FromHtml("#191919");
+            lblTeacherID.ForeColor = ColorTranslator.FromHtml("#191919");
+            lblSubjectID.ForeColor = ColorTranslator.FromHtml("#191919");
+            lblClassSize.ForeColor = ColorTranslator.FromHtml("#191919");
         }
 
         private void btnBack_Click(object sender, EventArgs e)

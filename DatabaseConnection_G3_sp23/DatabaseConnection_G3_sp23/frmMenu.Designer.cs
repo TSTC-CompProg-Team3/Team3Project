@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.pbxBanner = new System.Windows.Forms.PictureBox();
             this.cbxCourseSelect = new System.Windows.Forms.ComboBox();
             this.btnGradeBook = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             // 
             // pbxBanner
             // 
+            this.pbxBanner.Image = ((System.Drawing.Image)(resources.GetObject("pbxBanner.Image")));
             this.pbxBanner.Location = new System.Drawing.Point(12, 12);
             this.pbxBanner.Name = "pbxBanner";
             this.pbxBanner.Size = new System.Drawing.Size(635, 213);
