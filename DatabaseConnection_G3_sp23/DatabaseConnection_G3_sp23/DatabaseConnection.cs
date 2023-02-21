@@ -124,28 +124,24 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        //Updates the userlist after password reset -CS
-        public void UpdateUserList()
-        {
-            userList.Clear();
-            UserInfo();
-        }
+        
 
         //Gets teachers classes for Cbx -CS
         public void TeacherClasses(int loginID)
         {
             try
             {
-                SqlCommand command = new SqlCommand("Select ClassID, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID WHERE LoginID =  " + loginID, connection);
+                SqlCommand command = new SqlCommand("Select ClassID, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID WHERE LoginID =  " + loginID, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     int classID = (int)reader["ClassID"];
                     string subjectName = (string)reader["SubjectName"];
-
-                    classList.Add(classID + " - " + subjectName);
+                    int classSize = (int)reader["ClassSize"];
+                    classList.Add(classID + " - " + subjectName + " - Class Size: " + classSize);
                 }
+                
                 reader.Close();
 
             }
@@ -155,14 +151,7 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        //updates admin menu -CS
-        public void UpdateAdminMenu(ComboBox courseList, ComboBox teacherList, ComboBox studentList)
-        {
-            courseList.Items.Clear();
-            teacherList.Items.Clear();
-            studentList.Items.Clear();
-            LoadAdminMenu(courseList,teacherList,studentList);
-        }
+       
 
 
         //loads the admin menu info -CS

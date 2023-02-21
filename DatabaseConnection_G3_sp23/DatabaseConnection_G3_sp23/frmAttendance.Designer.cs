@@ -88,6 +88,7 @@
             this.Controls.Add(this.btnBackAttend);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAttendance";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attendance";
             this.Load += new System.EventHandler(this.frmAttendance_Load);
             this.pnlAttendance.ResumeLayout(false);

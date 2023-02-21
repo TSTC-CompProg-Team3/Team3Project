@@ -36,7 +36,6 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-
             clsDatabaseHandler.LoadMenu(cbxCourseSelect, loginID);
             
             //Makes admin button visible if user is admin (Levels of Security) -CS
@@ -92,6 +91,36 @@ namespace DatabaseConnection_G3_sp23
         {
             frmGradebook gradebook = new frmGradebook();
             gradebook.ShowDialog();
+        }
+
+        private void btnSeatingChart_Click(object sender, EventArgs e)
+        {
+            string hold = cbxCourseSelect.Text.ToString();
+            string[] holdSplit = hold.Split(':');
+            string holdTrim = holdSplit[1].Trim();
+            int classSize = int.Parse(holdTrim);
+
+            switch (classSize)
+            {
+                case 5:
+                    frmSeatingChart5 chart5 = new frmSeatingChart5();
+                    chart5.ShowDialog();
+                    break;
+
+                case 10:
+                    frmSeatingChart10 chart10 = new frmSeatingChart10();
+                    chart10.ShowDialog();
+                    break;
+
+                case 20:
+                    frmSeatingChart20 chart20 = new frmSeatingChart20();
+                    chart20.ShowDialog();
+                    break;
+
+                default:
+                    break;
+            }
+
         }
     }
 }

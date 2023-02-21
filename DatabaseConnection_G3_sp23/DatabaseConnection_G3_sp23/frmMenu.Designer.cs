@@ -87,6 +87,7 @@
             this.btnSeatingChart.TabIndex = 4;
             this.btnSeatingChart.Text = "Seating Chart";
             this.btnSeatingChart.UseVisualStyleBackColor = true;
+            this.btnSeatingChart.Click += new System.EventHandler(this.btnSeatingChart_Click);
             // 
             // btnLogOut
             // 

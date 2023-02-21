@@ -112,6 +112,7 @@
             this.Controls.Add(this.cmbNamesEdit);
             this.Controls.Add(this.pnlAttendanceEdit);
             this.Name = "frmAttendanceEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attendance Edit";
             this.Load += new System.EventHandler(this.frmAttendanceEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendanceEdit)).EndInit();

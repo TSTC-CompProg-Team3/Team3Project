@@ -124,6 +124,7 @@ namespace DatabaseConnection_G3_sp23
         internal static void LoadMenu(ComboBox cbxCourseSelect, int loginID)
         {
             database.OpenDatabase();
+            database.classList.Clear();
             database.TeacherClasses(loginID);
             foreach (string subject in database.classList)
             {
@@ -151,6 +152,7 @@ namespace DatabaseConnection_G3_sp23
             cbxTeacherSelect.SelectedIndex = 0;
             database.CloseDatabase();
         }
+
 
         internal static void RemoveCourse(ComboBox cbxCourseSelect)
         {
