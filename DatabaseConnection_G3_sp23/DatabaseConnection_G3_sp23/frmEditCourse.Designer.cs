@@ -36,12 +36,9 @@
             this.lblSubjectID = new System.Windows.Forms.Label();
             this.lblTeacherID = new System.Windows.Forms.Label();
             this.lblClassID = new System.Windows.Forms.Label();
-            this.tsStatus = new System.Windows.Forms.StatusStrip();
-            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.cbxClassSize = new System.Windows.Forms.ComboBox();
             this.cbxSubjectID = new System.Windows.Forms.ComboBox();
             this.cbxTeacherID = new System.Windows.Forms.ComboBox();
-            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
@@ -125,25 +122,6 @@
             this.lblClassID.TabIndex = 16;
             this.lblClassID.Text = "Class ID";
             // 
-            // tsStatus
-            // 
-            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssDatabaseConnection});
-            this.tsStatus.Location = new System.Drawing.Point(0, 501);
-            this.tsStatus.Name = "tsStatus";
-            this.tsStatus.Size = new System.Drawing.Size(659, 35);
-            this.tsStatus.TabIndex = 27;
-            this.tsStatus.Text = "statusStrip1";
-            // 
-            // tssDatabaseConnection
-            // 
-            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
-            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
-            this.tssDatabaseConnection.Text = "Offline";
-            // 
             // cbxClassSize
             // 
             this.cbxClassSize.FormattingEnabled = true;
@@ -178,7 +156,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
-            this.Controls.Add(this.tsStatus);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
@@ -196,8 +173,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Course";
             this.Load += new System.EventHandler(this.frmEditCourse_Load);
-            this.tsStatus.ResumeLayout(false);
-            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,8 +188,6 @@
         private System.Windows.Forms.Label lblSubjectID;
         private System.Windows.Forms.Label lblTeacherID;
         private System.Windows.Forms.Label lblClassID;
-        private System.Windows.Forms.StatusStrip tsStatus;
-        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
         private System.Windows.Forms.ComboBox cbxClassSize;
         private System.Windows.Forms.ComboBox cbxSubjectID;
         private System.Windows.Forms.ComboBox cbxTeacherID;

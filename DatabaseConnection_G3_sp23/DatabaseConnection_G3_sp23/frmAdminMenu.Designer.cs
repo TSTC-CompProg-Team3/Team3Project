@@ -33,8 +33,6 @@
             this.btnRemoveCourse = new System.Windows.Forms.Button();
             this.btnAddCourse = new System.Windows.Forms.Button();
             this.cbxCourseSelect = new System.Windows.Forms.ComboBox();
-            this.tsStatus = new System.Windows.Forms.StatusStrip();
-            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnRemoveTeacher = new System.Windows.Forms.Button();
             this.cbxTeacherSelect = new System.Windows.Forms.ComboBox();
             this.btnRemoveStudent = new System.Windows.Forms.Button();
@@ -43,7 +41,10 @@
             this.btnEditStudent = new System.Windows.Forms.Button();
             this.btnEditCourse = new System.Windows.Forms.Button();
             this.btnEditTeacher = new System.Windows.Forms.Button();
-            this.tsStatus.SuspendLayout();
+            this.btnEditSubject = new System.Windows.Forms.Button();
+            this.btnRemoveSubject = new System.Windows.Forms.Button();
+            this.cbxSubjectSelect = new System.Windows.Forms.ComboBox();
+            this.btnAddSubject = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
@@ -60,7 +61,7 @@
             // btnAddTeacher
             // 
             this.btnAddTeacher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTeacher.Location = new System.Drawing.Point(25, 231);
+            this.btnAddTeacher.Location = new System.Drawing.Point(25, 170);
             this.btnAddTeacher.Name = "btnAddTeacher";
             this.btnAddTeacher.Size = new System.Drawing.Size(117, 40);
             this.btnAddTeacher.TabIndex = 11;
@@ -97,39 +98,21 @@
             this.cbxCourseSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxCourseSelect.TabIndex = 8;
             // 
-            // tsStatus
-            // 
-            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssDatabaseConnection});
-            this.tsStatus.Location = new System.Drawing.Point(0, 501);
-            this.tsStatus.Name = "tsStatus";
-            this.tsStatus.Size = new System.Drawing.Size(659, 35);
-            this.tsStatus.TabIndex = 13;
-            this.tsStatus.Text = "statusStrip1";
-            // 
-            // tssDatabaseConnection
-            // 
-            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
-            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
-            this.tssDatabaseConnection.Text = "Offline";
-            // 
             // btnRemoveTeacher
             // 
             this.btnRemoveTeacher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveTeacher.Location = new System.Drawing.Point(271, 231);
+            this.btnRemoveTeacher.Location = new System.Drawing.Point(271, 170);
             this.btnRemoveTeacher.Name = "btnRemoveTeacher";
             this.btnRemoveTeacher.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveTeacher.TabIndex = 15;
             this.btnRemoveTeacher.Text = "Remove Teacher";
             this.btnRemoveTeacher.UseVisualStyleBackColor = true;
+            this.btnRemoveTeacher.Click += new System.EventHandler(this.btnRemoveTeacher_Click);
             // 
             // cbxTeacherSelect
             // 
             this.cbxTeacherSelect.FormattingEnabled = true;
-            this.cbxTeacherSelect.Location = new System.Drawing.Point(404, 242);
+            this.cbxTeacherSelect.Location = new System.Drawing.Point(404, 181);
             this.cbxTeacherSelect.Name = "cbxTeacherSelect";
             this.cbxTeacherSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxTeacherSelect.TabIndex = 14;
@@ -137,7 +120,7 @@
             // btnRemoveStudent
             // 
             this.btnRemoveStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveStudent.Location = new System.Drawing.Point(271, 367);
+            this.btnRemoveStudent.Location = new System.Drawing.Point(271, 250);
             this.btnRemoveStudent.Name = "btnRemoveStudent";
             this.btnRemoveStudent.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveStudent.TabIndex = 18;
@@ -147,7 +130,7 @@
             // cbxStudentSelect
             // 
             this.cbxStudentSelect.FormattingEnabled = true;
-            this.cbxStudentSelect.Location = new System.Drawing.Point(404, 378);
+            this.cbxStudentSelect.Location = new System.Drawing.Point(404, 261);
             this.cbxStudentSelect.Name = "cbxStudentSelect";
             this.cbxStudentSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxStudentSelect.TabIndex = 17;
@@ -155,7 +138,7 @@
             // btnAddStudent
             // 
             this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddStudent.Location = new System.Drawing.Point(25, 367);
+            this.btnAddStudent.Location = new System.Drawing.Point(25, 250);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(117, 40);
             this.btnAddStudent.TabIndex = 16;
@@ -165,7 +148,7 @@
             // btnEditStudent
             // 
             this.btnEditStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditStudent.Location = new System.Drawing.Point(148, 367);
+            this.btnEditStudent.Location = new System.Drawing.Point(148, 250);
             this.btnEditStudent.Name = "btnEditStudent";
             this.btnEditStudent.Size = new System.Drawing.Size(117, 40);
             this.btnEditStudent.TabIndex = 19;
@@ -186,12 +169,54 @@
             // btnEditTeacher
             // 
             this.btnEditTeacher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditTeacher.Location = new System.Drawing.Point(148, 231);
+            this.btnEditTeacher.Location = new System.Drawing.Point(148, 170);
             this.btnEditTeacher.Name = "btnEditTeacher";
             this.btnEditTeacher.Size = new System.Drawing.Size(117, 40);
             this.btnEditTeacher.TabIndex = 21;
             this.btnEditTeacher.Text = "Edit Teacher";
             this.btnEditTeacher.UseVisualStyleBackColor = true;
+            // 
+            // btnEditSubject
+            // 
+            this.btnEditSubject.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditSubject.Location = new System.Drawing.Point(148, 324);
+            this.btnEditSubject.Name = "btnEditSubject";
+            this.btnEditSubject.Size = new System.Drawing.Size(117, 40);
+            this.btnEditSubject.TabIndex = 25;
+            this.btnEditSubject.Text = "Edit Subject";
+            this.btnEditSubject.UseVisualStyleBackColor = true;
+            this.btnEditSubject.Visible = false;
+            // 
+            // btnRemoveSubject
+            // 
+            this.btnRemoveSubject.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveSubject.Location = new System.Drawing.Point(271, 324);
+            this.btnRemoveSubject.Name = "btnRemoveSubject";
+            this.btnRemoveSubject.Size = new System.Drawing.Size(117, 40);
+            this.btnRemoveSubject.TabIndex = 24;
+            this.btnRemoveSubject.Text = "Remove Subject";
+            this.btnRemoveSubject.UseVisualStyleBackColor = true;
+            this.btnRemoveSubject.Visible = false;
+            // 
+            // cbxSubjectSelect
+            // 
+            this.cbxSubjectSelect.FormattingEnabled = true;
+            this.cbxSubjectSelect.Location = new System.Drawing.Point(404, 335);
+            this.cbxSubjectSelect.Name = "cbxSubjectSelect";
+            this.cbxSubjectSelect.Size = new System.Drawing.Size(203, 23);
+            this.cbxSubjectSelect.TabIndex = 23;
+            this.cbxSubjectSelect.Visible = false;
+            // 
+            // btnAddSubject
+            // 
+            this.btnAddSubject.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSubject.Location = new System.Drawing.Point(25, 324);
+            this.btnAddSubject.Name = "btnAddSubject";
+            this.btnAddSubject.Size = new System.Drawing.Size(117, 40);
+            this.btnAddSubject.TabIndex = 22;
+            this.btnAddSubject.Text = "Add Subject";
+            this.btnAddSubject.UseVisualStyleBackColor = true;
+            this.btnAddSubject.Visible = false;
             // 
             // frmAdminMenu
             // 
@@ -199,6 +224,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.btnEditSubject);
+            this.Controls.Add(this.btnRemoveSubject);
+            this.Controls.Add(this.cbxSubjectSelect);
+            this.Controls.Add(this.btnAddSubject);
             this.Controls.Add(this.btnEditTeacher);
             this.Controls.Add(this.btnEditCourse);
             this.Controls.Add(this.btnEditStudent);
@@ -207,7 +236,6 @@
             this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.btnRemoveTeacher);
             this.Controls.Add(this.cbxTeacherSelect);
-            this.Controls.Add(this.tsStatus);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAddTeacher);
             this.Controls.Add(this.btnRemoveCourse);
@@ -219,12 +247,10 @@
             this.Name = "frmAdminMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Menu";
+            this.Activated += new System.EventHandler(this.frmAdminMenu_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAdminMenu_FormClosing);
             this.Load += new System.EventHandler(this.frmAdminMenu_Load);
-            this.tsStatus.ResumeLayout(false);
-            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -234,8 +260,6 @@
         private System.Windows.Forms.Button btnRemoveCourse;
         private System.Windows.Forms.Button btnAddCourse;
         private System.Windows.Forms.ComboBox cbxCourseSelect;
-        private System.Windows.Forms.StatusStrip tsStatus;
-        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
         private System.Windows.Forms.Button btnRemoveTeacher;
         private System.Windows.Forms.ComboBox cbxTeacherSelect;
         private System.Windows.Forms.Button btnRemoveStudent;
@@ -244,5 +268,9 @@
         private System.Windows.Forms.Button btnEditStudent;
         private System.Windows.Forms.Button btnEditCourse;
         private System.Windows.Forms.Button btnEditTeacher;
+        private System.Windows.Forms.Button btnEditSubject;
+        private System.Windows.Forms.Button btnRemoveSubject;
+        private System.Windows.Forms.ComboBox cbxSubjectSelect;
+        private System.Windows.Forms.Button btnAddSubject;
     }
 }

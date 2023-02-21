@@ -1,38 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DatabaseConnection_G3_sp23;
+
 
 namespace DatabaseConnection_G3_sp23
 {
     public partial class frmAdminMenu : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
         public string courseID;
-        public frmAdminMenu()
+        public string teacherID;
+        public int loginID;
+        public string accountType;
+        public frmAdminMenu(int loginid, string accounttype)
         {
             InitializeComponent();
+            loginID = loginid;
+            accountType = accounttype;
+
         }
 
         private void frmAdminMenu_Load(object sender, EventArgs e)
         {
-            //load cbx for all classes -CS
-            database.OpenDatabase(tssDatabaseConnection);
-            
-            database.LoadAdminMenu(cbxCourseSelect,cbxTeacherSelect, cbxStudentSelect);
-
-            cbxCourseSelect.SelectedIndex = 0;
-            cbxStudentSelect.SelectedIndex = 0;
-            cbxTeacherSelect.SelectedIndex = 0;
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect,cbxStudentSelect,cbxSubjectSelect, cbxTeacherSelect);   
 
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
-            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnAddCourse.BackColor = ColorTranslator.FromHtml("#F15025");
             btnAddCourse.ForeColor = ColorTranslator.FromHtml("#191919");
             btnEditCourse.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -51,6 +42,21 @@ namespace DatabaseConnection_G3_sp23
             btnEditStudent.ForeColor = ColorTranslator.FromHtml("#191919");
             btnRemoveStudent.BackColor = ColorTranslator.FromHtml("#F15025");
             btnRemoveStudent.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnAddSubject.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAddSubject.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnEditSubject.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnEditSubject.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnRemoveSubject.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnRemoveSubject.ForeColor = ColorTranslator.FromHtml("#191919");
+
+
+            if (accountType.Equals("Officer"))
+            {
+                btnAddSubject.Visible = true;
+                btnEditSubject.Visible = true;
+                btnRemoveSubject.Visible = true;
+                cbxSubjectSelect.Visible = true;
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -66,36 +72,18 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
         {
-            //checks if something is selected -CS
-            if (cbxCourseSelect.SelectedIndex > -1)
-            {
-                //confirms if admin wants to remove course -CS
-                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove the course?", "Course Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    string hold = cbxCourseSelect.Text.ToString();
-                    string[] holdSplit = hold.Split('-');
-                    courseID = holdSplit[0].Trim();
-                    database.RemoveCourse(courseID);
-                    cbxCourseSelect.Items.Clear();
-                    cbxCourseSelect.Text = "";
-                    database.UpdateAdminMenu(cbxCourseSelect,cbxTeacherSelect,cbxStudentSelect);
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a course for removal", "Course Removal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            clsDatabaseHandler.RemoveCourse(cbxCourseSelect);
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxSubjectSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxSubjectSelect, cbxTeacherSelect);
 
         }
 
         private void frmAdminMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            database.CloseDatabase(tssDatabaseConnection);
+
         }
 
         private void btnEditCourse_Click(object sender, EventArgs e)
@@ -105,6 +93,39 @@ namespace DatabaseConnection_G3_sp23
             courseID = holdSplit[0].Trim();
             frmEditCourse editCourse = new frmEditCourse(courseID);
             editCourse.ShowDialog();
+        }
+
+        private void btnRemoveTeacher_Click(object sender, EventArgs e)
+        {
+            ////checks if something is selected -CS
+            //if (cbxTeacherSelect.SelectedIndex > -1)
+            //{
+            //    //confirms if admin wants to remove course -CS
+            //    DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove the Teacher?", "Teacher Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        string hold = cbxTeacherSelect.Text.ToString();
+            //        string[] holdSplit = hold.Split('-');
+            //        teacherID = holdSplit[0].Trim();
+            //        database.RemoveTeacher(teacherID);
+            //        cbxTeacherSelect.Items.Clear();
+            //        cbxTeacherSelect.Text = "";
+            //        database.UpdateAdminMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect);
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select a course for removal", "Course Removal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+        }
+
+        private void frmAdminMenu_Activated(object sender, EventArgs e)
+        {
+            
         }
     }
 }

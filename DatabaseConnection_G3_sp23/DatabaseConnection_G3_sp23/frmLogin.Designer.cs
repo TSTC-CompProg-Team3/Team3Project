@@ -38,10 +38,9 @@
             this.mnuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsStatus = new System.Windows.Forms.StatusStrip();
-            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUsernameWarning = new System.Windows.Forms.Label();
+            this.lblPasswordWarning = new System.Windows.Forms.Label();
             this.mnuStrip.SuspendLayout();
-            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -102,14 +101,14 @@
             this.tbxUsername.Location = new System.Drawing.Point(154, 135);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(350, 23);
-            this.tbxUsername.TabIndex = 5;
+            this.tbxUsername.TabIndex = 0;
             // 
             // tbxPassword
             // 
             this.tbxPassword.Location = new System.Drawing.Point(154, 234);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(350, 23);
-            this.tbxPassword.TabIndex = 6;
+            this.tbxPassword.TabIndex = 1;
             // 
             // mnuStrip
             // 
@@ -137,31 +136,35 @@
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // tsStatus
+            // lblUsernameWarning
             // 
-            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssDatabaseConnection});
-            this.tsStatus.Location = new System.Drawing.Point(0, 501);
-            this.tsStatus.Name = "tsStatus";
-            this.tsStatus.Size = new System.Drawing.Size(659, 35);
-            this.tsStatus.TabIndex = 8;
-            this.tsStatus.Text = "statusStrip1";
+            this.lblUsernameWarning.AutoSize = true;
+            this.lblUsernameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblUsernameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblUsernameWarning.Location = new System.Drawing.Point(156, 174);
+            this.lblUsernameWarning.Name = "lblUsernameWarning";
+            this.lblUsernameWarning.Size = new System.Drawing.Size(293, 15);
+            this.lblUsernameWarning.TabIndex = 9;
+            this.lblUsernameWarning.Text = "Sorry, we couldn\'t find an account with that username";
             // 
-            // tssDatabaseConnection
+            // lblPasswordWarning
             // 
-            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
-            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
-            this.tssDatabaseConnection.Text = "Offline";
+            this.lblPasswordWarning.AutoSize = true;
+            this.lblPasswordWarning.BackColor = System.Drawing.Color.Red;
+            this.lblPasswordWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblPasswordWarning.Location = new System.Drawing.Point(156, 269);
+            this.lblPasswordWarning.Name = "lblPasswordWarning";
+            this.lblPasswordWarning.Size = new System.Drawing.Size(405, 15);
+            this.lblPasswordWarning.TabIndex = 10;
+            this.lblPasswordWarning.Text = "Sorry, that password isn\'t correct, you can click forgot my password to reset";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
-            this.Controls.Add(this.tsStatus);
+            this.Controls.Add(this.lblPasswordWarning);
+            this.Controls.Add(this.lblUsernameWarning);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.btnForgotPass);
@@ -182,8 +185,6 @@
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.mnuStrip.ResumeLayout(false);
             this.mnuStrip.PerformLayout();
-            this.tsStatus.ResumeLayout(false);
-            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,8 +202,8 @@
         private System.Windows.Forms.MenuStrip mnuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip tsStatus;
-        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
+        private System.Windows.Forms.Label lblUsernameWarning;
+        private System.Windows.Forms.Label lblPasswordWarning;
     }
 }
 

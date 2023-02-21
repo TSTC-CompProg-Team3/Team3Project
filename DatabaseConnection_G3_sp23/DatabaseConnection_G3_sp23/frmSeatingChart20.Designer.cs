@@ -56,6 +56,7 @@
             this.btnRan.TabIndex = 23;
             this.btnRan.Text = "&Random";
             this.btnRan.UseVisualStyleBackColor = true;
+            this.btnRan.Click += new System.EventHandler(this.btnRan_Click);
             // 
             // btnClear
             // 
@@ -105,6 +106,7 @@
             this.Name = "frmSeatingChart20";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seating Chart";
+            this.Load += new System.EventHandler(this.frmSeatingChart20_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentSeats)).EndInit();
             this.ResumeLayout(false);
 

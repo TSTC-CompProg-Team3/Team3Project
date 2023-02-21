@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsClass.cs" />
+    <Compile Include="clsDatabaseHandler.cs" />
     <Compile Include="clsSubject.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="frmAddCourse.cs">
@@ -74,17 +75,23 @@
     <Compile Include="frmAddCourse.Designer.cs">
       <DependentUpon>frmAddCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddGradebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddGradebook.Designer.cs">
+      <DependentUpon>frmAddGradebook.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAdminMenu.Designer.cs">
       <DependentUpon>frmAdminMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAttedanceEdit.cs">
+    <Compile Include="frmAttendanceEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAttedanceEdit.Designer.cs">
-      <DependentUpon>frmAttedanceEdit.cs</DependentUpon>
+    <Compile Include="frmAttendanceEdit.Designer.cs">
+      <DependentUpon>frmAttendanceEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAttendance.cs">
       <SubType>Form</SubType>
@@ -98,11 +105,23 @@
     <Compile Include="frmEditCourse.Designer.cs">
       <DependentUpon>frmEditCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditGradebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditGradebook.Designer.cs">
+      <DependentUpon>frmEditGradebook.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmForgotPass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmForgotPass.Designer.cs">
       <DependentUpon>frmForgotPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGradebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGradebook.Designer.cs">
+      <DependentUpon>frmGradebook.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -141,11 +160,14 @@
     <EmbeddedResource Include="frmAddCourse.resx">
       <DependentUpon>frmAddCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddGradebook.resx">
+      <DependentUpon>frmAddGradebook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminMenu.resx">
       <DependentUpon>frmAdminMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAttedanceEdit.resx">
-      <DependentUpon>frmAttedanceEdit.cs</DependentUpon>
+    <EmbeddedResource Include="frmAttendanceEdit.resx">
+      <DependentUpon>frmAttendanceEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAttendance.resx">
       <DependentUpon>frmAttendance.cs</DependentUpon>
@@ -153,8 +175,14 @@
     <EmbeddedResource Include="frmEditCourse.resx">
       <DependentUpon>frmEditCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditGradebook.resx">
+      <DependentUpon>frmEditGradebook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmForgotPass.resx">
       <DependentUpon>frmForgotPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGradebook.resx">
+      <DependentUpon>frmGradebook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

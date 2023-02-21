@@ -12,17 +12,44 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmAttendance : Form
     {
+        DatabaseConnection database = new DatabaseConnection();
+        private BindingSource binding = new BindingSource();
         public frmAttendance()
         {
             InitializeComponent();
         }
 
-        public void SetupDataGrid()
+        private void frmAttendance_Load(object sender, EventArgs e)
         {
-            dgvAttendance.Name = "Attendance";
-            dgvAttendance.Columns[0].Name = "Student";
-            dgvAttendance.Columns[1].Name = "Date";
-            dgvAttendance.Columns[2].Name = "Attendance";
+            database.OpenDatabase();
+            binding.DataSource = database.AttendanceInfo();
+            dgvAttendance.DataSource = binding;
+        }
+
+        private void dgvAttendance_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            //DGV Column header names
+            dgvAttendance.Columns[0].HeaderCell.Value = "Student";
+            dgvAttendance.Columns[1].HeaderCell.Value = "Date";
+            dgvAttendance.Columns[2].HeaderCell.Value = "Present";
+
+            //Loop and style each column
+            foreach (DataGridViewColumn col in dgvAttendance.Columns)
+            {
+                col.Width = 220;
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+        }
+
+        private void btnBackAttend_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnEditAttend_Click(object sender, EventArgs e)
+        {
+            frmAttendanceEdit edit = new frmAttendanceEdit();
+            edit.ShowDialog();
         }
     }
 }

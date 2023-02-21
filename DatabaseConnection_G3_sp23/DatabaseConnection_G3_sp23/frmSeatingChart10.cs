@@ -13,56 +13,44 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmSeatingChart10 : Form
     {
+        DatabaseConnection database = new DatabaseConnection();
         public frmSeatingChart10()
         {
             InitializeComponent();
 
             // allow drag and drop needs to be their to work
             dgvStudentSeats.AllowDrop = true;
-
-            // Adding four hard-coded columns to the DataGridView
-            if (dgvStudentSeats.Columns.Count == 0)
-            {
-                dgvStudentSeats.Columns.Add("FirstName", "FirstName");
-                dgvStudentSeats.Columns.Add("LastName", "LastName");
-                dgvStudentSeats.Columns.Add("Subject", "Subject");
-                dgvStudentSeats.Columns.Add("StudentID", "StudentID");
-            }
+            lstStudentsAvailable.AllowDrop = true;
         }
 
         private void btnRan_Click(object sender, EventArgs e)
         {
-            // Create a random number generator 
-            Random rnd = new Random();
+            // Set the Random button color and text color
+            btnRan.BackColor = ColorTranslator.FromHtml("#FF5733");
+            btnRan.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
-            // Create a list to store the items in the listbox
-            List<string> students = new List<string>();
+            Random random = new Random();
+            DataTable dttable = (DataTable)dgvStudentSeats.DataSource;
 
-            // Iterates through the items in the listbox and adds each one to the list
-            foreach (string name in lstStudentsAvailable.Items)
+            // Create a new DataTable with the same structure as the original one
+            DataTable shuffledTable = dttable.Clone();
+
+            // Shuffle the rows
+            DataRow[] rows = dttable.Select();
+            for (int i = rows.Length - 1; i >= 0; i--)
             {
-                // adds item
-                students.Add(name);
+                int j = random.Next(i + 1);
+                DataRow row = rows[j];
+                rows[j] = rows[i];
+                rows[i] = row;
+
+                // Add the shuffled row to the new DataTable
+                shuffledTable.ImportRow(row);
             }
 
-            // Clear any previous rows in the dgv if the random button is clicked again
-            dgvStudentSeats.Rows.Clear();
+            // Set the shuffled DataTable as the new DataSource of the DataGridView
+            dgvStudentSeats.DataSource = shuffledTable;
 
-            // Continues to add a random student to the dgv until there are no students left in the list
-            while (students.Count > 0)
-            {
-                // Selects a rnd stored name from the student list
-                int stored = rnd.Next(students.Count);
-
-                // Grabs the students that are stored in the lstbox
-                string student = students[stored];
-
-                // Removes the selected item from the lstbox so no duplicated
-                students.RemoveAt(stored);
-
-                // Adds the selected student to a new row in the dgv
-                dgvStudentSeats.Rows.Add(student);
-            }
         }
 
         private void lstStudentsAvailable_MouseDown(object sender, MouseEventArgs e)
@@ -70,6 +58,9 @@ namespace DatabaseConnection_G3_sp23
             // Selects the item under the mouse cursor when the mouse button is pressed
             lstStudentsAvailable.SelectedIndex = lstStudentsAvailable.IndexFromPoint(e.X, e.Y);
             Console.WriteLine("Selected index: " + lstStudentsAvailable.SelectedIndex);
+
+
+
         }
 
         private void lstStudentsAvailable_MouseMove(object sender, MouseEventArgs e)
@@ -79,12 +70,49 @@ namespace DatabaseConnection_G3_sp23
             {
                 lstStudentsAvailable.DoDragDrop(lstStudentsAvailable.SelectedItem, DragDropEffects.Move);
             }
+
+
         }
+
 
         private void dgvStudentSeats_DragDrop(object sender, DragEventArgs e)
         {
             // Adds the dragged item to a new row in the DataGridView
-            dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
+            //dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
+            if (e.Data.GetDataPresent(typeof(string)))
+            {
+                string fullName = e.Data.GetData(typeof(string)).ToString();
+                string[] nameParts = fullName.Split(' ');
+                string firstName = nameParts[0];
+                string lastName = nameParts[1];
+
+                // Check if the student is already in the DataGridView
+                bool isStudentAlreadyAdded = false;
+                foreach (DataGridViewRow row in dgvStudentSeats.Rows)
+                {
+                    if (row.Cells["FirstName"].Value != null &&
+                        row.Cells["LastName"].Value != null &&
+                        row.Cells["FirstName"].Value.ToString() == firstName &&
+                        row.Cells["LastName"].Value.ToString() == lastName)
+                    {
+                        isStudentAlreadyAdded = true;
+                        break;
+                    }
+                }
+                if (!isStudentAlreadyAdded)
+                {
+                    // Add the new row to the DataTable
+                    DataTable dt = (DataTable)dgvStudentSeats.DataSource;
+                    DataRow newRow = dt.NewRow();
+                    newRow["FirstName"] = firstName;
+                    newRow["LastName"] = lastName;
+                    dt.Rows.Add(newRow);
+
+                    // Refresh the DataGridView to reflect the changes
+                    dgvStudentSeats.DataSource = null;
+                    dgvStudentSeats.DataSource = dt;
+                }
+            }
         }
 
         private void dgvStudentSeats_DragEnter(object sender, DragEventArgs e)
@@ -102,14 +130,58 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            // Clear any previous rows in the dgv if the random button is clicked again
-            dgvStudentSeats.Rows.Clear();
+            // Set the Clear button color and text color
+            btnClear.BackColor = ColorTranslator.FromHtml("#FF5733");
+            btnClear.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
+
+            // This clears the data source, since dgv is being called from the database
+            dgvStudentSeats.DataSource = null;
+
+            // Now you need to recall the database back, and this will reset it back in order base on how its set up inside the database
+            database.loadDataGridView(dgvStudentSeats);
         }
 
         private void btnMain_Click(object sender, EventArgs e)
         {
+            // Set the Menu button color and text color
+            btnMain.BackColor = ColorTranslator.FromHtml("#FF5733");
+            btnMain.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
+
             new frmLogin().Show();
             this.Hide();
+        }
+
+        private void frmSeatingChart10_Load(object sender, EventArgs e)
+        {
+            // Set the form background color and text color
+            this.BackColor = ColorTranslator.FromHtml("#F2F2F2");
+            this.ForeColor = ColorTranslator.FromHtml("#212121");
+
+            // Set the listbox background color and text color
+            lstStudentsAvailable.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+            lstStudentsAvailable.ForeColor = ColorTranslator.FromHtml("#212121");
+
+            // Set the datagridview background color and text color
+            dgvStudentSeats.BackgroundColor = ColorTranslator.FromHtml("#FFFFFF");
+            dgvStudentSeats.ForeColor = ColorTranslator.FromHtml("#212121");
+
+            // Set the Random button color and text color
+            btnRan.BackColor = ColorTranslator.FromHtml("#FF5733");
+            btnRan.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
+
+            // Set the Clear button color and text color
+            btnClear.BackColor = ColorTranslator.FromHtml("#FF5733");
+            btnClear.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
+
+            // Set the Menu button color and text color
+            btnMain.BackColor = ColorTranslator.FromHtml("#FF5733");
+            btnMain.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
+
+
+            database.loadDataGridView(dgvStudentSeats);
+
+            database.PopulateStudentListBox(lstStudentsAvailable);
+
         }
     }
 }

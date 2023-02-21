@@ -36,10 +36,7 @@
             this.btnSeatingChart = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
-            this.tsStatus = new System.Windows.Forms.StatusStrip();
-            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).BeginInit();
-            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbxBanner
@@ -62,17 +59,18 @@
             // btnGradeBook
             // 
             this.btnGradeBook.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGradeBook.Location = new System.Drawing.Point(271, 265);
+            this.btnGradeBook.Location = new System.Drawing.Point(271, 277);
             this.btnGradeBook.Name = "btnGradeBook";
             this.btnGradeBook.Size = new System.Drawing.Size(117, 40);
             this.btnGradeBook.TabIndex = 2;
             this.btnGradeBook.Text = "Grade Book";
             this.btnGradeBook.UseVisualStyleBackColor = true;
+            this.btnGradeBook.Click += new System.EventHandler(this.btnGradeBook_Click);
             // 
             // btnAttendance
             // 
             this.btnAttendance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttendance.Location = new System.Drawing.Point(271, 326);
+            this.btnAttendance.Location = new System.Drawing.Point(271, 338);
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(117, 40);
             this.btnAttendance.TabIndex = 3;
@@ -83,7 +81,7 @@
             // btnSeatingChart
             // 
             this.btnSeatingChart.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeatingChart.Location = new System.Drawing.Point(271, 387);
+            this.btnSeatingChart.Location = new System.Drawing.Point(271, 399);
             this.btnSeatingChart.Name = "btnSeatingChart";
             this.btnSeatingChart.Size = new System.Drawing.Size(117, 40);
             this.btnSeatingChart.TabIndex = 4;
@@ -93,7 +91,7 @@
             // btnLogOut
             // 
             this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(271, 448);
+            this.btnLogOut.Location = new System.Drawing.Point(271, 460);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(117, 40);
             this.btnLogOut.TabIndex = 5;
@@ -113,32 +111,12 @@
             this.btnAdmin.Visible = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
-            // tsStatus
-            // 
-            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssDatabaseConnection});
-            this.tsStatus.Location = new System.Drawing.Point(0, 501);
-            this.tsStatus.Name = "tsStatus";
-            this.tsStatus.Size = new System.Drawing.Size(659, 35);
-            this.tsStatus.TabIndex = 9;
-            this.tsStatus.Text = "statusStrip1";
-            // 
-            // tssDatabaseConnection
-            // 
-            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
-            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
-            this.tssDatabaseConnection.Text = "Offline";
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
-            this.Controls.Add(this.tsStatus);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnSeatingChart);
@@ -154,10 +132,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
             this.Load += new System.EventHandler(this.frmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).EndInit();
-            this.tsStatus.ResumeLayout(false);
-            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -170,7 +145,5 @@
         private System.Windows.Forms.Button btnSeatingChart;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnAdmin;
-        private System.Windows.Forms.StatusStrip tsStatus;
-        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
     }
 }
