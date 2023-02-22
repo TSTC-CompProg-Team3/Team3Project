@@ -14,6 +14,7 @@ namespace DatabaseConnection_G3_sp23
     {
         DatabaseConnection database = new DatabaseConnection();
         private BindingSource binding = new BindingSource();
+
         public frmAttendance()
         {
             InitializeComponent();
@@ -24,6 +25,11 @@ namespace DatabaseConnection_G3_sp23
             database.OpenDatabase();
             binding.DataSource = database.AttendanceInfo();
             dgvAttendance.DataSource = binding;
+
+            btnEditAttend.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnEditAttend.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
         }
 
         private void dgvAttendance_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -33,11 +39,12 @@ namespace DatabaseConnection_G3_sp23
             dgvAttendance.Columns[1].HeaderCell.Value = "Student ID";
             dgvAttendance.Columns[2].HeaderCell.Value = "Class ID";
             dgvAttendance.Columns[3].HeaderCell.Value = "Date";
+            dgvAttendance.Columns[4].HeaderCell.Value = "Present";
 
             //Loop and style each column
             foreach (DataGridViewColumn col in dgvAttendance.Columns)
             {
-                col.Width = 220;
+                col.Width = 199;
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
