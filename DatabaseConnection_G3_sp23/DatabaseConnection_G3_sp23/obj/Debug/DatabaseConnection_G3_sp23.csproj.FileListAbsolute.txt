@@ -184,3 +184,4 @@ C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConne
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.csproj.CopyComplete
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.exe
 C:\Users\Mike\source\repos\Team3Project\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\Team3Project_Fixed.pdb
+C:\Users\Cory\Desktop\Team 3\DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23\obj\Debug\DatabaseConnection_G3_sp23.frmMidTermG.resources

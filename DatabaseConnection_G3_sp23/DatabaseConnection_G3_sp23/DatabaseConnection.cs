@@ -160,15 +160,16 @@ namespace DatabaseConnection_G3_sp23
             try
             {
 
-                SqlCommand command = new SqlCommand("Select ClassID, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID", connection);
+                SqlCommand command = new SqlCommand("Select ClassID, ClassName, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     int classID = (int)reader["ClassID"];
+                    string className = (string)reader["ClassName"];
                     string subjectName = (string)reader["SubjectName"];
 
-                    courseList.Items.Add(classID + " - " + subjectName);
+                    courseList.Items.Add(classID.ToString() + " - " + className + " - " + subjectName);
                 }
                 reader.Close();
 
@@ -283,10 +284,12 @@ namespace DatabaseConnection_G3_sp23
             }
         }
         //loads the edit course info -CS
-        public void LoadEditCourse(string courseID, TextBox ID,  ComboBox teacherList, ComboBox subjectList)
+        public void LoadEditCourse(string courseName, TextBox tbxcourseName,  ComboBox teacherList, ComboBox subjectList)
         {
             try
             {
+                tbxcourseName.Text = courseName;
+
                 SqlCommand command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -294,7 +297,6 @@ namespace DatabaseConnection_G3_sp23
                 {
                     int subjectID = (int)reader["SubjectID"];
                     string subjectName = (string)reader["SubjectName"];
-                    ID.Text = courseID.ToString();
                     subjectList.Items.Add(subjectID + " - " + subjectName);
                 }
                 reader.Close();
@@ -318,11 +320,11 @@ namespace DatabaseConnection_G3_sp23
             }
         }
         //Edits the course in the database -CS
-        public void EditCourse(string className, string teacherID, string subjectID, string classSize)
+        public void EditCourse(string classID, string className, string teacherID, string subjectID, string classSize)
         {
             try
             {
-                string query = "UPDATE team3sp232330.Class SET ClassName = @className, TeacherID = @teacherID, SubjectID = @subjectID, ClassSize = @classSize WHERE ClassID = " + className;
+                string query = "UPDATE team3sp232330.Class SET ClassName = @className, TeacherID = @teacherID, SubjectID = @subjectID, ClassSize = @classSize WHERE ClassID = " + classID;
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

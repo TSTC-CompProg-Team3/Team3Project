@@ -13,15 +13,17 @@ namespace DatabaseConnection_G3_sp23
     public partial class frmEditCourse : Form
     {
         public string courseID;
-        public frmEditCourse(string courseID)
+        public string courseName;
+        public frmEditCourse(string courseID, string courseName)
         {
             this.courseID = courseID;
+            this.courseName = courseName;
             InitializeComponent();
         }
 
         private void frmEditCourse_Load(object sender, EventArgs e)
         {
-            clsDatabaseHandler.LoadEditCourse(courseID, tbxClassID, cbxTeacherID, cbxSubjectID, cbxClassSize);
+            clsDatabaseHandler.LoadEditCourse(courseName, tbxClassName, cbxTeacherID, cbxSubjectID, cbxClassSize);
             
 
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
@@ -31,7 +33,7 @@ namespace DatabaseConnection_G3_sp23
             btnSubmit.ForeColor = ColorTranslator.FromHtml("#191919");
             btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
             btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
-            lblClassID.ForeColor = ColorTranslator.FromHtml("#191919");
+            lblClassName.ForeColor = ColorTranslator.FromHtml("#191919");
             lblTeacherID.ForeColor = ColorTranslator.FromHtml("#191919");
             lblSubjectID.ForeColor = ColorTranslator.FromHtml("#191919");
             lblClassSize.ForeColor = ColorTranslator.FromHtml("#191919");
@@ -51,7 +53,7 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.EditCourse(tbxClassID, cbxTeacherID, cbxSubjectID, cbxClassSize);
+            clsDatabaseHandler.EditCourse(courseID, tbxClassName, cbxTeacherID, cbxSubjectID, cbxClassSize);
 
         }
     }
