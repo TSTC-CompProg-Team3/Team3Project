@@ -30,8 +30,9 @@ namespace DatabaseConnection_G3_sp23
         {
             //DGV Column header names
             dgvAttendance.Columns[0].HeaderCell.Value = "Student";
-            dgvAttendance.Columns[1].HeaderCell.Value = "Date";
-            dgvAttendance.Columns[2].HeaderCell.Value = "Present";
+            dgvAttendance.Columns[1].HeaderCell.Value = "Student ID";
+            dgvAttendance.Columns[2].HeaderCell.Value = "Class ID";
+            dgvAttendance.Columns[3].HeaderCell.Value = "Date";
 
             //Loop and style each column
             foreach (DataGridViewColumn col in dgvAttendance.Columns)
