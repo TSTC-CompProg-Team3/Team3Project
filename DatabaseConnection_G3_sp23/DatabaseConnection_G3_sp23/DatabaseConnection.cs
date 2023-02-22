@@ -67,7 +67,7 @@ namespace DatabaseConnection_G3_sp23
                     string accountType = (string)reader["AccountType"];
                     string userName = (string)reader["UserName"];
                     string password = (string)reader["Password"];
-                    string resetCode = (string)reader["ResetCode"];
+                    string resetCode = "secret code";
                     string email = (string)reader["Email"];
 
                     userList.Add(new clsUser(loginID,accountType,userName,password, resetCode, email));
@@ -131,15 +131,15 @@ namespace DatabaseConnection_G3_sp23
         {
             try
             {
-                SqlCommand command = new SqlCommand("Select ClassID, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID WHERE LoginID =  " + loginID, connection);
+                SqlCommand command = new SqlCommand("Select ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID WHERE LoginID = " + loginID, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    int classID = (int)reader["ClassID"];
+                    string className = (string)reader["ClassName"];
                     string subjectName = (string)reader["SubjectName"];
                     int classSize = (int)reader["ClassSize"];
-                    classList.Add(classID + " - " + subjectName + " - Class Size: " + classSize);
+                    classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
                 }
                 
                 reader.Close();
@@ -318,15 +318,15 @@ namespace DatabaseConnection_G3_sp23
             }
         }
         //Edits the course in the database -CS
-        public void EditCourse(string classID, string teacherID, string subjectID, string classSize)
+        public void EditCourse(string className, string teacherID, string subjectID, string classSize)
         {
             try
             {
-                string query = "UPDATE team3sp232330.Class SET ClassID = @classID, TeacherID = @teacherID, SubjectID = @subjectID, ClassSize = @classSize WHERE ClassID = " + classID;
+                string query = "UPDATE team3sp232330.Class SET ClassName = @className, TeacherID = @teacherID, SubjectID = @subjectID, ClassSize = @classSize WHERE ClassID = " + className;
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@classID", classID);
+                    command.Parameters.AddWithValue("@className", className);
                     command.Parameters.AddWithValue("@teacherID", teacherID);
                     command.Parameters.AddWithValue("@subjectID", subjectID);
                     command.Parameters.AddWithValue("@classSize", classSize);

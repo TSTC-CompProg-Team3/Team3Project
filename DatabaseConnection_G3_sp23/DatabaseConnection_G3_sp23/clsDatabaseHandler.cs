@@ -24,8 +24,8 @@ namespace DatabaseConnection_G3_sp23
             {
                 if (tbxEnterCode.Text.Equals(user.resetCode) && tbxNewPassword.Text.Equals(tbxConfirmPassword.Text))
                 {
-                    MessageBox.Show("Password has been changed", "Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     database.ResetPassword(tbxConfirmPassword.Text, user.resetCode);
+                    MessageBox.Show("Password has been changed", "Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
@@ -36,7 +36,7 @@ namespace DatabaseConnection_G3_sp23
             database.CloseDatabase();
         }
 
-        internal static void Login(TextBox tbxUsername, TextBox tbxPassword)
+        internal static void Login(TextBox tbxUsername, TextBox tbxPassword, Label lblPasswordWarning, Label lblUsernameWarning)
         {
             database.OpenDatabase();
             database.UserInfo();
@@ -52,19 +52,26 @@ namespace DatabaseConnection_G3_sp23
                 {
                     int loginID = item.loginID;
                     string accountType = item.accountType;
+                    lblPasswordWarning.Visible = false;
+                    lblUsernameWarning.Visible = false;
                     database.CloseDatabase();
                     frmMenu menu = new frmMenu(loginID, accountType);
                     menu.ShowDialog();
                     return;
                 }
-                //else if (username.ToLower() == item.userName.ToLower() && password != item.passWord)
-                //{
-                //    lblPasswordWarning.Visible = true;
-                //}
-                //else if (password == item.passWord && username.ToLower() != item.userName.ToLower())
-                //{
-                //    lblUsernameWarning.Visible = true;
-                //}
+                else if (username.ToLower() == item.userName.ToLower() && password != item.passWord)
+                {
+                    lblPasswordWarning.Visible = true;
+                }
+                else if (password == item.passWord && username.ToLower() != item.userName.ToLower())
+                {
+                    lblUsernameWarning.Visible = true;
+                }
+                else
+                {
+                    lblPasswordWarning.Visible = true;
+                    lblUsernameWarning.Visible = true;
+                }
 
             }
             database.CloseDatabase();
@@ -146,10 +153,19 @@ namespace DatabaseConnection_G3_sp23
         {
             database.OpenDatabase();
             database.LoadAdminMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect);
+            if (cbxCourseSelect.Items.Count > 0)
+            {
+                cbxCourseSelect.SelectedIndex = 0;
+            }
+            if (cbxStudentSelect.Items.Count > 0)
+            {
+                cbxStudentSelect.SelectedIndex = 0;
+            }
+            if (cbxTeacherSelect.Items.Count > 0)
+            {
+                cbxTeacherSelect.SelectedIndex = 0;
+            }
 
-            cbxCourseSelect.SelectedIndex = 0;
-            cbxStudentSelect.SelectedIndex = 0;
-            cbxTeacherSelect.SelectedIndex = 0;
             database.CloseDatabase();
         }
 
@@ -191,9 +207,21 @@ namespace DatabaseConnection_G3_sp23
 
             database.CloseDatabase();
 
-            cbxClassSize.SelectedIndex = 0;
-            cbxSubjectID.SelectedIndex = 0;
-            cbxTeacherID.SelectedIndex = 0;
+            if (cbxClassSize.Items.Count > 0)
+            {
+                cbxClassSize.SelectedIndex = 0;
+            }
+            
+            if (cbxSubjectID.Items.Count > 0)
+            {
+                cbxSubjectID.SelectedIndex = 0;
+            }
+
+            if (cbxTeacherID.Items.Count > 0)
+            {
+                cbxTeacherID.SelectedIndex = 0;
+            }
+            
         }
 
         internal static void AddCourse(TextBox tbxClassID, ComboBox cbxTeacherID, ComboBox cbxSubjectID, ComboBox cbxClassSize)
@@ -222,8 +250,16 @@ namespace DatabaseConnection_G3_sp23
 
             database.LoadEditCourse(courseID, tbxClassID, cbxTeacherID, cbxSubjectID);
 
-            cbxSubjectID.SelectedIndex = 0;
-            cbxTeacherID.SelectedIndex = 0;
+            if (cbxSubjectID.Items.Count > 0)
+            {
+                cbxSubjectID.SelectedIndex = 0;
+            }
+            
+            if (cbxTeacherID.Items.Count > 0)
+            {
+                cbxTeacherID.SelectedIndex = 0;
+            }
+            
             cbxClassSize.SelectedIndex = 0;
 
             database.CloseDatabase();

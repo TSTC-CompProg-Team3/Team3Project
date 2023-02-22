@@ -64,7 +64,7 @@ namespace DatabaseConnection_G3_sp23
             lblUsernameWarning.Visible = false;
             lblPasswordWarning.Visible = false;
 
-            clsDatabaseHandler.Login(tbxUsername, tbxPassword);
+            clsDatabaseHandler.Login(tbxUsername, tbxPassword, lblPasswordWarning, lblUsernameWarning);
         }
 
         private void btnForgotPass_Click(object sender, EventArgs e)

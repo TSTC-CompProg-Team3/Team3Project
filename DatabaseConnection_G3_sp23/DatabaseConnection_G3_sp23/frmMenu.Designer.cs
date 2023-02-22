@@ -63,7 +63,7 @@
             this.btnGradeBook.Name = "btnGradeBook";
             this.btnGradeBook.Size = new System.Drawing.Size(117, 40);
             this.btnGradeBook.TabIndex = 2;
-            this.btnGradeBook.Text = "Grade Book";
+            this.btnGradeBook.Text = "&Grade Book";
             this.btnGradeBook.UseVisualStyleBackColor = true;
             this.btnGradeBook.Click += new System.EventHandler(this.btnGradeBook_Click);
             // 
@@ -74,7 +74,7 @@
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(117, 40);
             this.btnAttendance.TabIndex = 3;
-            this.btnAttendance.Text = "Attendance";
+            this.btnAttendance.Text = "&Attendance";
             this.btnAttendance.UseVisualStyleBackColor = true;
             this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
             // 
@@ -85,7 +85,7 @@
             this.btnSeatingChart.Name = "btnSeatingChart";
             this.btnSeatingChart.Size = new System.Drawing.Size(117, 40);
             this.btnSeatingChart.TabIndex = 4;
-            this.btnSeatingChart.Text = "Seating Chart";
+            this.btnSeatingChart.Text = "&Seating Chart";
             this.btnSeatingChart.UseVisualStyleBackColor = true;
             this.btnSeatingChart.Click += new System.EventHandler(this.btnSeatingChart_Click);
             // 
@@ -96,7 +96,7 @@
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(117, 40);
             this.btnLogOut.TabIndex = 5;
-            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.Text = "&Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
@@ -107,7 +107,7 @@
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(117, 40);
             this.btnAdmin.TabIndex = 6;
-            this.btnAdmin.Text = "Administrator";
+            this.btnAdmin.Text = "A&dministrator";
             this.btnAdmin.UseVisualStyleBackColor = true;
             this.btnAdmin.Visible = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
@@ -129,7 +129,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMenu";
+            this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
             this.Load += new System.EventHandler(this.frmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).EndInit();

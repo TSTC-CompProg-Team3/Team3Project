@@ -46,14 +46,14 @@
             this.tbxEmail.Location = new System.Drawing.Point(106, 124);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(350, 23);
-            this.tbxEmail.TabIndex = 6;
+            this.tbxEmail.TabIndex = 0;
             // 
             // tbxEnterCode
             // 
             this.tbxEnterCode.Location = new System.Drawing.Point(106, 228);
             this.tbxEnterCode.Name = "tbxEnterCode";
             this.tbxEnterCode.Size = new System.Drawing.Size(350, 23);
-            this.tbxEnterCode.TabIndex = 7;
+            this.tbxEnterCode.TabIndex = 1;
             // 
             // lblEnterEmail
             // 
@@ -81,8 +81,8 @@
             this.btnSendCode.Location = new System.Drawing.Point(471, 113);
             this.btnSendCode.Name = "btnSendCode";
             this.btnSendCode.Size = new System.Drawing.Size(117, 40);
-            this.btnSendCode.TabIndex = 10;
-            this.btnSendCode.Text = "Send Code";
+            this.btnSendCode.TabIndex = 4;
+            this.btnSendCode.Text = "&Send Code";
             this.btnSendCode.UseVisualStyleBackColor = true;
             this.btnSendCode.Click += new System.EventHandler(this.btnSendCode_Click);
             // 
@@ -101,7 +101,7 @@
             this.tbxNewPassword.Location = new System.Drawing.Point(106, 295);
             this.tbxNewPassword.Name = "tbxNewPassword";
             this.tbxNewPassword.Size = new System.Drawing.Size(350, 23);
-            this.tbxNewPassword.TabIndex = 11;
+            this.tbxNewPassword.TabIndex = 2;
             // 
             // btnConfirm
             // 
@@ -109,8 +109,8 @@
             this.btnConfirm.Location = new System.Drawing.Point(471, 344);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(117, 40);
-            this.btnConfirm.TabIndex = 13;
-            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.TabIndex = 5;
+            this.btnConfirm.Text = "Co&nfirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
@@ -129,7 +129,7 @@
             this.tbxConfirmPassword.Location = new System.Drawing.Point(106, 355);
             this.tbxConfirmPassword.Name = "tbxConfirmPassword";
             this.tbxConfirmPassword.Size = new System.Drawing.Size(350, 23);
-            this.tbxConfirmPassword.TabIndex = 14;
+            this.tbxConfirmPassword.TabIndex = 3;
             // 
             // btnCancel
             // 
@@ -137,8 +137,8 @@
             this.btnCancel.Location = new System.Drawing.Point(530, 449);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(117, 40);
-            this.btnCancel.TabIndex = 16;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
