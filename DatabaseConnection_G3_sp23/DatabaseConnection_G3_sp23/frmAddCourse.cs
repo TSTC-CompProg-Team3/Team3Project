@@ -12,7 +12,6 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmAddCourse : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
         public frmAddCourse()
         {
             InitializeComponent();
@@ -20,14 +19,10 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmAddCourse_Load(object sender, EventArgs e)
         {
-            database.OpenDatabase(tssDatabaseConnection);
-            database.LoadAddCourse(cbxTeacherID, cbxSubjectID);
-            cbxClassSize.SelectedIndex = 0;
-            cbxSubjectID.SelectedIndex = 0;
-            cbxTeacherID.SelectedIndex = 0;
+            clsDatabaseHandler.AddCourseLoad(cbxTeacherID, cbxSubjectID, cbxClassSize);
+            
 
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
-            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnClear.BackColor = ColorTranslator.FromHtml("#F15025");
             btnClear.ForeColor = ColorTranslator.FromHtml("#191919");
             btnSubmit.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -55,16 +50,8 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string classID = tbxClassID.Text;
-            string hold = cbxTeacherID.Text.ToString();
-            string[] holdSplit = hold.Split('-');
-            string teacherID = holdSplit[0].Trim();
-            hold = cbxSubjectID.Text.ToString();
-            holdSplit = hold.Split('-');
-            string subjectID = holdSplit[0].Trim();
-            string classSize = cbxClassSize.Text;
-
-            database.AddCourse(classID,teacherID,subjectID,classSize);
+            clsDatabaseHandler.AddCourse(tbxClassID, cbxTeacherID, cbxSubjectID, cbxClassSize);
+            
         }
     }
 }

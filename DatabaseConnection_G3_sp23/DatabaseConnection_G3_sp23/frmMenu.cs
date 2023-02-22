@@ -12,7 +12,6 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmMenu : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
         public int loginID;
         public string accountType;
         public frmMenu(int loginid, string accounttype)
@@ -37,27 +36,32 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            //gets subjects that teacher is teaching for the cbx -CS
-            database.OpenDatabase(tssDatabaseConnection);
-            frmLogin login = new frmLogin();
-            database.TeacherClasses(loginID);
-
-            foreach (string subject in database.classList)
+            clsDatabaseHandler.LoadMenu(cbxCourseSelect, loginID);
+            
+            //Makes admin button visible if user is admin (Levels of Security) -CS
+            switch (accountType)
             {
-                cbxCourseSelect.Items.Add(subject);
-            }
+                case "Officer":
+                    btnAdmin.Visible = true;
+                    break;
 
-            cbxCourseSelect.SelectedIndex = 0;
+                case "Admin":
+                    btnAdmin.Visible = true;
+                    break;
 
+                case "Teacher":
+                    btnAdmin.Visible = false;
+                    break;
 
-            //Makes admin button visible if user is admin -CS
-            if (accountType.Equals("Admin"))
-            {
-                btnAdmin.Visible = true;
+                case "Student":
+                    btnAdmin.Visible = false;
+                    break;
+
+                default:
+                    break;
             }
 
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
-            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnGradeBook.BackColor = ColorTranslator.FromHtml("#F15025");
             btnGradeBook.ForeColor = ColorTranslator.FromHtml("#191919");
             btnAttendance.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -74,13 +78,49 @@ namespace DatabaseConnection_G3_sp23
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             //goes to admin menu -CS
-            frmAdminMenu adminMenu = new frmAdminMenu();
+            frmAdminMenu adminMenu = new frmAdminMenu(loginID, accountType);
             adminMenu.ShowDialog();
         }
 
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            database.CloseDatabase(tssDatabaseConnection);
+
+        }
+
+        private void btnGradeBook_Click(object sender, EventArgs e)
+        {
+            frmGradebook gradebook = new frmGradebook();
+            gradebook.ShowDialog();
+        }
+
+        private void btnSeatingChart_Click(object sender, EventArgs e)
+        {
+            string hold = cbxCourseSelect.Text.ToString();
+            string[] holdSplit = hold.Split(':');
+            string holdTrim = holdSplit[1].Trim();
+            int classSize = int.Parse(holdTrim);
+
+            switch (classSize)
+            {
+                case 5:
+                    frmSeatingChart5 chart5 = new frmSeatingChart5();
+                    chart5.ShowDialog();
+                    break;
+
+                case 10:
+                    frmSeatingChart10 chart10 = new frmSeatingChart10();
+                    chart10.ShowDialog();
+                    break;
+
+                case 20:
+                    frmSeatingChart20 chart20 = new frmSeatingChart20();
+                    chart20.ShowDialog();
+                    break;
+
+                default:
+                    break;
+            }
+
         }
     }
 }

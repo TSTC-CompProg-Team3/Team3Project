@@ -12,7 +12,6 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmEditCourse : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
         public string courseID;
         public frmEditCourse(string courseID)
         {
@@ -22,11 +21,10 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmEditCourse_Load(object sender, EventArgs e)
         {
-            database.OpenDatabase(tssDatabaseConnection);
-            database.LoadEditCourse(courseID,tbxClassID,cbxTeacherID,cbxSubjectID);
+            clsDatabaseHandler.LoadEditCourse(courseID, tbxClassID, cbxTeacherID, cbxSubjectID, cbxClassSize);
+            
 
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
-            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnClear.BackColor = ColorTranslator.FromHtml("#F15025");
             btnClear.ForeColor = ColorTranslator.FromHtml("#191919");
             btnSubmit.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -53,16 +51,8 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string classID = tbxClassID.Text;
-            string hold = cbxTeacherID.Text.ToString();
-            string[] holdSplit = hold.Split('-');
-            string teacherID = holdSplit[0].Trim();
-            hold = cbxSubjectID.Text.ToString();
-            holdSplit = hold.Split('-');
-            string subjectID = holdSplit[0].Trim();
-            string classSize = cbxClassSize.Text;
+            clsDatabaseHandler.EditCourse(tbxClassID, cbxTeacherID, cbxSubjectID, cbxClassSize);
 
-            database.EditCourse(classID, teacherID, subjectID, classSize);
         }
     }
 }

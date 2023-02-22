@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DatabaseConnection_G3_sp23;
 
 namespace DatabaseConnection_G3_sp23
 {
     public partial class frmLogin : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
         private bool isClosing = false;
 
         public frmLogin()
@@ -31,14 +30,13 @@ namespace DatabaseConnection_G3_sp23
         private void btnClear_Click(object sender, EventArgs e)
         {
             //clear textboxes - CS
-            tbxPassword.Text = string.Empty;
-            tbxUsername.Text = string.Empty;
+            tbxPassword.Clear();
+            tbxUsername.Clear();
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
-            tsStatus.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnClear.BackColor = ColorTranslator.FromHtml("#F15025");
             btnClear.ForeColor = ColorTranslator.FromHtml("#191919");
             btnLogin.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -49,35 +47,24 @@ namespace DatabaseConnection_G3_sp23
             lblPassword.ForeColor = ColorTranslator.FromHtml("#191919");
             mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
-            //calls open database method from Database Connection -CS
-            database.OpenDatabase(tssDatabaseConnection);
-            database.UserInfo();
+
+            lblUsernameWarning.Visible = false;
+            lblPasswordWarning.Visible = false;
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             //calls close database method -CS
             isClosing = true;
-            database.CloseDatabase(tssDatabaseConnection);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //takes user input and checks against the data in the database connection -CS
-            string username = tbxUsername.Text;
-            string password = tbxPassword.Text;
+            // Hides the warning labels at the beginning of the method
+            lblUsernameWarning.Visible = false;
+            lblPasswordWarning.Visible = false;
 
-            List<clsUser> tempList = database.userList.ToList();
-            foreach (clsUser item in tempList)
-            {
-                if (username == item.userName && password == item.passWord)
-                {
-                    int loginID = item.loginID;
-                    string accountType = item.accountType;
-                    frmMenu menu = new frmMenu(loginID, accountType);
-                    menu.ShowDialog();
-                }
-            }
+            clsDatabaseHandler.Login(tbxUsername, tbxPassword, lblPasswordWarning, lblUsernameWarning);
         }
 
         private void btnForgotPass_Click(object sender, EventArgs e)
@@ -93,9 +80,8 @@ namespace DatabaseConnection_G3_sp23
             //clears textboxes and updates userlist when form is in focus and not closing -CS
             if (!isClosing)
             {
-                tbxPassword.Text = string.Empty;
-                tbxUsername.Text = string.Empty;
-                database.UpdateUserList();
+                tbxPassword.Clear();
+                tbxUsername.Clear();
             }
         }
 

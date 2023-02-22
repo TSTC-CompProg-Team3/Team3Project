@@ -39,9 +39,6 @@
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.tbxConfirmPassword = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.tsStatus = new System.Windows.Forms.StatusStrip();
-            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbxEmail
@@ -49,14 +46,14 @@
             this.tbxEmail.Location = new System.Drawing.Point(106, 124);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(350, 23);
-            this.tbxEmail.TabIndex = 6;
+            this.tbxEmail.TabIndex = 0;
             // 
             // tbxEnterCode
             // 
             this.tbxEnterCode.Location = new System.Drawing.Point(106, 228);
             this.tbxEnterCode.Name = "tbxEnterCode";
             this.tbxEnterCode.Size = new System.Drawing.Size(350, 23);
-            this.tbxEnterCode.TabIndex = 7;
+            this.tbxEnterCode.TabIndex = 1;
             // 
             // lblEnterEmail
             // 
@@ -84,8 +81,8 @@
             this.btnSendCode.Location = new System.Drawing.Point(471, 113);
             this.btnSendCode.Name = "btnSendCode";
             this.btnSendCode.Size = new System.Drawing.Size(117, 40);
-            this.btnSendCode.TabIndex = 10;
-            this.btnSendCode.Text = "Send Code";
+            this.btnSendCode.TabIndex = 4;
+            this.btnSendCode.Text = "&Send Code";
             this.btnSendCode.UseVisualStyleBackColor = true;
             this.btnSendCode.Click += new System.EventHandler(this.btnSendCode_Click);
             // 
@@ -104,7 +101,7 @@
             this.tbxNewPassword.Location = new System.Drawing.Point(106, 295);
             this.tbxNewPassword.Name = "tbxNewPassword";
             this.tbxNewPassword.Size = new System.Drawing.Size(350, 23);
-            this.tbxNewPassword.TabIndex = 11;
+            this.tbxNewPassword.TabIndex = 2;
             // 
             // btnConfirm
             // 
@@ -112,8 +109,8 @@
             this.btnConfirm.Location = new System.Drawing.Point(471, 344);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(117, 40);
-            this.btnConfirm.TabIndex = 13;
-            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.TabIndex = 5;
+            this.btnConfirm.Text = "Co&nfirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
@@ -132,7 +129,7 @@
             this.tbxConfirmPassword.Location = new System.Drawing.Point(106, 355);
             this.tbxConfirmPassword.Name = "tbxConfirmPassword";
             this.tbxConfirmPassword.Size = new System.Drawing.Size(350, 23);
-            this.tbxConfirmPassword.TabIndex = 14;
+            this.tbxConfirmPassword.TabIndex = 3;
             // 
             // btnCancel
             // 
@@ -140,29 +137,10 @@
             this.btnCancel.Location = new System.Drawing.Point(530, 449);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(117, 40);
-            this.btnCancel.TabIndex = 16;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // tsStatus
-            // 
-            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssDatabaseConnection});
-            this.tsStatus.Location = new System.Drawing.Point(0, 501);
-            this.tsStatus.Name = "tsStatus";
-            this.tsStatus.Size = new System.Drawing.Size(659, 35);
-            this.tsStatus.TabIndex = 17;
-            this.tsStatus.Text = "statusStrip1";
-            // 
-            // tssDatabaseConnection
-            // 
-            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
-            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
-            this.tssDatabaseConnection.Text = "Offline";
             // 
             // frmForgotPass
             // 
@@ -170,7 +148,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
-            this.Controls.Add(this.tsStatus);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.tbxConfirmPassword);
@@ -189,8 +166,6 @@
             this.Text = "Forgot Password";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmForgotPass_FormClosing);
             this.Load += new System.EventHandler(this.frmForgotPass_Load);
-            this.tsStatus.ResumeLayout(false);
-            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,7 +183,5 @@
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.TextBox tbxConfirmPassword;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.StatusStrip tsStatus;
-        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
     }
 }

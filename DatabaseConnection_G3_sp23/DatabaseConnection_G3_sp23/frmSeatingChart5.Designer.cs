@@ -106,6 +106,7 @@
             this.Name = "frmSeatingChart5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seating Chart";
+            this.Load += new System.EventHandler(this.frmSeatingChart5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentSeats)).EndInit();
             this.ResumeLayout(false);
 

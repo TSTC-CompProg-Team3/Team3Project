@@ -38,10 +38,7 @@
             this.cbxClassSize = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.tsStatus = new System.Windows.Forms.StatusStrip();
-            this.tssDatabaseConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnBack = new System.Windows.Forms.Button();
-            this.tsStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClassID
@@ -141,25 +138,6 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // tsStatus
-            // 
-            this.tsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssDatabaseConnection});
-            this.tsStatus.Location = new System.Drawing.Point(0, 501);
-            this.tsStatus.Name = "tsStatus";
-            this.tsStatus.Size = new System.Drawing.Size(659, 35);
-            this.tsStatus.TabIndex = 14;
-            this.tsStatus.Text = "statusStrip1";
-            // 
-            // tssDatabaseConnection
-            // 
-            this.tssDatabaseConnection.ActiveLinkColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tssDatabaseConnection.ForeColor = System.Drawing.Color.Red;
-            this.tssDatabaseConnection.Name = "tssDatabaseConnection";
-            this.tssDatabaseConnection.Size = new System.Drawing.Size(81, 30);
-            this.tssDatabaseConnection.Text = "Offline";
-            // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,7 +156,6 @@
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.tsStatus);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cbxClassSize);
@@ -195,8 +172,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Course";
             this.Load += new System.EventHandler(this.frmAddCourse_Load);
-            this.tsStatus.ResumeLayout(false);
-            this.tsStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,8 +188,6 @@
         private System.Windows.Forms.ComboBox cbxClassSize;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.StatusStrip tsStatus;
-        private System.Windows.Forms.ToolStripStatusLabel tssDatabaseConnection;
         private System.Windows.Forms.Button btnBack;
     }
 }
