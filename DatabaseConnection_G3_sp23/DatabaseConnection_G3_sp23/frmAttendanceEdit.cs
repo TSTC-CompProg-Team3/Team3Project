@@ -25,6 +25,13 @@ namespace DatabaseConnection_G3_sp23
             binding.DataSource = database.AttendanceInfo();
             dgvAttendanceEdit.DataSource = binding;
 
+            btnSubmitAttendEdit.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnSubmitAttendEdit.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnClearAttendEdit.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnClearAttendEdit.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnBackAttendEdit.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnBackAttendEdit.ForeColor = ColorTranslator.FromHtml("#191919");
+
             NameDropdown();
         }
 
@@ -61,11 +68,12 @@ namespace DatabaseConnection_G3_sp23
             dgvAttendanceEdit.Columns[1].HeaderCell.Value = "Date";
             dgvAttendanceEdit.Columns[2].HeaderCell.Value = "Present";
             dgvAttendanceEdit.Columns[3].HeaderCell.Value = "Date";
+            dgvAttendanceEdit.Columns[4].HeaderCell.Value = "Present";
 
             //Loop and style each column
             foreach (DataGridViewColumn col in dgvAttendanceEdit.Columns)
             {
-                col.Width = 220;
+                col.Width = 199;
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
@@ -84,7 +92,7 @@ namespace DatabaseConnection_G3_sp23
             first = selection.Substring(0, space);
             last = selection.Substring(space + 1);
 
-            string singleStudent = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
+            string singleStudent = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
             binding.DataSource = database.AttendanceInfo(singleStudent);
         }
     }

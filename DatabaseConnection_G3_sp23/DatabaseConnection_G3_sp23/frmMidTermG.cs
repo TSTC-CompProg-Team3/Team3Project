@@ -34,7 +34,7 @@ namespace DatabaseConnection_G3_sp23
         {
             grade = dgvMDG;
             DatabaseConnection.MidTermG(dgvMDG, counter);
-            DatabaseConnection.MidTermGName(tbxName);
+            //DatabaseConnection.MidTermGName(tbxName);
             midTermGradeManager = (CurrencyManager)this.BindingContext[DatabaseConnection.MidTermGDT];
         }
 
@@ -44,7 +44,7 @@ namespace DatabaseConnection_G3_sp23
 
             btnPrevious.BackColor = ColorTranslator.FromHtml("#F15025");
             midTermGradeManager.Position--;
-            database.Previous(tbxName, counter);
+            //database.Previous(tbxName, counter);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace DatabaseConnection_G3_sp23
 
             btnNext.BackColor = ColorTranslator.FromHtml("#F15025");
             midTermGradeManager.Position++;
-            database.Next(tbxName, counter);
+            //database.Next(tbxName, counter);
         }
     }
 }
