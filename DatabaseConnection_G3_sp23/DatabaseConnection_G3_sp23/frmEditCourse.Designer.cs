@@ -31,11 +31,11 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.tbxClassID = new System.Windows.Forms.TextBox();
+            this.tbxClassName = new System.Windows.Forms.TextBox();
             this.lblClassSize = new System.Windows.Forms.Label();
             this.lblSubjectID = new System.Windows.Forms.Label();
             this.lblTeacherID = new System.Windows.Forms.Label();
-            this.lblClassID = new System.Windows.Forms.Label();
+            this.lblClassName = new System.Windows.Forms.Label();
             this.cbxClassSize = new System.Windows.Forms.ComboBox();
             this.cbxSubjectID = new System.Windows.Forms.ComboBox();
             this.cbxTeacherID = new System.Windows.Forms.ComboBox();
@@ -74,13 +74,12 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // tbxClassID
+            // tbxClassName
             // 
-            this.tbxClassID.Enabled = false;
-            this.tbxClassID.Location = new System.Drawing.Point(296, 90);
-            this.tbxClassID.Name = "tbxClassID";
-            this.tbxClassID.Size = new System.Drawing.Size(157, 23);
-            this.tbxClassID.TabIndex = 20;
+            this.tbxClassName.Location = new System.Drawing.Point(296, 90);
+            this.tbxClassName.Name = "tbxClassName";
+            this.tbxClassName.Size = new System.Drawing.Size(157, 23);
+            this.tbxClassName.TabIndex = 20;
             // 
             // lblClassSize
             // 
@@ -112,15 +111,15 @@
             this.lblTeacherID.TabIndex = 17;
             this.lblTeacherID.Text = "Teacher ID";
             // 
-            // lblClassID
+            // lblClassName
             // 
-            this.lblClassID.AutoSize = true;
-            this.lblClassID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassID.Location = new System.Drawing.Point(164, 90);
-            this.lblClassID.Name = "lblClassID";
-            this.lblClassID.Size = new System.Drawing.Size(80, 25);
-            this.lblClassID.TabIndex = 16;
-            this.lblClassID.Text = "Class ID";
+            this.lblClassName.AutoSize = true;
+            this.lblClassName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassName.Location = new System.Drawing.Point(164, 90);
+            this.lblClassName.Name = "lblClassName";
+            this.lblClassName.Size = new System.Drawing.Size(112, 25);
+            this.lblClassName.TabIndex = 16;
+            this.lblClassName.Text = "Class Name";
             // 
             // cbxClassSize
             // 
@@ -162,11 +161,11 @@
             this.Controls.Add(this.cbxClassSize);
             this.Controls.Add(this.cbxSubjectID);
             this.Controls.Add(this.cbxTeacherID);
-            this.Controls.Add(this.tbxClassID);
+            this.Controls.Add(this.tbxClassName);
             this.Controls.Add(this.lblClassSize);
             this.Controls.Add(this.lblSubjectID);
             this.Controls.Add(this.lblTeacherID);
-            this.Controls.Add(this.lblClassID);
+            this.Controls.Add(this.lblClassName);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmEditCourse";
@@ -183,11 +182,11 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.TextBox tbxClassID;
+        private System.Windows.Forms.TextBox tbxClassName;
         private System.Windows.Forms.Label lblClassSize;
         private System.Windows.Forms.Label lblSubjectID;
         private System.Windows.Forms.Label lblTeacherID;
-        private System.Windows.Forms.Label lblClassID;
+        private System.Windows.Forms.Label lblClassName;
         private System.Windows.Forms.ComboBox cbxClassSize;
         private System.Windows.Forms.ComboBox cbxSubjectID;
         private System.Windows.Forms.ComboBox cbxTeacherID;

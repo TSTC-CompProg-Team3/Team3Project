@@ -224,11 +224,11 @@ namespace DatabaseConnection_G3_sp23
             
         }
 
-        internal static void AddCourse(TextBox tbxClassID, ComboBox cbxTeacherID, ComboBox cbxSubjectID, ComboBox cbxClassSize)
+        internal static void AddCourse(TextBox tbxClassName, ComboBox cbxTeacherID, ComboBox cbxSubjectID, ComboBox cbxClassSize)
         {
             database.OpenDatabase();
 
-            string classID = tbxClassID.Text;
+            string classID = tbxClassName.Text;
             string hold = cbxTeacherID.Text.ToString();
             string[] holdSplit = hold.Split('-');
             string teacherID = holdSplit[0].Trim();
@@ -244,11 +244,11 @@ namespace DatabaseConnection_G3_sp23
             MessageBox.Show("Course Successfully Created", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        internal static void LoadEditCourse(string courseID, TextBox tbxClassID, ComboBox cbxTeacherID, ComboBox cbxSubjectID, ComboBox cbxClassSize)
+        internal static void LoadEditCourse(string courseName, TextBox tbxClassID, ComboBox cbxTeacherID, ComboBox cbxSubjectID, ComboBox cbxClassSize)
         {
             database.OpenDatabase();
 
-            database.LoadEditCourse(courseID, tbxClassID, cbxTeacherID, cbxSubjectID);
+            database.LoadEditCourse(courseName, tbxClassID, cbxTeacherID, cbxSubjectID);
 
             if (cbxSubjectID.Items.Count > 0)
             {
@@ -265,11 +265,11 @@ namespace DatabaseConnection_G3_sp23
             database.CloseDatabase();
         }
 
-        internal static void EditCourse(TextBox tbxClassID, ComboBox cbxTeacherID, ComboBox cbxSubjectID, ComboBox cbxClassSize)
+        internal static void EditCourse(string classID, TextBox tbxClassName, ComboBox cbxTeacherID, ComboBox cbxSubjectID, ComboBox cbxClassSize)
         {
             database.OpenDatabase();
 
-            string classID = tbxClassID.Text;
+            string className = tbxClassName.Text;
             string hold = cbxTeacherID.Text.ToString();
             string[] holdSplit = hold.Split('-');
             string teacherID = holdSplit[0].Trim();
@@ -278,7 +278,7 @@ namespace DatabaseConnection_G3_sp23
             string subjectID = holdSplit[0].Trim();
             string classSize = cbxClassSize.Text;
 
-            database.EditCourse(classID, teacherID, subjectID, classSize);
+            database.EditCourse(classID, className, teacherID, subjectID, classSize);
 
             database.CloseDatabase();
 

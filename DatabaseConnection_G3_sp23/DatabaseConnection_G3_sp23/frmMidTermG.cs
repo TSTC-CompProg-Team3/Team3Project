@@ -32,28 +32,28 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmMidTermG_Load(object sender, EventArgs e)
         {
-            grade = dgvMDG;
-            DatabaseConnection.MidTermG(dgvMDG, counter);
-            DatabaseConnection.MidTermGName(tbxName);
-            midTermGradeManager = (CurrencyManager)this.BindingContext[DatabaseConnection.MidTermGDT];
+            //grade = dgvMDG;
+            //DatabaseConnection.MidTermG(dgvMDG, counter);
+            //DatabaseConnection.MidTermGName(tbxName);
+            //midTermGradeManager = (CurrencyManager)this.BindingContext[DatabaseConnection.MidTermGDT];
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            counter--;
+            //counter--;
 
-            btnPrevious.BackColor = ColorTranslator.FromHtml("#F15025");
-            midTermGradeManager.Position--;
-            database.Previous(tbxName, counter);
+            //btnPrevious.BackColor = ColorTranslator.FromHtml("#F15025");
+            //midTermGradeManager.Position--;
+            //database.Previous(tbxName, counter);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            counter++;
+            //counter++;
 
-            btnNext.BackColor = ColorTranslator.FromHtml("#F15025");
-            midTermGradeManager.Position++;
-            database.Next(tbxName, counter);
+            //btnNext.BackColor = ColorTranslator.FromHtml("#F15025");
+            //midTermGradeManager.Position++;
+            //database.Next(tbxName, counter);
         }
     }
 }

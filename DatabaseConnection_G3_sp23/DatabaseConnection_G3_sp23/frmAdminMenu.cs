@@ -8,6 +8,7 @@ namespace DatabaseConnection_G3_sp23
     public partial class frmAdminMenu : Form
     {
         public string courseID;
+        public string courseName;
         public string teacherID;
         public int loginID;
         public string accountType;
@@ -91,7 +92,8 @@ namespace DatabaseConnection_G3_sp23
             string hold = cbxCourseSelect.Text.ToString();
             string[] holdSplit = hold.Split('-');
             courseID = holdSplit[0].Trim();
-            frmEditCourse editCourse = new frmEditCourse(courseID);
+            courseName = holdSplit[1].Trim();
+            frmEditCourse editCourse = new frmEditCourse(courseID, courseName);
             editCourse.ShowDialog();
         }
 
@@ -125,7 +127,11 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmAdminMenu_Activated(object sender, EventArgs e)
         {
-            
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxSubjectSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxSubjectSelect, cbxTeacherSelect);
         }
     }
 }

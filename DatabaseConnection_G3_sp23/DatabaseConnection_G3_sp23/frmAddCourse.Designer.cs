@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblClassID = new System.Windows.Forms.Label();
+            this.lblClassName = new System.Windows.Forms.Label();
             this.lblTeacherID = new System.Windows.Forms.Label();
             this.lblSubjectID = new System.Windows.Forms.Label();
             this.lblClassSize = new System.Windows.Forms.Label();
@@ -41,15 +41,15 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblClassID
+            // lblClassName
             // 
-            this.lblClassID.AutoSize = true;
-            this.lblClassID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassID.Location = new System.Drawing.Point(178, 102);
-            this.lblClassID.Name = "lblClassID";
-            this.lblClassID.Size = new System.Drawing.Size(80, 25);
-            this.lblClassID.TabIndex = 4;
-            this.lblClassID.Text = "Class ID";
+            this.lblClassName.AutoSize = true;
+            this.lblClassName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassName.Location = new System.Drawing.Point(178, 102);
+            this.lblClassName.Name = "lblClassName";
+            this.lblClassName.Size = new System.Drawing.Size(112, 25);
+            this.lblClassName.TabIndex = 4;
+            this.lblClassName.Text = "Class Name";
             // 
             // lblTeacherID
             // 
@@ -165,7 +165,7 @@
             this.Controls.Add(this.lblClassSize);
             this.Controls.Add(this.lblSubjectID);
             this.Controls.Add(this.lblTeacherID);
-            this.Controls.Add(this.lblClassID);
+            this.Controls.Add(this.lblClassName);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmAddCourse";
@@ -178,7 +178,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblClassID;
+        private System.Windows.Forms.Label lblClassName;
         private System.Windows.Forms.Label lblTeacherID;
         private System.Windows.Forms.Label lblSubjectID;
         private System.Windows.Forms.Label lblClassSize;
