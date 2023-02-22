@@ -22,7 +22,6 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmAttendanceEdit_Load(object sender, EventArgs e)
         {
-            database.OpenDatabase();
             binding.DataSource = database.AttendanceInfo();
             dgvAttendanceEdit.DataSource = binding;
 
@@ -61,6 +60,7 @@ namespace DatabaseConnection_G3_sp23
             dgvAttendanceEdit.Columns[0].HeaderCell.Value = "Student";
             dgvAttendanceEdit.Columns[1].HeaderCell.Value = "Date";
             dgvAttendanceEdit.Columns[2].HeaderCell.Value = "Present";
+            dgvAttendanceEdit.Columns[3].HeaderCell.Value = "Date";
 
             //Loop and style each column
             foreach (DataGridViewColumn col in dgvAttendanceEdit.Columns)
@@ -84,7 +84,7 @@ namespace DatabaseConnection_G3_sp23
             first = selection.Substring(0, space);
             last = selection.Substring(space + 1);
 
-            string singleStudent = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.Date, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
+            string singleStudent = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
             binding.DataSource = database.AttendanceInfo(singleStudent);
         }
     }
