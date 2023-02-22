@@ -628,5 +628,107 @@ namespace DatabaseConnection_G3_sp23
 
             return table;
         }
+
+        
+        //add the command object
+        private static SqlCommand _midTermGCommand;
+
+        //data adapter
+        private static SqlDataAdapter _midTermG = new SqlDataAdapter();
+        //data tables
+        private static DataTable _midTermGTable = new DataTable();
+
+        public static DataTable MidTermGDT
+        {
+            get { return _midTermGTable; }
+           // set { _midTermGTable = value; }
+        }
+
+        public static void MidTermG(DataGridView dgvMDG, int counter)
+        {
+
+            
+            try
+            {
+                
+
+                string query = "Select AssignmentName ,AssignmentType,Grade From team3sp232330.Grades ";
+                //est command obj
+                _midTermGCommand = new SqlCommand(query, connection);
+                //est data adapter
+                //_midTermG = new SqlDataAdapter();
+                _midTermG.SelectCommand = _midTermGCommand;
+                //fill data table
+                //_midTermGTable = new DataTable();
+                _midTermG.Fill(_midTermGTable);
+                dgvMDG.DataSource= _midTermGTable;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in Processing SQL",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        ////add the command object
+        //private static SqlCommand _nameCommand;
+
+        ////data adapter
+        //private static SqlDataAdapter _nameAD = new SqlDataAdapter();
+        ////data tables
+        //private static DataTable _nameTable = new DataTable();
+
+        //public static void MidTermGName(TextBox tbxName)
+        //{
+        //    try
+        //    {
+        //        string query = "Select CONCAT(FirstName,' ',LastName) as studentName FROM team3sp232330.Student";
+        //        _nameCommand = new SqlCommand(query, connection);
+        //        _nameAD.SelectCommand = _nameCommand;
+        //        _nameAD.Fill(_nameTable);
+        //        tbxName.DataBindings.Add("Text", _nameTable, "studentName");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error in Processing SQL",
+        //            MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
+        //public void Next(TextBox tbxName, int counter)
+        //{
+        //    try
+        //    {
+        //        if (counter > _nameTable.Rows.Count - 1)
+        //        {
+        //            counter = _nameTable.Rows.Count - 1;
+        //        }
+        //        tbxName.Text = _nameTable.Rows[counter]["studentName"].ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
+        //public void Previous(TextBox tbxName, int counter)
+        //{
+        //    try
+        //    {
+        //        if (counter < 0)
+        //        {
+        //            counter = 0;
+        //        }
+        //        tbxName.Text = _nameTable.Rows[counter]["studentName"].ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
+    
     }
 }
