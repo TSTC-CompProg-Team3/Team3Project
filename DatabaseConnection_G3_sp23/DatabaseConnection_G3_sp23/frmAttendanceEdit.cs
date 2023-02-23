@@ -17,8 +17,8 @@ namespace DatabaseConnection_G3_sp23
         private string dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
         private string firstName = "All", lastName = "All";
 
-
-
+        //TODO: Filter query to current logged in teacher and selected class
+        //TODO: Ensure edits made are pushed to database
 
 
         public frmAttendanceEdit()
@@ -27,9 +27,7 @@ namespace DatabaseConnection_G3_sp23
         }
 
 
-
-
-
+        //Intial query and formatting on form load
         private void frmAttendanceEdit_Load(object sender, EventArgs e)
         {
             binding.DataSource = database.AttendanceInfo();
@@ -45,9 +43,6 @@ namespace DatabaseConnection_G3_sp23
 
             NameDropdown();
         }
-
-
-
 
 
         //Populate dropdown list of students to edit specific student
@@ -74,18 +69,14 @@ namespace DatabaseConnection_G3_sp23
         }
 
 
-
-
-
+        //Close edit form
         private void btnBackAttendEdit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
 
-
-
-
+        //Data grid cell formatting
         private void dgvAttendanceEdit_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             //DGV Column header names
@@ -104,9 +95,7 @@ namespace DatabaseConnection_G3_sp23
         }
 
 
-
-
-
+        //Query database for selected student
         private void cmbNamesEdit_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbNamesEdit.SelectedIndex == 0)
@@ -126,15 +115,15 @@ namespace DatabaseConnection_G3_sp23
         }
 
 
-
-
-
+        //Query database for selected date
         private void dtpAttendanceEdit_ValueChanged(object sender, EventArgs e)
         {
             dateSelection = dtpAttendanceEdit.Value.Date.ToString("yyyy-MM-dd");
             NewQuery(firstName, lastName, dateSelection);
         }
 
+
+        //Clear all current selctions and set to all students at current date
         private void btnClearAttendEdit_Click(object sender, EventArgs e)
         {
             cmbNamesEdit.SelectedIndex = 0;
@@ -145,6 +134,8 @@ namespace DatabaseConnection_G3_sp23
             NewQuery(firstName, lastName, dateSelection);
         }
 
+
+        //Query database with default or selected names and date
         private void NewQuery(string first, string last, string date)
         {
             string newQuery;
@@ -161,25 +152,5 @@ namespace DatabaseConnection_G3_sp23
 
             binding.DataSource = database.AttendanceInfo(newQuery);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
