@@ -57,6 +57,7 @@ namespace DatabaseConnection_G3_sp23
                 btnEditSubject.Visible = true;
                 btnRemoveSubject.Visible = true;
                 cbxSubjectSelect.Visible = true;
+                MessageBox.Show("Officer Functionality under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -99,39 +100,62 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnRemoveTeacher_Click(object sender, EventArgs e)
         {
-            ////checks if something is selected -CS
-            //if (cbxTeacherSelect.SelectedIndex > -1)
-            //{
-            //    //confirms if admin wants to remove course -CS
-            //    DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove the Teacher?", "Teacher Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //    if (dialogResult == DialogResult.Yes)
-            //    {
-            //        string hold = cbxTeacherSelect.Text.ToString();
-            //        string[] holdSplit = hold.Split('-');
-            //        teacherID = holdSplit[0].Trim();
-            //        database.RemoveTeacher(teacherID);
-            //        cbxTeacherSelect.Items.Clear();
-            //        cbxTeacherSelect.Text = "";
-            //        database.UpdateAdminMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect);
-            //    }
-            //    else if (dialogResult == DialogResult.No)
-            //    {
-
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please select a course for removal", "Course Removal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-        }
-
-        private void frmAdminMenu_Activated(object sender, EventArgs e)
-        {
+            clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
             cbxCourseSelect.Items.Clear();
             cbxStudentSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxSubjectSelect, cbxTeacherSelect);
+        }
+
+        private void frmAdminMenu_Activated(object sender, EventArgs e)
+        {
+            //Trying to find best way to update data
+            //cbxCourseSelect.Items.Clear();
+            //cbxStudentSelect.Items.Clear();
+            //cbxSubjectSelect.Items.Clear();
+            //cbxTeacherSelect.Items.Clear();
+            //clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxSubjectSelect, cbxTeacherSelect);
+        }
+
+        private void btnAddTeacher_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnEditTeacher_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Edit Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnRemoveStudent_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Remove Student under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnEditStudent_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Edit Student under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add Student under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnRemoveSubject_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Remove Subject under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnEditSubject_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Edit Subject under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnAddSubject_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Add Subject under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

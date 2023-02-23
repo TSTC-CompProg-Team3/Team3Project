@@ -67,6 +67,7 @@
             this.btnAddTeacher.TabIndex = 4;
             this.btnAddTeacher.Text = "Add Teacher";
             this.btnAddTeacher.UseVisualStyleBackColor = true;
+            this.btnAddTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
             // 
             // btnRemoveCourse
             // 
@@ -126,6 +127,7 @@
             this.btnRemoveStudent.TabIndex = 10;
             this.btnRemoveStudent.Text = "Remove Student";
             this.btnRemoveStudent.UseVisualStyleBackColor = true;
+            this.btnRemoveStudent.Click += new System.EventHandler(this.btnRemoveStudent_Click);
             // 
             // cbxStudentSelect
             // 
@@ -144,6 +146,7 @@
             this.btnAddStudent.TabIndex = 8;
             this.btnAddStudent.Text = "Add Student";
             this.btnAddStudent.UseVisualStyleBackColor = true;
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // btnEditStudent
             // 
@@ -154,6 +157,7 @@
             this.btnEditStudent.TabIndex = 9;
             this.btnEditStudent.Text = "Edit Student";
             this.btnEditStudent.UseVisualStyleBackColor = true;
+            this.btnEditStudent.Click += new System.EventHandler(this.btnEditStudent_Click);
             // 
             // btnEditCourse
             // 
@@ -175,6 +179,7 @@
             this.btnEditTeacher.TabIndex = 5;
             this.btnEditTeacher.Text = "Edit Teacher";
             this.btnEditTeacher.UseVisualStyleBackColor = true;
+            this.btnEditTeacher.Click += new System.EventHandler(this.btnEditTeacher_Click);
             // 
             // btnEditSubject
             // 
@@ -186,6 +191,7 @@
             this.btnEditSubject.Text = "Edit Subject";
             this.btnEditSubject.UseVisualStyleBackColor = true;
             this.btnEditSubject.Visible = false;
+            this.btnEditSubject.Click += new System.EventHandler(this.btnEditSubject_Click);
             // 
             // btnRemoveSubject
             // 
@@ -197,6 +203,7 @@
             this.btnRemoveSubject.Text = "Remove Subject";
             this.btnRemoveSubject.UseVisualStyleBackColor = true;
             this.btnRemoveSubject.Visible = false;
+            this.btnRemoveSubject.Click += new System.EventHandler(this.btnRemoveSubject_Click);
             // 
             // cbxSubjectSelect
             // 
@@ -217,6 +224,7 @@
             this.btnAddSubject.Text = "Add Subject";
             this.btnAddSubject.UseVisualStyleBackColor = true;
             this.btnAddSubject.Visible = false;
+            this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
             // 
             // frmAdminMenu
             // 

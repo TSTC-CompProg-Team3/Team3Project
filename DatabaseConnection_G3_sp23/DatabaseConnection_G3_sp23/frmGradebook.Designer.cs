@@ -135,6 +135,7 @@
             this.btnMidterm.TabIndex = 38;
             this.btnMidterm.Text = "Midterm &Grades";
             this.btnMidterm.UseVisualStyleBackColor = false;
+            this.btnMidterm.Click += new System.EventHandler(this.btnMidterm_Click);
             // 
             // btnBack
             // 

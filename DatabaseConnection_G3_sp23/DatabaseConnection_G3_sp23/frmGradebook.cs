@@ -82,5 +82,11 @@ namespace DatabaseConnection_G3_sp23
             //frmEditGradebook frmEditGradebook = new frmEditGradebook(this);
             //frmEditGradebook.Show();
         }
+
+        private void btnMidterm_Click(object sender, EventArgs e)
+        {
+            frmMidTermG midterm = new frmMidTermG();
+            midterm.ShowDialog();
+        }
     }
 }
