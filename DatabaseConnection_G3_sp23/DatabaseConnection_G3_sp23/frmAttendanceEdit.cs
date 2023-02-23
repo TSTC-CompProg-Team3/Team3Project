@@ -14,11 +14,21 @@ namespace DatabaseConnection_G3_sp23
     {
         private BindingSource binding = new BindingSource();
         private DatabaseConnection database = new DatabaseConnection();
+        private string dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
+        private string firstName = "All", lastName = "All";
+
+
+
+
 
         public frmAttendanceEdit()
         {
             InitializeComponent();
         }
+
+
+
+
 
         private void frmAttendanceEdit_Load(object sender, EventArgs e)
         {
@@ -32,13 +42,20 @@ namespace DatabaseConnection_G3_sp23
             btnBackAttendEdit.BackColor = ColorTranslator.FromHtml("#F15025");
             btnBackAttendEdit.ForeColor = ColorTranslator.FromHtml("#191919");
 
+
             NameDropdown();
         }
+
+
+
+
 
         //Populate dropdown list of students to edit specific student
         private void NameDropdown()
         {
             List<string> students = new List<string>();
+
+            cmbNamesEdit.Items.Add("All Students");
 
             foreach (DataRowView row in binding)
             {
@@ -56,10 +73,18 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
+
+
+
+
         private void btnBackAttendEdit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
+
+
 
         private void dgvAttendanceEdit_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -78,22 +103,83 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
+
+
+
+
         private void cmbNamesEdit_SelectedValueChanged(object sender, EventArgs e)
         {
-            ViewStudent();
+            if (cmbNamesEdit.SelectedIndex == 0)
+            {
+                NewQuery("All", "All", dateSelection);
+            }
+            else 
+            {
+                int space;
+                string selection = cmbNamesEdit.SelectedItem.ToString();
+                space = selection.IndexOf(" ");
+                firstName = selection.Substring(0, space);
+                lastName = selection.Substring(space + 1);
+
+                NewQuery(firstName, lastName, dateSelection);
+            }
         }
 
-        //Select and display single student in data grid
-        private void ViewStudent()
+
+
+
+
+        private void dtpAttendanceEdit_ValueChanged(object sender, EventArgs e)
         {
-            int space;
-            string first, last, selection = cmbNamesEdit.SelectedItem.ToString();
-            space = selection.IndexOf(" ");
-            first = selection.Substring(0, space);
-            last = selection.Substring(space + 1);
-
-            string singleStudent = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
-            binding.DataSource = database.AttendanceInfo(singleStudent);
+            dateSelection = dtpAttendanceEdit.Value.Date.ToString("yyyy-MM-dd");
+            NewQuery(firstName, lastName, dateSelection);
         }
+
+        private void btnClearAttendEdit_Click(object sender, EventArgs e)
+        {
+            cmbNamesEdit.SelectedIndex = 0;
+            dtpAttendanceEdit.Value = DateTime.Now;
+            dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
+            firstName = "All";
+            lastName = "All";
+            NewQuery(firstName, lastName, dateSelection);
+        }
+
+        private void NewQuery(string first, string last, string date)
+        {
+            string newQuery;
+
+
+            if ((first.Equals("All") && last.Equals("All")) || first == null || last == null)
+            {
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "';";
+            }
+            else 
+            {
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "' AND s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
+            }
+
+            binding.DataSource = database.AttendanceInfo(newQuery);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

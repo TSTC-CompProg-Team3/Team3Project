@@ -15,6 +15,10 @@ namespace DatabaseConnection_G3_sp23
         DatabaseConnection database = new DatabaseConnection();
         private BindingSource binding = new BindingSource();
 
+        //TODO: Filter query to current logged in teacher and selected class
+        //TODO: Ensure edits made are pushed to database
+
+
         public frmAttendance()
         {
             InitializeComponent();
