@@ -61,6 +61,7 @@
             this.btnClearAttendEdit.TabIndex = 18;
             this.btnClearAttendEdit.Text = "Clear";
             this.btnClearAttendEdit.UseVisualStyleBackColor = true;
+            this.btnClearAttendEdit.Click += new System.EventHandler(this.btnClearAttendEdit_Click);
             // 
             // btnSubmitAttendEdit
             // 
@@ -88,6 +89,7 @@
             this.dtpAttendanceEdit.Name = "dtpAttendanceEdit";
             this.dtpAttendanceEdit.Size = new System.Drawing.Size(207, 20);
             this.dtpAttendanceEdit.TabIndex = 22;
+            this.dtpAttendanceEdit.ValueChanged += new System.EventHandler(this.dtpAttendanceEdit_ValueChanged);
             // 
             // cmbNamesEdit
             // 

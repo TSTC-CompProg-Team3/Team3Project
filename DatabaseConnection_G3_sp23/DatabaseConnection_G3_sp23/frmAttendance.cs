@@ -15,6 +15,10 @@ namespace DatabaseConnection_G3_sp23
         DatabaseConnection database = new DatabaseConnection();
         private BindingSource binding = new BindingSource();
 
+        //TODO: Filter query to current logged in teacher and selected class
+        //TODO: Ensure edits made are pushed to database
+
+
         public frmAttendance()
         {
             InitializeComponent();
@@ -51,6 +55,7 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnBackAttend_Click(object sender, EventArgs e)
         {
+            database.CloseDatabase();
             this.Close();
         }
 
