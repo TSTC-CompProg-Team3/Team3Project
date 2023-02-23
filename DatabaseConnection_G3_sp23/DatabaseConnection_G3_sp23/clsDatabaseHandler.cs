@@ -284,5 +284,34 @@ namespace DatabaseConnection_G3_sp23
 
             MessageBox.Show("Course Successfully Editted", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        internal static void RemoveTeacher(ComboBox cbxTeacherSelect)
+        {
+            database.OpenDatabase();
+            string teacherID;
+            //checks if something is selected -CS
+            if (cbxTeacherSelect.SelectedIndex > -1)
+            {
+                //confirms if admin wants to remove course -CS
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove the Teacher?", "Teacher Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string hold = cbxTeacherSelect.Text.ToString();
+                    string[] holdSplit = hold.Split('-');
+                    teacherID = holdSplit[0].Trim();
+                    database.RemoveTeacher(teacherID);
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a course for removal", "Course Removal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            database.CloseDatabase();
+        }
     }
 }

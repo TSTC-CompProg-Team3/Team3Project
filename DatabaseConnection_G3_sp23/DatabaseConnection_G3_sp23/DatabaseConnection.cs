@@ -340,24 +340,28 @@ namespace DatabaseConnection_G3_sp23
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
+        //removes teacher from the database -CS
+        public void RemoveTeacher(string teacherID)
+        {
+            //try
+            //{
+            //    string query = "DELETE c FROM team3sp232330.Class c WHERE c.TeacherID = @teacherID DELETE t FROM team3sp232330.Teacher t INNER JOIN team3sp232330.Class c ON t.TeacherID = c.TeacherID WHERE t.TeacherID = @teacherID ";
 
-        //public void RemoveTeacher(string teacherID)
-        //{
-        //    try
-        //    {
-        //        string query = "DELETE team3sp232330.Teacher WHERE TeacherID = @teacherID";
+            //    using (SqlCommand command = new SqlCommand(query, connection))
+            //    {
+            //        command.Parameters.AddWithValue("@teacherID", teacherID);
+            //        command.ExecuteNonQuery();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
-        //        using (SqlCommand command = new SqlCommand(query, connection))
-        //        {
-        //            command.Parameters.AddWithValue("@TeacherID", teacherID);
-        //            command.ExecuteNonQuery();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+            MessageBox.Show("Remove Teacher under construction due to database foreign keys", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
 
         private static DataTable _gradeBookDataTable;
 
@@ -607,7 +611,7 @@ namespace DatabaseConnection_G3_sp23
 
         public DataTable AttendanceInfo()
         {
-            SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID;", connection);
+            SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID;", connection);
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = command;
 
@@ -674,63 +678,64 @@ namespace DatabaseConnection_G3_sp23
         }
 
 
+
         ////add the command object
         //private static SqlCommand _nameCommand;
 
-        ////data adapter
-        //private static SqlDataAdapter _nameAD = new SqlDataAdapter();
-        ////data tables
-        //private static DataTable _nameTable = new DataTable();
+            ////data adapter
+            //private static SqlDataAdapter _nameAD = new SqlDataAdapter();
+            ////data tables
+            //private static DataTable _nameTable = new DataTable();
 
-        //public static void MidTermGName(TextBox tbxName)
-        //{
-        //    try
-        //    {
-        //        string query = "Select CONCAT(FirstName,' ',LastName) as studentName FROM team3sp232330.Student";
-        //        _nameCommand = new SqlCommand(query, connection);
-        //        _nameAD.SelectCommand = _nameCommand;
-        //        _nameAD.Fill(_nameTable);
-        //        tbxName.DataBindings.Add("Text", _nameTable, "studentName");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error in Processing SQL",
-        //            MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+            //public static void MidTermGName(TextBox tbxName)
+            //{
+            //    try
+            //    {
+            //        string query = "Select CONCAT(FirstName,' ',LastName) as studentName FROM team3sp232330.Student";
+            //        _nameCommand = new SqlCommand(query, connection);
+            //        _nameAD.SelectCommand = _nameCommand;
+            //        _nameAD.Fill(_nameTable);
+            //        tbxName.DataBindings.Add("Text", _nameTable, "studentName");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Error in Processing SQL",
+            //            MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
 
-        //public void Next(TextBox tbxName, int counter)
-        //{
-        //    try
-        //    {
-        //        if (counter > _nameTable.Rows.Count - 1)
-        //        {
-        //            counter = _nameTable.Rows.Count - 1;
-        //        }
-        //        tbxName.Text = _nameTable.Rows[counter]["studentName"].ToString();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+            //public void Next(TextBox tbxName, int counter)
+            //{
+            //    try
+            //    {
+            //        if (counter > _nameTable.Rows.Count - 1)
+            //        {
+            //            counter = _nameTable.Rows.Count - 1;
+            //        }
+            //        tbxName.Text = _nameTable.Rows[counter]["studentName"].ToString();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
 
-        //public void Previous(TextBox tbxName, int counter)
-        //{
-        //    try
-        //    {
-        //        if (counter < 0)
-        //        {
-        //            counter = 0;
-        //        }
-        //        tbxName.Text = _nameTable.Rows[counter]["studentName"].ToString();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+            //public void Previous(TextBox tbxName, int counter)
+            //{
+            //    try
+            //    {
+            //        if (counter < 0)
+            //        {
+            //            counter = 0;
+            //        }
+            //        tbxName.Text = _nameTable.Rows[counter]["studentName"].ToString();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
 
-    
+
     }
 }
