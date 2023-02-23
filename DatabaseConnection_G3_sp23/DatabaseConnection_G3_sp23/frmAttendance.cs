@@ -51,6 +51,7 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnBackAttend_Click(object sender, EventArgs e)
         {
+            database.CloseDatabase();
             this.Close();
         }
 
