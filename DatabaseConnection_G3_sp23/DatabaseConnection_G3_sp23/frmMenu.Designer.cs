@@ -104,7 +104,7 @@
             // btnAdmin
             // 
             this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdmin.Location = new System.Drawing.Point(460, 265);
+            this.btnAdmin.Location = new System.Drawing.Point(486, 277);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(117, 40);
             this.btnAdmin.TabIndex = 6;
@@ -116,13 +116,14 @@
             // btnOfficer
             // 
             this.btnOfficer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOfficer.Location = new System.Drawing.Point(460, 265);
+            this.btnOfficer.Location = new System.Drawing.Point(486, 277);
             this.btnOfficer.Name = "btnOfficer";
             this.btnOfficer.Size = new System.Drawing.Size(117, 40);
             this.btnOfficer.TabIndex = 7;
             this.btnOfficer.Text = "&Officer";
             this.btnOfficer.UseVisualStyleBackColor = true;
             this.btnOfficer.Visible = false;
+            this.btnOfficer.Click += new System.EventHandler(this.btnOfficer_Click);
             // 
             // frmMenu
             // 

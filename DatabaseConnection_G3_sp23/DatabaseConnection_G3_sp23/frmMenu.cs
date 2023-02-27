@@ -74,7 +74,9 @@ namespace DatabaseConnection_G3_sp23
             btnLogOut.ForeColor = ColorTranslator.FromHtml("#191919");
             btnAdmin.BackColor = ColorTranslator.FromHtml("#F15025");
             btnAdmin.ForeColor = ColorTranslator.FromHtml("#191919");
-            
+            btnOfficer.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnOfficer.ForeColor = ColorTranslator.FromHtml("#191919");
+
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
@@ -131,6 +133,13 @@ namespace DatabaseConnection_G3_sp23
             }
             
 
+        }
+
+        private void btnOfficer_Click(object sender, EventArgs e)
+        {
+            //goes to admin menu -CS
+            frmAdminMenu adminMenu = new frmAdminMenu(loginID, accountType);
+            adminMenu.ShowDialog();
         }
     }
 }
