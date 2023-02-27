@@ -50,6 +50,8 @@ namespace DatabaseConnection_G3_sp23
 
             lblUsernameWarning.Visible = false;
             lblPasswordWarning.Visible = false;
+
+            tbxPassword.UseSystemPasswordChar = true;
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -88,6 +90,18 @@ namespace DatabaseConnection_G3_sp23
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             isClosing = false;
+        }
+
+        private void cbxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxShowPassword.Checked)
+            {
+                tbxPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tbxPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }

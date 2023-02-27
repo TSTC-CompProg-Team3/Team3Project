@@ -45,9 +45,11 @@ namespace DatabaseConnection_G3_sp23
             string password = tbxPassword.Text;
 
             List<clsUser> tempList = database.userList.ToList();
+            bool usernameMatch = false;
+            bool passwordMatch = false;
+
             foreach (clsUser item in tempList)
             {
-
                 if (username.ToLower() == item.userName.ToLower() && password == item.passWord)
                 {
                     int loginID = item.loginID;
@@ -59,21 +61,30 @@ namespace DatabaseConnection_G3_sp23
                     menu.ShowDialog();
                     return;
                 }
-                else if (username.ToLower() == item.userName.ToLower() && password != item.passWord)
+                else if (username.ToLower() == item.userName.ToLower())
                 {
-                    lblPasswordWarning.Visible = true;
+                    usernameMatch = true;
                 }
-                else if (password == item.passWord && username.ToLower() != item.userName.ToLower())
+                else if (password == item.passWord)
                 {
-                    lblUsernameWarning.Visible = true;
+                    passwordMatch = true;
                 }
-                else
-                {
-                    lblPasswordWarning.Visible = true;
-                    lblUsernameWarning.Visible = true;
-                }
-
             }
+
+            if (usernameMatch && passwordMatch)
+            {
+                lblPasswordWarning.Visible = true;
+                lblUsernameWarning.Visible = true;
+            }
+            else if (usernameMatch)
+            {
+                lblPasswordWarning.Visible = true;
+            }
+            else if (passwordMatch)
+            {
+                lblUsernameWarning.Visible = true;
+            }
+
             database.CloseDatabase();
         }
 

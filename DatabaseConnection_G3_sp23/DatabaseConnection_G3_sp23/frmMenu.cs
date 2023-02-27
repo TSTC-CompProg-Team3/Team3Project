@@ -42,7 +42,7 @@ namespace DatabaseConnection_G3_sp23
             switch (accountType)
             {
                 case "Officer":
-                    btnAdmin.Visible = true;
+                    btnOfficer.Visible = true;
                     break;
 
                 case "Admin":
@@ -51,10 +51,12 @@ namespace DatabaseConnection_G3_sp23
 
                 case "Teacher":
                     btnAdmin.Visible = false;
+                    btnOfficer.Visible = false;
                     break;
 
                 case "Student":
                     btnAdmin.Visible = false;
+                    btnOfficer.Visible = false;
                     break;
 
                 default:
