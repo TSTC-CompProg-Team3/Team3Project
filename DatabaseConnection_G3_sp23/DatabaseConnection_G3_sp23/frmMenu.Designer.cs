@@ -36,6 +36,7 @@
             this.btnSeatingChart = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
+            this.btnOfficer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +104,7 @@
             // btnAdmin
             // 
             this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdmin.Location = new System.Drawing.Point(460, 265);
+            this.btnAdmin.Location = new System.Drawing.Point(486, 277);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(117, 40);
             this.btnAdmin.TabIndex = 6;
@@ -112,12 +113,25 @@
             this.btnAdmin.Visible = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
+            // btnOfficer
+            // 
+            this.btnOfficer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOfficer.Location = new System.Drawing.Point(486, 277);
+            this.btnOfficer.Name = "btnOfficer";
+            this.btnOfficer.Size = new System.Drawing.Size(117, 40);
+            this.btnOfficer.TabIndex = 7;
+            this.btnOfficer.Text = "&Officer";
+            this.btnOfficer.UseVisualStyleBackColor = true;
+            this.btnOfficer.Visible = false;
+            this.btnOfficer.Click += new System.EventHandler(this.btnOfficer_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.btnOfficer);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnSeatingChart);
@@ -146,5 +160,6 @@
         private System.Windows.Forms.Button btnSeatingChart;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.Button btnOfficer;
     }
 }

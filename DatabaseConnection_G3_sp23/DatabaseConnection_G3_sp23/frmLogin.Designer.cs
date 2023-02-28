@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsernameWarning = new System.Windows.Forms.Label();
             this.lblPasswordWarning = new System.Windows.Forms.Label();
+            this.cbxShowPassword = new System.Windows.Forms.CheckBox();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,11 +160,23 @@
             this.lblPasswordWarning.TabIndex = 10;
             this.lblPasswordWarning.Text = "Sorry, that password isn\'t correct, you can click forgot my password to reset";
             // 
+            // cbxShowPassword
+            // 
+            this.cbxShowPassword.AutoSize = true;
+            this.cbxShowPassword.Location = new System.Drawing.Point(396, 287);
+            this.cbxShowPassword.Name = "cbxShowPassword";
+            this.cbxShowPassword.Size = new System.Drawing.Size(108, 19);
+            this.cbxShowPassword.TabIndex = 11;
+            this.cbxShowPassword.Text = "Show Password";
+            this.cbxShowPassword.UseVisualStyleBackColor = true;
+            this.cbxShowPassword.CheckedChanged += new System.EventHandler(this.cbxShowPassword_CheckedChanged);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
+            this.Controls.Add(this.cbxShowPassword);
             this.Controls.Add(this.lblPasswordWarning);
             this.Controls.Add(this.lblUsernameWarning);
             this.Controls.Add(this.tbxPassword);
@@ -174,6 +188,7 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.mnuStrip);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmLogin";
@@ -204,6 +219,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label lblUsernameWarning;
         private System.Windows.Forms.Label lblPasswordWarning;
+        private System.Windows.Forms.CheckBox cbxShowPassword;
     }
 }
 
