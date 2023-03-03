@@ -32,25 +32,22 @@ namespace DatabaseConnection_G3_sp23
             grade = dgvGradeBook;
             DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
             database.GradeCalculations(dgvcounter, dgvGradeBook, lblTotal, lblQuiz, lblParticipation, lblHomework, lblLab, lblTest);
-            database.GradeBookName(lblName);
+            DatabaseConnection.MidTermGName(tbxName);
         }
 
-        int counter;
 
         private void btnNext_Click(object sender, EventArgs e)
         {
             dgvcounter++;
-            counter++;
             DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
-            database.Next(lblName, counter);
+            database.Next(tbxName);
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
             dgvcounter--;
-            counter--;
             DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
-            database.Prev(lblName, counter);
+            database.Previous(tbxName);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
