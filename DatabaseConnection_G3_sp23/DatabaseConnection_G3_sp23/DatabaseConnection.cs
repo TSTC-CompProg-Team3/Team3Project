@@ -362,6 +362,185 @@ namespace DatabaseConnection_G3_sp23
             MessageBox.Show("Remove Teacher under construction due to database foreign keys", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public void AddStudent(string firstName, string middleName, string lastName, DateTime dateOfBirth, string phoneNumber, string mailingAddress, string streetAddress, string city, string state, string zip, string email, string username, string password, string emerContactName, string emerContactPhone, string guardianName, string guardianCell, string guardianWorkPhone, string guardianWorkPl)
+        {
+            try
+            {
+                string query = "INSERT INTO team3sp232330.Login (Email, UserName, Password, AccountType) VALUES (@email, @userName, @password, 'student')";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@userName", username);
+                    command.Parameters.AddWithValue("@password", password);
+                    command.ExecuteNonQuery();
+                }
+
+                query = "INSERT INTO team3sp232330.Student VALUES ((SELECT TOP 1 LoginID FROM team3sp232330.Login ORDER BY LoginID DESC), @firstName, @middleName, @lastName, @dateOfBirth," +
+                    "@mailingAddress, @streetAddress, @city, @state, @zip, @phoneNumber, @emergencyContactName, @emergencyContactPhone," +
+                    "@guardian1Name, @guardian1CellPhone, @guardian1WorkPhone, @guardian1WorkPlace)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@firstName", firstName);
+                    command.Parameters.AddWithValue("@middleName", middleName);
+                    command.Parameters.AddWithValue("@lastName", lastName);
+                    command.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
+                    command.Parameters.AddWithValue("@mailingAddress", mailingAddress);
+                    command.Parameters.AddWithValue("@streetAddress", streetAddress);
+                    command.Parameters.AddWithValue("@city", city);
+                    command.Parameters.AddWithValue("@state", state);
+                    command.Parameters.AddWithValue("@zip", zip);
+                    command.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+                    command.Parameters.AddWithValue("@emergencyContactName", emerContactName);
+                    command.Parameters.AddWithValue("@emergencyContactPhone", emerContactPhone);
+                    command.Parameters.AddWithValue("@guardian1Name", guardianName);
+                    command.Parameters.AddWithValue("@guardian1CellPhone", guardianCell);
+                    command.Parameters.AddWithValue("@guardian1WorkPhone", guardianWorkPhone);
+                    command.Parameters.AddWithValue("@guardian1WorkPlace", guardianWorkPl);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void RemoveStudent(string studentID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT LoginID FROM team3sp232330.Student WHERE StudentID = " + studentID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                int loginID = -1;
+
+                while (reader.Read())
+                {
+                     loginID = (int)reader["LoginID"];
+                }
+                reader.Close();
+
+                string query = "DELETE team3sp232330.Student WHERE StudentID = @studentID DELETE team3sp232330.Login WHERE LoginID = " + loginID;
+
+                using (command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@StudentID", studentID);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadEditStudent(string studentID, TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName, 
+            DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity, 
+            TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName, 
+            TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, 
+            TextBox tbxGuardianWorkPl)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Student WHERE StudentID = " + studentID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                int loginID = -1;
+
+                while (reader.Read())
+                {
+                    tbxFirstName.Text = (string)reader["FirstName"];
+                    tbxMiddleName.Text = (string)reader["MiddleName"];
+                    tbxLastName.Text = (string)reader["LastName"];
+                    dtpDateOfBirth.Value = (DateTime)reader["DateOfBirth"];
+                    tbxPhoneNumber.Text = (string)reader["PhoneNumber"];
+                    tbxMailingAddress.Text = (string)reader["MailingAddress"];
+                    tbxStreetAddress.Text = (string)reader["StreetAddress"];
+                    tbxCity.Text = (string)reader["City"];
+                    tbxState.Text = (string)reader["State"];
+                    tbxZip.Text = (string)reader["Zip"];
+                    tbxEmerContactName.Text = (string)reader["EmergencyContactName"];
+                    tbxEmerContactPhone.Text = (string)reader["EmergencyContactPhone"];
+                    tbxGuardianName.Text = (string)reader["Guardian1Name"];
+                    tbxGuardianCell.Text = (string)reader["Guardian1CellPhone"];
+                    tbxGuardianWork.Text = (string)reader["Guardian1WorkPhone"];
+                    tbxGuardianWorkPl.Text = (string)reader["Guardian1WorkPlace"];
+                    loginID = (int)reader["LoginID"];
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT * FROM team3sp232330.Login WHERE LoginID = " + loginID, connection);
+                reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    tbxEmail.Text = (string)reader["Email"];
+                    tbxUsername.Text = (string)reader["UserName"];
+                    tbxPassword.Text = (string)reader["Password"];
+
+                }
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void EditStudent(string studentID, string firstName, string middleName, string lastName, DateTime dateOfBirth, string phoneNumber, string mailingAddress, string streetAddress, string city, string state, string zip, string email, string username, string password, string emerContactName, string emerContactPhone, string guardianName, string guardianCell, string guardianWorkPhone, string guardianWorkPl)
+        {
+            try
+            {
+                
+
+                string query = "UPDATE team3sp232330.Student SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName," +
+                    " DateOfBirth = @dateOfBirth, MailingAddress = @mailingAddress, StreetAddress = @streetAddress, City = @city," +
+                    " State = @state, Zip = @zip, PhoneNumber = @phoneNumber, EmergencyContactName = @emergencyContactName, " +
+                    "EmergencyContactPhone = @emergencyContactPhone, Guardian1Name = @guardian1Name, Guardian1CellPhone = @guardian1CellPhone," +
+                    " Guardian1WorkPhone = @guardian1WorkPhone, Guardian1WorkPlace = @guardian1WorkPlace WHERE StudentID = " + studentID;
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@firstName", firstName);
+                    command.Parameters.AddWithValue("@middleName", middleName);
+                    command.Parameters.AddWithValue("@lastName", lastName);
+                    command.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
+                    command.Parameters.AddWithValue("@mailingAddress", mailingAddress);
+                    command.Parameters.AddWithValue("@streetAddress", streetAddress);
+                    command.Parameters.AddWithValue("@city", city);
+                    command.Parameters.AddWithValue("@state", state);
+                    command.Parameters.AddWithValue("@zip", zip);
+                    command.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+                    command.Parameters.AddWithValue("@emergencyContactName", emerContactName);
+                    command.Parameters.AddWithValue("@emergencyContactPhone", emerContactPhone);
+                    command.Parameters.AddWithValue("@guardian1Name", guardianName);
+                    command.Parameters.AddWithValue("@guardian1CellPhone", guardianCell);
+                    command.Parameters.AddWithValue("@guardian1WorkPhone", guardianWorkPhone);
+                    command.Parameters.AddWithValue("@guardian1WorkPlace", guardianWorkPl);
+                    command.ExecuteNonQuery();
+                }
+
+                query = "UPDATE team3sp232330.Login SET Email = @email, UserName = @userName, Password = @password WHERE LoginID = (SELECT LoginID FROM team3sp232330.Student WHERE StudentID = " + studentID + ")";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@userName", username);
+                    command.Parameters.AddWithValue("@password", password);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private static DataTable _gradeBookDataTable;
 
@@ -746,6 +925,7 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
+        
     }
 
 
