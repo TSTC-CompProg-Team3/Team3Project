@@ -312,12 +312,12 @@
             // 
             this.tbxName.Location = new System.Drawing.Point(604, 8);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(176, 31);
+            this.tbxName.Size = new System.Drawing.Size(176, 23);
             this.tbxName.TabIndex = 44;
             // 
             // frmGradebook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

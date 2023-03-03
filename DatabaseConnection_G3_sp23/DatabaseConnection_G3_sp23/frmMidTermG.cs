@@ -30,8 +30,9 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
             btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
+            this.Close();
+            
         }
         
 
