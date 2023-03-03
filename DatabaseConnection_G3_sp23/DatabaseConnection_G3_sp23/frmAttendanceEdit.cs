@@ -81,19 +81,24 @@ namespace DatabaseConnection_G3_sp23
         {
             //DGV Column header names
             dgvAttendanceEdit.Columns[0].HeaderCell.Value = "Student";
-            dgvAttendanceEdit.Columns[1].HeaderCell.Value = "Date";
-            dgvAttendanceEdit.Columns[2].HeaderCell.Value = "Present";
+            dgvAttendanceEdit.Columns[1].HeaderCell.Value = "Student ID";
+            dgvAttendanceEdit.Columns[2].HeaderCell.Value = "Class ID";
             dgvAttendanceEdit.Columns[3].HeaderCell.Value = "Date";
             dgvAttendanceEdit.Columns[4].HeaderCell.Value = "Present";
 
             //Loop and style each column
             foreach (DataGridViewColumn col in dgvAttendanceEdit.Columns)
             {
-                col.Width = 82;
+                if (col.Index == 0)
+                {
+                    col.Width = 155;
+                }
+                else
+                {
+                    col.Width = 82;
+                }
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-
-            dgvAttendanceEdit.Columns[0].Width = 155;
         }
 
 
