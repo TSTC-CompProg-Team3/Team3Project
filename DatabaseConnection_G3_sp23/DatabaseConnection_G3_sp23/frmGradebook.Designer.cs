@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGradebook));
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -48,8 +49,8 @@
             this.lblHomework = new System.Windows.Forms.Label();
             this.lblParticipation = new System.Windows.Forms.Label();
             this.lblNameCap = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.dgvGradeBook = new System.Windows.Forms.DataGridView();
+            this.tbxName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradeBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,6 +154,7 @@
             // 
             // lblTotalCap
             // 
+            this.lblTotalCap.BackColor = System.Drawing.Color.SeaShell;
             this.lblTotalCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalCap.Location = new System.Drawing.Point(536, 292);
             this.lblTotalCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -164,6 +166,7 @@
             // 
             // lblTestCap
             // 
+            this.lblTestCap.BackColor = System.Drawing.Color.SeaShell;
             this.lblTestCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTestCap.Location = new System.Drawing.Point(616, 246);
             this.lblTestCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -175,6 +178,7 @@
             // 
             // lblLabCap
             // 
+            this.lblLabCap.BackColor = System.Drawing.Color.SeaShell;
             this.lblLabCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLabCap.Location = new System.Drawing.Point(616, 207);
             this.lblLabCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -186,6 +190,7 @@
             // 
             // lblQuizCap
             // 
+            this.lblQuizCap.BackColor = System.Drawing.Color.SeaShell;
             this.lblQuizCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuizCap.Location = new System.Drawing.Point(616, 165);
             this.lblQuizCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -197,6 +202,7 @@
             // 
             // lblHomeworkCap
             // 
+            this.lblHomeworkCap.BackColor = System.Drawing.Color.SeaShell;
             this.lblHomeworkCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHomeworkCap.Location = new System.Drawing.Point(583, 120);
             this.lblHomeworkCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -208,6 +214,7 @@
             // 
             // lblParticipationCap
             // 
+            this.lblParticipationCap.BackColor = System.Drawing.Color.SeaShell;
             this.lblParticipationCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblParticipationCap.Location = new System.Drawing.Point(574, 62);
             this.lblParticipationCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -279,6 +286,7 @@
             // 
             // lblNameCap
             // 
+            this.lblNameCap.BackColor = System.Drawing.Color.SeaShell;
             this.lblNameCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameCap.Location = new System.Drawing.Point(546, 10);
             this.lblNameCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -288,19 +296,9 @@
             this.lblNameCap.Text = "Name";
             this.lblNameCap.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblName
-            // 
-            this.lblName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblName.Location = new System.Drawing.Point(604, 10);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(176, 29);
-            this.lblName.TabIndex = 23;
-            // 
             // dgvGradeBook
             // 
-            this.dgvGradeBook.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvGradeBook.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvGradeBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGradeBook.Location = new System.Drawing.Point(13, 13);
             this.dgvGradeBook.Margin = new System.Windows.Forms.Padding(2);
@@ -310,12 +308,22 @@
             this.dgvGradeBook.Size = new System.Drawing.Size(518, 312);
             this.dgvGradeBook.TabIndex = 22;
             // 
+            // tbxName
+            // 
+            this.tbxName.Location = new System.Drawing.Point(604, 8);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.Size = new System.Drawing.Size(176, 31);
+            this.tbxName.TabIndex = 44;
+            // 
             // frmGradebook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(823, 409);
             this.ControlBox = false;
+            this.Controls.Add(this.tbxName);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnRemove);
@@ -336,9 +344,10 @@
             this.Controls.Add(this.lblHomework);
             this.Controls.Add(this.lblParticipation);
             this.Controls.Add(this.lblNameCap);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.dgvGradeBook);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmGradebook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -346,6 +355,7 @@
             this.Load += new System.EventHandler(this.frmGradebook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradeBook)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -371,7 +381,7 @@
         private System.Windows.Forms.Label lblHomework;
         private System.Windows.Forms.Label lblParticipation;
         private System.Windows.Forms.Label lblNameCap;
-        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.DataGridView dgvGradeBook;
+        private System.Windows.Forms.TextBox tbxName;
     }
 }

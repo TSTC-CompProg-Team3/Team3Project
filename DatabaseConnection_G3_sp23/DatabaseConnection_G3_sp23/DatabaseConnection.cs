@@ -580,8 +580,8 @@ namespace DatabaseConnection_G3_sp23
 
         }
 
-        private DataTable _nameTable;
-        public void GradeBookName(Label lblName)
+        private static DataTable _nameTable;
+        public static void GradeBookName(Label lblName)
         {
             try
             {
@@ -602,37 +602,7 @@ namespace DatabaseConnection_G3_sp23
 
 
         }
-        public void Next(Label lblName, int counter)
-        {
-            try
-            {
-                if (counter > _nameTable.Rows.Count - 1)
-                {
-                    counter = _nameTable.Rows.Count - 1;
-                }
-                lblName.Text = _nameTable.Rows[counter]["studentName"].ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void Prev(Label lblName, int counter)
-        {
-            try
-            {
-                if (counter < 0)
-                {
-                    counter = 0;
-                }
-                lblName.Text = _nameTable.Rows[counter]["studentName"].ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+     
         static frmGradebook frmGradebook = new frmGradebook();
         public static void RemoveGradeBook(DataGridView dgvGradebook, int counter)
         {
