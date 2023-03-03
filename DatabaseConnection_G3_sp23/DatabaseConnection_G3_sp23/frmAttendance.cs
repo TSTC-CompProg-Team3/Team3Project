@@ -48,9 +48,11 @@ namespace DatabaseConnection_G3_sp23
             //Loop and style each column
             foreach (DataGridViewColumn col in dgvAttendance.Columns)
             {
-                col.Width = 199;
+                col.Width = 82;
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+
+            dgvAttendance.Columns[0].Width = 155;
         }
 
         private void btnBackAttend_Click(object sender, EventArgs e)
