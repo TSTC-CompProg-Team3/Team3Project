@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace DatabaseConnection_G3_sp23
 {
@@ -160,7 +161,7 @@ namespace DatabaseConnection_G3_sp23
             database.CloseDatabase();
         }
 
-        internal static void LoadAdminMenu(ComboBox cbxCourseSelect, ComboBox cbxStudentSelect, ComboBox cbxSubjectSelect, ComboBox cbxTeacherSelect)
+        internal static void LoadAdminMenu(ComboBox cbxCourseSelect, ComboBox cbxStudentSelect, ComboBox cbxTeacherSelect)
         {
             database.OpenDatabase();
             database.LoadAdminMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect);
@@ -196,7 +197,7 @@ namespace DatabaseConnection_G3_sp23
                     string[] holdSplit = hold.Split('-');
                     courseID = holdSplit[0].Trim();
                     database.RemoveCourse(courseID);
-
+                    MessageBox.Show("Course Successfully Removed", "Course Removal", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (dialogResult == DialogResult.No)
                 {
@@ -323,6 +324,141 @@ namespace DatabaseConnection_G3_sp23
                 MessageBox.Show("Please select a course for removal", "Course Removal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             database.CloseDatabase();
+        }
+
+        internal static void AddStudent(TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName, DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity, TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName, TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, TextBox tbxGuardianWorkPl)
+        {
+            database.OpenDatabase();
+
+            string firstName = tbxFirstName.Text;
+            string middleName = tbxMiddleName.Text;
+            string lastName = tbxLastName.Text;
+            DateTime dateValue = dtpDateOfBirth.Value;
+            string phoneNumber = tbxPhoneNumber.Text;
+            string mailingAddress = tbxMailingAddress.Text;
+            string streetAddress = tbxStreetAddress.Text;
+            string city = tbxCity.Text;
+            string state = tbxState.Text;
+            string zip = tbxZip.Text;
+            string email = tbxEmail.Text;
+            string username = tbxUsername.Text;
+            string password = tbxPassword.Text;
+            string emerContactName = tbxEmerContactName.Text;
+            string emerContactPhone = tbxEmerContactPhone.Text;
+            string guardianName = tbxGuardianName.Text;
+            string guardianCell = tbxGuardianCell.Text;
+            string guardianWorkPhone = tbxGuardianWork.Text;
+            string guardianWorkPl = tbxGuardianWorkPl.Text;
+
+
+            database.AddStudent(firstName, middleName,lastName,dateValue,phoneNumber,mailingAddress,streetAddress,city,state,
+                zip,email,username,password,emerContactName,emerContactPhone,guardianName,guardianCell,guardianWorkPhone,guardianWorkPl);
+
+            database.CloseDatabase();
+
+            MessageBox.Show("Student Successfully Created", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        internal static void RemoveStudent(ComboBox cbxStudentSelect)
+        {
+            database.OpenDatabase();
+            string studentID;
+            //checks if something is selected -CS
+            if (cbxStudentSelect.SelectedIndex > -1)
+            {
+                //confirms if admin wants to remove course -CS
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove the student?", "Student Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string hold = cbxStudentSelect.Text.ToString();
+                    string[] holdSplit = hold.Split('-');
+                    studentID = holdSplit[0].Trim();
+                    database.RemoveStudent(studentID);
+                    MessageBox.Show("Student Successfully Removed", "Student Removal", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a student for removal", "Student Removal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            database.CloseDatabase();
+        }
+
+        internal static void LoadEditStudent(string studentID, TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName,
+            DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity,
+            TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
+            TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, 
+            TextBox tbxGuardianWorkPl)
+        {
+            database.OpenDatabase();
+
+            database.LoadEditStudent(studentID,tbxFirstName,tbxMiddleName,tbxLastName,dtpDateOfBirth,tbxPhoneNumber,tbxMailingAddress,
+                tbxStreetAddress,tbxCity,tbxState,tbxZip,tbxEmail,tbxUsername,tbxPassword,tbxEmerContactName,tbxEmerContactPhone,
+                tbxGuardianName,tbxGuardianCell,tbxGuardianWork,tbxGuardianWorkPl);
+
+            database.CloseDatabase();
+        }
+
+        internal static void LoadOfficerMenu(ComboBox cbxCourseSelect, ComboBox cbxStudentSelect, ComboBox cbxTeacherSelect, ComboBox cbxSubjectSelect)
+        {
+            database.OpenDatabase();
+            database.LoadAdminMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect);
+            if (cbxCourseSelect.Items.Count > 0)
+            {
+                cbxCourseSelect.SelectedIndex = 0;
+            }
+            if (cbxStudentSelect.Items.Count > 0)
+            {
+                cbxStudentSelect.SelectedIndex = 0;
+            }
+            if (cbxTeacherSelect.Items.Count > 0)
+            {
+                cbxTeacherSelect.SelectedIndex = 0;
+            }
+
+            database.CloseDatabase();
+
+        }
+
+        internal static void EditStudent(string studentID, TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName, 
+            DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity, 
+            TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
+            TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, 
+            TextBox tbxGuardianWorkPl)
+        {
+            database.OpenDatabase();
+
+            string firstName = tbxFirstName.Text;
+            string middleName = tbxMiddleName.Text;
+            string lastName = tbxLastName.Text;
+            DateTime dateValue = dtpDateOfBirth.Value;
+            string phoneNumber = tbxPhoneNumber.Text;
+            string mailingAddress = tbxMailingAddress.Text;
+            string streetAddress = tbxStreetAddress.Text;
+            string city = tbxCity.Text;
+            string state = tbxState.Text;
+            string zip = tbxZip.Text;
+            string email = tbxEmail.Text;
+            string username = tbxUsername.Text;
+            string password = tbxPassword.Text;
+            string emerContactName = tbxEmerContactName.Text;
+            string emerContactPhone = tbxEmerContactPhone.Text;
+            string guardianName = tbxGuardianName.Text;
+            string guardianCell = tbxGuardianCell.Text;
+            string guardianWorkPhone = tbxGuardianWork.Text;
+            string guardianWorkPl = tbxGuardianWorkPl.Text;
+
+
+            database.EditStudent(studentID, firstName, middleName, lastName, dateValue, phoneNumber, mailingAddress, streetAddress, city, state,
+                zip, email, username, password, emerContactName, emerContactPhone, guardianName, guardianCell, guardianWorkPhone, guardianWorkPl);
+
+            database.CloseDatabase();
+
+            MessageBox.Show("Student Successfully Editted", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

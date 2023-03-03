@@ -81,6 +81,12 @@
     <Compile Include="frmAddGradebook.Designer.cs">
       <DependentUpon>frmAddGradebook.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddStudent.Designer.cs">
+      <DependentUpon>frmAddStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,12 @@
     </Compile>
     <Compile Include="frmEditGradebook.Designer.cs">
       <DependentUpon>frmEditGradebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditStudent.Designer.cs">
+      <DependentUpon>frmEditStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="frmForgotPass.cs">
       <SubType>Form</SubType>
@@ -141,6 +153,12 @@
     <Compile Include="frmMidTermG.Designer.cs">
       <DependentUpon>frmMidTermG.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOfficerMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOfficerMenu.Designer.cs">
+      <DependentUpon>frmOfficerMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSeatingChart10.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +187,9 @@
     <EmbeddedResource Include="frmAddGradebook.resx">
       <DependentUpon>frmAddGradebook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddStudent.resx">
+      <DependentUpon>frmAddStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminMenu.resx">
       <DependentUpon>frmAdminMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +205,9 @@
     <EmbeddedResource Include="frmEditGradebook.resx">
       <DependentUpon>frmEditGradebook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditStudent.resx">
+      <DependentUpon>frmEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmForgotPass.resx">
       <DependentUpon>frmForgotPass.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMidTermG.resx">
       <DependentUpon>frmMidTermG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOfficerMenu.resx">
+      <DependentUpon>frmOfficerMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSeatingChart10.resx">
       <DependentUpon>frmSeatingChart10.cs</DependentUpon>

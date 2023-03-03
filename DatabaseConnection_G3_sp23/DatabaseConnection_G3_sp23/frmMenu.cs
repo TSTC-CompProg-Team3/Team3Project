@@ -54,7 +54,7 @@ namespace DatabaseConnection_G3_sp23
                     btnOfficer.Visible = false;
                     break;
 
-                case "Student":
+                case "student":
                     btnAdmin.Visible = false;
                     btnOfficer.Visible = false;
                     break;
@@ -138,8 +138,8 @@ namespace DatabaseConnection_G3_sp23
         private void btnOfficer_Click(object sender, EventArgs e)
         {
             //goes to admin menu -CS
-            frmAdminMenu adminMenu = new frmAdminMenu(loginID, accountType);
-            adminMenu.ShowDialog();
+            frmOfficerMenu officerMenu = new frmOfficerMenu(loginID, accountType);
+            officerMenu.ShowDialog();
         }
     }
 }

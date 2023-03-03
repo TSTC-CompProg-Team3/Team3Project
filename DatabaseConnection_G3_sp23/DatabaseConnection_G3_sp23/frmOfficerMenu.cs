@@ -1,28 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using DatabaseConnection_G3_sp23;
 
 namespace DatabaseConnection_G3_sp23
 {
-    public partial class frmAdminMenu : Form
+    public partial class frmOfficerMenu : Form
     {
-        public string courseID;
-        public string courseName;
-        public string teacherID;
         public int loginID;
         public string accountType;
-        public frmAdminMenu(int loginid, string accounttype)
+        public string courseID;
+        public string courseName;
+        public frmOfficerMenu(int loginid, string accounttype)
         {
-            InitializeComponent();
             loginID = loginid;
             accountType = accounttype;
-
+            InitializeComponent();
         }
 
-        private void frmAdminMenu_Load(object sender, EventArgs e)
+        private void frmOfficerMenu_Load(object sender, EventArgs e)
         {
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect,cbxStudentSelect, cbxTeacherSelect);   
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
 
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnAddCourse.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -43,20 +46,19 @@ namespace DatabaseConnection_G3_sp23
             btnEditStudent.ForeColor = ColorTranslator.FromHtml("#191919");
             btnRemoveStudent.BackColor = ColorTranslator.FromHtml("#F15025");
             btnRemoveStudent.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnAddSubject.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAddSubject.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnEditSubject.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnEditSubject.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnRemoveSubject.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnRemoveSubject.ForeColor = ColorTranslator.FromHtml("#191919");
             btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
             btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
-
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnAddCourse_Click(object sender, EventArgs e)
-        {
-            frmAddCourse addCourse = new frmAddCourse();
-            addCourse.ShowDialog();
         }
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
@@ -66,12 +68,6 @@ namespace DatabaseConnection_G3_sp23
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
-
-        }
-
-        private void frmAdminMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
         }
 
         private void btnEditCourse_Click(object sender, EventArgs e)
@@ -89,6 +85,12 @@ namespace DatabaseConnection_G3_sp23
             clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+            frmAddCourse addCourse = new frmAddCourse();
+            addCourse.ShowDialog();
+        }
+
         private void btnRemoveTeacher_Click(object sender, EventArgs e)
         {
             clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
@@ -98,19 +100,14 @@ namespace DatabaseConnection_G3_sp23
             clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
-        private void frmAdminMenu_Activated(object sender, EventArgs e)
+        private void btnEditTeacher_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("Edit Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Add Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void btnEditTeacher_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Edit Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnRemoveStudent_Click(object sender, EventArgs e)
@@ -121,7 +118,7 @@ namespace DatabaseConnection_G3_sp23
             cbxCourseSelect.Items.Clear();
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect,cbxTeacherSelect);
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
         private void btnEditStudent_Click(object sender, EventArgs e)
@@ -132,7 +129,7 @@ namespace DatabaseConnection_G3_sp23
             cbxCourseSelect.Items.Clear();
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect,cbxTeacherSelect);
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
@@ -143,8 +140,7 @@ namespace DatabaseConnection_G3_sp23
             cbxCourseSelect.Items.Clear();
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect,cbxTeacherSelect);
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
-
     }
 }
