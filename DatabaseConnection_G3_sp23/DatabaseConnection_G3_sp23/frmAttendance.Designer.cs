@@ -40,33 +40,36 @@
             // 
             // pnlAttendance
             // 
-            this.pnlAttendance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlAttendance.Controls.Add(this.dgvAttendance);
-            this.pnlAttendance.Location = new System.Drawing.Point(12, 85);
+            this.pnlAttendance.Controls.Add(this.lblAttendTeacher);
+            this.pnlAttendance.Controls.Add(this.label2);
+            this.pnlAttendance.Location = new System.Drawing.Point(11, 0);
+            this.pnlAttendance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlAttendance.Name = "pnlAttendance";
-            this.pnlAttendance.Size = new System.Drawing.Size(1040, 640);
+            this.pnlAttendance.Size = new System.Drawing.Size(660, 480);
             this.pnlAttendance.TabIndex = 18;
             // 
             // dgvAttendance
             // 
             this.dgvAttendance.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAttendance.Location = new System.Drawing.Point(20, 20);
-            this.dgvAttendance.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvAttendance.Location = new System.Drawing.Point(7, 48);
+            this.dgvAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAttendance.Name = "dgvAttendance";
             this.dgvAttendance.RowHeadersVisible = false;
             this.dgvAttendance.RowHeadersWidth = 51;
             this.dgvAttendance.RowTemplate.Height = 24;
-            this.dgvAttendance.Size = new System.Drawing.Size(1000, 600);
+            this.dgvAttendance.Size = new System.Drawing.Size(650, 415);
             this.dgvAttendance.TabIndex = 0;
             this.dgvAttendance.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAttendance_CellFormatting);
             // 
             // btnEditAttend
             // 
-            this.btnEditAttend.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAttend.Location = new System.Drawing.Point(216, 780);
+            this.btnEditAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditAttend.Location = new System.Drawing.Point(221, 505);
+            this.btnEditAttend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditAttend.Name = "btnEditAttend";
-            this.btnEditAttend.Size = new System.Drawing.Size(200, 60);
+            this.btnEditAttend.Size = new System.Drawing.Size(100, 35);
             this.btnEditAttend.TabIndex = 17;
             this.btnEditAttend.Text = "Edit";
             this.btnEditAttend.UseVisualStyleBackColor = true;
@@ -74,10 +77,11 @@
             // 
             // btnBackAttend
             // 
-            this.btnBackAttend.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackAttend.Location = new System.Drawing.Point(678, 780);
+            this.btnBackAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackAttend.Location = new System.Drawing.Point(361, 505);
+            this.btnBackAttend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBackAttend.Name = "btnBackAttend";
-            this.btnBackAttend.Size = new System.Drawing.Size(200, 60);
+            this.btnBackAttend.Size = new System.Drawing.Size(100, 35);
             this.btnBackAttend.TabIndex = 16;
             this.btnBackAttend.Text = "Back";
             this.btnBackAttend.UseVisualStyleBackColor = true;
@@ -85,36 +89,36 @@
             // 
             // lblAttendTeacher
             // 
-            this.lblAttendTeacher.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAttendTeacher.Location = new System.Drawing.Point(100, 25);
+            this.lblAttendTeacher.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttendTeacher.Location = new System.Drawing.Point(1, 1);
+            this.lblAttendTeacher.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAttendTeacher.Name = "lblAttendTeacher";
-            this.lblAttendTeacher.Size = new System.Drawing.Size(400, 50);
+            this.lblAttendTeacher.Size = new System.Drawing.Size(200, 50);
             this.lblAttendTeacher.TabIndex = 19;
             this.lblAttendTeacher.Text = "Teacher: ";
             this.lblAttendTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(600, 25);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(450, 1);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(400, 50);
+            this.label2.Size = new System.Drawing.Size(200, 50);
             this.label2.TabIndex = 20;
             this.label2.Text = "Class: ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmAttendance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 866);
+            this.ClientSize = new System.Drawing.Size(682, 553);
             this.ControlBox = false;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblAttendTeacher);
             this.Controls.Add(this.pnlAttendance);
             this.Controls.Add(this.btnEditAttend);
             this.Controls.Add(this.btnBackAttend);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAttendance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attendance";
