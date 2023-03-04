@@ -85,5 +85,7 @@ namespace DatabaseConnection_G3_sp23
             frmMidTermG midterm = new frmMidTermG();
             midterm.ShowDialog();
         }
+
+      
     }
 }

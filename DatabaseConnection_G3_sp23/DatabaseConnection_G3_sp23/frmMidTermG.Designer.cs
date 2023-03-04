@@ -53,7 +53,7 @@
             // tbxTotalG
             // 
             this.tbxTotalG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxTotalG.Location = new System.Drawing.Point(937, 376);
+            this.tbxTotalG.Location = new System.Drawing.Point(872, 364);
             this.tbxTotalG.Multiline = true;
             this.tbxTotalG.Name = "tbxTotalG";
             this.tbxTotalG.Size = new System.Drawing.Size(140, 49);
@@ -62,7 +62,7 @@
             // tbxTest
             // 
             this.tbxTest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxTest.Location = new System.Drawing.Point(937, 278);
+            this.tbxTest.Location = new System.Drawing.Point(872, 266);
             this.tbxTest.Multiline = true;
             this.tbxTest.Name = "tbxTest";
             this.tbxTest.Size = new System.Drawing.Size(140, 49);
@@ -71,7 +71,7 @@
             // tbxLab
             // 
             this.tbxLab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxLab.Location = new System.Drawing.Point(937, 231);
+            this.tbxLab.Location = new System.Drawing.Point(872, 219);
             this.tbxLab.Multiline = true;
             this.tbxLab.Name = "tbxLab";
             this.tbxLab.Size = new System.Drawing.Size(140, 49);
@@ -80,7 +80,7 @@
             // tbxQuiz
             // 
             this.tbxQuiz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxQuiz.Location = new System.Drawing.Point(937, 184);
+            this.tbxQuiz.Location = new System.Drawing.Point(872, 172);
             this.tbxQuiz.Multiline = true;
             this.tbxQuiz.Name = "tbxQuiz";
             this.tbxQuiz.Size = new System.Drawing.Size(140, 51);
@@ -89,7 +89,7 @@
             // tbxHW
             // 
             this.tbxHW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxHW.Location = new System.Drawing.Point(937, 142);
+            this.tbxHW.Location = new System.Drawing.Point(872, 130);
             this.tbxHW.Multiline = true;
             this.tbxHW.Name = "tbxHW";
             this.tbxHW.Size = new System.Drawing.Size(140, 49);
@@ -98,7 +98,7 @@
             // tbxClassP
             // 
             this.tbxClassP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxClassP.Location = new System.Drawing.Point(937, 97);
+            this.tbxClassP.Location = new System.Drawing.Point(872, 85);
             this.tbxClassP.Multiline = true;
             this.tbxClassP.Name = "tbxClassP";
             this.tbxClassP.Size = new System.Drawing.Size(140, 49);
@@ -106,9 +106,10 @@
             // 
             // label7
             // 
+            this.label7.BackColor = System.Drawing.Color.SeaShell;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label7.Location = new System.Drawing.Point(794, 390);
+            this.label7.Location = new System.Drawing.Point(729, 378);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label7.Size = new System.Drawing.Size(100, 23);
@@ -117,9 +118,10 @@
             // 
             // label6
             // 
+            this.label6.BackColor = System.Drawing.Color.SeaShell;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label6.Location = new System.Drawing.Point(794, 291);
+            this.label6.Location = new System.Drawing.Point(729, 279);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label6.Size = new System.Drawing.Size(100, 23);
@@ -128,9 +130,10 @@
             // 
             // label5
             // 
+            this.label5.BackColor = System.Drawing.Color.SeaShell;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label5.Location = new System.Drawing.Point(794, 242);
+            this.label5.Location = new System.Drawing.Point(729, 230);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(100, 23);
@@ -139,9 +142,10 @@
             // 
             // label4
             // 
+            this.label4.BackColor = System.Drawing.Color.SeaShell;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label4.Location = new System.Drawing.Point(794, 196);
+            this.label4.Location = new System.Drawing.Point(729, 184);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(100, 23);
@@ -150,9 +154,10 @@
             // 
             // label3
             // 
+            this.label3.BackColor = System.Drawing.Color.SeaShell;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Location = new System.Drawing.Point(794, 151);
+            this.label3.Location = new System.Drawing.Point(729, 139);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(100, 23);
@@ -161,9 +166,10 @@
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.SeaShell;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(742, 111);
+            this.label2.Location = new System.Drawing.Point(677, 99);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(152, 23);
@@ -173,7 +179,7 @@
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxName.Location = new System.Drawing.Point(772, 28);
+            this.tbxName.Location = new System.Drawing.Point(707, 16);
             this.tbxName.Multiline = true;
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(305, 38);
@@ -181,8 +187,9 @@
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.Color.SeaShell;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(683, 37);
+            this.label1.Location = new System.Drawing.Point(618, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 24;
@@ -191,9 +198,9 @@
             // 
             // btnNext
             // 
-            this.btnNext.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(959, 488);
+            this.btnNext.Location = new System.Drawing.Point(463, 436);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(118, 41);
             this.btnNext.TabIndex = 23;
@@ -203,9 +210,9 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrevious.Location = new System.Drawing.Point(819, 488);
+            this.btnPrevious.Location = new System.Drawing.Point(323, 436);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(118, 41);
             this.btnPrevious.TabIndex = 22;
@@ -215,9 +222,9 @@
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(674, 488);
+            this.btnBack.Location = new System.Drawing.Point(178, 436);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(118, 41);
             this.btnBack.TabIndex = 21;
@@ -227,9 +234,9 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(525, 488);
+            this.btnPrint.Location = new System.Drawing.Point(29, 436);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(118, 41);
             this.btnPrint.TabIndex = 20;
@@ -238,7 +245,7 @@
             // 
             // dgvMDG
             // 
-            this.dgvMDG.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMDG.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvMDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMDG.GridColor = System.Drawing.Color.Gray;
             this.dgvMDG.Location = new System.Drawing.Point(29, 28);
@@ -250,7 +257,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 557);
+            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo;
+            this.ClientSize = new System.Drawing.Size(1049, 497);
             this.Controls.Add(this.tbxTotalG);
             this.Controls.Add(this.tbxTest);
             this.Controls.Add(this.tbxLab);

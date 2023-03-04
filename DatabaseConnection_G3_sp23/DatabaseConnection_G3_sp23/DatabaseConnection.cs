@@ -806,7 +806,7 @@ namespace DatabaseConnection_G3_sp23
             {
 
 
-                string query = "Select AssignmentName, AssignmentType, Grade From team3sp232330.Grades";
+                string query = "Select AssignmentName, AssignmentType, Grade From team3sp232330.Grades ";
                 //est command obj
                 _midTermGCommand = new SqlCommand(query, connection);
                 //est data adapter

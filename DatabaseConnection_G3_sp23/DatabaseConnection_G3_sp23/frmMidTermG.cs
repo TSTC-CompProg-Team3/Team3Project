@@ -30,8 +30,9 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+           // btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
             this.Close();
-            btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
+            
         }
         
 
@@ -48,7 +49,7 @@ namespace DatabaseConnection_G3_sp23
         {
             //counter--;
 
-            btnPrevious.BackColor = ColorTranslator.FromHtml("#F15025");
+            //btnPrevious.BackColor = ColorTranslator.FromHtml("#F15025");
             midTermGradeManager.Position--;
             database.Previous(tbxName);
         }
@@ -57,7 +58,7 @@ namespace DatabaseConnection_G3_sp23
         {
            // counter++;
 
-            btnNext.BackColor = ColorTranslator.FromHtml("#F15025");
+           // btnNext.BackColor = ColorTranslator.FromHtml("#F15025");
             midTermGradeManager.Position++;
             database.Next(tbxName);
 
