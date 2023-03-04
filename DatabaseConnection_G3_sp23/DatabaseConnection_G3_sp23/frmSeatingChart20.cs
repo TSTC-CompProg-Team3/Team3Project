@@ -178,5 +178,10 @@ namespace DatabaseConnection_G3_sp23
             // Set the shuffled DataTable as the new DataSource of the DataGridView
             dgvStudentSeats.DataSource = shuffledTable;
         }
+
+        private void dgvStudentSeats_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

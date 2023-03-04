@@ -94,6 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo;
             this.ClientSize = new System.Drawing.Size(784, 436);
             this.ControlBox = false;
             this.Controls.Add(this.btnMain);

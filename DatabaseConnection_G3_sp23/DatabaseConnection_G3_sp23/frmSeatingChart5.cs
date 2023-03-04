@@ -19,8 +19,10 @@ namespace DatabaseConnection_G3_sp23
             InitializeComponent();
 
             // allow drag and drop needs to be their to work
-            dgvStudentSeats.AllowDrop = true;
+            //dgvStudentSeats.AllowDrop = true;
             lstStudentsAvailable.AllowDrop = true;
+
+            LoadStudentNames();
         }
 
         private void btnRan_Click(object sender, EventArgs e)
@@ -30,26 +32,18 @@ namespace DatabaseConnection_G3_sp23
             btnRan.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
             Random random = new Random();
-            DataTable dttable = (DataTable)dgvStudentSeats.DataSource;
 
-            // Create a new DataTable with the same structure as the original one
-            DataTable shuffledTable = dttable.Clone();
+            int randomNum = random.Next(cbxStudentNames.Items.Count);
+            cbxStudentNames.SelectedIndex = randomNum;
 
-            // Shuffle the rows
-            DataRow[] rows = dttable.Select();
-            for (int i = rows.Length - 1; i >= 0; i--)
-            {
-                int j = random.Next(i + 1);
-                DataRow row = rows[j];
-                rows[j] = rows[i];
-                rows[i] = row;
-
-                // Add the shuffled row to the new DataTable
-                shuffledTable.ImportRow(row);
-            }
-
-            // Set the shuffled DataTable as the new DataSource of the DataGridView
-            dgvStudentSeats.DataSource = shuffledTable;
+            int randomNum2 = random.Next(cbxStudentNames2.Items.Count);
+            cbxStudentNames2.SelectedIndex = randomNum2;
+            int randomNum3 = random.Next(cbxStudentNames3.Items.Count);
+            cbxStudentNames3.SelectedIndex = randomNum3;
+            int randomNum4 = random.Next(cbxStudentNames4.Items.Count);
+            cbxStudentNames4.SelectedIndex = randomNum4;
+            int randomNum5 = random.Next(cbxStudentNames5.Items.Count);
+            cbxStudentNames5.SelectedIndex = randomNum5;
         }
 
         private void lstStudentsAvailable_MouseDown(object sender, MouseEventArgs e)
@@ -71,49 +65,49 @@ namespace DatabaseConnection_G3_sp23
         private void dgvStudentSeats_DragDrop(object sender, DragEventArgs e)
         {
             // Adds the dragged item to a new row in the DataGridView
-            dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
-        }
-
-        private void dgvStudentSeats_DragEnter(object sender, DragEventArgs e)
-        {
-            // Adds the dragged item to a new row in the DataGridView
             //dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
-
-            if (e.Data.GetDataPresent(typeof(string)))
-            {
-                string fullName = e.Data.GetData(typeof(string)).ToString();
-                string[] nameParts = fullName.Split(' ');
-                string firstName = nameParts[0];
-                string lastName = nameParts[1];
-
-                // Check if the student is already in the DataGridView
-                bool isStudentAlreadyAdded = false;
-                foreach (DataGridViewRow row in dgvStudentSeats.Rows)
-                {
-                    if (row.Cells["FirstName"].Value != null &&
-                        row.Cells["LastName"].Value != null &&
-                        row.Cells["FirstName"].Value.ToString() == firstName &&
-                        row.Cells["LastName"].Value.ToString() == lastName)
-                    {
-                        isStudentAlreadyAdded = true;
-                        break;
-                    }
-                }
-                if (!isStudentAlreadyAdded)
-                {
-                    // Add the new row to the DataTable
-                    DataTable dt = (DataTable)dgvStudentSeats.DataSource;
-                    DataRow newRow = dt.NewRow();
-                    newRow["FirstName"] = firstName;
-                    newRow["LastName"] = lastName;
-                    dt.Rows.Add(newRow);
-
-                    // Refresh the DataGridView to reflect the changes
-                    dgvStudentSeats.DataSource = null;
-                    dgvStudentSeats.DataSource = dt;
-                }
-            }
         }
+
+        //private void dgvStudentSeats_DragEnter(object sender, DragEventArgs e)
+        //{
+        //    // Adds the dragged item to a new row in the DataGridView
+        //    //dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
+
+        //    if (e.Data.GetDataPresent(typeof(string)))
+        //    {
+        //        string fullName = e.Data.GetData(typeof(string)).ToString();
+        //        string[] nameParts = fullName.Split(' ');
+        //        string firstName = nameParts[0];
+        //        string lastName = nameParts[1];
+
+        //        // Check if the student is already in the DataGridView
+        //        bool isStudentAlreadyAdded = false;
+        //        foreach (DataGridViewRow row in dgvStudentSeats.Rows)
+        //        {
+        //            if (row.Cells["FirstName"].Value != null &&
+        //                row.Cells["LastName"].Value != null &&
+        //                row.Cells["FirstName"].Value.ToString() == firstName &&
+        //                row.Cells["LastName"].Value.ToString() == lastName)
+        //            {
+        //                isStudentAlreadyAdded = true;
+        //                break;
+        //            }
+        //        }
+        //        if (!isStudentAlreadyAdded)
+        //        {
+        //            // Add the new row to the DataTable
+        //            DataTable dt = (DataTable)dgvStudentSeats.DataSource;
+        //            DataRow newRow = dt.NewRow();
+        //            newRow["FirstName"] = firstName;
+        //            newRow["LastName"] = lastName;
+        //            dt.Rows.Add(newRow);
+
+        //            // Refresh the DataGridView to reflect the changes
+        //            dgvStudentSeats.DataSource = null;
+        //            dgvStudentSeats.DataSource = dt;
+        //        }
+        //    }
+        //}
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -121,11 +115,14 @@ namespace DatabaseConnection_G3_sp23
             btnClear.BackColor = ColorTranslator.FromHtml("#FF5733");
             btnClear.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
-            // This clears the data source, since dgv is being called from the database
-            dgvStudentSeats.DataSource = null;
 
-            // Now you need to recall the database back, and this will reset it back in order base on how its set up inside the database
-            database.loadDataGridView5(dgvStudentSeats);
+            cbxStudentNames.SelectedIndex = 1;
+            cbxStudentNames2.SelectedIndex = 1;
+            cbxStudentNames3.SelectedIndex = 1;
+            cbxStudentNames4.SelectedIndex = 1;
+            cbxStudentNames5.SelectedIndex = 1;
+
+
         }
 
         private void btnMain_Click(object sender, EventArgs e)
@@ -149,9 +146,7 @@ namespace DatabaseConnection_G3_sp23
             lstStudentsAvailable.ForeColor = ColorTranslator.FromHtml("#212121");
 
             // Set the datagridview background color and text color
-            dgvStudentSeats.BackgroundColor = ColorTranslator.FromHtml("#FFFFFF");
-            dgvStudentSeats.ForeColor = ColorTranslator.FromHtml("#212121");
-
+           
             // Set the Random button color and text color
             btnRan.BackColor = ColorTranslator.FromHtml("#FF5733");
             btnRan.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
@@ -164,9 +159,26 @@ namespace DatabaseConnection_G3_sp23
             btnMain.BackColor = ColorTranslator.FromHtml("#FF5733");
             btnMain.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
-            database.loadDataGridView5(dgvStudentSeats);
+            
 
             database.PopulateStudentListBox(lstStudentsAvailable);
         }
+
+        private void LoadStudentNames()
+        {
+            List<string> studentNames = database.GetStudentNames(cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5);
+
+            // add students to cbx 
+            foreach (string name in studentNames)
+            {
+                cbxStudentNames.Items.Add(name);
+                cbxStudentNames2.Items.Add(name);
+                cbxStudentNames3.Items.Add(name);
+                cbxStudentNames4.Items.Add(name);
+                cbxStudentNames5.Items.Add(name);
+            }
+        }
+
+        
     }
 }

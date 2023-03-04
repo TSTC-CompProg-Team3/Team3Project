@@ -76,6 +76,7 @@
             this.dgvStudentSeats.Name = "dgvStudentSeats";
             this.dgvStudentSeats.Size = new System.Drawing.Size(501, 311);
             this.dgvStudentSeats.TabIndex = 21;
+            this.dgvStudentSeats.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudentSeats_CellContentClick);
             this.dgvStudentSeats.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgvStudentSeats_DragDrop);
             this.dgvStudentSeats.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgvStudentSeats_DragEnter);
             // 
@@ -94,6 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo;
             this.ClientSize = new System.Drawing.Size(784, 436);
             this.ControlBox = false;
             this.Controls.Add(this.btnMain);
