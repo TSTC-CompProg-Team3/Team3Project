@@ -706,25 +706,46 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        public void loadDataGridView5(DataGridView dgvStudentSeats)
+        public List<string> GetStudentNames(ComboBox cbxStudentNames, ComboBox cbxStudentNames2, ComboBox cbxStudentName3, ComboBox cbxStudentName4, ComboBox cbxStudentName5)
         {
+            List<string> studentNames = new List<string>();
+
             try
             {
+                using (SqlCommand command = new SqlCommand("SELECT FirstName, LastName FROM team3sp232330.Student", connection))
+                {
+                    connection.Open();
 
-                connection.Open();
-                SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM team3sp232330.Student", connection);
-                DataTable dttable = new DataTable();
-                // Use a SqlDataAdapter to fill the DataTable
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                da.Fill(dttable);
-                connection.Close();
-                dgvStudentSeats.DataSource = dttable;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string firstName = reader["FirstName"].ToString();
+                            string lastName = reader["LastName"].ToString();
+                            studentNames.Add($"{firstName} {lastName}");
+
+                        }
+                        cbxStudentNames.Items.Add(studentNames);
+                        cbxStudentNames2.Items.Add(studentNames);
+                        cbxStudentName3.Items.Add(studentNames);
+                        cbxStudentName4.Items.Add(studentNames);
+                        cbxStudentName5.Items.Add(studentNames);
+
+                    }
+
+
+                    connection.Close();
+                }
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return studentNames;
         }
+
 
         public void PopulateStudentListBox(ListBox lstStudentsAvailable)
         {
