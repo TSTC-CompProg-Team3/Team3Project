@@ -57,6 +57,10 @@ namespace DatabaseConnection_G3_sp23
         {
             frmAddCourse addCourse = new frmAddCourse();
             addCourse.ShowDialog();
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)

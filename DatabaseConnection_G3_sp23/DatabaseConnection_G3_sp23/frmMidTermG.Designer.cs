@@ -250,7 +250,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1106, 557);
+            this.ControlBox = false;
             this.Controls.Add(this.tbxTotalG);
             this.Controls.Add(this.tbxTest);
             this.Controls.Add(this.tbxLab);
@@ -270,6 +273,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgvMDG);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmMidTermG";
