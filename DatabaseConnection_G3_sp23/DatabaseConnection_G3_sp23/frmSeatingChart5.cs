@@ -17,11 +17,6 @@ namespace DatabaseConnection_G3_sp23
         public frmSeatingChart5()
         {
             InitializeComponent();
-
-            // allow drag and drop needs to be their to work
-            //dgvStudentSeats.AllowDrop = true;
-            lstStudentsAvailable.AllowDrop = true;
-
             LoadStudentNames();
         }
 
@@ -33,81 +28,60 @@ namespace DatabaseConnection_G3_sp23
 
             Random random = new Random();
 
-            int randomNum = random.Next(cbxStudentNames.Items.Count);
-            cbxStudentNames.SelectedIndex = randomNum;
+            // Create an array to store the combo Boxes variables
+            ComboBox[] comboBoxes = new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5};
 
-            int randomNum2 = random.Next(cbxStudentNames2.Items.Count);
-            cbxStudentNames2.SelectedIndex = randomNum2;
-            int randomNum3 = random.Next(cbxStudentNames3.Items.Count);
-            cbxStudentNames3.SelectedIndex = randomNum3;
-            int randomNum4 = random.Next(cbxStudentNames4.Items.Count);
-            cbxStudentNames4.SelectedIndex = randomNum4;
-            int randomNum5 = random.Next(cbxStudentNames5.Items.Count);
-            cbxStudentNames5.SelectedIndex = randomNum5;
-        }
+            List<string> selectedNames = new List<string>();
 
-        private void lstStudentsAvailable_MouseDown(object sender, MouseEventArgs e)
-        {
-            // Selects the item under the mouse cursor when the mouse button is pressed
-            lstStudentsAvailable.SelectedIndex = lstStudentsAvailable.IndexFromPoint(e.X, e.Y);
-            Console.WriteLine("Selected index: " + lstStudentsAvailable.SelectedIndex);
-        }
-
-        private void lstStudentsAvailable_MouseMove(object sender, MouseEventArgs e)
-        {
-            // Begins the drag and drop operation if an item is selected and the mouse is moved
-            if (e.Button == MouseButtons.Left && lstStudentsAvailable.SelectedIndex != -1)
+            foreach (ComboBox comboBox in comboBoxes)
             {
-                lstStudentsAvailable.DoDragDrop(lstStudentsAvailable.SelectedItem, DragDropEffects.Move);
+                if (comboBox.SelectedItem != null)
+                {
+                    selectedNames.Add(comboBox.SelectedItem.ToString());
+                }
             }
+
+            // get a list of all the available student names
+            List<string> allNames = new List<string>();
+            foreach (string name in cbxStudentNames.Items)
+            {
+                if (!selectedNames.Contains(name))
+                {
+                    allNames.Add(name);
+                }
+            }
+
+            // get a new random index for each combo box based on the available student names
+            int randomNum = random.Next(allNames.Count);
+            int randomNum2 = random.Next(allNames.Count - 1);
+            int randomNum3 = random.Next(allNames.Count - 2);
+            int randomNum4 = random.Next(allNames.Count - 3);
+            int randomNum5 = random.Next(allNames.Count - 4);
+
+            // set the selected item for each combo box based on the new random index
+            if (cbxStudentNames.Items.Count > 0)
+            {
+                cbxStudentNames.SelectedItem = allNames[randomNum];
+            }
+            if (cbxStudentNames2.Items.Count > 0)
+            {
+                cbxStudentNames2.SelectedItem = allNames[randomNum2];
+            }
+            if (cbxStudentNames3.Items.Count > 0)
+            {
+                cbxStudentNames3.SelectedItem = allNames[randomNum3];
+            }
+            if (cbxStudentNames4.Items.Count > 0)
+            {
+                cbxStudentNames4.SelectedItem = allNames[randomNum4];
+            }
+            if (cbxStudentNames5.Items.Count > 0)
+            {
+                cbxStudentNames5.SelectedItem = allNames[randomNum5];
+            }
+
         }
 
-        private void dgvStudentSeats_DragDrop(object sender, DragEventArgs e)
-        {
-            // Adds the dragged item to a new row in the DataGridView
-            //dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
-        }
-
-        //private void dgvStudentSeats_DragEnter(object sender, DragEventArgs e)
-        //{
-        //    // Adds the dragged item to a new row in the DataGridView
-        //    //dgvStudentSeats.Rows.Add(e.Data.GetData(typeof(string)).ToString());
-
-        //    if (e.Data.GetDataPresent(typeof(string)))
-        //    {
-        //        string fullName = e.Data.GetData(typeof(string)).ToString();
-        //        string[] nameParts = fullName.Split(' ');
-        //        string firstName = nameParts[0];
-        //        string lastName = nameParts[1];
-
-        //        // Check if the student is already in the DataGridView
-        //        bool isStudentAlreadyAdded = false;
-        //        foreach (DataGridViewRow row in dgvStudentSeats.Rows)
-        //        {
-        //            if (row.Cells["FirstName"].Value != null &&
-        //                row.Cells["LastName"].Value != null &&
-        //                row.Cells["FirstName"].Value.ToString() == firstName &&
-        //                row.Cells["LastName"].Value.ToString() == lastName)
-        //            {
-        //                isStudentAlreadyAdded = true;
-        //                break;
-        //            }
-        //        }
-        //        if (!isStudentAlreadyAdded)
-        //        {
-        //            // Add the new row to the DataTable
-        //            DataTable dt = (DataTable)dgvStudentSeats.DataSource;
-        //            DataRow newRow = dt.NewRow();
-        //            newRow["FirstName"] = firstName;
-        //            newRow["LastName"] = lastName;
-        //            dt.Rows.Add(newRow);
-
-        //            // Refresh the DataGridView to reflect the changes
-        //            dgvStudentSeats.DataSource = null;
-        //            dgvStudentSeats.DataSource = dt;
-        //        }
-        //    }
-        //}
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -115,12 +89,12 @@ namespace DatabaseConnection_G3_sp23
             btnClear.BackColor = ColorTranslator.FromHtml("#FF5733");
             btnClear.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
-
-            cbxStudentNames.SelectedIndex = 1;
+            // When youre clearing the selections you made, it makes the defaults different
+            cbxStudentNames.SelectedIndex = 0;
             cbxStudentNames2.SelectedIndex = 1;
-            cbxStudentNames3.SelectedIndex = 1;
-            cbxStudentNames4.SelectedIndex = 1;
-            cbxStudentNames5.SelectedIndex = 1;
+            cbxStudentNames3.SelectedIndex = 2;
+            cbxStudentNames4.SelectedIndex = 3;
+            cbxStudentNames5.SelectedIndex = 4;
 
 
         }
