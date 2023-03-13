@@ -155,12 +155,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbxBanner;
-        private System.Windows.Forms.ComboBox cbxCourseSelect;
         private System.Windows.Forms.Button btnGradeBook;
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnSeatingChart;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnOfficer;
+        private System.Windows.Forms.ComboBox cbxCourseSelect;
     }
 }

@@ -33,13 +33,15 @@
             this.btnRan = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.lstStudentsAvailable = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbxStudentNames = new System.Windows.Forms.ComboBox();
             this.cbxStudentNames2 = new System.Windows.Forms.ComboBox();
             this.cbxStudentNames3 = new System.Windows.Forms.ComboBox();
             this.cbxStudentNames4 = new System.Windows.Forms.ComboBox();
             this.cbxStudentNames5 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.picClassRoom1 = new System.Windows.Forms.PictureBox();
+            this.picWhiteBoard = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picClassRoom1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWhiteBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMain
@@ -83,58 +85,66 @@
             this.lstStudentsAvailable.Name = "lstStudentsAvailable";
             this.lstStudentsAvailable.Size = new System.Drawing.Size(186, 379);
             this.lstStudentsAvailable.TabIndex = 15;
-            this.lstStudentsAvailable.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstStudentsAvailable_MouseDown);
-            this.lstStudentsAvailable.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lstStudentsAvailable_MouseMove);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(215, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(362, 225);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
             // 
             // cbxStudentNames
             // 
             this.cbxStudentNames.FormattingEnabled = true;
-            this.cbxStudentNames.Location = new System.Drawing.Point(247, 135);
+            this.cbxStudentNames.Location = new System.Drawing.Point(311, 191);
             this.cbxStudentNames.Name = "cbxStudentNames";
-            this.cbxStudentNames.Size = new System.Drawing.Size(71, 23);
+            this.cbxStudentNames.Size = new System.Drawing.Size(81, 23);
             this.cbxStudentNames.TabIndex = 22;
             // 
             // cbxStudentNames2
             // 
             this.cbxStudentNames2.FormattingEnabled = true;
-            this.cbxStudentNames2.Location = new System.Drawing.Point(357, 135);
+            this.cbxStudentNames2.Location = new System.Drawing.Point(451, 191);
             this.cbxStudentNames2.Name = "cbxStudentNames2";
-            this.cbxStudentNames2.Size = new System.Drawing.Size(71, 23);
+            this.cbxStudentNames2.Size = new System.Drawing.Size(78, 23);
             this.cbxStudentNames2.TabIndex = 23;
             // 
             // cbxStudentNames3
             // 
             this.cbxStudentNames3.FormattingEnabled = true;
-            this.cbxStudentNames3.Location = new System.Drawing.Point(473, 135);
+            this.cbxStudentNames3.Location = new System.Drawing.Point(593, 191);
             this.cbxStudentNames3.Name = "cbxStudentNames3";
-            this.cbxStudentNames3.Size = new System.Drawing.Size(71, 23);
+            this.cbxStudentNames3.Size = new System.Drawing.Size(80, 23);
             this.cbxStudentNames3.TabIndex = 24;
             // 
             // cbxStudentNames4
             // 
             this.cbxStudentNames4.FormattingEnabled = true;
-            this.cbxStudentNames4.Location = new System.Drawing.Point(247, 208);
+            this.cbxStudentNames4.Location = new System.Drawing.Point(311, 256);
             this.cbxStudentNames4.Name = "cbxStudentNames4";
-            this.cbxStudentNames4.Size = new System.Drawing.Size(71, 23);
+            this.cbxStudentNames4.Size = new System.Drawing.Size(81, 23);
             this.cbxStudentNames4.TabIndex = 25;
             // 
             // cbxStudentNames5
             // 
             this.cbxStudentNames5.FormattingEnabled = true;
-            this.cbxStudentNames5.Location = new System.Drawing.Point(473, 208);
+            this.cbxStudentNames5.Location = new System.Drawing.Point(593, 256);
             this.cbxStudentNames5.Name = "cbxStudentNames5";
-            this.cbxStudentNames5.Size = new System.Drawing.Size(71, 23);
+            this.cbxStudentNames5.Size = new System.Drawing.Size(80, 23);
             this.cbxStudentNames5.TabIndex = 26;
+            // 
+            // picClassRoom1
+            // 
+            this.picClassRoom1.Image = ((System.Drawing.Image)(resources.GetObject("picClassRoom1.Image")));
+            this.picClassRoom1.Location = new System.Drawing.Point(268, 191);
+            this.picClassRoom1.Name = "picClassRoom1";
+            this.picClassRoom1.Size = new System.Drawing.Size(449, 134);
+            this.picClassRoom1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picClassRoom1.TabIndex = 34;
+            this.picClassRoom1.TabStop = false;
+            // 
+            // picWhiteBoard
+            // 
+            this.picWhiteBoard.Image = ((System.Drawing.Image)(resources.GetObject("picWhiteBoard.Image")));
+            this.picWhiteBoard.Location = new System.Drawing.Point(268, 59);
+            this.picWhiteBoard.Name = "picWhiteBoard";
+            this.picWhiteBoard.Size = new System.Drawing.Size(449, 135);
+            this.picWhiteBoard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picWhiteBoard.TabIndex = 65;
+            this.picWhiteBoard.TabStop = false;
             // 
             // frmSeatingChart5
             // 
@@ -148,18 +158,20 @@
             this.Controls.Add(this.cbxStudentNames3);
             this.Controls.Add(this.cbxStudentNames2);
             this.Controls.Add(this.cbxStudentNames);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnMain);
             this.Controls.Add(this.btnRan);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lstStudentsAvailable);
+            this.Controls.Add(this.picClassRoom1);
+            this.Controls.Add(this.picWhiteBoard);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmSeatingChart5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seating Chart";
             this.Load += new System.EventHandler(this.frmSeatingChart5_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picClassRoom1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWhiteBoard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,11 +182,12 @@
         private System.Windows.Forms.Button btnRan;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ListBox lstStudentsAvailable;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cbxStudentNames;
         private System.Windows.Forms.ComboBox cbxStudentNames2;
         private System.Windows.Forms.ComboBox cbxStudentNames3;
         private System.Windows.Forms.ComboBox cbxStudentNames4;
         private System.Windows.Forms.ComboBox cbxStudentNames5;
+        private System.Windows.Forms.PictureBox picClassRoom1;
+        private System.Windows.Forms.PictureBox picWhiteBoard;
     }
 }
