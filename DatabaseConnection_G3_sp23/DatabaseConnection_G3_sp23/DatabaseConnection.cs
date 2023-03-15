@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,7 +125,32 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        
+        public void AdminAccessClasses(int teacherID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID WHERE c.TeacherID = @TeacherID", connection);
+                command.Parameters.AddWithValue("@TeacherID", teacherID);
+
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string className = (string)reader["ClassName"];
+                    string subjectName = (string)reader["SubjectName"];
+                    int classSize = (int)reader["ClassSize"];
+                    classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+
 
         //Gets teachers classes for Cbx -CS
         public void TeacherClasses(int loginID)
@@ -666,45 +692,108 @@ namespace DatabaseConnection_G3_sp23
 
         }
 
-        public void loadDataGridView(DataGridView dgvStudentSeats)
+        public List<string> GetStudentNames20(ComboBox cbxStudentNames, ComboBox cbxStudentNames2, ComboBox cbxStudentNames3, ComboBox cbxStudentNames4, ComboBox cbxStudentNames5,
+                                              ComboBox cbxStudentNames6, ComboBox cbxStudnetNames7, ComboBox cbxStudentNames8, ComboBox cbxStudentNames9, ComboBox cbxStudentNames10,
+                                              ComboBox cbxStudentNames11, ComboBox cbxStudentNames12, ComboBox cbxStudentNames13, ComboBox cbxStudentNames14, ComboBox cbxStudentNames15,
+                                              ComboBox cbxStudentNames16, ComboBox cbxStudentNames17, ComboBox cbxStudentNames18, ComboBox cbxStudentNames19, ComboBox cbxStudentNames20)
         {
+            List<string> studentNames = new List<string>();
+
             try
             {
+                using (SqlCommand command = new SqlCommand("SELECT FirstName, LastName FROM team3sp232330.Student", connection))
+                {
+                    connection.Open();
 
-                connection.Open();
-                SqlCommand command = new SqlCommand("SELECT TOP 10 * FROM team3sp232330.Student", connection);
-                DataTable dttable = new DataTable();
-                // Use a SqlDataAdapter to fill the DataTable
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                da.Fill(dttable);
-                connection.Close();
-                dgvStudentSeats.DataSource = dttable;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string firstName = reader["FirstName"].ToString();
+                            string lastName = reader["LastName"].ToString();
+                            string fullName = $"{firstName} {lastName}";
+                            studentNames.Add(fullName);
+
+                            // Add the item to each ComboBox
+                            cbxStudentNames.Items.Add(fullName);
+                            cbxStudentNames2.Items.Add(fullName);
+                            cbxStudentNames3.Items.Add(fullName);
+                            cbxStudentNames4.Items.Add(fullName);
+                            cbxStudentNames5.Items.Add(fullName);
+                            cbxStudentNames6.Items.Add(fullName);
+                            cbxStudnetNames7.Items.Add(fullName);
+                            cbxStudentNames8.Items.Add(fullName);
+                            cbxStudentNames9.Items.Add(fullName);
+                            cbxStudentNames10.Items.Add(fullName);
+                            cbxStudentNames11.Items.Add(fullName);
+                            cbxStudentNames12.Items.Add(fullName);
+                            cbxStudentNames13.Items.Add(fullName);
+                            cbxStudentNames14.Items.Add(fullName);
+                            cbxStudentNames15.Items.Add(fullName);
+                            cbxStudentNames16.Items.Add(fullName);
+                            cbxStudentNames17.Items.Add(fullName);
+                            cbxStudentNames18.Items.Add(fullName);  
+                            cbxStudentNames19.Items.Add(fullName);
+                            cbxStudentNames20.Items.Add(fullName);
+                        }
+                    }
+
+                    connection.Close();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return studentNames;
         }
 
-        public void loadDataGridView20(DataGridView dgvStudentSeats)
+        public List<string> GetStudentNames10(ComboBox cbxStudentNames, ComboBox cbxStudentNames2, ComboBox cbxStudentNames3, ComboBox cbxStudentNames4, ComboBox cbxStudentNames5,
+                                              ComboBox cbxStudentNames6, ComboBox cbxStudnetNames7, ComboBox cbxStudentNames8, ComboBox cbxStudentNames9, ComboBox cbxStudentNames10 )
         {
+            List<string> studentNames = new List<string>();
+
             try
             {
+                using (SqlCommand command = new SqlCommand("SELECT FirstName, LastName FROM team3sp232330.Student", connection))
+                {
+                    connection.Open();
 
-                connection.Open();
-                SqlCommand command = new SqlCommand("SELECT  * FROM team3sp232330.Student", connection);
-                DataTable dttable = new DataTable();
-                // Use a SqlDataAdapter to fill the DataTable
-                SqlDataAdapter da = new SqlDataAdapter(command);
-                da.Fill(dttable);
-                connection.Close();
-                dgvStudentSeats.DataSource = dttable;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string firstName = reader["FirstName"].ToString();
+                            string lastName = reader["LastName"].ToString();
+                            string fullName = $"{firstName} {lastName}";
+                            studentNames.Add(fullName);
+
+                            // Add the item to each ComboBox
+                            cbxStudentNames.Items.Add(fullName);
+                            cbxStudentNames2.Items.Add(fullName);
+                            cbxStudentNames3.Items.Add(fullName);
+                            cbxStudentNames4.Items.Add(fullName);
+                            cbxStudentNames5.Items.Add(fullName);
+                            cbxStudentNames6.Items.Add(fullName);
+                            cbxStudnetNames7.Items.Add(fullName);
+                            cbxStudentNames8.Items.Add(fullName);
+                            cbxStudentNames9.Items.Add(fullName);
+                            cbxStudentNames10.Items.Add(fullName);
+                        }
+                    }
+
+                    connection.Close();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return studentNames;
         }
+
 
         public List<string> GetStudentNames(ComboBox cbxStudentNames, ComboBox cbxStudentNames2, ComboBox cbxStudentName3, ComboBox cbxStudentName4, ComboBox cbxStudentName5)
         {
@@ -722,21 +811,20 @@ namespace DatabaseConnection_G3_sp23
                         {
                             string firstName = reader["FirstName"].ToString();
                             string lastName = reader["LastName"].ToString();
-                            studentNames.Add($"{firstName} {lastName}");
+                            string fullName = $"{firstName} {lastName}";
+                            studentNames.Add(fullName);
 
+                            // Add the item to each ComboBox
+                            cbxStudentNames.Items.Add(fullName);
+                            cbxStudentNames2.Items.Add(fullName);
+                            cbxStudentName3.Items.Add(fullName);
+                            cbxStudentName4.Items.Add(fullName);
+                            cbxStudentName5.Items.Add(fullName);
                         }
-                        cbxStudentNames.Items.Add(studentNames);
-                        cbxStudentNames2.Items.Add(studentNames);
-                        cbxStudentName3.Items.Add(studentNames);
-                        cbxStudentName4.Items.Add(studentNames);
-                        cbxStudentName5.Items.Add(studentNames);
-
                     }
-
 
                     connection.Close();
                 }
-                
             }
             catch (Exception ex)
             {
@@ -745,6 +833,7 @@ namespace DatabaseConnection_G3_sp23
 
             return studentNames;
         }
+
 
 
         public void PopulateStudentListBox(ListBox lstStudentsAvailable)
@@ -758,13 +847,8 @@ namespace DatabaseConnection_G3_sp23
                 while (reader.Read())
                 {
                     // Create a string representation of the student's information
-                    string studentInfo = $"{reader["FirstName"]} {reader["MiddleName"]} {reader["LastName"]}, " +
-                                         $"{reader["StudentID"]}, {reader["LoginID"]}, {reader["DateOfBirth"]}, " +
-                                         $"{reader["MailingAddress"]}, {reader["StreetAddress"]}, {reader["City"]}, " +
-                                         $"{reader["State"]}, {reader["Zip"]}, {reader["PhoneNumber"]}, " +
-                                         $"{reader["EmergencyContactName"]}, {reader["EmergencyContactPhone"]}, " +
-                                         $"{reader["Guardian1Name"]}, {reader["Guardian1CellPhone"]}, " +
-                                         $"{reader["Guardian1WorkPhone"]}, {reader["Guardian1WorkPlace"]}";
+                    string studentInfo = $"{reader["FirstName"]} {reader["MiddleName"]} {reader["LastName"]},";
+                                         
 
                     // Add the student's information to the ListBox
                     lstStudentsAvailable.Items.Add(studentInfo);

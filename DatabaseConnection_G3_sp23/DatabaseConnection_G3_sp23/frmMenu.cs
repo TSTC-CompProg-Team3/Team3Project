@@ -47,6 +47,8 @@ namespace DatabaseConnection_G3_sp23
 
                 case "Admin":
                     btnAdmin.Visible = true;
+                    // Load classes from all the teacher database
+                    clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, 0);
                     break;
 
                 case "Teacher":
@@ -141,5 +143,6 @@ namespace DatabaseConnection_G3_sp23
             frmOfficerMenu officerMenu = new frmOfficerMenu(loginID, accountType);
             officerMenu.ShowDialog();
         }
+
     }
 }

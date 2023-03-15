@@ -140,6 +140,31 @@ namespace DatabaseConnection_G3_sp23
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        public static void LoadAdminMenu(ComboBox cbxCourseSelect, int teacherID)
+        {
+            database.OpenDatabase();
+            database.classList.Clear();
+            // Get a list of all the classes for the specified teacher
+            database.AdminAccessClasses(teacherID);
+            // Add each class to the ComboBox
+            foreach (string subject in database.classList)
+            {
+                cbxCourseSelect.Items.Add(subject);
+            }
+
+            // Select the first item in the ComboBox (if there is one)
+            if (cbxCourseSelect.Items.Count > 0)
+            {
+                cbxCourseSelect.SelectedIndex = 0;
+            }
+            else
+            {
+              cbxCourseSelect.Visible = false;
+            }
+            database.CloseDatabase();
+        }
+
+
         internal static void LoadMenu(ComboBox cbxCourseSelect, int loginID)
         {
             database.OpenDatabase();
