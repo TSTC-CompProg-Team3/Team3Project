@@ -102,131 +102,29 @@ namespace DatabaseConnection_G3_sp23
                                                      cbxStudentNames9, cbxStudentNames10, cbxStudentNames11, cbxStudentNames12, cbxStudentNames13, cbxStudentNames14, cbxStudentNames15, cbxStudentNames16, 
                                                      cbxStudentNames17, cbxStudentNames18, cbxStudentNames19, cbxStudentNames20 };
 
-            List<string> selectedNames = new List<string>();
-
-            foreach (ComboBox comboBox in comboBoxes)
-            {
-                if (comboBox.SelectedItem != null)
-                {
-                    selectedNames.Add(comboBox.SelectedItem.ToString());
-                }
-            }
-
-
-            // get a list of all the available student names
+            // Get a list of all the available student names
             List<string> allNames = new List<string>();
             foreach (string name in cbxStudentNames.Items)
             {
-                if (!selectedNames.Contains(name))
+                allNames.Add(name);
+            }
+
+            HashSet<string> usedNames = new HashSet<string>();
+
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox.Items.Count > 0)
                 {
-                    allNames.Add(name);
+                    string selectedName;
+                    do
+                    {
+                        int randomIndex = random.Next(allNames.Count);
+                        selectedName = allNames[randomIndex];
+                    } while (usedNames.Contains(selectedName));
+
+                    comboBox.SelectedItem = selectedName;
+                    usedNames.Add(selectedName);
                 }
-            }
-
-            // get a new random index for each combo box based on the available student names
-            // With the class of 20 it will throw an error when you want every box not to repeat for some reason
-            int maxIndex = allNames.Count - 1;
-            int randomNum = random.Next(maxIndex);
-            int randomNum2 = random.Next(maxIndex);
-            int randomNum3 = random.Next(maxIndex);
-            int randomNum4 = random.Next(maxIndex);
-            int randomNum5 = random.Next(maxIndex);
-            int randomNum6 = random.Next(maxIndex);
-            int randomNum7 = random.Next(maxIndex);
-            int randomNum8 = random.Next(maxIndex);
-            int randomNum9 = random.Next(maxIndex);
-            int randomNum10 = random.Next(maxIndex);
-            int randomNum11 = random.Next(maxIndex);
-            int randomNum12 = random.Next(maxIndex);
-            int randomNum13 = random.Next(maxIndex);
-            int randomNum14 = random.Next(maxIndex);
-            int randomNum15 = random.Next(maxIndex);
-            int randomNum16 = random.Next(maxIndex);
-            int randomNum17 = random.Next(maxIndex);    
-            int randomNum18 = random.Next(maxIndex);
-            int randomNum19 = random.Next(maxIndex);
-            int randomNum20 = random.Next(maxIndex);
-
-            // set the selected item for each combo box based on the new random index
-            if (cbxStudentNames.Items.Count > 0)
-            {
-                cbxStudentNames.SelectedItem = allNames[randomNum];
-            }
-            if (cbxStudentNames2.Items.Count > 0)
-            {
-                cbxStudentNames2.SelectedItem = allNames[randomNum2];
-            }
-            if (cbxStudentNames3.Items.Count > 0)
-            {
-                cbxStudentNames3.SelectedItem = allNames[randomNum3];
-            }
-            if (cbxStudentNames4.Items.Count > 0)
-            {
-                cbxStudentNames4.SelectedItem = allNames[randomNum4];
-            }
-            if (cbxStudentNames5.Items.Count > 0)
-            {
-                cbxStudentNames5.SelectedItem = allNames[randomNum5];
-            }
-            if (cbxStudentNames6.Items.Count > 0)
-            {
-                cbxStudentNames6.SelectedItem = allNames[randomNum6];
-            }
-            if (cbxStudentNames7.Items.Count > 0)
-            {
-                cbxStudentNames7.SelectedItem = allNames[randomNum7];
-            }
-            if (cbxStudentNames8.Items.Count > 0)
-            {
-                cbxStudentNames8.SelectedItem = allNames[randomNum8];
-            }
-            if (cbxStudentNames9.Items.Count > 0)
-            {
-                cbxStudentNames9.SelectedItem = allNames[randomNum9];
-            }
-            if (cbxStudentNames10.Items.Count > 0)
-            {
-                cbxStudentNames10.SelectedItem = allNames[randomNum10];
-            }
-            if (cbxStudentNames11.Items.Count > 0)
-            {
-                cbxStudentNames11.SelectedItem = allNames[randomNum11];
-            }
-            if (cbxStudentNames12.Items.Count > 0)
-            {
-                cbxStudentNames12.SelectedItem = allNames[randomNum12];
-            }
-            if (cbxStudentNames13.Items.Count > 0)
-            {
-                cbxStudentNames13.SelectedItem = allNames[randomNum13];
-            }    
-            if (cbxStudentNames14.Items.Count > 0)
-            {
-                cbxStudentNames14.SelectedItem = allNames[randomNum14];
-            }
-            if (cbxStudentNames15.Items.Count > 0)
-            {
-                cbxStudentNames15.SelectedItem = allNames[randomNum15];
-            }
-            if (cbxStudentNames16.Items.Count > 0)
-            {
-                cbxStudentNames16.SelectedItem = allNames[randomNum16]; 
-            }
-            if (cbxStudentNames17.Items.Count > 0)
-            {
-                cbxStudentNames17.SelectedItem = allNames[randomNum17];
-            }
-            if (cbxStudentNames18.Items.Count > 0)
-            {
-                cbxStudentNames18.SelectedItem = allNames[randomNum18];
-            }
-            if (cbxStudentNames19.Items.Count > 0)
-            {
-                cbxStudentNames19.SelectedItem = allNames[randomNum19];
-            }
-            if (cbxStudentNames20.Items.Count > 0)
-            {
-                cbxStudentNames20.SelectedItem = allNames[randomNum20];
             }
         }
 
