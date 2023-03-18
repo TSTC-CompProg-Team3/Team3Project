@@ -44,68 +44,29 @@ namespace DatabaseConnection_G3_sp23
                 }
             }
 
-            // get a list of all the available student names
+            // Get a list of all the available student names
             List<string> allNames = new List<string>();
             foreach (string name in cbxStudentNames.Items)
             {
-                if (!selectedNames.Contains(name))
+                allNames.Add(name);
+            }
+
+            HashSet<string> usedNames = new HashSet<string>();
+
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox.Items.Count > 0)
                 {
-                    allNames.Add(name);
+                    string selectedName;
+                    do
+                    {
+                        int randomIndex = random.Next(allNames.Count);
+                        selectedName = allNames[randomIndex];
+                    } while (usedNames.Contains(selectedName));
+
+                    comboBox.SelectedItem = selectedName;
+                    usedNames.Add(selectedName);
                 }
-            }
-
-            // get a new random index for each combo box based on the available student names
-            int randomNum = random.Next(allNames.Count);
-            int randomNum2 = random.Next(allNames.Count - 1);
-            int randomNum3 = random.Next(allNames.Count - 2);
-            int randomNum4 = random.Next(allNames.Count - 3);
-            int randomNum5 = random.Next(allNames.Count - 4);
-            int randomNum6 = random.Next(allNames.Count - 5);
-            int randomNum7 = random.Next(allNames.Count - 6);
-            int randomNum8 = random.Next(allNames.Count - 7);
-            int randomNum9 = random.Next(allNames.Count - 9);
-            int randomNum10 = random.Next(allNames.Count - 10);
-
-            // set the selected item for each combo box based on the new random index
-            if (cbxStudentNames.Items.Count > 0)
-            {
-                cbxStudentNames.SelectedItem = allNames[randomNum];
-            }
-            if (cbxStudentNames2.Items.Count > 0)
-            {
-                cbxStudentNames2.SelectedItem = allNames[randomNum2];
-            }
-            if (cbxStudentNames3.Items.Count > 0)
-            {
-                cbxStudentNames3.SelectedItem = allNames[randomNum3];
-            }
-            if (cbxStudentNames4.Items.Count > 0)
-            {
-                cbxStudentNames4.SelectedItem = allNames[randomNum4];
-            }
-            if (cbxStudentNames5.Items.Count > 0)
-            {
-                cbxStudentNames5.SelectedItem = allNames[randomNum5];
-            }
-            if (cbxStudentNames6.Items.Count > 0)
-            {
-                cbxStudentNames6.SelectedItem = allNames[randomNum6];
-            }
-            if (cbxStudentNames7.Items.Count > 0)
-            {
-                cbxStudentNames7.SelectedItem = allNames[randomNum7];
-            }
-            if (cbxStudentNames8.Items.Count > 0)
-            {
-                cbxStudentNames8.SelectedItem = allNames[randomNum8];
-            }
-            if (cbxStudentNames9.Items.Count > 0)
-            {
-                cbxStudentNames9.SelectedItem = allNames[randomNum9];
-            }
-            if (cbxStudentNames10.Items.Count > 0)
-            {
-                cbxStudentNames10.SelectedItem = allNames[randomNum10];
             }
         }
 

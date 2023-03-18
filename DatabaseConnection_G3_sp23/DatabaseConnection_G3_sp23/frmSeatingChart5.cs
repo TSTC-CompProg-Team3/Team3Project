@@ -29,58 +29,41 @@ namespace DatabaseConnection_G3_sp23
             Random random = new Random();
 
             // Create an array to store the combo Boxes variables
-            ComboBox[] comboBoxes = new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5};
+            ComboBox[] comboBoxes = new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 };
 
-            List<string> selectedNames = new List<string>();
-
-            foreach (ComboBox comboBox in comboBoxes)
-            {
-                if (comboBox.SelectedItem != null)
-                {
-                    selectedNames.Add(comboBox.SelectedItem.ToString());
-                }
-            }
-
-            // get a list of all the available student names
+            // Get a list of all the available student names
             List<string> allNames = new List<string>();
             foreach (string name in cbxStudentNames.Items)
             {
-                if (!selectedNames.Contains(name))
+                allNames.Add(name);
+            }
+
+            HashSet<string> usedNames = new HashSet<string>();
+
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox.Items.Count > 0)
                 {
-                    allNames.Add(name);
+                    string selectedName;
+                    do
+                    {
+                        int randomIndex = random.Next(allNames.Count);
+                        selectedName = allNames[randomIndex];
+                    } while (usedNames.Contains(selectedName));
+
+                    comboBox.SelectedItem = selectedName;
+                    usedNames.Add(selectedName);
                 }
             }
-
-            // get a new random index for each combo box based on the available student names
-            int randomNum = random.Next(allNames.Count);
-            int randomNum2 = random.Next(allNames.Count - 1);
-            int randomNum3 = random.Next(allNames.Count - 2);
-            int randomNum4 = random.Next(allNames.Count - 3);
-            int randomNum5 = random.Next(allNames.Count - 4);
-
-            // set the selected item for each combo box based on the new random index
-            if (cbxStudentNames.Items.Count > 0)
-            {
-                cbxStudentNames.SelectedItem = allNames[randomNum];
-            }
-            if (cbxStudentNames2.Items.Count > 0)
-            {
-                cbxStudentNames2.SelectedItem = allNames[randomNum2];
-            }
-            if (cbxStudentNames3.Items.Count > 0)
-            {
-                cbxStudentNames3.SelectedItem = allNames[randomNum3];
-            }
-            if (cbxStudentNames4.Items.Count > 0)
-            {
-                cbxStudentNames4.SelectedItem = allNames[randomNum4];
-            }
-            if (cbxStudentNames5.Items.Count > 0)
-            {
-                cbxStudentNames5.SelectedItem = allNames[randomNum5];
-            }
-
         }
+
+
+
+
+
+
+
+
 
 
         private void btnClear_Click(object sender, EventArgs e)
