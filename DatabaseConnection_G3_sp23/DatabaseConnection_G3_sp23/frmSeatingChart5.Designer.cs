@@ -87,7 +87,7 @@
             // cbxStudentNames
             // 
             this.cbxStudentNames.FormattingEnabled = true;
-            this.cbxStudentNames.Location = new System.Drawing.Point(396, 67);
+            this.cbxStudentNames.Location = new System.Drawing.Point(406, 132);
             this.cbxStudentNames.Name = "cbxStudentNames";
             this.cbxStudentNames.Size = new System.Drawing.Size(81, 23);
             this.cbxStudentNames.TabIndex = 22;
@@ -95,7 +95,7 @@
             // cbxStudentNames2
             // 
             this.cbxStudentNames2.FormattingEnabled = true;
-            this.cbxStudentNames2.Location = new System.Drawing.Point(550, 67);
+            this.cbxStudentNames2.Location = new System.Drawing.Point(551, 132);
             this.cbxStudentNames2.Name = "cbxStudentNames2";
             this.cbxStudentNames2.Size = new System.Drawing.Size(78, 23);
             this.cbxStudentNames2.TabIndex = 23;
@@ -103,7 +103,7 @@
             // cbxStudentNames3
             // 
             this.cbxStudentNames3.FormattingEnabled = true;
-            this.cbxStudentNames3.Location = new System.Drawing.Point(478, 221);
+            this.cbxStudentNames3.Location = new System.Drawing.Point(478, 254);
             this.cbxStudentNames3.Name = "cbxStudentNames3";
             this.cbxStudentNames3.Size = new System.Drawing.Size(80, 23);
             this.cbxStudentNames3.TabIndex = 24;
@@ -111,7 +111,7 @@
             // cbxStudentNames4
             // 
             this.cbxStudentNames4.FormattingEnabled = true;
-            this.cbxStudentNames4.Location = new System.Drawing.Point(332, 221);
+            this.cbxStudentNames4.Location = new System.Drawing.Point(349, 254);
             this.cbxStudentNames4.Name = "cbxStudentNames4";
             this.cbxStudentNames4.Size = new System.Drawing.Size(81, 23);
             this.cbxStudentNames4.TabIndex = 25;
@@ -119,7 +119,7 @@
             // cbxStudentNames5
             // 
             this.cbxStudentNames5.FormattingEnabled = true;
-            this.cbxStudentNames5.Location = new System.Drawing.Point(623, 221);
+            this.cbxStudentNames5.Location = new System.Drawing.Point(607, 254);
             this.cbxStudentNames5.Name = "cbxStudentNames5";
             this.cbxStudentNames5.Size = new System.Drawing.Size(80, 23);
             this.cbxStudentNames5.TabIndex = 26;
