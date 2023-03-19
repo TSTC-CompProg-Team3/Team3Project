@@ -103,7 +103,7 @@
             // cbxStudentNames3
             // 
             this.cbxStudentNames3.FormattingEnabled = true;
-            this.cbxStudentNames3.Location = new System.Drawing.Point(478, 254);
+            this.cbxStudentNames3.Location = new System.Drawing.Point(479, 254);
             this.cbxStudentNames3.Name = "cbxStudentNames3";
             this.cbxStudentNames3.Size = new System.Drawing.Size(80, 23);
             this.cbxStudentNames3.TabIndex = 24;
@@ -119,7 +119,7 @@
             // cbxStudentNames5
             // 
             this.cbxStudentNames5.FormattingEnabled = true;
-            this.cbxStudentNames5.Location = new System.Drawing.Point(607, 254);
+            this.cbxStudentNames5.Location = new System.Drawing.Point(606, 254);
             this.cbxStudentNames5.Name = "cbxStudentNames5";
             this.cbxStudentNames5.Size = new System.Drawing.Size(80, 23);
             this.cbxStudentNames5.TabIndex = 26;
