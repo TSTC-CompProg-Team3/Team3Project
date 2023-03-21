@@ -68,7 +68,7 @@ namespace DatabaseConnection_G3_sp23
                     string accountType = (string)reader["AccountType"];
                     string userName = (string)reader["UserName"];
                     string password = (string)reader["Password"];
-                    string resetCode = "secret code";
+                    string resetCode = reader.IsDBNull(reader.GetOrdinal("ResetCode")) ? null : (string)reader["ResetCode"];
                     string email = (string)reader["Email"];
 
                     userList.Add(new clsUser(loginID,accountType,userName,password, resetCode, email));
