@@ -93,6 +93,12 @@
     <Compile Include="frmAdminMenu.Designer.cs">
       <DependentUpon>frmAdminMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAssignClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAssignClasses.Designer.cs">
+      <DependentUpon>frmAssignClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAttendanceEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminMenu.resx">
       <DependentUpon>frmAdminMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAssignClasses.resx">
+      <DependentUpon>frmAssignClasses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAttendanceEdit.resx">
       <DependentUpon>frmAttendanceEdit.cs</DependentUpon>

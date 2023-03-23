@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace DatabaseConnection_G3_sp23
@@ -43,12 +44,12 @@ namespace DatabaseConnection_G3_sp23
             {
                 case "Officer":
                     btnOfficer.Visible = true;
+                    btnAssignClass.Visible = true;
                     break;
 
                 case "Admin":
                     btnAdmin.Visible = true;
-                    // Load classes from all the teacher database
-                    clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, 0);
+                    btnAssignClass.Visible = true;
                     break;
 
                 case "Teacher":
@@ -78,6 +79,8 @@ namespace DatabaseConnection_G3_sp23
             btnAdmin.ForeColor = ColorTranslator.FromHtml("#191919");
             btnOfficer.BackColor = ColorTranslator.FromHtml("#F15025");
             btnOfficer.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnAssignClass.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAssignClass.ForeColor = ColorTranslator.FromHtml("#191919");
 
         }
 
@@ -144,5 +147,10 @@ namespace DatabaseConnection_G3_sp23
             officerMenu.ShowDialog();
         }
 
+        private void btnAssignClass_Click(object sender, EventArgs e)
+        {
+            frmAssignClasses assignClasses = new frmAssignClasses();
+            assignClasses.ShowDialog();
+        }
     }
 }

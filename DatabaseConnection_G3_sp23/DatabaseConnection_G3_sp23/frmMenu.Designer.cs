@@ -37,6 +37,7 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnOfficer = new System.Windows.Forms.Button();
+            this.btnAssignClass = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,6 +126,18 @@
             this.btnOfficer.Visible = false;
             this.btnOfficer.Click += new System.EventHandler(this.btnOfficer_Click);
             // 
+            // btnAssignClass
+            // 
+            this.btnAssignClass.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssignClass.Location = new System.Drawing.Point(486, 338);
+            this.btnAssignClass.Name = "btnAssignClass";
+            this.btnAssignClass.Size = new System.Drawing.Size(117, 40);
+            this.btnAssignClass.TabIndex = 8;
+            this.btnAssignClass.Text = "Assign &Classes";
+            this.btnAssignClass.UseVisualStyleBackColor = true;
+            this.btnAssignClass.Visible = false;
+            this.btnAssignClass.Click += new System.EventHandler(this.btnAssignClass_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -132,6 +145,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.btnAssignClass);
             this.Controls.Add(this.btnOfficer);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnLogOut);
@@ -162,5 +176,6 @@
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnOfficer;
         private System.Windows.Forms.ComboBox cbxCourseSelect;
+        private System.Windows.Forms.Button btnAssignClass;
     }
 }

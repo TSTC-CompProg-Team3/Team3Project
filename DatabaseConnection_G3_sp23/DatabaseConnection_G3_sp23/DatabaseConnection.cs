@@ -567,6 +567,122 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
+        public void GetClasses(List<string> classes)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Class", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string className = ((int)reader["ClassID"]).ToString();
+                    className += " - " + (string)reader["ClassName"];
+                    classes.Add(className);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void GetCurrentClasses(int studentID, ComboBox cbxClass1, ComboBox cbxClass2, ComboBox cbxClass3, ComboBox cbxClass4, ComboBox cbxClass5, ComboBox cbxClass6)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT Class1, Class2, Class3, Class4, Class5, Class6 FROM " +
+                    "team3sp232330.StudentSchedule ss WHERE ss.StudentID = " + studentID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                List<ComboBox> comboBoxes = new List<ComboBox> { cbxClass1, cbxClass2, cbxClass3, cbxClass4, cbxClass5, cbxClass6 };
+
+                while (reader.Read())
+                {
+                    for (int i = 1; i <= 6; i++)
+                    {
+                        string classID = reader["Class" + i].ToString();
+                        ComboBox cbx = comboBoxes[i - 1];
+                        foreach (var item in cbx.Items)
+                        {
+                            string cbxText = item.ToString();
+                            if (string.IsNullOrEmpty(classID))
+                            {
+                                cbx.SelectedItem = "";
+                                break;
+                            }
+                            else if (cbxText.StartsWith(classID))
+                            {
+                                cbx.SelectedItem = item;
+                                break;
+                            }
+                        }
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void EditCurrentClasses(int studentID, ComboBox cbxClass1, ComboBox cbxClass2, ComboBox cbxClass3, ComboBox cbxClass4, ComboBox cbxClass5, ComboBox cbxClass6)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("IF EXISTS (SELECT * FROM team3sp232330.StudentSchedule WHERE StudentID = @StudentID) " +
+                                                    "BEGIN " +
+                                                    "UPDATE team3sp232330.StudentSchedule SET Class1 = @Class1, Class2 = @Class2, " +
+                                                    "Class3 = @Class3, Class4 = @Class4, Class5 = @Class5, Class6 = @Class6 WHERE StudentID = @StudentID " +
+                                                    "END " +
+                                                    "ELSE " +
+                                                    "BEGIN " +
+                                                    "INSERT INTO team3sp232330.StudentSchedule (StudentID, Class1, Class2, Class3, Class4, Class5, Class6) " +
+                                                    "VALUES (@StudentID, @Class1, @Class2, @Class3, @Class4, @Class5, @Class6) " +
+                                                    "END", connection);
+
+                command.Parameters.AddWithValue("@Class1", GetClassIDFromComboBox(cbxClass1) ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@Class2", GetClassIDFromComboBox(cbxClass2) ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@Class3", GetClassIDFromComboBox(cbxClass3) ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@Class4", GetClassIDFromComboBox(cbxClass4) ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@Class5", GetClassIDFromComboBox(cbxClass5) ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@Class6", GetClassIDFromComboBox(cbxClass6) ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@StudentID", studentID);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Classes updated successfully.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No rows were affected by the update.", "Update Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private string GetClassIDFromComboBox(ComboBox comboBox)
+        {
+            string selectedItemText = comboBox.SelectedItem?.ToString();
+            if (selectedItemText == null)
+            {
+                return null;
+            }
+            else
+            {
+                return selectedItemText.Split('-')[0].Trim();
+            }
+        }
+
+
 
         private static DataTable _gradeBookDataTable;
 
@@ -847,7 +963,7 @@ namespace DatabaseConnection_G3_sp23
                 while (reader.Read())
                 {
                     // Create a string representation of the student's information
-                    string studentInfo = $"{reader["FirstName"]} {reader["MiddleName"]} {reader["LastName"]},";
+                    string studentInfo = $"{reader["StudentID"]} - {reader["FirstName"]} {reader["MiddleName"]} {reader["LastName"]}";
                                          
 
                     // Add the student's information to the ListBox

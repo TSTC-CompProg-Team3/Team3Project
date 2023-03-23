@@ -321,7 +321,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo;
+            this.BackgroundImage = global::DatabaseConnection_G3_sp23.Properties.Resources.Logo;
             this.ClientSize = new System.Drawing.Size(1172, 582);
             this.ControlBox = false;
             this.Controls.Add(this.cbxStudentNames20);
