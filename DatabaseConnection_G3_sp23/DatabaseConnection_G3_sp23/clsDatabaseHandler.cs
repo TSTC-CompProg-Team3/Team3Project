@@ -111,11 +111,13 @@ namespace DatabaseConnection_G3_sp23
                         message.Subject = "Password Reset Code";
                         message.Body = $"Your password reset code is: {resetCode}";
 
-                        SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-                        smtp.Credentials = new NetworkCredential("tstccompprogteam3@gmail.com", "ibhkovptxxlrtndr");
-                        smtp.EnableSsl = true;
-                        smtp.Port = 587;
-                        smtp.Send(message);
+                        using (SmtpClient smtp = new SmtpClient("smtp-relay.sendinblue.com", 587))
+                        {
+                            smtp.Credentials = new NetworkCredential("tstccompprogteam3@gmail.com", "CZ5dbGYKj6M17UvJ");
+                            smtp.EnableSsl = true;
+                            smtp.Send(message);
+                        }
+
 
                         MessageBox.Show("Password reset code sent to email.");
 
