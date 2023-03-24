@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Data;
 
 namespace DatabaseConnection_G3_sp23
 {
@@ -486,6 +487,59 @@ namespace DatabaseConnection_G3_sp23
             database.CloseDatabase();
 
             MessageBox.Show("Student Successfully Editted", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        internal static void PopulateClassesLbx(ListBox lbxStudents)
+        {
+            database.PopulateStudentListBox(lbxStudents);
+        }
+
+        internal static void PopulateAvailableClasses(ComboBox cbxClass1, ComboBox cbxClass2, ComboBox cbxClass3, ComboBox cbxClass4, ComboBox cbxClass5, ComboBox cbxClass6)
+        {
+            List<string> classes = new List<string>();
+
+            database.OpenDatabase();
+
+            database.GetClasses(classes);
+
+            database.CloseDatabase();
+
+            foreach (string cl in classes)
+            {
+                cbxClass1.Items.Add(cl);
+                cbxClass2.Items.Add(cl);
+                cbxClass3.Items.Add(cl);
+                cbxClass4.Items.Add(cl);
+                cbxClass5.Items.Add(cl);
+                cbxClass6.Items.Add(cl);
+            }
+
+        }
+
+        internal static void SetCurrentClasses(int studentID, ComboBox cbxClass1, ComboBox cbxClass2, ComboBox cbxClass3, ComboBox cbxClass4, ComboBox cbxClass5, ComboBox cbxClass6)
+        {
+            database.OpenDatabase();
+
+            cbxClass1.SelectedIndex = -1;
+            cbxClass2.SelectedIndex = -1;
+            cbxClass3.SelectedIndex = -1;
+            cbxClass4.SelectedIndex = -1;
+            cbxClass5.SelectedIndex = -1;
+            cbxClass6.SelectedIndex = -1;
+
+            database.GetCurrentClasses(studentID,cbxClass1,cbxClass2,cbxClass3,cbxClass4,cbxClass5,cbxClass6);
+
+            database.CloseDatabase();
+
+        }
+
+        internal static void EditCourses(int studentID, ComboBox cbxClass1, ComboBox cbxClass2, ComboBox cbxClass3, ComboBox cbxClass4, ComboBox cbxClass5, ComboBox cbxClass6)
+        {
+            database.OpenDatabase();
+
+            database.EditCurrentClasses(studentID,cbxClass1,cbxClass2,cbxClass3,cbxClass4,cbxClass5,cbxClass6);
+
+            database.CloseDatabase();
         }
     }
 }
