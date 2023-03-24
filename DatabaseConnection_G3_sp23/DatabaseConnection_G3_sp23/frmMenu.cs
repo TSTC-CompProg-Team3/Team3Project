@@ -37,24 +37,32 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            clsDatabaseHandler.LoadMenu(cbxCourseSelect, loginID);
             
             //Makes admin button visible if user is admin (Levels of Security) -CS
             switch (accountType)
             {
                 case "Officer":
                     btnOfficer.Visible = true;
+
                     btnAssignClass.Visible = true;
+
+                    clsDatabaseHandler.LoadAdminOfficer(cbxCourseSelect);
+
                     break;
 
                 case "Admin":
                     btnAdmin.Visible = true;
+
                     btnAssignClass.Visible = true;
+
+                    clsDatabaseHandler.LoadAdminOfficer(cbxCourseSelect);
+
                     break;
 
                 case "Teacher":
                     btnAdmin.Visible = false;
                     btnOfficer.Visible = false;
+                    clsDatabaseHandler.LoadMenu(cbxCourseSelect, loginID);
                     break;
 
                 case "student":

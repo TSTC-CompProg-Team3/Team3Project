@@ -53,9 +53,9 @@
             // cbxCourseSelect
             // 
             this.cbxCourseSelect.FormattingEnabled = true;
-            this.cbxCourseSelect.Location = new System.Drawing.Point(228, 236);
+            this.cbxCourseSelect.Location = new System.Drawing.Point(147, 236);
             this.cbxCourseSelect.Name = "cbxCourseSelect";
-            this.cbxCourseSelect.Size = new System.Drawing.Size(203, 23);
+            this.cbxCourseSelect.Size = new System.Drawing.Size(365, 23);
             this.cbxCourseSelect.TabIndex = 1;
             // 
             // btnGradeBook
