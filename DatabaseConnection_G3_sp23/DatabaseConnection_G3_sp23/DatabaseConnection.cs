@@ -125,12 +125,11 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        public void AdminAccessClasses(int teacherID)
+        public void AdminAccessClasses()
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID WHERE c.TeacherID = @TeacherID", connection);
-                command.Parameters.AddWithValue("@TeacherID", teacherID);
+                SqlCommand command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID ", connection);
 
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
