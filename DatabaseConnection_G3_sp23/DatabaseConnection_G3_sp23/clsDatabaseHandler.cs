@@ -142,12 +142,12 @@ namespace DatabaseConnection_G3_sp23
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        public static void LoadAdminMenu(ComboBox cbxCourseSelect, int teacherID)
+        public static void LoadAdminOfficer(ComboBox cbxCourseSelect)
         {
             database.OpenDatabase();
             database.classList.Clear();
-            // Get a list of all the classes for the specified teacher
-            database.AdminAccessClasses(teacherID);
+            // Get a list of all the classes for the specified admin
+            database.AdminAccessClasses();
             // Add each class to the ComboBox
             foreach (string subject in database.classList)
             {
