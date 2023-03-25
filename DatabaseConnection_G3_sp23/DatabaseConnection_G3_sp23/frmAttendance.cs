@@ -14,6 +14,17 @@ namespace DatabaseConnection_G3_sp23
     {
         DatabaseConnection database = new DatabaseConnection();
         private BindingSource binding = new BindingSource();
+        private int loginID;
+        private string accountType;
+        private string classSelect;
+
+        public frmAttendance(int loginid, string accountType, string classSelect)
+        {
+            loginID = loginid;
+            this.accountType = accountType;
+            this.classSelect = classSelect;
+            InitializeComponent();
+        }
 
         //TODO: Filter query to current logged in teacher and selected class
         //TODO: Ensure edits made are pushed to database
@@ -27,7 +38,7 @@ namespace DatabaseConnection_G3_sp23
         private void frmAttendance_Load(object sender, EventArgs e)
         {
             database.OpenDatabase();
-            binding.DataSource = database.AttendanceInfo();
+            binding.DataSource = database.AttendanceInfo(loginID, accountType, classSelect);
             dgvAttendance.DataSource = binding;
 
             btnEditAttend.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -69,7 +80,7 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnEditAttend_Click(object sender, EventArgs e)
         {
-            frmAttendanceEdit edit = new frmAttendanceEdit();
+            frmAttendanceEdit edit = new frmAttendanceEdit(loginID, accountType, classSelect);
             edit.ShowDialog();
         }
     }

@@ -978,14 +978,32 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        public DataTable AttendanceInfo()
+        public DataTable AttendanceInfo(int loginID, string accountType, string classSelect)
         {
-            SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate,  a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID;", connection);
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-
+            string classID = "";
+            int spaceIndex = classSelect.IndexOf(" ");
+            string className = classSelect.Substring(0, spaceIndex);
             DataTable table = new DataTable();
-            adapter.Fill(table);
+
+            
+            if (accountType.Equals("Teacher") || accountType.Equals("Admin"))
+            {
+                SqlCommand commandID = new SqlCommand("SELECT ClassID FROM team3sp232330.Class WHERE ClassName = '" + className + "';", connection);
+                SqlDataReader reader = commandID.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    classID = $"{reader["ClassID"]}";
+                }
+
+                SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + ";", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = command;
+
+                reader.Close();
+
+                adapter.Fill(table);
+            }
 
 
             return table;
