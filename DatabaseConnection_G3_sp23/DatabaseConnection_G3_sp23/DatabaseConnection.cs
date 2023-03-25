@@ -708,18 +708,38 @@ namespace DatabaseConnection_G3_sp23
         }
         private DataTable _gradeTable;
 
-        public void GradeCalculations(int counter, DataGridView dgvGradebook, Label lbltotalGrade, Label lblQuiz, Label lblParticipation, Label lblHomework, Label lblLab, Label lblTest)
-        {
-            string query = "Select Grade From team3sp232330.Grades Where StudentID=" + counter + "";
+        /*
+         int gradeStudentID;
+         public void GradeCalculations(Label lbltotalGrade)
+         {
 
-            SqlCommand cmdGrade = new SqlCommand(query, connection);
+             try
+             {
 
-            SqlDataAdapter gradeAdapter = new SqlDataAdapter(cmdGrade);
 
-            _gradeTable = new DataTable();
-            gradeAdapter.Fill(_gradeTable);
+                 SqlCommand cmdGradeInfo = new SqlCommand("Select StudentID,Grade from team3sp232330.Grades", connection);
 
-        }
+                 SqlDataReader reader = cmdGradeInfo.ExecuteReader();
+
+
+                 while (reader.Read())
+
+                 {
+                     gradeStudentID = Convert.ToInt32(reader["StudentID"]);
+                     lbltotalGrade.Text = ((decimal)reader["Grade"]).ToString();
+                 }
+                 reader.Close();
+                 SqlDataAdapter gradeAdapterInfo = new SqlDataAdapter(cmdGradeInfo);
+                 _gradeTable = new DataTable();
+                 gradeAdapterInfo.Fill(_gradeTable);
+                 lbltotalGrade.DataBindings.Add("Text", _gradeTable, "Grade");
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
+
+         }*/
 
         private static DataTable _nameTable;
         public static void GradeBookName(Label lblName)
@@ -743,8 +763,7 @@ namespace DatabaseConnection_G3_sp23
 
 
         }
-     
-        static frmGradebook frmGradebook = new frmGradebook();
+
         public static void RemoveGradeBook(DataGridView dgvGradebook, int counter)
         {
             try
@@ -1072,7 +1091,7 @@ namespace DatabaseConnection_G3_sp23
         }
         private static int counter = 0;
 
-        public void Next(TextBox tbxName)
+        public void Next(TextBox tbxName/*,Label lblGrade*/)
         {
 
             try
@@ -1086,17 +1105,18 @@ namespace DatabaseConnection_G3_sp23
                     counter++;
                 }
                 tbxName.Text = _nameeTable.Rows[counter]["studentName"].ToString();
+                /*                lblGrade.Text = _gradeTable.Rows[counter]["Grade"].ToString();*/
             }
-           
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public void Previous(TextBox tbxName)
+        public void Previous(TextBox tbxName /*,Label lblGrade*/)
         {
-           
+
             try
             {
                 if (counter <= 0)
@@ -1108,6 +1128,7 @@ namespace DatabaseConnection_G3_sp23
                     counter--;
                 }
                 tbxName.Text = _nameeTable.Rows[counter]["studentName"].ToString();
+                /*                lblGrade.Text = _gradeTable.Rows[counter]["Grade"].ToString();*/
             }
             catch (Exception ex)
             {
@@ -1115,7 +1136,7 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        
+
     }
 
 

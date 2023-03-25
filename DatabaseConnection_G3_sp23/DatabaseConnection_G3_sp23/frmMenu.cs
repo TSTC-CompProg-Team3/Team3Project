@@ -106,7 +106,7 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnGradeBook_Click(object sender, EventArgs e)
         {
-            frmGradebook gradebook = new frmGradebook();
+            frmGradebook gradebook = new frmGradebook(loginID,accountType);
             gradebook.ShowDialog();
         }
 

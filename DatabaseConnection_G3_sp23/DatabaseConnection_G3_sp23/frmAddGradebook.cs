@@ -15,7 +15,6 @@ namespace DatabaseConnection_G3_sp23
     {
         DatabaseConnection database = new DatabaseConnection();
         frmGradebook mainGradbook;
-        frmGradebook frmGradebook = new frmGradebook();
         public frmAddGradebook(frmGradebook grade)
         {
             InitializeComponent();
@@ -35,7 +34,6 @@ namespace DatabaseConnection_G3_sp23
                 DatabaseConnection.AddGradeBook(mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
                 MessageBox.Show("Grade Added");
                 this.Hide();
-                frmGradebook.Show();
 
             }
         }
@@ -43,7 +41,6 @@ namespace DatabaseConnection_G3_sp23
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmGradebook.Show();
         }
     }
 }

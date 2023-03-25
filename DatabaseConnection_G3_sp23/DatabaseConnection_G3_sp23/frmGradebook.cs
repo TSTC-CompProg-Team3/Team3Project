@@ -13,10 +13,14 @@ namespace DatabaseConnection_G3_sp23
 {
     public partial class frmGradebook : Form
     {
+        public int loginID;
+        public string accountType;
         DatabaseConnection database = new DatabaseConnection();
        public DataGridView grade= new DataGridView();
-        public frmGradebook()
+        public frmGradebook(int loginid, string accounttype)
         {
+            loginID = loginid;
+            accountType = accounttype;
             InitializeComponent();
         }
 
@@ -29,9 +33,36 @@ namespace DatabaseConnection_G3_sp23
 
         private void frmGradebook_Load(object sender, EventArgs e)
         {
+            switch (accountType.ToLower())
+            {
+                case "officer":
+                    btnRemove.Visible = true;
+                    btnEdit.Visible = true;
+                    btnAdd.Visible = true;
+                    break;
+
+                case "admin":
+                    btnRemove.Visible = true;
+                    btnEdit.Visible = true;
+                    btnAdd.Visible = true;
+                    break;
+
+                case "teacher":
+                    btnRemove.Visible = true;
+                    btnEdit.Visible = true;
+                    btnAdd.Visible = true;
+                    break;
+                case "student":
+                    btnRemove.Visible = false;
+                    btnEdit.Visible = false;
+                    btnAdd.Visible = false;
+                    break;
+                default:
+                    break;
+            }
             grade = dgvGradeBook;
             DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
-            database.GradeCalculations(dgvcounter, dgvGradeBook, lblTotal, lblQuiz, lblParticipation, lblHomework, lblLab, lblTest);
+/*            database.GradeCalculations(lblTotal);*/
             DatabaseConnection.MidTermGName(tbxName);
         }
 
@@ -52,7 +83,6 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            this.Hide();
             frmAddGradebook frmAddGradebook = new frmAddGradebook(this);
             frmAddGradebook.Show();
         }
@@ -67,15 +97,12 @@ namespace DatabaseConnection_G3_sp23
             else
             {
                 DatabaseConnection.RemoveGradeBook(dgvGradeBook, dgvcounter);
-                this.Hide();
                 MessageBox.Show("Grade Removed");
-                this.Show();
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //this.Hide();
             //frmEditGradebook frmEditGradebook = new frmEditGradebook(this);
             //frmEditGradebook.Show();
         }

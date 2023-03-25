@@ -312,14 +312,14 @@
             // 
             this.tbxName.Location = new System.Drawing.Point(604, 8);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(176, 23);
+            this.tbxName.Size = new System.Drawing.Size(176, 31);
             this.tbxName.TabIndex = 44;
             // 
             // frmGradebook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::DatabaseConnection_G3_sp23.Properties.Resources.Logo;
+            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(823, 409);
             this.ControlBox = false;
