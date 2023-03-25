@@ -20,9 +20,20 @@ namespace DatabaseConnection_G3_sp23
         public DataGridView grade = new DataGridView();
 
 
+        public string queryC = "SELECT ClassID FROM team3sp232330.Class ";
+
+        public string QueryC
+        {
+            get { return queryC; }
+            set { queryC = value; }
+        }
+
         public frmMidTermG()
         {
             InitializeComponent();
+            queryC = QueryC;
+
+
         }
 
         CurrencyManager midTermGradeManager;
@@ -42,6 +53,7 @@ namespace DatabaseConnection_G3_sp23
             grade = dgvMDG;
             DatabaseConnection.MidTermG(dgvMDG, count);
             DatabaseConnection.MidTermGName(tbxName);
+           //DatabaseConnection.MidTermGClass(dgvMDG, count);
             midTermGradeManager = (CurrencyManager)this.BindingContext[DatabaseConnection.MidTermGDT];
         }
 
