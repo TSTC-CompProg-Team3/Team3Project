@@ -58,6 +58,10 @@ namespace DatabaseConnection_G3_sp23
         {
             frmAddCourse addCourse = new frmAddCourse();
             addCourse.ShowDialog();
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
@@ -108,6 +112,10 @@ namespace DatabaseConnection_G3_sp23
         {
             frmAddTeacher addTeacher = new frmAddTeacher();
             addTeacher.ShowDialog();
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
 
         }
 
@@ -115,6 +123,10 @@ namespace DatabaseConnection_G3_sp23
         {
             frmEditTeacher editTeacher = new frmEditTeacher(cbxTeacherSelect.Text);
             editTeacher.ShowDialog();
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
         private void btnRemoveStudent_Click(object sender, EventArgs e)

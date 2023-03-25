@@ -352,10 +352,14 @@ namespace DatabaseConnection_G3_sp23
 
         internal static void EditTeacherLoad(string teacherID, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword)
         {
+            database.OpenDatabase();
 
+            database.LoadEditTeacher(teacherID, tbxFirstName,tbxLastName,tbxEmail, tbxUsername, tbxPassword);
+
+            database.CloseDatabase();
         }
 
-        internal static void EditTeacher(TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword)
+        internal static void EditTeacher(string teacherID, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword)
         {
             database.OpenDatabase();
 
@@ -366,7 +370,7 @@ namespace DatabaseConnection_G3_sp23
             string password = tbxPassword.Text;
 
 
-            database.EditTeacher(firstName, lastName, email, username, password);
+            database.EditTeacher(teacherID, firstName, lastName, email, username, password);
 
             database.CloseDatabase();
 

@@ -58,7 +58,10 @@ namespace Team3Project_Fixed
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.EditTeacher(tbxFirstName, tbxLastName, tbxEmail, tbxUsername, tbxPassword);
+            string hold = teacherInfo;
+            string[] holdSplit = hold.Split('-');
+            string teacherID = holdSplit[0].Trim();
+            clsDatabaseHandler.EditTeacher(teacherID, tbxFirstName, tbxLastName, tbxEmail, tbxUsername, tbxPassword);
         }
     }
 }
