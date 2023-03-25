@@ -1,4 +1,4 @@
-﻿using DatabaseConnection_G3_sp23;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Team3Project_Fixed
+namespace DatabaseConnection_G3_sp23
 {
     public partial class frmEditTeacher : Form
     {
