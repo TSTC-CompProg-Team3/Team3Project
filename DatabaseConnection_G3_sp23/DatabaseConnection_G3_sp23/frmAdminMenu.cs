@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using DatabaseConnection_G3_sp23;
+using Team3Project_Fixed;
 
 namespace DatabaseConnection_G3_sp23
 {
@@ -61,11 +62,11 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.RemoveCourse(cbxCourseSelect);
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+            //clsDatabaseHandler.RemoveCourse(cbxCourseSelect);
+            //cbxCourseSelect.Items.Clear();
+            //cbxStudentSelect.Items.Clear();
+            //cbxTeacherSelect.Items.Clear();
+            //clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
 
         }
 
@@ -91,11 +92,11 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnRemoveTeacher_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+            //clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
+            //cbxCourseSelect.Items.Clear();
+            //cbxStudentSelect.Items.Clear();
+            //cbxTeacherSelect.Items.Clear();
+            //clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
         private void frmAdminMenu_Activated(object sender, EventArgs e)
@@ -105,23 +106,26 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Add Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmAddTeacher addTeacher = new frmAddTeacher();
+            addTeacher.ShowDialog();
+
         }
 
         private void btnEditTeacher_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Edit Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmEditTeacher editTeacher = new frmEditTeacher(cbxTeacherSelect.Text);
+            editTeacher.ShowDialog();
         }
 
         private void btnRemoveStudent_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.RemoveStudent(cbxStudentSelect);
+            //clsDatabaseHandler.RemoveStudent(cbxStudentSelect);
 
 
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect,cbxTeacherSelect);
+            //cbxCourseSelect.Items.Clear();
+            //cbxStudentSelect.Items.Clear();
+            //cbxTeacherSelect.Items.Clear();
+            //clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect,cbxTeacherSelect);
         }
 
         private void btnEditStudent_Click(object sender, EventArgs e)

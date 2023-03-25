@@ -59,6 +59,7 @@
             this.btnEditSubject.TabIndex = 30;
             this.btnEditSubject.Text = "Edit Subject";
             this.btnEditSubject.UseVisualStyleBackColor = true;
+            this.btnEditSubject.Click += new System.EventHandler(this.btnEditSubject_Click);
             // 
             // btnRemoveSubject
             // 
@@ -69,6 +70,7 @@
             this.btnRemoveSubject.TabIndex = 31;
             this.btnRemoveSubject.Text = "Remove Subject";
             this.btnRemoveSubject.UseVisualStyleBackColor = true;
+            this.btnRemoveSubject.Click += new System.EventHandler(this.btnRemoveSubject_Click);
             // 
             // cbxSubjectSelect
             // 
@@ -87,6 +89,7 @@
             this.btnAddSubject.TabIndex = 29;
             this.btnAddSubject.Text = "Add Subject";
             this.btnAddSubject.UseVisualStyleBackColor = true;
+            this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
             // 
             // btnEditTeacher
             // 
@@ -237,6 +240,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(659, 536);
+            this.ControlBox = false;
             this.Controls.Add(this.pbxOfficerMenu);
             this.Controls.Add(this.btnEditSubject);
             this.Controls.Add(this.btnRemoveSubject);
