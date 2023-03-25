@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Team3Project_Fixed;
 
 namespace DatabaseConnection_G3_sp23
 {
@@ -63,11 +64,11 @@ namespace DatabaseConnection_G3_sp23
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.RemoveCourse(cbxCourseSelect);
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+            //clsDatabaseHandler.RemoveCourse(cbxCourseSelect);
+            //cbxCourseSelect.Items.Clear();
+            //cbxStudentSelect.Items.Clear();
+            //cbxTeacherSelect.Items.Clear();
+            //clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
         }
 
         private void btnEditCourse_Click(object sender, EventArgs e)
@@ -82,32 +83,49 @@ namespace DatabaseConnection_G3_sp23
             cbxCourseSelect.Items.Clear();
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
         }
 
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
             frmAddCourse addCourse = new frmAddCourse();
             addCourse.ShowDialog();
+
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
         }
 
         private void btnRemoveTeacher_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+            //clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
+            //cbxCourseSelect.Items.Clear();
+            //cbxStudentSelect.Items.Clear();
+            //cbxTeacherSelect.Items.Clear();
+            //clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
         }
 
         private void btnEditTeacher_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Edit Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmEditTeacher editTeacher = new frmEditTeacher(cbxTeacherSelect.Text);
+            editTeacher.ShowDialog();
+
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
         }
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Add Teacher under construction", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmAddTeacher addTeacher = new frmAddTeacher();
+            addTeacher.ShowDialog();
+
+            cbxCourseSelect.Items.Clear();
+            cbxStudentSelect.Items.Clear();
+            cbxTeacherSelect.Items.Clear();
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
         }
 
         private void btnRemoveStudent_Click(object sender, EventArgs e)
@@ -141,6 +159,21 @@ namespace DatabaseConnection_G3_sp23
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+        }
+
+        private void btnRemoveSubject_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditSubject_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddSubject_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

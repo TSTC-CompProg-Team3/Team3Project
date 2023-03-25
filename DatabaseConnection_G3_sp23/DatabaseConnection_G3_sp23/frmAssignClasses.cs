@@ -22,8 +22,8 @@ namespace DatabaseConnection_G3_sp23
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnEditCourses.BackColor = ColorTranslator.FromHtml("#F15025");
             btnEditCourses.ForeColor = ColorTranslator.FromHtml("#191919");
-            btnClose.BackColor = ColorTranslator.FromHtml("#F15025");
-            btnClose.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
             btnReset.BackColor = ColorTranslator.FromHtml("#F15025");
             btnReset.ForeColor = ColorTranslator.FromHtml("#191919");
            
@@ -43,7 +43,7 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }

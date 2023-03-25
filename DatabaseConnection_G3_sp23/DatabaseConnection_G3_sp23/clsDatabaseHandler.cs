@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Data;
+using System.Net.NetworkInformation;
 
 namespace DatabaseConnection_G3_sp23
 {
@@ -189,6 +190,11 @@ namespace DatabaseConnection_G3_sp23
             database.CloseDatabase();
         }
 
+        internal static void LoadStudentMenu(ComboBox cbxCourseSelect, int loginID)
+        {
+            
+        }
+
         internal static void LoadAdminMenu(ComboBox cbxCourseSelect, ComboBox cbxStudentSelect, ComboBox cbxTeacherSelect)
         {
             database.OpenDatabase();
@@ -208,6 +214,7 @@ namespace DatabaseConnection_G3_sp23
 
             database.CloseDatabase();
         }
+
 
 
         internal static void RemoveCourse(ComboBox cbxCourseSelect)
@@ -325,6 +332,52 @@ namespace DatabaseConnection_G3_sp23
             MessageBox.Show("Course Successfully Editted", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        internal static void AddTeacher(TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword)
+        {
+            database.OpenDatabase();
+
+            string firstName = tbxFirstName.Text;
+            string lastName = tbxLastName.Text;
+            string email = tbxEmail.Text;
+            string username = tbxUsername.Text;
+            string password = tbxPassword.Text;
+
+
+            database.AddTeacher(firstName,lastName,email, username, password);
+
+            database.CloseDatabase();
+
+            MessageBox.Show("Teacher Successfully Created", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        internal static void EditTeacherLoad(string teacherID, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword)
+        {
+            database.OpenDatabase();
+
+            database.LoadEditTeacher(teacherID, tbxFirstName,tbxLastName,tbxEmail, tbxUsername, tbxPassword);
+
+            database.CloseDatabase();
+        }
+
+        internal static void EditTeacher(string teacherID, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword)
+        {
+            database.OpenDatabase();
+
+            string firstName = tbxFirstName.Text;
+            string lastName = tbxLastName.Text;
+            string email = tbxEmail.Text;
+            string username = tbxUsername.Text;
+            string password = tbxPassword.Text;
+
+
+            database.EditTeacher(teacherID, firstName, lastName, email, username, password);
+
+            database.CloseDatabase();
+
+            MessageBox.Show("Teacher Successfully Editted", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
         internal static void RemoveTeacher(ComboBox cbxTeacherSelect)
         {
             database.OpenDatabase();
@@ -434,7 +487,7 @@ namespace DatabaseConnection_G3_sp23
         internal static void LoadOfficerMenu(ComboBox cbxCourseSelect, ComboBox cbxStudentSelect, ComboBox cbxTeacherSelect, ComboBox cbxSubjectSelect)
         {
             database.OpenDatabase();
-            database.LoadAdminMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect);
+            database.GetOfficerMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect, cbxSubjectSelect);
             if (cbxCourseSelect.Items.Count > 0)
             {
                 cbxCourseSelect.SelectedIndex = 0;
@@ -446,6 +499,10 @@ namespace DatabaseConnection_G3_sp23
             if (cbxTeacherSelect.Items.Count > 0)
             {
                 cbxTeacherSelect.SelectedIndex = 0;
+            }
+            if (cbxSubjectSelect.Items.Count > 0)
+            {
+                cbxSubjectSelect.SelectedIndex = 0;
             }
 
             database.CloseDatabase();
@@ -541,5 +598,7 @@ namespace DatabaseConnection_G3_sp23
 
             database.CloseDatabase();
         }
+
+        
     }
 }

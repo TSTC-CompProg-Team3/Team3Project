@@ -5,11 +5,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DatabaseConnection_G3_sp23
@@ -176,7 +178,12 @@ namespace DatabaseConnection_G3_sp23
             }
         }
 
-       
+        public void StudentClasses(int loginID)
+        {
+            
+        }
+
+
 
 
         //loads the admin menu info -CS
@@ -224,7 +231,75 @@ namespace DatabaseConnection_G3_sp23
                     studentList.Items.Add(ID + " - " + lastName + ", " + firstName);
                 }
                 reader.Close();
+
             }
+
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void GetOfficerMenu(ComboBox courseList, ComboBox teacherList, ComboBox studentList, ComboBox subjectList)
+        {
+            try
+            {
+
+                SqlCommand command = new SqlCommand("Select ClassID, ClassName, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int classID = (int)reader["ClassID"];
+                    string className = (string)reader["ClassName"];
+                    string subjectName = (string)reader["SubjectName"];
+
+                    courseList.Items.Add(classID.ToString() + " - " + className + " - " + subjectName);
+                }
+                reader.Close();
+
+
+                command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int ID = (int)reader["TeacherID"];
+                    string lastName = (string)reader["LastName"];
+                    string firstName = (string)reader["FirstName"];
+
+                    teacherList.Items.Add(ID + " - " + lastName + ", " + firstName);
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT StudentID, LastName, FirstName FROM team3sp232330.Student", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int ID = (int)reader["StudentID"];
+                    string lastName = (string)reader["LastName"];
+                    string firstName = (string)reader["FirstName"];
+
+                    studentList.Items.Add(ID + " - " + lastName + ", " + firstName);
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int ID = (int)reader["SubjectID"];
+                    string subjectName = (string)reader["SubjectName"];
+
+                    subjectList.Items.Add(ID + " - " + subjectName);
+                }
+                reader.Close();
+            }
+
+
             catch (Exception ex)
             {
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -365,24 +440,122 @@ namespace DatabaseConnection_G3_sp23
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+        public void AddTeacher(string firstName, string lastName, string email, string username, string password)
+        {
+            try
+            {
+                string query = "INSERT INTO team3sp232330.Login (Email, UserName, Password, AccountType) VALUES (@email, @userName, @password, 'Teacher')";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@userName", username);
+                    command.Parameters.AddWithValue("@password", password);
+                    command.ExecuteNonQuery();
+                }
+
+                query = "INSERT INTO team3sp232330.Teacher VALUES ((SELECT TOP 1 LoginID FROM team3sp232330.Login ORDER BY LoginID DESC), @firstName, @lastName)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@firstName", firstName);
+                    command.Parameters.AddWithValue("@lastName", lastName);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        internal void LoadEditTeacher(string teacherID, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Teacher WHERE TeacherID = " + teacherID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                int loginID = -1;
+
+                while (reader.Read())
+                {
+                    tbxFirstName.Text = (string)reader["FirstName"];
+                    tbxLastName.Text = (string)reader["LastName"];
+                    loginID = (int)reader["LoginID"];
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT * FROM team3sp232330.Login WHERE LoginID = " + loginID, connection);
+                reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    tbxEmail.Text = (string)reader["Email"];
+                    tbxUsername.Text = (string)reader["UserName"];
+                    tbxPassword.Text = (string)reader["Password"];
+
+                }
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void EditTeacher(string teacherID, string firstName, string lastName, string email, string username, string password)
+        {
+            try
+            {
+
+
+                string query = "UPDATE team3sp232330.Teacher SET FirstName = @firstName, LastName = @lastName WHERE TeacherID = " + teacherID;
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@firstName", firstName);
+                    command.Parameters.AddWithValue("@lastName", lastName);
+                    command.ExecuteNonQuery();
+                }
+
+                query = "UPDATE team3sp232330.Login SET Email = @email, UserName = @userName, Password = @password WHERE LoginID = (SELECT LoginID FROM team3sp232330.Teacher WHERE TeacherID = " + teacherID + ")";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@userName", username);
+                    command.Parameters.AddWithValue("@password", password);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         //removes teacher from the database -CS
         public void RemoveTeacher(string teacherID)
         {
-            //try
-            //{
-            //    string query = "DELETE c FROM team3sp232330.Class c WHERE c.TeacherID = @teacherID DELETE t FROM team3sp232330.Teacher t INNER JOIN team3sp232330.Class c ON t.TeacherID = c.TeacherID WHERE t.TeacherID = @teacherID ";
+            try
+            {
+                string query = "DELETE FROM Teacher WHERE t.TeacherID = @teacherID ";
 
-            //    using (SqlCommand command = new SqlCommand(query, connection))
-            //    {
-            //        command.Parameters.AddWithValue("@teacherID", teacherID);
-            //        command.ExecuteNonQuery();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@teacherID", teacherID);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             MessageBox.Show("Remove Teacher under construction due to database foreign keys", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

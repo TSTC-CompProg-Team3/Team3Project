@@ -68,6 +68,12 @@ namespace DatabaseConnection_G3_sp23
                 case "student":
                     btnAdmin.Visible = false;
                     btnOfficer.Visible = false;
+                    clsDatabaseHandler.LoadStudentMenu(cbxCourseSelect, loginID);
+                    break;
+
+                case "Parent":
+                    btnAdmin.Visible = false;
+                    btnOfficer.Visible = false;
                     break;
 
                 default:
