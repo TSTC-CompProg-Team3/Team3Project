@@ -16,6 +16,18 @@ namespace DatabaseConnection_G3_sp23
         private DatabaseConnection database = new DatabaseConnection();
         private string dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
         private string firstName = "All", lastName = "All";
+        private int loginID;
+        private string accountType;
+        private string classSelect;
+
+        public frmAttendanceEdit(int loginid, string accountType, string classSelect)
+        {
+            loginID = loginid;
+            this.accountType = accountType;
+            this.classSelect = classSelect;
+            InitializeComponent();
+            
+        }
 
         //TODO: Filter query to current logged in teacher and selected class
         //TODO: Ensure edits made are pushed to database
@@ -30,7 +42,7 @@ namespace DatabaseConnection_G3_sp23
         //Intial query and formatting on form load
         private void frmAttendanceEdit_Load(object sender, EventArgs e)
         {
-            binding.DataSource = database.AttendanceInfo();
+            binding.DataSource = database.AttendanceInfo(loginID, accountType, classSelect);
             dgvAttendanceEdit.DataSource = binding;
 
             btnSubmitAttendEdit.BackColor = ColorTranslator.FromHtml("#F15025");

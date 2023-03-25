@@ -25,7 +25,8 @@ namespace DatabaseConnection_G3_sp23
         private void btnAttendance_Click(object sender, EventArgs e)
         {
             //opens form attendance - CS
-            frmAttendance frmAttendance = new frmAttendance();
+            string classSelect = cbxCourseSelect.SelectedItem as string;
+            frmAttendance frmAttendance = new frmAttendance(loginID, accountType, classSelect);
             frmAttendance.ShowDialog();
         }
 
