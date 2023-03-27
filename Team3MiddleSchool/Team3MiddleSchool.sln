@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseConnection_G3_sp23", "DatabaseConnection_G3_sp23\DatabaseConnection_G3_sp23.csproj", "{E920FDB4-6432-4476-82FD-C1E6FF2F4BFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team3MiddleSchool", "Team3MiddleSchool\Team3MiddleSchool.csproj", "{E920FDB4-6432-4476-82FD-C1E6FF2F4BFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
