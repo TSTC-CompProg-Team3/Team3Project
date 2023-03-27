@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace DatabaseConnection_G3_sp23
+namespace Team3MiddleSchool
 {
     public partial class frmGradebook : Form
     {

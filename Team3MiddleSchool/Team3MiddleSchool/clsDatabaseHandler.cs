@@ -1,4 +1,4 @@
-﻿using DatabaseConnection_G3_sp23;
+﻿using Team3MiddleSchool;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Globalization;
 using System.Data;
 using System.Net.NetworkInformation;
 
-namespace DatabaseConnection_G3_sp23
+namespace Team3MiddleSchool
 {
     internal class clsDatabaseHandler
     {

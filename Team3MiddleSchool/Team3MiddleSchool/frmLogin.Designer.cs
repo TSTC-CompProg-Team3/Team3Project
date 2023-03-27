@@ -1,4 +1,4 @@
-﻿namespace DatabaseConnection_G3_sp23
+﻿namespace Team3MiddleSchool
 {
     partial class frmLogin
     {

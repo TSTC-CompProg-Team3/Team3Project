@@ -1,4 +1,4 @@
-﻿namespace DatabaseConnection_G3_sp23
+﻿namespace Team3MiddleSchool
 {
     partial class frmGradebook
     {
@@ -319,7 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo1;
+            this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(823, 409);
             this.ControlBox = false;

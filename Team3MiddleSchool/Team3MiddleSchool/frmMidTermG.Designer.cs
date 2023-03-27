@@ -1,4 +1,4 @@
-﻿namespace DatabaseConnection_G3_sp23
+﻿namespace Team3MiddleSchool
 {
     partial class frmMidTermG
     {
@@ -257,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Team3Project_Fixed.Properties.Resources.Logo1;
+            this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
             this.ClientSize = new System.Drawing.Size(1049, 497);
             this.Controls.Add(this.tbxTotalG);
             this.Controls.Add(this.tbxTest);

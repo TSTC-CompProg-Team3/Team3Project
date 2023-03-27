@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E920FDB4-6432-4476-82FD-C1E6FF2F4BFE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Team3Project_Fixed</RootNamespace>
-    <AssemblyName>Team3Project_Fixed</AssemblyName>
+    <RootNamespace>Team3MiddleSchool</RootNamespace>
+    <AssemblyName>Team3MiddleSchool</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

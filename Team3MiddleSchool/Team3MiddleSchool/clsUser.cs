@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatabaseConnection_G3_sp23
+namespace Team3MiddleSchool
 {
     internal class clsUser
     {

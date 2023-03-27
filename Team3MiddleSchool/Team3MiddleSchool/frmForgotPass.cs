@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
-using DatabaseConnection_G3_sp23;
+using Team3MiddleSchool;
 
-namespace DatabaseConnection_G3_sp23
+namespace Team3MiddleSchool
 {
     public partial class frmForgotPass : Form
     {

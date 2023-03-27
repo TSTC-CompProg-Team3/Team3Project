@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using DatabaseConnection_G3_sp23;
-using Team3Project_Fixed;
+using Team3MiddleSchool;
 
-namespace DatabaseConnection_G3_sp23
+
+namespace Team3MiddleSchool
 {
     public partial class frmAdminMenu : Form
     {

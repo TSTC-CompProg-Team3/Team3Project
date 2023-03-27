@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace DatabaseConnection_G3_sp23
+namespace Team3MiddleSchool
 {
     internal class DatabaseConnection
     {

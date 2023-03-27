@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DatabaseConnection_G3_sp23;
+using Team3MiddleSchool;
 
-namespace DatabaseConnection_G3_sp23
+namespace Team3MiddleSchool
 {
     internal static class Program
     {
