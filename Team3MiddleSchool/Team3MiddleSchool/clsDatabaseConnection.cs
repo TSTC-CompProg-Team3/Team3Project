@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,7 +17,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Team3MiddleSchool
 {
-    internal class DatabaseConnection
+    internal class clsDatabaseConnection
     {
         //establish database connection - CS
         static SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
@@ -73,7 +74,7 @@ namespace Team3MiddleSchool
                     string resetCode = reader.IsDBNull(reader.GetOrdinal("ResetCode")) ? null : (string)reader["ResetCode"];
                     string email = (string)reader["Email"];
 
-                    userList.Add(new clsUser(loginID,accountType,userName,password, resetCode, email));
+                    userList.Add(new clsUser(loginID, accountType, userName, password, resetCode, email));
                 }
                 reader.Close();
             }
@@ -168,7 +169,7 @@ namespace Team3MiddleSchool
                     int classSize = (int)reader["ClassSize"];
                     classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
                 }
-                
+
                 reader.Close();
 
             }
@@ -180,7 +181,7 @@ namespace Team3MiddleSchool
 
         public void StudentClasses(int loginID)
         {
-            
+
         }
 
 
@@ -384,7 +385,7 @@ namespace Team3MiddleSchool
             }
         }
         //loads the edit course info -CS
-        public void LoadEditCourse(string courseName, TextBox tbxcourseName,  ComboBox teacherList, ComboBox subjectList)
+        public void LoadEditCourse(string courseName, TextBox tbxcourseName, ComboBox teacherList, ComboBox subjectList)
         {
             try
             {
@@ -412,7 +413,7 @@ namespace Team3MiddleSchool
                     teacherList.Items.Add(teacherID + " - " + lastName + ", " + firstName);
                 }
                 reader.Close();
-                
+
             }
             catch (Exception ex)
             {
@@ -616,7 +617,7 @@ namespace Team3MiddleSchool
 
                 while (reader.Read())
                 {
-                     loginID = (int)reader["LoginID"];
+                    loginID = (int)reader["LoginID"];
                 }
                 reader.Close();
 
@@ -634,10 +635,10 @@ namespace Team3MiddleSchool
             }
         }
 
-        public void LoadEditStudent(string studentID, TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName, 
-            DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity, 
-            TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName, 
-            TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, 
+        public void LoadEditStudent(string studentID, TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName,
+            DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity,
+            TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
+            TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork,
             TextBox tbxGuardianWorkPl)
         {
             try
@@ -694,7 +695,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                
+
 
                 string query = "UPDATE team3sp232330.Student SET FirstName = @firstName, MiddleName = @middleName, LastName = @lastName," +
                     " DateOfBirth = @dateOfBirth, MailingAddress = @mailingAddress, StreetAddress = @streetAddress, City = @city," +
@@ -840,8 +841,44 @@ namespace Team3MiddleSchool
             }
         }
 
+        public void AddSubject(string subjectName)
+        {
+            try
+            {
+                string query = "INSERT INTO team3sp232330.Subject (SubjectName) VALUES ('" + subjectName + "')";
 
-        private string GetClassIDFromComboBox(ComboBox comboBox)
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void EditSubject(int subjectID, string subjectText)
+        {
+            try
+            {
+                string query = "UPDATE team3sp232330.Subject SET SubjectName = @subject WHERE SubjectID = " + subjectID;
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@subject", subjectText);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        public string GetClassIDFromComboBox(ComboBox comboBox)
         {
             string selectedItemText = comboBox.SelectedItem?.ToString();
             if (selectedItemText == null)
@@ -852,6 +889,68 @@ namespace Team3MiddleSchool
             {
                 return selectedItemText.Split('-')[0].Trim();
             }
+        }
+
+        public bool ValidateCourse(string courseName)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Class", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string className = (string)reader["ClassName"];
+
+                    if (className == courseName)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                reader.Close();
+                return false;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool CourseHasForeign(string courseID)
+        {
+            //try
+            //{
+            //    SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Class", connection);
+            //    SqlDataReader reader = command.ExecuteReader();
+
+            //    while (reader.Read())
+            //    {
+            //        string className = (string)reader["ClassName"];
+
+            //        if (className == courseName)
+            //        {
+            //            return true;
+            //        }
+            //        else
+            //        {
+            //            return false;
+            //        }
+            //    }
+            //    reader.Close();
+            //    return false;
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
         }
 
 
@@ -1039,7 +1138,7 @@ namespace Team3MiddleSchool
                             cbxStudentNames15.Items.Add(fullName);
                             cbxStudentNames16.Items.Add(fullName);
                             cbxStudentNames17.Items.Add(fullName);
-                            cbxStudentNames18.Items.Add(fullName);  
+                            cbxStudentNames18.Items.Add(fullName);
                             cbxStudentNames19.Items.Add(fullName);
                             cbxStudentNames20.Items.Add(fullName);
                         }
@@ -1057,7 +1156,7 @@ namespace Team3MiddleSchool
         }
 
         public List<string> GetStudentNames10(ComboBox cbxStudentNames, ComboBox cbxStudentNames2, ComboBox cbxStudentNames3, ComboBox cbxStudentNames4, ComboBox cbxStudentNames5,
-                                              ComboBox cbxStudentNames6, ComboBox cbxStudnetNames7, ComboBox cbxStudentNames8, ComboBox cbxStudentNames9, ComboBox cbxStudentNames10 )
+                                              ComboBox cbxStudentNames6, ComboBox cbxStudnetNames7, ComboBox cbxStudentNames8, ComboBox cbxStudentNames9, ComboBox cbxStudentNames10)
         {
             List<string> studentNames = new List<string>();
 
@@ -1155,7 +1254,7 @@ namespace Team3MiddleSchool
                 {
                     // Create a string representation of the student's information
                     string studentInfo = $"{reader["StudentID"]} - {reader["FirstName"]} {reader["MiddleName"]} {reader["LastName"]}";
-                                         
+
 
                     // Add the student's information to the ListBox
                     lstStudentsAvailable.Items.Add(studentInfo);
@@ -1177,13 +1276,13 @@ namespace Team3MiddleSchool
             string className = classSelect.Substring(0, spaceIndex);
             DataTable table = new DataTable();
 
-            
-            if (accountType.Equals("Teacher") || accountType.Equals("Admin"))
+
+            if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
             {
                 SqlCommand commandID = new SqlCommand("SELECT ClassID FROM team3sp232330.Class WHERE ClassName = '" + className + "';", connection);
                 SqlDataReader reader = commandID.ExecuteReader();
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     classID = $"{reader["ClassID"]}";
                 }
@@ -1236,7 +1335,7 @@ namespace Team3MiddleSchool
             {
 
 
-                 string query = "Select AssignmentName, AssignmentType, Grade From team3sp232330.Grades ";
+                string query = "Select AssignmentName, AssignmentType, Grade From team3sp232330.Grades ";
                 //est command obj
                 _midTermGCommand = new SqlCommand(query, connection);
                 //est data adapter
@@ -1330,9 +1429,8 @@ namespace Team3MiddleSchool
             }
         }
 
-
+        
     }
-
 
 }
 

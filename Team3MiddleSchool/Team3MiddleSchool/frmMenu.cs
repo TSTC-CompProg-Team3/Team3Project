@@ -30,7 +30,7 @@ namespace Team3MiddleSchool
             frmAttendance.ShowDialog();
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
+        private void btnReturnToLogin_Click(object sender, EventArgs e)
         {
             //closes this form - Might decide to clear frmLogin textboxes -CS
             this.Close();
@@ -88,8 +88,8 @@ namespace Team3MiddleSchool
             btnAttendance.ForeColor = ColorTranslator.FromHtml("#191919");
             btnSeatingChart.BackColor = ColorTranslator.FromHtml("#F15025");
             btnSeatingChart.ForeColor = ColorTranslator.FromHtml("#191919");
-            btnLogOut.BackColor = ColorTranslator.FromHtml("#F15025");
-            btnLogOut.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnReturnToLogin.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnReturnToLogin.ForeColor = ColorTranslator.FromHtml("#191919");
             btnAdmin.BackColor = ColorTranslator.FromHtml("#F15025");
             btnAdmin.ForeColor = ColorTranslator.FromHtml("#191919");
             btnOfficer.BackColor = ColorTranslator.FromHtml("#F15025");

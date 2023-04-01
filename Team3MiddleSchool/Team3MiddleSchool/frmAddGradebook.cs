@@ -13,7 +13,7 @@ namespace Team3MiddleSchool
 {
     public partial class frmAddGradebook : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
+        clsDatabaseConnection database = new clsDatabaseConnection();
         frmGradebook mainGradbook;
         public frmAddGradebook(frmGradebook grade)
         {
@@ -26,12 +26,12 @@ namespace Team3MiddleSchool
             DialogResult confrimation = MessageBox.Show("Would You like to Add Another Grade?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confrimation == DialogResult.Yes)
             {
-                DatabaseConnection.AddGradeBook(mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
+                clsDatabaseConnection.AddGradeBook(mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
 
             }
             else
             {
-                DatabaseConnection.AddGradeBook(mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
+                clsDatabaseConnection.AddGradeBook(mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
                 MessageBox.Show("Grade Added");
                 this.Hide();
 

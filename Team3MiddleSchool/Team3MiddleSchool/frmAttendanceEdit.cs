@@ -13,7 +13,7 @@ namespace Team3MiddleSchool
     public partial class frmAttendanceEdit : Form
     {
         private BindingSource binding = new BindingSource();
-        private DatabaseConnection database = new DatabaseConnection();
+        private clsDatabaseConnection database = new clsDatabaseConnection();
         private string dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
         private string firstName = "All", lastName = "All";
         private int loginID;

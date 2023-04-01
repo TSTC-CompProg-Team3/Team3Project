@@ -15,7 +15,7 @@ namespace Team3MiddleSchool
 {
     internal class clsDatabaseHandler
     {
-        static DatabaseConnection database = new DatabaseConnection();
+        static clsDatabaseConnection database = new clsDatabaseConnection();
         //Creates random number object -CS
         private static Random random = new Random();
 
@@ -347,7 +347,7 @@ namespace Team3MiddleSchool
 
             database.CloseDatabase();
 
-            MessageBox.Show("Teacher Successfully Created", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Teacher Successfully Created", "Add Teacher", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         internal static void EditTeacherLoad(string teacherID, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword)
@@ -374,7 +374,7 @@ namespace Team3MiddleSchool
 
             database.CloseDatabase();
 
-            MessageBox.Show("Teacher Successfully Editted", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Teacher Successfully Editted", "Edit Teacher", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -599,6 +599,26 @@ namespace Team3MiddleSchool
             database.CloseDatabase();
         }
 
-        
+        internal static void AddSubject(string subjectName)
+        {
+            database.OpenDatabase();
+
+            database.AddSubject(subjectName);
+
+            database.CloseDatabase();
+
+            MessageBox.Show("Subject Successfully Added", "Add Subject", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        internal static void EditSubject(string subjectID, string subjectText)
+        {
+            database.OpenDatabase();
+
+            database.EditSubject(int.Parse(subjectID),subjectText);
+
+            database.CloseDatabase();
+
+            MessageBox.Show("Subject Successfully Editted", "Edit Subject", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

@@ -29,6 +29,8 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            clsValidation.ValidateEmail(tbxEmail.Text);
+
             clsDatabaseHandler.AddTeacher(tbxFirstName,tbxLastName,tbxEmail,tbxUsername,tbxPassword);
         }
 
@@ -51,6 +53,16 @@ namespace Team3MiddleSchool
             lblEmail.ForeColor = ColorTranslator.FromHtml("#191919");
             lblUsername.ForeColor = ColorTranslator.FromHtml("#191919");
             lblPassword.ForeColor = ColorTranslator.FromHtml("#191919");
+        }
+
+        private void tbxFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void tbxLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
         }
     }
 }

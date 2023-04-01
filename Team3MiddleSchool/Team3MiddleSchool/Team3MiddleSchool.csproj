@@ -68,6 +68,7 @@
     <Compile Include="clsClass.cs" />
     <Compile Include="clsDatabaseHandler.cs" />
     <Compile Include="clsSubject.cs" />
+    <Compile Include="clsValidation.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="frmAddCourse.cs">
       <SubType>Form</SubType>
@@ -86,6 +87,12 @@
     </Compile>
     <Compile Include="frmAddStudent.Designer.cs">
       <DependentUpon>frmAddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddSubject.Designer.cs">
+      <DependentUpon>frmAddSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddTeacher.cs">
       <SubType>Form</SubType>
@@ -134,6 +141,12 @@
     </Compile>
     <Compile Include="frmEditStudent.Designer.cs">
       <DependentUpon>frmEditStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditSubject.Designer.cs">
+      <DependentUpon>frmEditSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditTeacher.cs">
       <SubType>Form</SubType>
@@ -208,6 +221,9 @@
     <EmbeddedResource Include="frmAddStudent.resx">
       <DependentUpon>frmAddStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddSubject.resx">
+      <DependentUpon>frmAddSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddTeacher.resx">
       <DependentUpon>frmAddTeacher.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditStudent.resx">
       <DependentUpon>frmEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditSubject.resx">
+      <DependentUpon>frmEditSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditTeacher.resx">
       <DependentUpon>frmEditTeacher.cs</DependentUpon>

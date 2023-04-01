@@ -13,7 +13,7 @@ namespace Team3MiddleSchool
 {
     public partial class frmSeatingChart20 : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
+        clsDatabaseConnection database = new clsDatabaseConnection();
         public frmSeatingChart20()
         {
             InitializeComponent();
@@ -24,9 +24,6 @@ namespace Team3MiddleSchool
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            // Set the Clear button color and text color
-            btnClear.BackColor = ColorTranslator.FromHtml("#FF5733");
-            btnClear.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
             // When youre clearing the selections you made, it makes the defaults different
             cbxStudentNames.SelectedIndex = 0;
@@ -54,12 +51,8 @@ namespace Team3MiddleSchool
 
         private void btnMain_Click(object sender, EventArgs e)
         {
-            // Set the Menu button color and text color
-            btnMain.BackColor = ColorTranslator.FromHtml("#FF5733");
-            btnMain.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
-            new frmLogin().Show();
-            this.Hide();
+            this.Close();
         }
 
         private void frmSeatingChart20_Load(object sender, EventArgs e)
@@ -92,9 +85,6 @@ namespace Team3MiddleSchool
 
         private void btnRan_Click(object sender, EventArgs e)
         {
-            // Set the Random button color and text color
-            btnRan.BackColor = ColorTranslator.FromHtml("#FF5733");
-            btnRan.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
             Random random = new Random();
             // Create an array to store the combo Boxes variables

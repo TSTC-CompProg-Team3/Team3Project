@@ -12,7 +12,7 @@ namespace Team3MiddleSchool
 {
     public partial class frmAttendance : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
+        clsDatabaseConnection database = new clsDatabaseConnection();
         private BindingSource binding = new BindingSource();
         private int loginID;
         private string accountType;

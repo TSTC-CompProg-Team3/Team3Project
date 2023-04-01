@@ -15,7 +15,7 @@ namespace Team3MiddleSchool
     {
         public int loginID;
         public string accountType;
-        DatabaseConnection database = new DatabaseConnection();
+        clsDatabaseConnection database = new clsDatabaseConnection();
        public DataGridView grade= new DataGridView();
         public frmGradebook(int loginid, string accounttype)
         {
@@ -61,23 +61,23 @@ namespace Team3MiddleSchool
                     break;
             }
             grade = dgvGradeBook;
-            DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
+            clsDatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
 /*            database.GradeCalculations(lblTotal);*/
-            DatabaseConnection.MidTermGName(tbxName);
+            clsDatabaseConnection.MidTermGName(tbxName);
         }
 
 
         private void btnNext_Click(object sender, EventArgs e)
         {
             dgvcounter++;
-            DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
+            clsDatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
             database.Next(tbxName);
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
             dgvcounter--;
-            DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
+            clsDatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
             database.Previous(tbxName);
         }
 
@@ -96,7 +96,7 @@ namespace Team3MiddleSchool
             }
             else
             {
-                DatabaseConnection.RemoveGradeBook(dgvGradeBook, dgvcounter);
+                clsDatabaseConnection.RemoveGradeBook(dgvGradeBook, dgvcounter);
                 MessageBox.Show("Grade Removed");
             }
         }

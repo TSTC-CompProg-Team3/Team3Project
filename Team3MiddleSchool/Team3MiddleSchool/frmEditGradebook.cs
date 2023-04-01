@@ -14,7 +14,7 @@ namespace Team3MiddleSchool
 {
     public partial class frmEditGradebook : Form
     {
-        DatabaseConnection database = new DatabaseConnection();
+        clsDatabaseConnection database = new clsDatabaseConnection();
         frmGradebook mainGradbook;
 
         public frmEditGradebook(frmGradebook grade)
@@ -26,7 +26,7 @@ namespace Team3MiddleSchool
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DatabaseConnection.EditGradeBook(mainGradbook.grade, mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
+            clsDatabaseConnection.EditGradeBook(mainGradbook.grade, mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
 
         }
 

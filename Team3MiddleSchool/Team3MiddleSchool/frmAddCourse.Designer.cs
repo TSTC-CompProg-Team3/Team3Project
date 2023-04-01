@@ -32,7 +32,7 @@
             this.lblTeacherID = new System.Windows.Forms.Label();
             this.lblSubjectID = new System.Windows.Forms.Label();
             this.lblClassSize = new System.Windows.Forms.Label();
-            this.tbxClassID = new System.Windows.Forms.TextBox();
+            this.tbxClassName = new System.Windows.Forms.TextBox();
             this.cbxTeacherID = new System.Windows.Forms.ComboBox();
             this.cbxSubjectID = new System.Windows.Forms.ComboBox();
             this.cbxClassSize = new System.Windows.Forms.ComboBox();
@@ -45,7 +45,7 @@
             // 
             this.lblClassName.AutoSize = true;
             this.lblClassName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassName.Location = new System.Drawing.Point(178, 102);
+            this.lblClassName.Location = new System.Drawing.Point(122, 102);
             this.lblClassName.Name = "lblClassName";
             this.lblClassName.Size = new System.Drawing.Size(112, 25);
             this.lblClassName.TabIndex = 4;
@@ -55,7 +55,7 @@
             // 
             this.lblTeacherID.AutoSize = true;
             this.lblTeacherID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeacherID.Location = new System.Drawing.Point(178, 176);
+            this.lblTeacherID.Location = new System.Drawing.Point(122, 176);
             this.lblTeacherID.Name = "lblTeacherID";
             this.lblTeacherID.Size = new System.Drawing.Size(104, 25);
             this.lblTeacherID.TabIndex = 5;
@@ -65,7 +65,7 @@
             // 
             this.lblSubjectID.AutoSize = true;
             this.lblSubjectID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectID.Location = new System.Drawing.Point(178, 250);
+            this.lblSubjectID.Location = new System.Drawing.Point(122, 250);
             this.lblSubjectID.Name = "lblSubjectID";
             this.lblSubjectID.Size = new System.Drawing.Size(103, 25);
             this.lblSubjectID.TabIndex = 6;
@@ -75,23 +75,24 @@
             // 
             this.lblClassSize.AutoSize = true;
             this.lblClassSize.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassSize.Location = new System.Drawing.Point(178, 324);
+            this.lblClassSize.Location = new System.Drawing.Point(122, 324);
             this.lblClassSize.Name = "lblClassSize";
             this.lblClassSize.Size = new System.Drawing.Size(95, 25);
             this.lblClassSize.TabIndex = 7;
             this.lblClassSize.Text = "Class Size";
             // 
-            // tbxClassID
+            // tbxClassName
             // 
-            this.tbxClassID.Location = new System.Drawing.Point(310, 102);
-            this.tbxClassID.Name = "tbxClassID";
-            this.tbxClassID.Size = new System.Drawing.Size(157, 23);
-            this.tbxClassID.TabIndex = 8;
+            this.tbxClassName.Location = new System.Drawing.Point(254, 102);
+            this.tbxClassName.Name = "tbxClassName";
+            this.tbxClassName.Size = new System.Drawing.Size(157, 23);
+            this.tbxClassName.TabIndex = 8;
+            this.tbxClassName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxClassName_KeyPress);
             // 
             // cbxTeacherID
             // 
             this.cbxTeacherID.FormattingEnabled = true;
-            this.cbxTeacherID.Location = new System.Drawing.Point(310, 176);
+            this.cbxTeacherID.Location = new System.Drawing.Point(254, 176);
             this.cbxTeacherID.Name = "cbxTeacherID";
             this.cbxTeacherID.Size = new System.Drawing.Size(157, 23);
             this.cbxTeacherID.TabIndex = 9;
@@ -99,7 +100,7 @@
             // cbxSubjectID
             // 
             this.cbxSubjectID.FormattingEnabled = true;
-            this.cbxSubjectID.Location = new System.Drawing.Point(310, 255);
+            this.cbxSubjectID.Location = new System.Drawing.Point(254, 255);
             this.cbxSubjectID.Name = "cbxSubjectID";
             this.cbxSubjectID.Size = new System.Drawing.Size(157, 23);
             this.cbxSubjectID.TabIndex = 10;
@@ -111,7 +112,7 @@
             "5",
             "10",
             "20"});
-            this.cbxClassSize.Location = new System.Drawing.Point(310, 329);
+            this.cbxClassSize.Location = new System.Drawing.Point(254, 329);
             this.cbxClassSize.Name = "cbxClassSize";
             this.cbxClassSize.Size = new System.Drawing.Size(157, 23);
             this.cbxClassSize.TabIndex = 11;
@@ -119,7 +120,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(350, 441);
+            this.btnSubmit.Location = new System.Drawing.Point(216, 454);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(117, 40);
             this.btnSubmit.TabIndex = 12;
@@ -130,7 +131,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(183, 441);
+            this.btnClear.Location = new System.Drawing.Point(49, 454);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(117, 40);
             this.btnClear.TabIndex = 13;
@@ -141,7 +142,7 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(515, 441);
+            this.btnBack.Location = new System.Drawing.Point(381, 454);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
             this.btnBack.TabIndex = 15;
@@ -154,7 +155,7 @@
             this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 536);
+            this.ClientSize = new System.Drawing.Size(547, 536);
             this.ControlBox = false;
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
@@ -162,7 +163,7 @@
             this.Controls.Add(this.cbxClassSize);
             this.Controls.Add(this.cbxSubjectID);
             this.Controls.Add(this.cbxTeacherID);
-            this.Controls.Add(this.tbxClassID);
+            this.Controls.Add(this.tbxClassName);
             this.Controls.Add(this.lblClassSize);
             this.Controls.Add(this.lblSubjectID);
             this.Controls.Add(this.lblTeacherID);
@@ -183,7 +184,7 @@
         private System.Windows.Forms.Label lblTeacherID;
         private System.Windows.Forms.Label lblSubjectID;
         private System.Windows.Forms.Label lblClassSize;
-        private System.Windows.Forms.TextBox tbxClassID;
+        private System.Windows.Forms.TextBox tbxClassName;
         private System.Windows.Forms.ComboBox cbxTeacherID;
         private System.Windows.Forms.ComboBox cbxSubjectID;
         private System.Windows.Forms.ComboBox cbxClassSize;

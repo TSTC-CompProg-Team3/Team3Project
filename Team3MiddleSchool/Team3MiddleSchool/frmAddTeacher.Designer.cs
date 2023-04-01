@@ -165,6 +165,7 @@
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(157, 23);
             this.tbxFirstName.TabIndex = 0;
+            this.tbxFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFirstName_KeyPress);
             // 
             // lblFirstName
             // 
@@ -192,6 +193,7 @@
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(157, 23);
             this.tbxLastName.TabIndex = 2;
+            this.tbxLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxLastName_KeyPress);
             // 
             // frmAddTeacher
             // 
