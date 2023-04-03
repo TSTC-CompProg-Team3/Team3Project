@@ -190,10 +190,6 @@ namespace Team3MiddleSchool
             database.CloseDatabase();
         }
 
-        internal static void LoadStudentMenu(ComboBox cbxCourseSelect, int loginID)
-        {
-            
-        }
 
         internal static void LoadAdminMenu(ComboBox cbxCourseSelect, ComboBox cbxStudentSelect, ComboBox cbxTeacherSelect)
         {
@@ -619,6 +615,11 @@ namespace Team3MiddleSchool
             database.CloseDatabase();
 
             MessageBox.Show("Subject Successfully Editted", "Edit Subject", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        internal static void LoadStudentMenu(ComboBox cbxCourseSelect, int loginID)
+        {
+            
         }
     }
 }

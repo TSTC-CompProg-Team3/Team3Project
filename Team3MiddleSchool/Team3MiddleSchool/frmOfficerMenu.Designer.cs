@@ -224,6 +224,7 @@
             this.cbxCourseSelect.Name = "cbxCourseSelect";
             this.cbxCourseSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxCourseSelect.TabIndex = 20;
+            this.cbxCourseSelect.SelectedIndexChanged += new System.EventHandler(this.cbxCourseSelect_SelectedIndexChanged);
             // 
             // pbxOfficerMenu
             // 

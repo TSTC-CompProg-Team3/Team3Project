@@ -64,8 +64,6 @@ namespace Team3MiddleSchool
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
         {
-            clsValidation.CheckCourseForeign(cbxCourseSelect.Text);
-
             clsDatabaseHandler.RemoveCourse(cbxCourseSelect);
 
             cbxCourseSelect.Items.Clear();
@@ -199,6 +197,11 @@ namespace Team3MiddleSchool
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
             clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+        }
+
+        private void cbxCourseSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            clsValidation.CheckCourseForeign(cbxCourseSelect.Text);
         }
     }
 }

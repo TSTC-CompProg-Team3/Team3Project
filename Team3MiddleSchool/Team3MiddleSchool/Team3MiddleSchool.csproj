@@ -66,10 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsClass.cs" />
+    <Compile Include="clsDatabaseConnection.cs" />
     <Compile Include="clsDatabaseHandler.cs" />
     <Compile Include="clsSubject.cs" />
     <Compile Include="clsValidation.cs" />
-    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="frmAddCourse.cs">
       <SubType>Form</SubType>
     </Compile>
