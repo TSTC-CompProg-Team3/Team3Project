@@ -18,9 +18,9 @@ namespace DatabaseConnection_G3_sp23
         private string accountType;
         private string classSelect;
 
-        public frmAttendance(int loginid, string accountType, string classSelect)
+        public frmAttendance(int loginID, string accountType, string classSelect)
         {
-            loginID = loginid;
+            this.loginID = loginID;
             this.accountType = accountType;
             this.classSelect = classSelect;
             InitializeComponent();
@@ -41,6 +41,7 @@ namespace DatabaseConnection_G3_sp23
             binding.DataSource = database.AttendanceInfo(loginID, accountType, classSelect);
             dgvAttendance.DataSource = binding;
 
+            FillUserInfo();
             btnEditAttend.BackColor = ColorTranslator.FromHtml("#F15025");
             btnEditAttend.ForeColor = ColorTranslator.FromHtml("#191919");
             btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -82,6 +83,15 @@ namespace DatabaseConnection_G3_sp23
         {
             frmAttendanceEdit edit = new frmAttendanceEdit(loginID, accountType, classSelect);
             edit.ShowDialog();
+        }
+
+        private void FillUserInfo()
+        {
+            int spaceIndex = classSelect.IndexOf(" ");
+            string className = classSelect.Substring(0, spaceIndex);
+
+            lblAttendTeacher.Text = "Teacher: " + database.LoggedTeacher(loginID);
+            lblAttendClass.Text = "Class: " + className;
         }
     }
 }

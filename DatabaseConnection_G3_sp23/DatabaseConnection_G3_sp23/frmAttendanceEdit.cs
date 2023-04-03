@@ -44,6 +44,7 @@ namespace DatabaseConnection_G3_sp23
         {
             binding.DataSource = database.AttendanceInfo(loginID, accountType, classSelect);
             dgvAttendanceEdit.DataSource = binding;
+            FillUserInfo();
 
             btnSubmitAttendEdit.BackColor = ColorTranslator.FromHtml("#F15025");
             btnSubmitAttendEdit.ForeColor = ColorTranslator.FromHtml("#191919");
@@ -170,6 +171,15 @@ namespace DatabaseConnection_G3_sp23
             }
 
             binding.DataSource = database.AttendanceInfo(newQuery);
+        }
+
+        private void FillUserInfo()
+        {
+            int spaceIndex = classSelect.IndexOf(" ");
+            string className = classSelect.Substring(0, spaceIndex);
+
+            lblAttendTeacher.Text = "Teacher: " + database.LoggedTeacher(loginID);
+            lblAttendClass.Text = "Class: " + className;
         }
     }
 }

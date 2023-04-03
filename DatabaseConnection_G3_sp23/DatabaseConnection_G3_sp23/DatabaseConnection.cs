@@ -1214,6 +1214,24 @@ namespace DatabaseConnection_G3_sp23
             return table;
         }
 
+        public string LoggedTeacher(int loginID)
+        {
+            string firstN, lastN, teacher = "";
+
+            SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Teacher WHERE LoginID = " + loginID, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                firstN = (string)reader["FirstName"];
+                lastN = (string)reader["LastName"];
+                teacher = firstN + " " + lastN;
+            }
+            reader.Close();
+
+            return teacher;
+        }
+
 
         //add the command object
         private static SqlCommand _midTermGCommand;
