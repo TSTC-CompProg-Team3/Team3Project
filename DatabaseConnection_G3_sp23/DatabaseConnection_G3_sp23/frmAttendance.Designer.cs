@@ -34,6 +34,7 @@
             this.lblAttendClass = new System.Windows.Forms.Label();
             this.btnEditAttend = new System.Windows.Forms.Button();
             this.btnBackAttend = new System.Windows.Forms.Button();
+            this.dtpAttendance = new System.Windows.Forms.DateTimePicker();
             this.pnlAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +88,7 @@
             // btnEditAttend
             // 
             this.btnEditAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAttend.Location = new System.Drawing.Point(249, 631);
+            this.btnEditAttend.Location = new System.Drawing.Point(200, 620);
             this.btnEditAttend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditAttend.Name = "btnEditAttend";
             this.btnEditAttend.Size = new System.Drawing.Size(112, 43);
@@ -99,7 +100,7 @@
             // btnBackAttend
             // 
             this.btnBackAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackAttend.Location = new System.Drawing.Point(406, 631);
+            this.btnBackAttend.Location = new System.Drawing.Point(40, 620);
             this.btnBackAttend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackAttend.Name = "btnBackAttend";
             this.btnBackAttend.Size = new System.Drawing.Size(112, 43);
@@ -108,6 +109,14 @@
             this.btnBackAttend.UseVisualStyleBackColor = true;
             this.btnBackAttend.Click += new System.EventHandler(this.btnBackAttend_Click);
             // 
+            // dtpAttendance
+            // 
+            this.dtpAttendance.Location = new System.Drawing.Point(400, 630);
+            this.dtpAttendance.Name = "dtpAttendance";
+            this.dtpAttendance.Size = new System.Drawing.Size(309, 26);
+            this.dtpAttendance.TabIndex = 19;
+            this.dtpAttendance.ValueChanged += new System.EventHandler(this.dtpAttendance_ValueChanged);
+            // 
             // frmAttendance
             // 
             this.AcceptButton = this.btnEditAttend;
@@ -115,6 +124,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 691);
             this.ControlBox = false;
+            this.Controls.Add(this.dtpAttendance);
             this.Controls.Add(this.pnlAttendance);
             this.Controls.Add(this.btnEditAttend);
             this.Controls.Add(this.btnBackAttend);
@@ -135,5 +145,6 @@
         private System.Windows.Forms.Button btnBackAttend;
         private System.Windows.Forms.Label lblAttendTeacher;
         private System.Windows.Forms.Label lblAttendClass;
+        private System.Windows.Forms.DateTimePicker dtpAttendance;
     }
 }
