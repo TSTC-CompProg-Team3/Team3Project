@@ -69,11 +69,13 @@ namespace Team3MiddleSchool
                 case "student":
                     btnAdmin.Visible = false;
                     btnOfficer.Visible = false;
+                    clsDatabaseHandler.LoadStudentMenu(cbxCourseSelect, loginID);
                     break;
 
                 case "Parent":
                     btnAdmin.Visible = false;
                     btnOfficer.Visible = false;
+                    clsDatabaseHandler.LoadParentMenu(cbxCourseSelect, loginID);
                     break;
 
                 default:

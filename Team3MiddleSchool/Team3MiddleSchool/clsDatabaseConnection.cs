@@ -181,8 +181,127 @@ namespace Team3MiddleSchool
 
         public void StudentClasses(int loginID)
         {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT Class1, Class2, Class3, Class4, Class5, Class6 FROM team3sp232330.StudentSchedule sc JOIN team3sp232330.Student s ON sc.StudentID = s.StudentID WHERE LoginID = " + loginID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                List<int> classes = new List<int>();
 
+                while (reader.Read())
+                {
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class1")) ? -1 : (int)reader["Class1"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class2")) ? -1 : (int)reader["Class2"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class3")) ? -1 : (int)reader["Class3"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class4")) ? -1 : (int)reader["Class4"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class5")) ? -1 : (int)reader["Class5"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class6")) ? -1 : (int)reader["Class6"]);
+
+                }
+
+                reader.Close();
+
+                command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s on c.SubjectID = s.SubjectID WHERE ClassID IN (@id1,@id2,@id3,@id4,@id5,@id6)", connection);
+
+
+                command.Parameters.AddWithValue("@id1", classes[0]);
+                command.Parameters.AddWithValue("@id2", classes[1]);
+                command.Parameters.AddWithValue("@id3", classes[2]);
+                command.Parameters.AddWithValue("@id4", classes[3]);
+                command.Parameters.AddWithValue("@id5", classes[4]);
+                command.Parameters.AddWithValue("@id6", classes[5]);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string className = (string)reader["ClassName"];
+                    string subjectName = (string)reader["SubjectName"];
+                    int classSize = (int)reader["ClassSize"];
+                    classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        public void ParentClasses(int loginID)
+        {
+            try
+            {
+                int parentID = GetParentID(loginID);
+
+                SqlCommand command = new SqlCommand("SELECT Class1, Class2, Class3, Class4, Class5, Class6 FROM team3sp232330.StudentSchedule sc JOIN team3sp232330.StudentParent s ON sc.StudentID = s.StudentID WHERE ParentID = " + parentID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                List<int> classes = new List<int>();
+
+                while (reader.Read())
+                {
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class1")) ? -1 : (int)reader["Class1"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class2")) ? -1 : (int)reader["Class2"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class3")) ? -1 : (int)reader["Class3"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class4")) ? -1 : (int)reader["Class4"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class5")) ? -1 : (int)reader["Class5"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class6")) ? -1 : (int)reader["Class6"]);
+
+                }
+
+                reader.Close();
+
+                command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s on c.SubjectID = s.SubjectID WHERE ClassID IN (@id1,@id2,@id3,@id4,@id5,@id6)", connection);
+
+
+                command.Parameters.AddWithValue("@id1", classes[0]);
+                command.Parameters.AddWithValue("@id2", classes[1]);
+                command.Parameters.AddWithValue("@id3", classes[2]);
+                command.Parameters.AddWithValue("@id4", classes[3]);
+                command.Parameters.AddWithValue("@id5", classes[4]);
+                command.Parameters.AddWithValue("@id6", classes[5]);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string className = (string)reader["ClassName"];
+                    string subjectName = (string)reader["SubjectName"];
+                    int classSize = (int)reader["ClassSize"];
+                    classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private int GetParentID(int loginID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT ParentID FROM team3sp232330.Parent WHERE LoginID = " + loginID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                int parentID = -1;
+
+                while (reader.Read())
+                {
+                    parentID = (int)reader["ParentID"];
+                }
+
+                reader.Close();
+                return parentID;
+
+            }
+            catch (Exception ex)
+            {
+                return -1;
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
 
 
@@ -242,7 +361,7 @@ namespace Team3MiddleSchool
             }
         }
 
-        public void GetOfficerMenu(ComboBox courseList, ComboBox teacherList, ComboBox studentList, ComboBox subjectList)
+        public void GetOfficerMenu(ComboBox courseList, ComboBox teacherList, ComboBox studentList, ComboBox subjectList, ComboBox parentList)
         {
             try
             {
@@ -296,6 +415,19 @@ namespace Team3MiddleSchool
                     string subjectName = (string)reader["SubjectName"];
 
                     subjectList.Items.Add(ID + " - " + subjectName);
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT ParentID, LastName, FirstName FROM team3sp232330.Parent", connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int ID = (int)reader["ParentID"];
+                    string lastName = (string)reader["LastName"];
+                    string firstName = (string)reader["FirstName"];
+
+                    parentList.Items.Add(ID + " - " + lastName + ", " + firstName);
                 }
                 reader.Close();
             }
@@ -891,6 +1023,152 @@ namespace Team3MiddleSchool
             }
         }
 
+        public void AddParent(string email, string firstname, string lastname, string password, string username, string studentID)
+        {
+            try
+            {
+                string query = "INSERT INTO team3sp232330.Login (Email, UserName, Password, AccountType) VALUES (@email, @userName, @password, 'Parent')";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@userName", username);
+                    command.Parameters.AddWithValue("@password", password);
+                    command.ExecuteNonQuery();
+                }
+
+                query = "INSERT INTO team3sp232330.Parent VALUES ((SELECT TOP 1 LoginID FROM team3sp232330.Login ORDER BY LoginID DESC), @firstName, @lastName)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@firstName", firstname);
+                    command.Parameters.AddWithValue("@lastName", lastname);
+                    command.ExecuteNonQuery();
+                }
+
+                query = "INSERT INTO team3sp232330.StudentParent VALUES (@studentID, (SELECT TOP 1 ParentID FROM team3sp232330.Parent ORDER BY ParentID DESC))";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentID", studentID);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadEditParent(TextBox tbxEmail, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxPassword, TextBox tbxUsername, ComboBox cbxStudentSelect, string parentID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Parent WHERE ParentID = " + parentID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                int loginID = -1;
+
+                while (reader.Read())
+                {
+                    tbxFirstName.Text = (string)reader["FirstName"];
+                    tbxLastName.Text = (string)reader["LastName"];
+                    loginID = (int)reader["LoginID"];
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT * FROM team3sp232330.Login WHERE LoginID = " + loginID, connection);
+                reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    tbxEmail.Text = (string)reader["Email"];
+                    tbxUsername.Text = (string)reader["UserName"];
+                    tbxPassword.Text = (string)reader["Password"];
+
+                }
+                reader.Close();
+
+                command = new SqlCommand("SELECT * FROM team3sp232330.StudentParent WHERE ParentID = " + parentID, connection);
+                reader = command.ExecuteReader();
+                int studentID = -1;
+
+                while (reader.Read())
+                {
+                    studentID = (int)reader["StudentID"];
+
+                }
+                reader.Close();
+
+                LoadStudents(cbxStudentSelect);
+
+                foreach (string item in cbxStudentSelect.Items)
+                {
+                    string currentItem = (string)item;
+                    string[] currentItemSplit = currentItem.Split('-');
+                    int id = int.Parse(currentItemSplit[0].Trim());
+
+                    if (id == studentID)
+                    {
+                        cbxStudentSelect.SelectedItem = item;
+                        break;
+                    }
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void EditParent(TextBox tbxEmail, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxPassword, TextBox tbxUsername, ComboBox cbxStudentSelect, string parentID)
+        {
+            try
+            {
+                string query = "UPDATE team3sp232330.Login SET Email = @email, UserName = @userName, Password = @password WHERE LoginID = (SELECT LoginID FROM team3sp232330.Parent WHERE ParentID = @parentID)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@email", tbxEmail.Text);
+                    command.Parameters.AddWithValue("@userName", tbxUsername.Text);
+                    command.Parameters.AddWithValue("@password", tbxPassword.Text);
+                    command.Parameters.AddWithValue("@parentID", parentID);
+                    command.ExecuteNonQuery();
+                }
+
+                query = "UPDATE team3sp232330.Parent SET FirstName = @firstName, LastName = @lastName WHERE ParentID = @parentID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@firstName", tbxFirstName.Text);
+                    command.Parameters.AddWithValue("@lastName", tbxLastName.Text);
+                    command.Parameters.AddWithValue("@parentID", parentID);
+                    command.ExecuteNonQuery();
+                }
+
+                query = "UPDATE team3sp232330.StudentParent SET StudentID = @studentID WHERE ParentID = @parentID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    string selectedItem = cbxStudentSelect.SelectedItem.ToString();
+                    int studentID = int.Parse(selectedItem.Split('-')[0].Trim());
+                    command.Parameters.AddWithValue("@studentID", studentID);
+                    command.Parameters.AddWithValue("@parentID", parentID);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         public bool ValidateCourse(string courseName)
         {
             try
@@ -922,33 +1200,37 @@ namespace Team3MiddleSchool
             }
         }
 
-        public bool CourseHasForeign(string courseID)
-        {
-            try
-            {
-                SqlCommand command = new SqlCommand("SELECT CASE  WHEN EXISTS ( SELECT *  FROM sys.foreign_keys fk  " +
-                    "INNER JOIN sys.tables t  ON fk.parent_object_id = t.object_id  INNER JOIN sys.tables rt  ON " +
-                    "fk.referenced_object_id = rt.object_id  WHERE t.name = 'Class'  AND t.schema_id = SCHEMA_ID('team3sp232330')" +
-                    "  AND ( rt.name = 'Grades'  OR rt.name = 'Attendance' )  AND EXISTS (SELECT *  FROM team3sp232330.Class c  " +
-                    "WHERE c.ClassID = 1  AND fk.parent_object_id = OBJECT_ID('team3sp232330.Class')  AND fk.parent_object_id = " +
-                    "OBJECT_ID('team3sp232330.' + t.name)  AND fk.referenced_object_id = OBJECT_ID('team3sp232330.' + rt.name))) " +
-                    "THEN 'true'  ELSE 'false'  END AS HasDependency;" + courseID, connection);
-                SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.Read())
-                {
-                    bool hasForeign = (bool)reader["HasDependency"].Equals("True");
-                }
-                reader.Close();
-                return false;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
+        //public bool CourseHasForeign(string courseID)
+        //{
+        //    try
+        //    {
+        //        SqlCommand command = new SqlCommand("SELECT CASE  WHEN EXISTS ( SELECT *  FROM sys.foreign_keys fk  " +
+        //            "INNER JOIN sys.tables t  ON fk.parent_object_id = t.object_id  INNER JOIN sys.tables rt  ON " +
+        //            "fk.referenced_object_id = rt.object_id  WHERE t.name = 'Class'  AND t.schema_id = SCHEMA_ID('team3sp232330')" +
+        //            "  AND ( rt.name = 'Grades'  OR rt.name = 'Attendance' )  AND EXISTS (SELECT *  FROM team3sp232330.Class c  " +
+        //            "WHERE c.ClassID = 1  AND fk.parent_object_id = OBJECT_ID('team3sp232330.Class')  AND fk.parent_object_id = " +
+        //            "OBJECT_ID('team3sp232330.' + t.name)  AND fk.referenced_object_id = OBJECT_ID('team3sp232330.' + rt.name))) " +
+        //            "THEN 'true'  ELSE 'false'  END AS HasDependency;" + courseID, connection);
+        //        SqlDataReader reader = command.ExecuteReader();
+
+        //        if (reader.Read())
+        //        {
+        //            bool hasForeign = (bool)reader["HasDependency"].Equals("True");
+        //        }
+        //        reader.Close();
+        //        return false;
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return false;
+        //    }
+        //}
+
+       
 
 
 
@@ -1284,7 +1566,7 @@ namespace Team3MiddleSchool
                     classID = $"{reader["ClassID"]}";
                 }
 
-                SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + ";", connection);
+                SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + ";" ,  connection);
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = command;
 
@@ -1423,6 +1705,27 @@ namespace Team3MiddleSchool
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadStudents(ComboBox cbxStudentSelect)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Student", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string studentInfo = $"{reader["StudentID"]} - {reader["FirstName"]} {reader["LastName"]}";
+                    cbxStudentSelect.Items.Add(studentInfo);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

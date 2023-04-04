@@ -480,10 +480,10 @@ namespace Team3MiddleSchool
             database.CloseDatabase();
         }
 
-        internal static void LoadOfficerMenu(ComboBox cbxCourseSelect, ComboBox cbxStudentSelect, ComboBox cbxTeacherSelect, ComboBox cbxSubjectSelect)
+        internal static void LoadOfficerMenu(ComboBox cbxCourseSelect, ComboBox cbxStudentSelect, ComboBox cbxTeacherSelect, ComboBox cbxSubjectSelect, ComboBox cbxParentSelect)
         {
             database.OpenDatabase();
-            database.GetOfficerMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect, cbxSubjectSelect);
+            database.GetOfficerMenu(cbxCourseSelect, cbxTeacherSelect, cbxStudentSelect, cbxSubjectSelect, cbxParentSelect);
             if (cbxCourseSelect.Items.Count > 0)
             {
                 cbxCourseSelect.SelectedIndex = 0;
@@ -499,6 +499,10 @@ namespace Team3MiddleSchool
             if (cbxSubjectSelect.Items.Count > 0)
             {
                 cbxSubjectSelect.SelectedIndex = 0;
+            }
+            if (cbxParentSelect.Items.Count > 0)
+            {
+                cbxParentSelect.SelectedIndex = 0;
             }
 
             database.CloseDatabase();
@@ -619,7 +623,84 @@ namespace Team3MiddleSchool
 
         internal static void LoadStudentMenu(ComboBox cbxCourseSelect, int loginID)
         {
-            
+            database.OpenDatabase();
+            database.classList.Clear();
+            database.StudentClasses(loginID);
+            foreach (string subject in database.classList)
+            {
+                cbxCourseSelect.Items.Add(subject);
+            }
+
+            if (cbxCourseSelect.Items.Count > 0)
+            {
+                cbxCourseSelect.SelectedIndex = 0;
+            }
+            else
+            {
+                cbxCourseSelect.Visible = false;
+            }
+            database.CloseDatabase();
+        }
+
+        internal static void LoadParentMenu(ComboBox cbxCourseSelect, int loginID)
+        {
+            database.OpenDatabase();
+            database.classList.Clear();
+            database.ParentClasses(loginID);
+            foreach (string subject in database.classList)
+            {
+                cbxCourseSelect.Items.Add(subject);
+            }
+
+            if (cbxCourseSelect.Items.Count > 0)
+            {
+                cbxCourseSelect.SelectedIndex = 0;
+            }
+            else
+            {
+                cbxCourseSelect.Visible = false;
+            }
+            database.CloseDatabase();
+        }
+
+        internal static void LoadAddParent(ComboBox cbxStudentSelect)
+        {
+            database.OpenDatabase();
+
+            database.LoadStudents(cbxStudentSelect);
+
+            database.CloseDatabase();
+        }
+
+        internal static void AddParent(TextBox tbxEmail, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxPassword, TextBox tbxUsername, string studentID)
+        {
+            database.OpenDatabase();
+
+            string hold = studentID;
+            string[] holdSplit = hold.Split('-');
+            studentID = holdSplit[0].Trim();
+
+            database.AddParent(tbxEmail.Text, tbxFirstName.Text, tbxLastName.Text, tbxPassword.Text, tbxUsername.Text, studentID);
+
+            database.CloseDatabase();
+        }
+
+        internal static void LoadEditParent(TextBox tbxEmail, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxPassword, TextBox tbxUsername, ComboBox cbxStudentSelect, string parentID)
+        {
+            database.OpenDatabase();
+
+            database.LoadEditParent(tbxEmail,tbxFirstName,tbxLastName,tbxPassword,tbxUsername,cbxStudentSelect, parentID);
+
+            database.CloseDatabase();
+        }
+
+        internal static void EditParent(TextBox tbxEmail, TextBox tbxFirstName, TextBox tbxLastName, TextBox tbxPassword, TextBox tbxUsername, ComboBox cbxStudentSelect, string parentID)
+        {
+            database.OpenDatabase();
+
+            database.EditParent(tbxEmail, tbxFirstName, tbxLastName, tbxPassword, tbxUsername, cbxStudentSelect, parentID);
+
+            database.CloseDatabase();
         }
     }
 }

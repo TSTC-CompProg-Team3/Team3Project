@@ -53,19 +53,19 @@ namespace Team3MiddleSchool
             
         }
 
-        public static bool CheckCourseForeign(string course)
-        {
-            string hold = course;
-            string[] holdSplit = hold.Split('-');
-            string courseID = holdSplit[0].Trim();
+        //public static bool CheckCourseForeign(string course)
+        //{
+        //    //string hold = course;
+        //    //string[] holdSplit = hold.Split('-');
+        //    //string courseID = holdSplit[0].Trim();
 
-            database.OpenDatabase();
+        //    //database.OpenDatabase();
 
-            bool hasForeign = database.CourseHasForeign(courseID);
+        //    //bool hasForeign = database.CourseHasForeign(courseID);
 
-            database.CloseDatabase();
+        //    //database.CloseDatabase();
 
-            return hasForeign;
-        }
+        //    //return hasForeign;
+        //}
     }
 }

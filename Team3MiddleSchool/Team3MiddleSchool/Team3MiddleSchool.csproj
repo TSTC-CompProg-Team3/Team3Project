@@ -82,6 +82,12 @@
     <Compile Include="frmAddGradebook.Designer.cs">
       <DependentUpon>frmAddGradebook.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddParent.Designer.cs">
+      <DependentUpon>frmAddParent.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,12 @@
     </Compile>
     <Compile Include="frmEditGradebook.Designer.cs">
       <DependentUpon>frmEditGradebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditParent.Designer.cs">
+      <DependentUpon>frmEditParent.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditStudent.cs">
       <SubType>Form</SubType>
@@ -218,6 +230,9 @@
     <EmbeddedResource Include="frmAddGradebook.resx">
       <DependentUpon>frmAddGradebook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddParent.resx">
+      <DependentUpon>frmAddParent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddStudent.resx">
       <DependentUpon>frmAddStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditGradebook.resx">
       <DependentUpon>frmEditGradebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditParent.resx">
+      <DependentUpon>frmEditParent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditStudent.resx">
       <DependentUpon>frmEditStudent.cs</DependentUpon>

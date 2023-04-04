@@ -26,7 +26,7 @@ namespace Team3MiddleSchool
 
         private void frmOfficerMenu_Load(object sender, EventArgs e)
         {
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
 
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnAddCourse.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -53,6 +53,12 @@ namespace Team3MiddleSchool
             btnEditSubject.ForeColor = ColorTranslator.FromHtml("#191919");
             btnRemoveSubject.BackColor = ColorTranslator.FromHtml("#F15025");
             btnRemoveSubject.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnAddParent.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnAddParent.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnEditParent.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnEditParent.ForeColor = ColorTranslator.FromHtml("#191919");
+            btnRemoveParent.BackColor = ColorTranslator.FromHtml("#F15025");
+            btnRemoveParent.ForeColor = ColorTranslator.FromHtml("#191919");
             btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
             btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
         }
@@ -70,7 +76,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnEditCourse_Click(object sender, EventArgs e)
@@ -86,7 +92,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnAddCourse_Click(object sender, EventArgs e)
@@ -98,7 +104,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnRemoveTeacher_Click(object sender, EventArgs e)
@@ -119,7 +125,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
@@ -131,7 +137,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnRemoveStudent_Click(object sender, EventArgs e)
@@ -143,7 +149,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnEditStudent_Click(object sender, EventArgs e)
@@ -155,7 +161,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
@@ -167,7 +173,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnRemoveSubject_Click(object sender, EventArgs e)
@@ -184,7 +190,7 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void btnAddSubject_Click(object sender, EventArgs e)
@@ -196,12 +202,24 @@ namespace Team3MiddleSchool
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
             cbxSubjectSelect.Items.Clear();
-            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
         }
 
         private void cbxCourseSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clsValidation.CheckCourseForeign(cbxCourseSelect.Text);
+            //clsValidation.CheckCourseForeign(cbxCourseSelect.Text);
+        }
+
+        private void btnAddParent_Click(object sender, EventArgs e)
+        {
+            frmAddParent addParent = new frmAddParent();
+            addParent.ShowDialog();
+        }
+
+        private void btnEditParent_Click(object sender, EventArgs e)
+        {
+            frmEditParent editParent = new frmEditParent(cbxParentSelect.Text);
+            editParent.ShowDialog();
         }
     }
 }
