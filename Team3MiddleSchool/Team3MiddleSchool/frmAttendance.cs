@@ -14,13 +14,14 @@ namespace Team3MiddleSchool
     {
         DatabaseConnection database = new DatabaseConnection();
         private BindingSource binding = new BindingSource();
+        private string dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
         private int loginID;
         private string accountType;
         private string classSelect;
 
-        public frmAttendance(int loginid, string accountType, string classSelect)
+        public frmAttendance(int loginID, string accountType, string classSelect)
         {
-            loginID = loginid;
+            this.loginID = loginID;
             this.accountType = accountType;
             this.classSelect = classSelect;
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace Team3MiddleSchool
             binding.DataSource = database.AttendanceInfo(loginID, accountType, classSelect);
             dgvAttendance.DataSource = binding;
 
+            FillUserInfo();
             btnEditAttend.BackColor = ColorTranslator.FromHtml("#F15025");
             btnEditAttend.ForeColor = ColorTranslator.FromHtml("#191919");
             btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -82,6 +84,30 @@ namespace Team3MiddleSchool
         {
             frmAttendanceEdit edit = new frmAttendanceEdit(loginID, accountType, classSelect);
             edit.ShowDialog();
+        }
+
+        private void FillUserInfo()
+        {
+            int spaceIndex = classSelect.IndexOf(" ");
+            string className = classSelect.Substring(0, spaceIndex);
+
+            lblAttendTeacher.Text = "Teacher: " + database.LoggedTeacher(loginID);
+            lblAttendClass.Text = "Class: " + className;
+        }
+
+        private void dtpAttendance_ValueChanged(object sender, EventArgs e)
+        {
+            dateSelection = dtpAttendance.Value.Date.ToString("yyyy-MM-dd");
+            NewQuery(dateSelection);
+        }
+
+        private void NewQuery(string date)
+        {
+            string newQuery;
+
+            newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "';";
+
+            binding.DataSource = database.AttendanceInfo(newQuery);
         }
     }
 }
