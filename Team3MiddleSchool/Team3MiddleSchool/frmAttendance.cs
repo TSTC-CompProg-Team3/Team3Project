@@ -40,6 +40,27 @@ namespace Team3MiddleSchool
         {
             database.OpenDatabase();
             binding.DataSource = database.AttendanceInfo(loginID, accountType, classSelect);
+
+            if (binding.Count < 1)
+            {
+                DialogResult result = MessageBox.Show("No data exists for " + classSelect + " on " + DateTime.Now.ToString("dddd, MMMM dd yyyy") + "\n\nWould you like to enter today's attendance?", "Attendance", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button3);
+                
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show("Current day's attendance will be generated and added to database, work in progress");
+                }
+
+                if (result == DialogResult.No)
+                {
+
+                }
+
+                if (result == DialogResult.Cancel)
+                {
+                    this.Close();
+                }
+            }
+
             dgvAttendance.DataSource = binding;
 
             FillUserInfo();
