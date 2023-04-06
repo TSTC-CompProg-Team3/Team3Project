@@ -34,7 +34,7 @@
             this.btnGradeBook = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnSeatingChart = new System.Windows.Forms.Button();
-            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnReturnToLogin = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnOfficer = new System.Windows.Forms.Button();
             this.btnAssignClass = new System.Windows.Forms.Button();
@@ -91,16 +91,16 @@
             this.btnSeatingChart.UseVisualStyleBackColor = true;
             this.btnSeatingChart.Click += new System.EventHandler(this.btnSeatingChart_Click);
             // 
-            // btnLogOut
+            // btnReturnToLogin
             // 
-            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(271, 460);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(117, 40);
-            this.btnLogOut.TabIndex = 5;
-            this.btnLogOut.Text = "&Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            this.btnReturnToLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnToLogin.Location = new System.Drawing.Point(271, 460);
+            this.btnReturnToLogin.Name = "btnReturnToLogin";
+            this.btnReturnToLogin.Size = new System.Drawing.Size(117, 40);
+            this.btnReturnToLogin.TabIndex = 5;
+            this.btnReturnToLogin.Text = "&Return to Login";
+            this.btnReturnToLogin.UseVisualStyleBackColor = true;
+            this.btnReturnToLogin.Click += new System.EventHandler(this.btnReturnToLogin_Click);
             // 
             // btnAdmin
             // 
@@ -140,7 +140,7 @@
             // 
             // frmMenu
             // 
-            this.AcceptButton = this.btnLogOut;
+            this.AcceptButton = this.btnReturnToLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -149,7 +149,7 @@
             this.Controls.Add(this.btnAssignClass);
             this.Controls.Add(this.btnOfficer);
             this.Controls.Add(this.btnAdmin);
-            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.btnReturnToLogin);
             this.Controls.Add(this.btnSeatingChart);
             this.Controls.Add(this.btnAttendance);
             this.Controls.Add(this.btnGradeBook);
@@ -173,7 +173,7 @@
         private System.Windows.Forms.Button btnGradeBook;
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnSeatingChart;
-        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnReturnToLogin;
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnOfficer;
         private System.Windows.Forms.ComboBox cbxCourseSelect;

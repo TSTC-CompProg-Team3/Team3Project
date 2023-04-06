@@ -1,5 +1,4 @@
-﻿using Team3MiddleSchool;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Team3MiddleSchool
 {
-    public partial class frmAddTeacher : Form
+    public partial class frmAddParent : Form
     {
-        public frmAddTeacher()
+        public frmAddParent()
         {
             InitializeComponent();
         }
@@ -25,13 +24,12 @@ namespace Team3MiddleSchool
             tbxLastName.Clear();
             tbxPassword.Clear();
             tbxUsername.Clear();
+            cbxStudentSelect.SelectedIndex = 0;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            clsValidation.ValidateEmail(tbxEmail.Text);
-
-            clsDatabaseHandler.AddTeacher(tbxFirstName,tbxLastName,tbxEmail,tbxUsername,tbxPassword);
+            clsDatabaseHandler.AddParent(tbxEmail,tbxFirstName,tbxLastName,tbxPassword,tbxUsername,cbxStudentSelect.Text);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -39,7 +37,7 @@ namespace Team3MiddleSchool
             this.Close();
         }
 
-        private void frmAddTeacher_Load(object sender, EventArgs e)
+        private void frmAddParent_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
@@ -53,16 +51,9 @@ namespace Team3MiddleSchool
             lblEmail.ForeColor = ColorTranslator.FromHtml("#191919");
             lblUsername.ForeColor = ColorTranslator.FromHtml("#191919");
             lblPassword.ForeColor = ColorTranslator.FromHtml("#191919");
-        }
+            lblAssignStudent.ForeColor = ColorTranslator.FromHtml("#191919");
 
-        private void tbxFirstName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !clsValidation.ValidateString(e.KeyChar);
-        }
-
-        private void tbxLastName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+            clsDatabaseHandler.LoadAddParent(cbxStudentSelect);
         }
     }
 }

@@ -45,13 +45,27 @@ namespace Team3MiddleSchool
             cbxClassSize.SelectedIndex = 0;
             cbxSubjectID.SelectedIndex = 0;
             cbxTeacherID.SelectedIndex = 0;
-            tbxClassID.Text = "";
+            tbxClassName.Text = "";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.AddCourse(tbxClassID, cbxTeacherID, cbxSubjectID, cbxClassSize);
-            
+            if (!clsValidation.ValidateCourseName(tbxClassName.Text))
+            {
+                clsDatabaseHandler.AddCourse(tbxClassName, cbxTeacherID, cbxSubjectID, cbxClassSize);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid course name that is not in use", "Course Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+        }
+
+        private void tbxClassName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
         }
     }
 }
