@@ -17,14 +17,16 @@ namespace Team3MiddleSchool
         private string dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
         private string firstName = "All", lastName = "All";
         private int loginID;
+        private int classID;
         private string accountType;
         private string classSelect;
 
-        public frmAttendanceEdit(int loginid, string accountType, string classSelect)
+        public frmAttendanceEdit(int loginID, int classID, string accountType, string classSelect)
         {
-            loginID = loginid;
+            this.loginID = loginID;
             this.accountType = accountType;
             this.classSelect = classSelect;
+            this.classID = database.GetClassID(classSelect);
             InitializeComponent();
             
         }
@@ -42,8 +44,9 @@ namespace Team3MiddleSchool
         //Intial query and formatting on form load
         private void frmAttendanceEdit_Load(object sender, EventArgs e)
         {
-            binding.DataSource = database.AttendanceInfo(loginID, accountType, classSelect);
+            binding.DataSource = database.AttendanceInfo(accountType, classSelect);
             dgvAttendanceEdit.DataSource = binding;
+            FillUserInfo();
 
             btnSubmitAttendEdit.BackColor = ColorTranslator.FromHtml("#F15025");
             btnSubmitAttendEdit.ForeColor = ColorTranslator.FromHtml("#191919");
@@ -170,6 +173,15 @@ namespace Team3MiddleSchool
             }
 
             binding.DataSource = database.AttendanceInfo(newQuery);
+        }
+
+        private void FillUserInfo()
+        {
+            int spaceIndex = classSelect.IndexOf(" ");
+            string className = classSelect.Substring(0, spaceIndex);
+
+            lblAttendTeacher.Text = "Teacher: " + database.LoggedTeacher(classID);
+            lblAttendClass.Text = "Class: " + className;
         }
     }
 }
