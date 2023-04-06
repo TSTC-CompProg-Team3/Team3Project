@@ -97,11 +97,9 @@ namespace Team3MiddleSchool
 
         private void btnRemoveTeacher_Click(object sender, EventArgs e)
         {
-            //clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
-            //cbxCourseSelect.Items.Clear();
-            //cbxStudentSelect.Items.Clear();
-            //cbxTeacherSelect.Items.Clear();
-            //clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
+            
+            updateCbx();
         }
 
         private void btnEditTeacher_Click(object sender, EventArgs e)
@@ -167,10 +165,14 @@ namespace Team3MiddleSchool
 
         private void cbxCourseSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (clsValidation.CheckCourseDelete(cbxCourseSelect.Text))
-            //{
-            //    btnRemoveCourse.Visible = true;
-            //}
+            if (clsValidation.CheckCourseDelete(cbxCourseSelect.Text))
+            {
+                btnRemoveCourse.Visible = true;
+            }
+            else
+            {
+                btnRemoveCourse.Visible = false;
+            }
         }
 
         private void btnAddParent_Click(object sender, EventArgs e)
