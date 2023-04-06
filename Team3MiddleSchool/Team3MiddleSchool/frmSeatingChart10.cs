@@ -13,7 +13,7 @@ namespace Team3MiddleSchool
 {
     public partial class frmSeatingChart10 : Form
     {
-        clsDatabaseConnection database = new clsDatabaseConnection();
+        DatabaseConnection database = new DatabaseConnection();
         public frmSeatingChart10()
         {
             InitializeComponent();

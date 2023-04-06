@@ -17,7 +17,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Team3MiddleSchool
 {
-    internal class clsDatabaseConnection
+    internal class DatabaseConnection
     {
         //establish database connection - CS
         static SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]);
@@ -1200,37 +1200,21 @@ namespace Team3MiddleSchool
             }
         }
 
+        internal bool CheckCourseDelete(string courseID)
+        {
+            using (connection)
+            {
+                string query = "SELECT COUNT(*) FROM team3sp232330.Attendance WHERE CourseID = @CourseID";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@CourseID", courseID);
+
+                int count = (int)command.ExecuteScalar();
+
+                return count == 0;
+            }
+        }
 
 
-        //public bool CourseHasForeign(string courseID)
-        //{
-        //    try
-        //    {
-        //        SqlCommand command = new SqlCommand("SELECT CASE  WHEN EXISTS ( SELECT *  FROM sys.foreign_keys fk  " +
-        //            "INNER JOIN sys.tables t  ON fk.parent_object_id = t.object_id  INNER JOIN sys.tables rt  ON " +
-        //            "fk.referenced_object_id = rt.object_id  WHERE t.name = 'Class'  AND t.schema_id = SCHEMA_ID('team3sp232330')" +
-        //            "  AND ( rt.name = 'Grades'  OR rt.name = 'Attendance' )  AND EXISTS (SELECT *  FROM team3sp232330.Class c  " +
-        //            "WHERE c.ClassID = 1  AND fk.parent_object_id = OBJECT_ID('team3sp232330.Class')  AND fk.parent_object_id = " +
-        //            "OBJECT_ID('team3sp232330.' + t.name)  AND fk.referenced_object_id = OBJECT_ID('team3sp232330.' + rt.name))) " +
-        //            "THEN 'true'  ELSE 'false'  END AS HasDependency;" + courseID, connection);
-        //        SqlDataReader reader = command.ExecuteReader();
-
-        //        if (reader.Read())
-        //        {
-        //            bool hasForeign = (bool)reader["HasDependency"].Equals("True");
-        //        }
-        //        reader.Close();
-        //        return false;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return false;
-        //    }
-        //}
-
-       
 
 
 

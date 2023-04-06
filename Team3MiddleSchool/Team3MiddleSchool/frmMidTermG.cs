@@ -16,7 +16,7 @@ namespace Team3MiddleSchool
 {
     public partial class frmMidTermG : Form
     {
-        clsDatabaseConnection database = new clsDatabaseConnection();
+        DatabaseConnection database = new DatabaseConnection();
         public DataGridView grade = new DataGridView();
 
 
@@ -51,10 +51,10 @@ namespace Team3MiddleSchool
         {
             int count = 0;
             grade = dgvMDG;
-            clsDatabaseConnection.MidTermG(dgvMDG, count);
-            clsDatabaseConnection.MidTermGName(tbxName);
+            DatabaseConnection.MidTermG(dgvMDG, count);
+            DatabaseConnection.MidTermGName(tbxName);
            //DatabaseConnection.MidTermGClass(dgvMDG, count);
-            midTermGradeManager = (CurrencyManager)this.BindingContext[clsDatabaseConnection.MidTermGDT];
+            midTermGradeManager = (CurrencyManager)this.BindingContext[DatabaseConnection.MidTermGDT];
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)

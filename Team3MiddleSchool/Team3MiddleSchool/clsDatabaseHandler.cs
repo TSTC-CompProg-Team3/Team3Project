@@ -15,7 +15,7 @@ namespace Team3MiddleSchool
 {
     internal class clsDatabaseHandler
     {
-        static clsDatabaseConnection database = new clsDatabaseConnection();
+        static DatabaseConnection database = new DatabaseConnection();
         //Creates random number object -CS
         private static Random random = new Random();
 
