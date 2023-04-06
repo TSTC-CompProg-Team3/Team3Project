@@ -1200,19 +1200,19 @@ namespace Team3MiddleSchool
             }
         }
 
-        internal bool CheckCourseDelete(string courseID)
-        {
-            using (connection)
-            {
-                string query = "SELECT COUNT(*) FROM team3sp232330.Attendance WHERE CourseID = @CourseID";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@CourseID", courseID);
+        //internal bool CheckCourseDelete(string courseID)
+        //{
+        //    using (connection)
+        //    {
+        //        string query = "SELECT COUNT(*) FROM team3sp232330.Attendance WHERE CourseID = @CourseID";
+        //        SqlCommand command = new SqlCommand(query, connection);
+        //        command.Parameters.AddWithValue("@CourseID", courseID);
 
-                int count = (int)command.ExecuteScalar();
+        //        int count = (int)command.ExecuteScalar();
 
-                return count == 0;
-            }
-        }
+        //        return count == 0;
+        //    }
+        //}
 
 
 

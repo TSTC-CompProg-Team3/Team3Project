@@ -167,10 +167,10 @@ namespace Team3MiddleSchool
 
         private void cbxCourseSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (clsValidation.CheckCourseDelete(cbxCourseSelect.Text))
-            {
-                btnRemoveCourse.Visible = true;
-            }
+            //if (clsValidation.CheckCourseDelete(cbxCourseSelect.Text))
+            //{
+            //    btnRemoveCourse.Visible = true;
+            //}
         }
 
         private void btnAddParent_Click(object sender, EventArgs e)

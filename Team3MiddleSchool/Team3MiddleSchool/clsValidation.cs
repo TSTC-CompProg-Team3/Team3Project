@@ -54,19 +54,19 @@ namespace Team3MiddleSchool
             
         }
 
-        public static bool CheckCourseDelete(string cbxCourseText)
-        {
-            database.OpenDatabase();
+        //public static bool CheckCourseDelete(string cbxCourseText)
+        //{
+        //    database.OpenDatabase();
 
-            string hold = cbxCourseText.ToString();
-            string[] holdSplit = hold.Split('-');
-            string courseID = holdSplit[0].Trim();
+        //    string hold = cbxCourseText.ToString();
+        //    string[] holdSplit = hold.Split('-');
+        //    string courseID = holdSplit[0].Trim();
 
-            bool okayDelete = database.CheckCourseDelete(courseID);
+        //    bool okayDelete = database.CheckCourseDelete(courseID);
 
-            database.CloseDatabase();
+        //    database.CloseDatabase();
 
-            return okayDelete;
-        }
+        //    return okayDelete;
+        //}
     }
 }
