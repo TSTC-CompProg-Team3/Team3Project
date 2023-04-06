@@ -1179,8 +1179,7 @@ namespace Team3MiddleSchool
             
             if (accountType.Equals("Teacher") || accountType.Equals("Admin"))
             {
-                SqlCommand command = new SqlCommand("SELECT CONCAT(s.FirstName, ' ', s.LastName) AS \"Student\", s.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s JOIN team3sp232330.StudentSchedule ss ON s.StudentID = ss.StudentID JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND a.AttendanceDate = CAST(GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central Standard Time' AS DATE);", connection);
-                
+               
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = command;
 
