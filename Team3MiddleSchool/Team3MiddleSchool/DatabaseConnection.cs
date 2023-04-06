@@ -200,25 +200,30 @@ namespace Team3MiddleSchool
 
                 reader.Close();
 
-                command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s on c.SubjectID = s.SubjectID WHERE ClassID IN (@id1,@id2,@id3,@id4,@id5,@id6)", connection);
+                if (classes.Count > 0) {
+
+                    command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s on c.SubjectID = s.SubjectID WHERE ClassID IN (@id1,@id2,@id3,@id4,@id5,@id6)", connection);
 
 
-                command.Parameters.AddWithValue("@id1", classes[0]);
-                command.Parameters.AddWithValue("@id2", classes[1]);
-                command.Parameters.AddWithValue("@id3", classes[2]);
-                command.Parameters.AddWithValue("@id4", classes[3]);
-                command.Parameters.AddWithValue("@id5", classes[4]);
-                command.Parameters.AddWithValue("@id6", classes[5]);
+                    command.Parameters.AddWithValue("@id1", classes[0]);
+                    command.Parameters.AddWithValue("@id2", classes[1]);
+                    command.Parameters.AddWithValue("@id3", classes[2]);
+                    command.Parameters.AddWithValue("@id4", classes[3]);
+                    command.Parameters.AddWithValue("@id5", classes[4]);
+                    command.Parameters.AddWithValue("@id6", classes[5]);
 
-                reader = command.ExecuteReader();
+                    reader = command.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    string className = (string)reader["ClassName"];
-                    string subjectName = (string)reader["SubjectName"];
-                    int classSize = (int)reader["ClassSize"];
-                    classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
+                    while (reader.Read())
+                    {
+                        string className = (string)reader["ClassName"];
+                        string subjectName = (string)reader["SubjectName"];
+                        int classSize = (int)reader["ClassSize"];
+                        classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
+                    }
                 }
+
+                
 
             }
             catch (Exception ex)
@@ -250,25 +255,30 @@ namespace Team3MiddleSchool
 
                 reader.Close();
 
-                command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s on c.SubjectID = s.SubjectID WHERE ClassID IN (@id1,@id2,@id3,@id4,@id5,@id6)", connection);
-
-
-                command.Parameters.AddWithValue("@id1", classes[0]);
-                command.Parameters.AddWithValue("@id2", classes[1]);
-                command.Parameters.AddWithValue("@id3", classes[2]);
-                command.Parameters.AddWithValue("@id4", classes[3]);
-                command.Parameters.AddWithValue("@id5", classes[4]);
-                command.Parameters.AddWithValue("@id6", classes[5]);
-
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
+                if (classes.Count > 0)
                 {
-                    string className = (string)reader["ClassName"];
-                    string subjectName = (string)reader["SubjectName"];
-                    int classSize = (int)reader["ClassSize"];
-                    classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
+                    command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s on c.SubjectID = s.SubjectID WHERE ClassID IN (@id1,@id2,@id3,@id4,@id5,@id6)", connection);
+
+
+                    command.Parameters.AddWithValue("@id1", classes[0]);
+                    command.Parameters.AddWithValue("@id2", classes[1]);
+                    command.Parameters.AddWithValue("@id3", classes[2]);
+                    command.Parameters.AddWithValue("@id4", classes[3]);
+                    command.Parameters.AddWithValue("@id5", classes[4]);
+                    command.Parameters.AddWithValue("@id6", classes[5]);
+
+                    reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string className = (string)reader["ClassName"];
+                        string subjectName = (string)reader["SubjectName"];
+                        int classSize = (int)reader["ClassSize"];
+                        classList.Add(className + " - " + subjectName + " - Class Size: " + classSize);
+                    }
                 }
+
+                
 
             }
             catch (Exception ex)
