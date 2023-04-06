@@ -1551,14 +1551,7 @@ namespace Team3MiddleSchool
 
             if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
             {
-                SqlCommand commandID = new SqlCommand("SELECT ClassID FROM team3sp232330.Class WHERE ClassName = '" + className + "';", connection);
-                SqlDataReader reader = commandID.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    classID = $"{reader["ClassID"]}";
-                }
-
+                
                 SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + ";" ,  connection);
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
