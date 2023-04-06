@@ -80,6 +80,7 @@
             this.tbxClassName.Name = "tbxClassName";
             this.tbxClassName.Size = new System.Drawing.Size(157, 23);
             this.tbxClassName.TabIndex = 20;
+            this.tbxClassName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxClassName_KeyPress);
             // 
             // lblClassSize
             // 

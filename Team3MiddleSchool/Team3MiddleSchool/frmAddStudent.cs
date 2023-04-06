@@ -84,5 +84,6 @@ namespace Team3MiddleSchool
                 tbxCity,tbxState,tbxZip,tbxEmail,tbxUsername,tbxPassword,tbxEmerContactName,tbxEmerContactPhone,tbxGuardianName,tbxGuardianCell,
                 tbxGuardianWork,tbxGuardianWorkPl);
         }
+
     }
 }

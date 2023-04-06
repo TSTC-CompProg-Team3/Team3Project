@@ -82,7 +82,7 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(548, 494);
+            this.btnBack.Location = new System.Drawing.Point(544, 494);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
             this.btnBack.TabIndex = 2;
@@ -93,7 +93,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(216, 494);
+            this.btnClear.Location = new System.Drawing.Point(224, 494);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(117, 40);
             this.btnClear.TabIndex = 0;
@@ -104,7 +104,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(383, 494);
+            this.btnSubmit.Location = new System.Drawing.Point(384, 494);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(117, 40);
             this.btnSubmit.TabIndex = 1;
