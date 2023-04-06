@@ -1170,41 +1170,27 @@ namespace Team3MiddleSchool
             }
         }
 
-        public DataTable AttendanceInfo(int loginID, string accountType, string classSelect)
+        //Load attendance table for logged in user and selected class from drop down menu
+        public DataTable AttendanceInfo(string accountType, string classSelect)
         {
-            string classID = "";
-            int spaceIndex = classSelect.IndexOf(" ");
-            string className = classSelect.Substring(0, spaceIndex);
+            int classID = GetClassID(classSelect);
             DataTable table = new DataTable();
 
             
             if (accountType.Equals("Teacher") || accountType.Equals("Admin"))
             {
-                SqlCommand commandID = new SqlCommand("SELECT ClassID FROM team3sp232330.Class WHERE ClassName = '" + className + "';", connection);
-                SqlDataReader reader = commandID.ExecuteReader();
-
-                while(reader.Read())
-                {
-                    classID = $"{reader["ClassID"]}";
-                }
-
-                SqlCommand command = new SqlCommand("SELECT CONCAT(s.FirstName, ' ', s.LastName) AS \"Student\", s.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s JOIN team3sp232330.StudentSchedule ss ON s.StudentID = ss.StudentID JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = '" + classID + "' AND a.AttendanceDate = CAST(GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central Standard Time' AS DATE);", connection);
+                SqlCommand command = new SqlCommand("SELECT CONCAT(s.FirstName, ' ', s.LastName) AS \"Student\", s.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s JOIN team3sp232330.StudentSchedule ss ON s.StudentID = ss.StudentID JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND a.AttendanceDate = CAST(GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central Standard Time' AS DATE);", connection);
                 
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = command;
 
-                reader.Close();
-
-                
-
                 adapter.Fill(table);
             }
-
-
 
             return table;
         }
 
+        //Reload attendance table with new query
         public DataTable AttendanceInfo(String editCommand)
         {
             SqlCommand command = new SqlCommand(editCommand, connection);
@@ -1218,22 +1204,66 @@ namespace Team3MiddleSchool
             return table;
         }
 
-        public string LoggedTeacher(int loginID)
+        //Generate days attendance if none exists and user confirms
+        public DataTable GenerateAttendance(string classSelect)
         {
-            string firstN, lastN, teacher = "";
+            int classID = GetClassID(classSelect);
+            DateTime date = DateTime.Now;
+            DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Teacher WHERE LoginID = " + loginID, connection);
+            SqlCommand command = new SqlCommand("CREATE TABLE #tempAttendance "
+                                                    + "(StudentID INT PRIMARY KEY, " 
+                                                    + "ClassID INT, "
+                                                    + "AttendanceDate DATE, "
+                                                    + "Present BIT, "
+                                                    + "TeacherID INT) "
+                                                + "INSERT INTO #tempAttendance (StudentID) SELECT StudentID FROM team3sp232330.StudentSchedule WHERE Class1 = " + classID + " OR Class2 = " + classID + " OR Class3 = " + classID + " OR Class4 = " + classID + " OR Class5 = " + classID + " OR Class6 = " + classID
+                                                + "UPDATE #tempAttendance SET ClassID = " + classID + ", AttendanceDate = CAST(GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central Standard Time' AS Date), Present = 0, TeacherID = (SELECT TeacherID FROM team3sp232330.Class WHERE ClassID = " + classID + ") "
+                                                + "INSERT INTO team3sp232330.Attendance (StudentID, ClassID, AttendanceDate, Present, TeacherID) SELECT StudentID, ClassID, AttendanceDate, Present, TeacherID FROM #tempAttendance;", connection);
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+
+            return table;
+        }
+
+        //Retrieve name of teacher of selected class from menu drop down
+        public string LoggedTeacher(int classID)
+        {
+            string teacher = "";
+
+            SqlCommand command = new SqlCommand("SELECT CONCAT(t.FirstName, ' ', t.LastName) AS \"Teacher\" FROM team3sp232330.Class c JOIN team3sp232330.Teacher t ON c.TeacherID = t.TeacherID WHERE c.ClassID = " + classID, connection);
             SqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-                firstN = (string)reader["FirstName"];
-                lastN = (string)reader["LastName"];
-                teacher = firstN + " " + lastN;
+                teacher = (string)reader["Teacher"];
             }
             reader.Close();
 
             return teacher;
+        }
+
+        //Retrieve classID for given class from menu drop down
+        public int GetClassID(string classSelect)
+        {
+            int classID = 0;
+            int spaceIndex = classSelect.IndexOf("-");
+            string className = classSelect.Substring(0, spaceIndex - 1);
+
+            SqlCommand commandID = new SqlCommand("SELECT ClassID FROM team3sp232330.Class WHERE ClassName = '" + className + "';", connection);
+            SqlDataReader reader = commandID.ExecuteReader();
+
+            while (reader.Read())
+            {
+                classID = Int32.Parse($"{reader["ClassID"]}");
+            }
+
+            reader.Close();
+
+            return classID;
         }
 
 
