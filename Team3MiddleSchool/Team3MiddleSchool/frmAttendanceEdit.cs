@@ -71,7 +71,7 @@ namespace Team3MiddleSchool
 
             foreach (DataRowView row in binding)
             {
-                string student = row["Student"].ToString();
+                string student = row["student"].ToString();
                 int position = students.IndexOf(student);
                 if (position == -1)
                 {

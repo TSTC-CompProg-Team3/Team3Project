@@ -38,7 +38,7 @@ namespace Team3MiddleSchool
                 isStudent = true;
             }
 
-            frmAttendance frmAttendance = new frmAttendance(loginID, studentID, accountType, classSelect, isStudent);
+            frmAttendance frmAttendance = new frmAttendance(loginID, accountType, classSelect, isStudent);
             frmAttendance.ShowDialog();
         }
 

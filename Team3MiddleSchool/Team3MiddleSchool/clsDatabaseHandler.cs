@@ -743,7 +743,7 @@ namespace Team3MiddleSchool
         {
             database.OpenDatabase();
 
-            return database.GetStudentID(loginID);
+            return database.GetStudentID(loginID, "student");
 
             database.CloseDatabase();
         }

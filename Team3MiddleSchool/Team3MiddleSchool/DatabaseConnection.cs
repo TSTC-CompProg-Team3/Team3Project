@@ -1546,9 +1546,16 @@ namespace Team3MiddleSchool
         public DataTable AttendanceInfo(string accountType, string classSelect, int loginID)
         {
             int classID = GetClassID(classSelect);
-            int studentID = GetStudentID(loginID);
+            int studentID = 0;
             string date = DateTime.Now.ToString("yyyyMMdd");
             DataTable table = new DataTable();
+
+            if (accountType.Equals("Parent") || accountType.Equals("student"))
+            {
+                studentID = GetStudentID(loginID, accountType);
+            }
+            
+            
 
 
             if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
@@ -1561,7 +1568,7 @@ namespace Team3MiddleSchool
 
                 adapter.Fill(table);
             }
-            else if (accountType.Equals("Student") || accountType.Equals("Parent"))
+            else if (accountType.Equals("student") || accountType.Equals("Parent"))
             {
                 SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.StudentID = " + studentID + " AND a.ClassID = " + classID + ";", connection);
 
@@ -1575,7 +1582,7 @@ namespace Team3MiddleSchool
         }
 
         //Reload attendance table with new query
-        public DataTable AttendanceInfo(String editCommand)
+        public DataTable AttendanceInfo(string editCommand)
         {
             SqlCommand command = new SqlCommand(editCommand, connection);
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -1636,6 +1643,7 @@ namespace Team3MiddleSchool
             int spaceIndex = classSelect.IndexOf("-");
             string className = classSelect.Substring(0, spaceIndex - 1);
 
+            
             SqlCommand commandID = new SqlCommand("SELECT ClassID FROM team3sp232330.Class WHERE ClassName = '" + className + "';", connection);
             SqlDataReader reader = commandID.ExecuteReader();
 
@@ -1648,12 +1656,25 @@ namespace Team3MiddleSchool
 
             return classID;
         }
-
-        public int GetStudentID(int loginID)
+        
+        public int GetStudentID(int loginID, string accountType)
         {
             int studentID = 0;
+            string query = "";
+            
+            if (accountType.Equals("Parent"))
+            {
+                query = "SELECT StudentID FROM team3sp232330.StudentParent sp JOIN team3sp232330.Parent p ON sp.ParentID = p.ParentID WHERE LoginID = " + loginID + ";";
+            }
+            else if (accountType.Equals("student"))
+            {
+                query = "SELECT StudentID FROM team3sp232330.Student where LoginID = " + loginID + ";";
+            }
 
-            SqlCommand commandID = new SqlCommand("SELECT StudentID FROM team3sp232330.StudentParent sp JOIN team3sp232330.Parent p ON sp.ParentID = p.ParentID WHERE p.LoginID = " + loginID + ";", connection);
+
+            SqlCommand commandID = new SqlCommand(query, connection);
+
+
             SqlDataReader reader = commandID.ExecuteReader();
 
             while (reader.Read())
@@ -2166,27 +2187,7 @@ namespace Team3MiddleSchool
             }
         }
 
-        internal int GetStudentID(int loginID)
-        {
-            try
-            {
-                SqlCommand command = new SqlCommand("SELECT StudentID FROM team3sp232330.Student WHERE LoginID = " + loginID, connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    int studentID = (int)reader["StudentID"];
-                    return studentID;
-                }
-                return -1;
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                return -1;
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
     }
 
 }
