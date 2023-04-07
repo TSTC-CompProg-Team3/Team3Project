@@ -1543,9 +1543,10 @@ namespace Team3MiddleSchool
         }
 
         //Load attendance table for logged in user and selected class from drop down menu
-        public DataTable AttendanceInfo(string accountType, string classSelect)
+        public DataTable AttendanceInfo(string accountType, string classSelect, int loginID)
         {
             int classID = GetClassID(classSelect);
+            int studentID = GetStudentID(loginID);
             string date = DateTime.Now.ToString("yyyyMMdd");
             DataTable table = new DataTable();
 
@@ -1554,6 +1555,15 @@ namespace Team3MiddleSchool
             {
                 
                 SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND AttendanceDate = '" + date + "';" ,  connection);
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = command;
+
+                adapter.Fill(table);
+            }
+            else if (accountType.Equals("Student") || accountType.Equals("Parent"))
+            {
+                SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.StudentID = " + studentID + " AND a.ClassID = " + classID + ";", connection);
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = command;
@@ -1582,7 +1592,6 @@ namespace Team3MiddleSchool
         public DataTable GenerateAttendance(string classSelect)
         {
             int classID = GetClassID(classSelect);
-            DateTime date = DateTime.Now;
             DataTable table = new DataTable();
 
             SqlCommand command = new SqlCommand("CREATE TABLE #tempAttendance "
@@ -1638,6 +1647,23 @@ namespace Team3MiddleSchool
             reader.Close();
 
             return classID;
+        }
+
+        public int GetStudentID(int loginID)
+        {
+            int studentID = 0;
+
+            SqlCommand commandID = new SqlCommand("SELECT StudentID FROM team3sp232330.StudentParent sp JOIN team3sp232330.Parent p ON sp.ParentID = p.ParentID WHERE p.LoginID = " + loginID + ";", connection);
+            SqlDataReader reader = commandID.ExecuteReader();
+
+            while (reader.Read())
+            {
+                studentID = Int32.Parse($"{reader["StudentID"]}");
+            }
+
+            reader.Close();
+
+            return studentID;
         }
 
         public void UpdateAttendance(DataGridView dgv, string date)

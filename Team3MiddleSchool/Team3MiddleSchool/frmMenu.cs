@@ -27,7 +27,18 @@ namespace Team3MiddleSchool
         {
             //opens form attendance - CS
             string classSelect = cbxCourseSelect.SelectedItem as string;
-            frmAttendance frmAttendance = new frmAttendance(loginID, accountType, classSelect);
+            bool isStudent = true;
+
+            if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
+            {
+                isStudent = false;
+            }
+            else if (accountType.Equals("Student") || accountType.Equals("Parent"))
+            {
+                isStudent = true;
+            }
+
+            frmAttendance frmAttendance = new frmAttendance(loginID, studentID, accountType, classSelect, isStudent);
             frmAttendance.ShowDialog();
         }
 
