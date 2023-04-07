@@ -73,6 +73,7 @@ namespace Team3MiddleSchool
             
 
             dgvAttendance.DataSource = binding;
+            dgvAttendance.EditMode.Equals(false);
 
             FillUserInfo();
             btnEditAttend.BackColor = ColorTranslator.FromHtml("#F15025");

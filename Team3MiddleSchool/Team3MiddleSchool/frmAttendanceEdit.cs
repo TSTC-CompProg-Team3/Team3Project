@@ -165,14 +165,24 @@ namespace Team3MiddleSchool
 
             if ((first.Equals("All") && last.Equals("All")) || first == null || last == null)
             {
-                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "';";
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "' AND a.ClassID = " + classID + ";";
             }
             else 
             {
-                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "' AND s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "' AND s.FirstName = '" + first + "' AND s.LastName = '" + last + "' AND a.ClassID = " + classID + ";";
             }
 
             binding.DataSource = database.AttendanceInfo(newQuery);
+        }
+
+        private void btnSubmitAttendEdit_Click(object sender, EventArgs e)
+        {
+            string date = DateTime.Now.ToString("yyyyMMdd");
+            database.UpdateAttendance(dgvAttendanceEdit, date);
+
+            MessageBox.Show("The records have been updated.", "Records Updated", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            binding.DataSource = database.AttendanceInfo(accountType, classSelect);
         }
 
         private void FillUserInfo()

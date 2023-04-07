@@ -35,8 +35,8 @@
             this.dtpAttendanceEdit = new System.Windows.Forms.DateTimePicker();
             this.cmbNamesEdit = new System.Windows.Forms.ComboBox();
             this.pnlAttendanceEdit = new System.Windows.Forms.Panel();
-            this.lblAttendClass = new System.Windows.Forms.Label();
             this.lblAttendTeacher = new System.Windows.Forms.Label();
+            this.lblAttendClass = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendanceEdit)).BeginInit();
             this.pnlAttendanceEdit.SuspendLayout();
             this.SuspendLayout();
@@ -44,7 +44,7 @@
             // btnBackAttendEdit
             // 
             this.btnBackAttendEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackAttendEdit.Location = new System.Drawing.Point(309, 622);
+            this.btnBackAttendEdit.Location = new System.Drawing.Point(39, 622);
             this.btnBackAttendEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackAttendEdit.Name = "btnBackAttendEdit";
             this.btnBackAttendEdit.Size = new System.Drawing.Size(112, 43);
@@ -68,13 +68,14 @@
             // btnSubmitAttendEdit
             // 
             this.btnSubmitAttendEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitAttendEdit.Location = new System.Drawing.Point(39, 622);
+            this.btnSubmitAttendEdit.Location = new System.Drawing.Point(309, 622);
             this.btnSubmitAttendEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSubmitAttendEdit.Name = "btnSubmitAttendEdit";
             this.btnSubmitAttendEdit.Size = new System.Drawing.Size(112, 43);
             this.btnSubmitAttendEdit.TabIndex = 17;
             this.btnSubmitAttendEdit.Text = "Submit";
             this.btnSubmitAttendEdit.UseVisualStyleBackColor = true;
+            this.btnSubmitAttendEdit.Click += new System.EventHandler(this.btnSubmitAttendEdit_Click);
             // 
             // dgvAttendanceEdit
             // 
@@ -118,17 +119,6 @@
             this.pnlAttendanceEdit.Size = new System.Drawing.Size(742, 600);
             this.pnlAttendanceEdit.TabIndex = 20;
             // 
-            // lblAttendClass
-            // 
-            this.lblAttendClass.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAttendClass.Location = new System.Drawing.Point(410, 0);
-            this.lblAttendClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAttendClass.Name = "lblAttendClass";
-            this.lblAttendClass.Size = new System.Drawing.Size(328, 63);
-            this.lblAttendClass.TabIndex = 24;
-            this.lblAttendClass.Text = "Class: ";
-            this.lblAttendClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblAttendTeacher
             // 
             this.lblAttendTeacher.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,6 +129,17 @@
             this.lblAttendTeacher.TabIndex = 23;
             this.lblAttendTeacher.Text = "Teacher: ";
             this.lblAttendTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAttendClass
+            // 
+            this.lblAttendClass.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttendClass.Location = new System.Drawing.Point(410, 0);
+            this.lblAttendClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAttendClass.Name = "lblAttendClass";
+            this.lblAttendClass.Size = new System.Drawing.Size(328, 63);
+            this.lblAttendClass.TabIndex = 24;
+            this.lblAttendClass.Text = "Class: ";
+            this.lblAttendClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmAttendanceEdit
             // 
