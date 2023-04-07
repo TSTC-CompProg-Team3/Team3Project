@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Data;
 using System.Net.NetworkInformation;
+using System.Configuration;
 
 namespace Team3MiddleSchool
 {
@@ -96,6 +97,11 @@ namespace Team3MiddleSchool
             database.OpenDatabase();
             database.UserInfo();
             string email = tbxEmail.Text;
+            string smtpServer = ConfigurationManager.AppSettings["smtpServer"];
+            string smtpPort = ConfigurationManager.AppSettings["smtpPort"];
+            string emailUsername = ConfigurationManager.AppSettings["emailUsername"];
+            string emailPassword = ConfigurationManager.AppSettings["emailPassword"];
+
 
             foreach (clsUser user in database.userList)
             {
@@ -112,15 +118,16 @@ namespace Team3MiddleSchool
                         message.Subject = "Password Reset Code";
                         message.Body = $"Your password reset code is: {resetCode}";
 
-                        using (SmtpClient smtp = new SmtpClient("smtp-relay.sendinblue.com", 587))
+                        using (SmtpClient smtp = new SmtpClient(smtpServer, int.Parse(smtpPort)))
                         {
-                            smtp.Credentials = new NetworkCredential("tstccompprogteam3@gmail.com", "CZ5dbGYKj6M17UvJ");
+                            smtp.Credentials = new NetworkCredential(emailUsername, emailPassword);
                             smtp.EnableSsl = true;
                             smtp.Send(message);
                         }
 
 
                         MessageBox.Show("Password reset code sent to email.");
+                        break;
 
                     }
                     catch (Exception ex)
@@ -229,6 +236,35 @@ namespace Team3MiddleSchool
                     courseID = holdSplit[0].Trim();
                     database.RemoveCourse(courseID);
                     MessageBox.Show("Course Successfully Removed", "Course Removal", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a course for removal", "Course Removal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            database.CloseDatabase();
+        }
+
+        internal static void RemoveSubject(ComboBox cbxSubjectSelect)
+        {
+            database.OpenDatabase();
+            string subjectID;
+            //checks if something is selected -CS
+            if (cbxSubjectSelect.SelectedIndex > -1)
+            {
+                //confirms if admin wants to remove course -CS
+                DialogResult dialogResult = MessageBox.Show("Are you sure you would like to remove the subject?", "Subject Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string hold = cbxSubjectSelect.Text.ToString();
+                    string[] holdSplit = hold.Split('-');
+                    subjectID = holdSplit[0].Trim();
+                    database.RemoveSubject(subjectID);
+                    MessageBox.Show("Subject Successfully Removed", "Subject Removal", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (dialogResult == DialogResult.No)
                 {
@@ -702,5 +738,7 @@ namespace Team3MiddleSchool
 
             database.CloseDatabase();
         }
+
+        
     }
 }

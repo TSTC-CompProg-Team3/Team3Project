@@ -80,10 +80,207 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.AddStudent(tbxFirstName,tbxMiddleName,tbxLastName,dtpDateOfBirth,tbxPhoneNumber,tbxMailingAddress,tbxStreetAddress,
-                tbxCity,tbxState,tbxZip,tbxEmail,tbxUsername,tbxPassword,tbxEmerContactName,tbxEmerContactPhone,tbxGuardianName,tbxGuardianCell,
-                tbxGuardianWork,tbxGuardianWorkPl);
+            if (clsValidation.ValidateEmail(tbxEmail.Text) && clsValidation.ValidateUsername(tbxUsername.Text) && 
+                clsValidation.ValidatePassword(tbxPassword.Text) && clsValidation.ValidateFirstName(tbxFirstName.Text) &&
+                clsValidation.ValidateLastName(tbxLastName.Text) && clsValidation.ValidatePhoneNumber(tbxPhoneNumber.Text) && 
+                clsValidation.ValidateMiddleName(tbxMiddleName.Text) && clsValidation.ValidateAddress(tbxStreetAddress.Text) &&
+                clsValidation.ValidateAddress(tbxMailingAddress.Text) && clsValidation.ValidateCity(tbxCity.Text) && 
+                clsValidation.ValidateState(tbxState.Text) && clsValidation.ValidateZip(tbxZip.Text) && 
+                clsValidation.ValidateFullName(tbxEmerContactName.Text) && clsValidation.ValidatePhoneNumber(tbxEmerContactPhone.Text) &&
+                clsValidation.ValidateFullName(tbxGuardianName.Text) && clsValidation.ValidatePhoneNumber(tbxGuardianCell.Text) &&
+                clsValidation.ValidatePhoneNumber(tbxGuardianWork.Text) && clsValidation.ValidateWorkPlace(tbxGuardianWorkPl.Text))
+            {
+                tbxState.Text = tbxState.Text.ToUpper();
+                clsDatabaseHandler.AddStudent(tbxFirstName, tbxMiddleName, tbxLastName, dtpDateOfBirth, tbxPhoneNumber, tbxMailingAddress, tbxStreetAddress,
+                tbxCity, tbxState, tbxZip, tbxEmail, tbxUsername, tbxPassword, tbxEmerContactName, tbxEmerContactPhone, tbxGuardianName, tbxGuardianCell,
+                tbxGuardianWork, tbxGuardianWorkPl);
+            }
+            else
+            {
+                if (!clsValidation.ValidateEmail(tbxEmail.Text))
+                {
+                    tbxEmail.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxEmail.BackColor = SystemColors.Window;
+                }
+
+                if (!clsValidation.ValidateUsername(tbxUsername.Text))
+                {
+                    tbxUsername.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxUsername.BackColor = SystemColors.Window;
+                }
+
+                if (!clsValidation.ValidatePassword(tbxPassword.Text))
+                {
+                    tbxPassword.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxPassword.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateFirstName(tbxFirstName.Text))
+                {
+                    tbxFirstName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxFirstName.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateLastName(tbxLastName.Text))
+                {
+                    tbxLastName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxLastName.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidatePhoneNumber(tbxPhoneNumber.Text))
+                {
+                    tbxPhoneNumber.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxPhoneNumber.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateMiddleName(tbxMiddleName.Text))
+                {
+                    tbxMiddleName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxMiddleName.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateAddress(tbxMailingAddress.Text))
+                {
+                    tbxMailingAddress.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxMailingAddress.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateAddress(tbxStreetAddress.Text))
+                {
+                    tbxStreetAddress.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxStreetAddress.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateCity(tbxCity.Text))
+                {
+                    tbxCity.BackColor = Color.Red;
+                }else
+                {
+                    tbxCity.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateState(tbxState.Text))
+                {
+                    tbxState.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxState.Text = tbxState.Text.ToUpper();
+                    tbxState.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateZip(tbxZip.Text))
+                {
+                    tbxZip.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxZip.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateFullName(tbxEmerContactName.Text))
+                {
+                    tbxEmerContactName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxEmerContactName.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidatePhoneNumber(tbxEmerContactPhone.Text))
+                {
+                    tbxEmerContactPhone.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxEmerContactPhone.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateFullName(tbxGuardianName.Text))
+                {
+                    tbxGuardianName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxGuardianName.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidatePhoneNumber(tbxGuardianCell.Text))
+                {
+                    tbxGuardianCell.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxGuardianCell.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidatePhoneNumber(tbxGuardianWork.Text))
+                {
+                    tbxGuardianWork.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxGuardianWork.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateWorkPlace(tbxGuardianWorkPl.Text))
+                {
+                    tbxGuardianWorkPl.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxGuardianWorkPl.BackColor = SystemColors.Window;
+                }
+            }
+
+            
         }
 
+        private void tbxFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void tbxMiddleName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void tbxLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void tbxEmerContactName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void tbxGuardianName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void tbxGuardianWorkPl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void tbxCity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
     }
 }

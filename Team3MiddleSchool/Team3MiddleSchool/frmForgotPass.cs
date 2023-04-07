@@ -51,7 +51,14 @@ namespace Team3MiddleSchool
         //resets the password if the reset code is correct and the password fields match -CS
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.ConfirmResetPass(tbxEnterCode,tbxNewPassword,tbxConfirmPassword);
+            if (clsValidation.ValidatePassword(tbxNewPassword.Text))
+            {
+                clsDatabaseHandler.ConfirmResetPass(tbxEnterCode, tbxNewPassword, tbxConfirmPassword);
+            }
+            else
+            {
+                tbxNewPassword.BackColor = Color.Red;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

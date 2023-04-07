@@ -74,6 +74,7 @@
             this.tbxSubjectName.Name = "tbxSubjectName";
             this.tbxSubjectName.Size = new System.Drawing.Size(157, 23);
             this.tbxSubjectName.TabIndex = 26;
+            this.tbxSubjectName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxSubjectName_KeyPress);
             // 
             // lblSubjectName
             // 

@@ -59,10 +59,62 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string hold = parentInfo;
-            string[] holdSplit = hold.Split('-');
-            string parentID = holdSplit[0].Trim();
-            clsDatabaseHandler.EditParent(tbxEmail, tbxFirstName, tbxLastName, tbxPassword, tbxUsername, cbxStudentSelect, parentID);
+            if (clsValidation.ValidateEmail(tbxEmail.Text) && clsValidation.ValidateUsernameEdit(tbxUsername.Text) &&
+               clsValidation.ValidatePassword(tbxPassword.Text) && clsValidation.ValidateFirstName(tbxFirstName.Text) &&
+               clsValidation.ValidateLastName(tbxLastName.Text))
+            {
+                string hold = parentInfo;
+                string[] holdSplit = hold.Split('-');
+                string parentID = holdSplit[0].Trim();
+                clsDatabaseHandler.EditParent(tbxEmail, tbxFirstName, tbxLastName, tbxPassword, tbxUsername, cbxStudentSelect, parentID);
+            }
+            else
+            {
+                if (!clsValidation.ValidateEmail(tbxEmail.Text))
+                {
+                    tbxEmail.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxEmail.BackColor = SystemColors.Window;
+                }
+
+                if (!clsValidation.ValidateUsername(tbxUsername.Text))
+                {
+                    tbxUsername.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxUsername.BackColor = SystemColors.Window;
+                }
+
+                if (!clsValidation.ValidatePassword(tbxPassword.Text))
+                {
+                    tbxPassword.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxPassword.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateFirstName(tbxFirstName.Text))
+                {
+                    tbxFirstName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxFirstName.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateLastName(tbxLastName.Text))
+                {
+                    tbxLastName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxLastName.BackColor = SystemColors.Window;
+                }
+            }
+
+            
         }
     }
 }
