@@ -739,6 +739,13 @@ namespace Team3MiddleSchool
             database.CloseDatabase();
         }
 
-        
+        internal static int GetStudentID(int loginID)
+        {
+            database.OpenDatabase();
+
+            return database.GetStudentID(loginID);
+
+            database.CloseDatabase();
+        }
     }
 }

@@ -2108,7 +2108,27 @@ namespace Team3MiddleSchool
             }
         }
 
-       
+        internal int GetStudentID(int loginID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT StudentID FROM team3sp232330.Student WHERE LoginID = " + loginID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int studentID = (int)reader["StudentID"];
+                    return studentID;
+                }
+                return -1;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                return -1;
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
 }
