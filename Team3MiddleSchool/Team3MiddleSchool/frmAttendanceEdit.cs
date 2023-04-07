@@ -17,22 +17,22 @@ namespace Team3MiddleSchool
         private string dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
         private string firstName = "All", lastName = "All";
         private int loginID;
+        private int studentID;
         private int classID;
         private string accountType;
         private string classSelect;
+        private bool isStudent;
 
-        public frmAttendanceEdit(int loginID, int classID, string accountType, string classSelect)
+        public frmAttendanceEdit(int loginID, int studentID, int classID, string accountType, string classSelect, bool isStudent)
         {
             this.loginID = loginID;
+            this.studentID = studentID;
+            this.classID = database.GetClassID(classSelect);
             this.accountType = accountType;
             this.classSelect = classSelect;
-            this.classID = database.GetClassID(classSelect);
+            this.isStudent = isStudent;
             InitializeComponent();
-            
         }
-
-        //TODO: Filter query to current logged in teacher and selected class
-        //TODO: Ensure edits made are pushed to database
 
 
         public frmAttendanceEdit()
@@ -44,9 +44,11 @@ namespace Team3MiddleSchool
         //Intial query and formatting on form load
         private void frmAttendanceEdit_Load(object sender, EventArgs e)
         {
-            binding.DataSource = database.AttendanceInfo(accountType, classSelect);
+            dgvAttendanceEdit.AllowUserToAddRows = false;
+            binding.DataSource = database.AttendanceInfo(accountType, classSelect, loginID);
             dgvAttendanceEdit.DataSource = binding;
             FillUserInfo();
+
 
             btnSubmitAttendEdit.BackColor = ColorTranslator.FromHtml("#F15025");
             btnSubmitAttendEdit.ForeColor = ColorTranslator.FromHtml("#191919");
@@ -69,7 +71,7 @@ namespace Team3MiddleSchool
 
             foreach (DataRowView row in binding)
             {
-                string student = row["Student"].ToString();
+                string student = row["student"].ToString();
                 int position = students.IndexOf(student);
                 if (position == -1)
                 {
@@ -165,14 +167,26 @@ namespace Team3MiddleSchool
 
             if ((first.Equals("All") && last.Equals("All")) || first == null || last == null)
             {
-                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "';";
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "' AND a.ClassID = " + classID + ";";
             }
             else 
             {
-                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "' AND s.FirstName = '" + first + "' AND s.LastName = '" + last + "';";
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "' AND s.FirstName = '" + first + "' AND s.LastName = '" + last + "' AND a.ClassID = " + classID + ";";
             }
 
             binding.DataSource = database.AttendanceInfo(newQuery);
+            dgvAttendanceEdit.DataSource = binding;
+        }
+
+        private void btnSubmitAttendEdit_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Parse(dateSelection);
+            database.UpdateAttendance(dgvAttendanceEdit, dateSelection);
+
+            MessageBox.Show("The records have been updated.", "Records Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            NewQuery(firstName, lastName, dateSelection);
+            dtpAttendanceEdit.Value = date;
         }
 
         private void FillUserInfo()
