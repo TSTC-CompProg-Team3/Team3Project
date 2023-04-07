@@ -43,15 +43,29 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string hold = subjectInfo;
-            string[] holdSplit = hold.Split('-');
-            string subjectID = holdSplit[0].Trim();
-            clsDatabaseHandler.EditSubject(subjectID,tbxSubjectName.Text);
+            if (clsValidation.ValidateSubjectEdit(tbxSubjectName.Text))
+            {
+                string hold = subjectInfo;
+                string[] holdSplit = hold.Split('-');
+                string subjectID = holdSplit[0].Trim();
+                clsDatabaseHandler.EditSubject(subjectID, tbxSubjectName.Text);
+            }
+            else
+            {
+                tbxSubjectName.BackColor = Color.Red;
+            }
+
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tbxSubjectName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
         }
     }
 }

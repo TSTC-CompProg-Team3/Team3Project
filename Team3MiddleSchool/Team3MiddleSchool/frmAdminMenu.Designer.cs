@@ -71,12 +71,13 @@
             // btnRemoveCourse
             // 
             this.btnRemoveCourse.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveCourse.Location = new System.Drawing.Point(284, 264);
+            this.btnRemoveCourse.Location = new System.Drawing.Point(503, 264);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
             this.btnRemoveCourse.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveCourse.TabIndex = 2;
             this.btnRemoveCourse.Text = "Remove Course";
             this.btnRemoveCourse.UseVisualStyleBackColor = true;
+            this.btnRemoveCourse.Visible = false;
             this.btnRemoveCourse.Click += new System.EventHandler(this.btnRemoveCourse_Click);
             // 
             // btnAddCourse
@@ -93,48 +94,53 @@
             // cbxCourseSelect
             // 
             this.cbxCourseSelect.FormattingEnabled = true;
-            this.cbxCourseSelect.Location = new System.Drawing.Point(417, 275);
+            this.cbxCourseSelect.Location = new System.Drawing.Point(294, 275);
             this.cbxCourseSelect.Name = "cbxCourseSelect";
             this.cbxCourseSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxCourseSelect.TabIndex = 3;
+            this.cbxCourseSelect.SelectedIndexChanged += new System.EventHandler(this.cbxCourseSelect_SelectedIndexChanged);
             // 
             // btnRemoveTeacher
             // 
             this.btnRemoveTeacher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveTeacher.Location = new System.Drawing.Point(284, 340);
+            this.btnRemoveTeacher.Location = new System.Drawing.Point(503, 340);
             this.btnRemoveTeacher.Name = "btnRemoveTeacher";
             this.btnRemoveTeacher.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveTeacher.TabIndex = 6;
             this.btnRemoveTeacher.Text = "Remove Teacher";
             this.btnRemoveTeacher.UseVisualStyleBackColor = true;
+            this.btnRemoveTeacher.Visible = false;
             this.btnRemoveTeacher.Click += new System.EventHandler(this.btnRemoveTeacher_Click);
             // 
             // cbxTeacherSelect
             // 
             this.cbxTeacherSelect.FormattingEnabled = true;
-            this.cbxTeacherSelect.Location = new System.Drawing.Point(417, 351);
+            this.cbxTeacherSelect.Location = new System.Drawing.Point(294, 351);
             this.cbxTeacherSelect.Name = "cbxTeacherSelect";
             this.cbxTeacherSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxTeacherSelect.TabIndex = 7;
+            this.cbxTeacherSelect.SelectedIndexChanged += new System.EventHandler(this.cbxTeacherSelect_SelectedIndexChanged);
             // 
             // btnRemoveStudent
             // 
             this.btnRemoveStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveStudent.Location = new System.Drawing.Point(284, 420);
+            this.btnRemoveStudent.Location = new System.Drawing.Point(503, 420);
             this.btnRemoveStudent.Name = "btnRemoveStudent";
             this.btnRemoveStudent.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveStudent.TabIndex = 10;
             this.btnRemoveStudent.Text = "Remove Student";
             this.btnRemoveStudent.UseVisualStyleBackColor = true;
+            this.btnRemoveStudent.Visible = false;
             this.btnRemoveStudent.Click += new System.EventHandler(this.btnRemoveStudent_Click);
             // 
             // cbxStudentSelect
             // 
             this.cbxStudentSelect.FormattingEnabled = true;
-            this.cbxStudentSelect.Location = new System.Drawing.Point(417, 431);
+            this.cbxStudentSelect.Location = new System.Drawing.Point(294, 431);
             this.cbxStudentSelect.Name = "cbxStudentSelect";
             this.cbxStudentSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxStudentSelect.TabIndex = 11;
+            this.cbxStudentSelect.SelectedIndexChanged += new System.EventHandler(this.cbxStudentSelect_SelectedIndexChanged);
             // 
             // btnAddStudent
             // 

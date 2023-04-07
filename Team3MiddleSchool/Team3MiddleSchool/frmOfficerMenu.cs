@@ -57,8 +57,6 @@ namespace Team3MiddleSchool
             btnAddParent.ForeColor = ColorTranslator.FromHtml("#191919");
             btnEditParent.BackColor = ColorTranslator.FromHtml("#F15025");
             btnEditParent.ForeColor = ColorTranslator.FromHtml("#191919");
-            btnRemoveParent.BackColor = ColorTranslator.FromHtml("#F15025");
-            btnRemoveParent.ForeColor = ColorTranslator.FromHtml("#191919");
             btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
             btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
         }
@@ -97,11 +95,9 @@ namespace Team3MiddleSchool
 
         private void btnRemoveTeacher_Click(object sender, EventArgs e)
         {
-            //clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
-            //cbxCourseSelect.Items.Clear();
-            //cbxStudentSelect.Items.Clear();
-            //cbxTeacherSelect.Items.Clear();
-            //clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect);
+            clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
+            
+            updateCbx();
         }
 
         private void btnEditTeacher_Click(object sender, EventArgs e)
@@ -146,7 +142,10 @@ namespace Team3MiddleSchool
 
         private void btnRemoveSubject_Click(object sender, EventArgs e)
         {
+            clsDatabaseHandler.RemoveSubject(cbxSubjectSelect);
 
+
+            updateCbx();
         }
 
         private void btnEditSubject_Click(object sender, EventArgs e)
@@ -167,10 +166,14 @@ namespace Team3MiddleSchool
 
         private void cbxCourseSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (clsValidation.CheckCourseDelete(cbxCourseSelect.Text))
-            //{
-            //    btnRemoveCourse.Visible = true;
-            //}
+            if (clsValidation.CheckCourseDelete(cbxCourseSelect.Text))
+            {
+                btnRemoveCourse.Visible = true;
+            }
+            else
+            {
+                btnRemoveCourse.Visible = false;
+            }
         }
 
         private void btnAddParent_Click(object sender, EventArgs e)
@@ -197,6 +200,42 @@ namespace Team3MiddleSchool
             cbxSubjectSelect.Items.Clear();
             cbxParentSelect.Items.Clear();
             clsDatabaseHandler.LoadOfficerMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect, cbxSubjectSelect, cbxParentSelect);
+        }
+
+        private void cbxTeacherSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (clsValidation.CheckTeacherDelete(cbxTeacherSelect.Text))
+            {
+                btnRemoveTeacher.Visible = true;
+            }
+            else
+            {
+                btnRemoveTeacher.Visible = false;
+            }
+        }
+
+        private void cbxSubjectSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (clsValidation.CheckSubjectDelete(cbxSubjectSelect.Text))
+            {
+                btnRemoveSubject.Visible = true;
+            }
+            else
+            {
+                btnRemoveSubject.Visible = false;
+            }
+        }
+
+        private void cbxStudentSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (clsValidation.CheckStudentDelete(cbxStudentSelect.Text))
+            {
+                btnRemoveStudent.Visible = true;
+            }
+            else
+            {
+                btnRemoveStudent.Visible = false;
+            }
         }
     }
 }

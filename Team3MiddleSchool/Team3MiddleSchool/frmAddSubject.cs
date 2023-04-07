@@ -29,7 +29,15 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.AddSubject(tbxSubjectName.Text);
+            if (clsValidation.ValidateSubject(tbxSubjectName.Text))
+            {
+                clsDatabaseHandler.AddSubject(tbxSubjectName.Text);
+            }
+            else
+            {
+                tbxSubjectName.BackColor = Color.Red;
+            }
+            
         }
 
         private void frmAddSubject_Load(object sender, EventArgs e)
@@ -41,6 +49,11 @@ namespace Team3MiddleSchool
             btnSubmit.ForeColor = ColorTranslator.FromHtml("#191919");
             btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
             btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
+        }
+
+        private void tbxSubjectName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
         }
     }
 }

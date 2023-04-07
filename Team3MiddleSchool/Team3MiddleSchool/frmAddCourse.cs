@@ -56,7 +56,7 @@ namespace Team3MiddleSchool
             }
             else
             {
-                MessageBox.Show("Please enter a valid course name that is not in use", "Course Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbxClassName.BackColor = Color.Red;
             }
 
 

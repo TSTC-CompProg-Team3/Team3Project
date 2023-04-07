@@ -506,6 +506,24 @@ namespace Team3MiddleSchool
             }
         }
 
+        public void RemoveSubject(string subjectID)
+        {
+            try
+            {
+                string query = "DELETE team3sp232330.Subject WHERE SubjectID = @subjectID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@subjectID", subjectID);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         //Adds the course entered into the database
         public void AddCourse(string classID, string teacherID, string subjectID, string classSize)
         {
@@ -688,7 +706,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                string query = "DELETE FROM Teacher WHERE t.TeacherID = @teacherID ";
+                string query = "DELETE FROM team3sp232330.Teacher WHERE TeacherID = @teacherID; DELETE FROM team3sp232330.Login WHERE LoginID IN (SELECT l.LoginID FROM team3sp232330.Login l INNER JOIN team3sp232330.Teacher t ON l.LoginID = t.LoginID WHERE t.TeacherID = @teacherID)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -701,7 +719,7 @@ namespace Team3MiddleSchool
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            MessageBox.Show("Remove Teacher under construction due to database foreign keys", "Under Construction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         public void AddStudent(string firstName, string middleName, string lastName, DateTime dateOfBirth, string phoneNumber, string mailingAddress, string streetAddress, string city, string state, string zip, string email, string username, string password, string emerContactName, string emerContactPhone, string guardianName, string guardianCell, string guardianWorkPhone, string guardianWorkPl)
@@ -1211,19 +1229,142 @@ namespace Team3MiddleSchool
             }
         }
 
-        //internal bool CheckCourseDelete(string courseID)
-        //{
-        //    using (connection)
-        //    {
-        //        string query = "SELECT COUNT(*) FROM team3sp232330.Attendance WHERE CourseID = @CourseID";
-        //        SqlCommand command = new SqlCommand(query, connection);
-        //        command.Parameters.AddWithValue("@CourseID", courseID);
+        internal bool ValidateSubject(string subjectName)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Subject", connection);
+                SqlDataReader reader = command.ExecuteReader();
 
-        //        int count = (int)command.ExecuteScalar();
+                while (reader.Read())
+                {
+                    string subjectname = (string)reader["SubjectName"];
 
-        //        return count == 0;
-        //    }
-        //}
+                    if (subjectName == subjectname)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                reader.Close();
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool ValidateUsername(string username)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Login", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string userName = (string)reader["UserName"];
+
+                    if (username == userName)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                reader.Close();
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        internal bool CheckCourseDelete(string courseID)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM team3sp232330.Attendance a JOIN team3sp232330.Grades g ON a.ClassID = a.ClassID WHERE a.ClassID = @CourseID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CourseID", courseID);
+
+                    int count = (int)command.ExecuteScalar();
+
+                    connection.Close();
+                    return count == 0;
+                }
+            }
+        }
+
+        internal bool CheckTeacherDelete(string teacherID)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM team3sp232330.Class WHERE TeacherID = @teacherID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@teacherID", teacherID);
+
+                    int count = (int)command.ExecuteScalar();
+
+                    connection.Close();
+                    return count == 0;
+                }
+            }
+        }
+
+        internal bool CheckSubjectDelete(string subjectID)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM team3sp232330.Class WHERE SubjectID = @subjectID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@subjectID", subjectID);
+
+                    int count = (int)command.ExecuteScalar();
+
+                    connection.Close();
+                    return count == 0;
+                }
+            }
+        }
+
+        internal bool CheckStudentDelete(string studentID)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM team3sp232330.Attendance a JOIN team3sp232330.StudentSchedule ss ON" +
+                    " a.StudentID = ss.StudentID JOIN team3sp232330.StudentParent sp ON a.StudentID = ss.StudentID JOIN " +
+                    "team3sp232330.Grades g ON a.TeacherID = g.StudentID WHERE a.StudentID =  @studentID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentID", studentID);
+
+                    int count = (int)command.ExecuteScalar();
+
+                    connection.Close();
+                    return count == 0;
+                }
+            }
+        }
+
 
 
 
@@ -1968,7 +2109,7 @@ namespace Team3MiddleSchool
             }
         }
 
-        
+       
     }
 
 }

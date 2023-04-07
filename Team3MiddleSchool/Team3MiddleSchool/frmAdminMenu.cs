@@ -58,19 +58,15 @@ namespace Team3MiddleSchool
         {
             frmAddCourse addCourse = new frmAddCourse();
             addCourse.ShowDialog();
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+
+            updateCbx();
         }
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
         {
-            //clsDatabaseHandler.RemoveCourse(cbxCourseSelect);
-            //cbxCourseSelect.Items.Clear();
-            //cbxStudentSelect.Items.Clear();
-            //cbxTeacherSelect.Items.Clear();
-            //clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+            clsDatabaseHandler.RemoveCourse(cbxCourseSelect);
+
+            updateCbx();
 
         }
 
@@ -88,19 +84,14 @@ namespace Team3MiddleSchool
             frmEditCourse editCourse = new frmEditCourse(courseID, courseName);
             editCourse.ShowDialog();
 
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+            updateCbx();
         }
 
         private void btnRemoveTeacher_Click(object sender, EventArgs e)
         {
-            //clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
-            //cbxCourseSelect.Items.Clear();
-            //cbxStudentSelect.Items.Clear();
-            //cbxTeacherSelect.Items.Clear();
-            //clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+            clsDatabaseHandler.RemoveTeacher(cbxTeacherSelect);
+
+            updateCbx();
         }
 
         private void frmAdminMenu_Activated(object sender, EventArgs e)
@@ -112,10 +103,8 @@ namespace Team3MiddleSchool
         {
             frmAddTeacher addTeacher = new frmAddTeacher();
             addTeacher.ShowDialog();
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+
+            updateCbx();
 
         }
 
@@ -123,21 +112,16 @@ namespace Team3MiddleSchool
         {
             frmEditTeacher editTeacher = new frmEditTeacher(cbxTeacherSelect.Text);
             editTeacher.ShowDialog();
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
+
+            updateCbx();
         }
 
         private void btnRemoveStudent_Click(object sender, EventArgs e)
         {
-            //clsDatabaseHandler.RemoveStudent(cbxStudentSelect);
+            clsDatabaseHandler.RemoveStudent(cbxStudentSelect);
 
 
-            //cbxCourseSelect.Items.Clear();
-            //cbxStudentSelect.Items.Clear();
-            //cbxTeacherSelect.Items.Clear();
-            //clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect,cbxTeacherSelect);
+            updateCbx();
         }
 
         private void btnEditStudent_Click(object sender, EventArgs e)
@@ -145,10 +129,7 @@ namespace Team3MiddleSchool
             frmEditStudent EditStudent = new frmEditStudent(cbxStudentSelect.Text);
             EditStudent.ShowDialog();
 
-            cbxCourseSelect.Items.Clear();
-            cbxStudentSelect.Items.Clear();
-            cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect,cbxTeacherSelect);
+            updateCbx();
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
@@ -156,11 +137,51 @@ namespace Team3MiddleSchool
             frmAddStudent addStudent = new frmAddStudent();
             addStudent.ShowDialog();
 
+            updateCbx();
+        }
+
+        private void updateCbx()
+        {
             cbxCourseSelect.Items.Clear();
             cbxStudentSelect.Items.Clear();
             cbxTeacherSelect.Items.Clear();
-            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect,cbxTeacherSelect);
+            clsDatabaseHandler.LoadAdminMenu(cbxCourseSelect, cbxStudentSelect, cbxTeacherSelect);
         }
 
+        private void cbxCourseSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (clsValidation.CheckCourseDelete(cbxCourseSelect.Text))
+            {
+                btnRemoveCourse.Visible = true;
+            }
+            else
+            {
+                btnRemoveCourse.Visible = false;
+            }
+        }
+
+        private void cbxTeacherSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (clsValidation.CheckTeacherDelete(cbxTeacherSelect.Text))
+            {
+                btnRemoveTeacher.Visible = true;
+            }
+            else
+            {
+                btnRemoveTeacher.Visible = false;
+            }
+        }
+
+        private void cbxStudentSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (clsValidation.CheckStudentDelete(cbxStudentSelect.Text))
+            {
+                btnRemoveStudent.Visible = true;
+            }
+            else
+            {
+                btnRemoveStudent.Visible = false;
+            }
+        }
     }
 }

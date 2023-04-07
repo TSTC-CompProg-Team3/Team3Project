@@ -168,6 +168,7 @@
             this.tbxCity.Name = "tbxCity";
             this.tbxCity.Size = new System.Drawing.Size(157, 23);
             this.tbxCity.TabIndex = 2;
+            this.tbxCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCity_KeyPress);
             // 
             // tbxState
             // 
@@ -307,6 +308,7 @@
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(157, 23);
             this.tbxFirstName.TabIndex = 0;
+            this.tbxFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFirstName_KeyPress);
             // 
             // lblFirstName
             // 
@@ -334,6 +336,7 @@
             this.tbxMiddleName.Name = "tbxMiddleName";
             this.tbxMiddleName.Size = new System.Drawing.Size(157, 23);
             this.tbxMiddleName.TabIndex = 1;
+            this.tbxMiddleName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMiddleName_KeyPress);
             // 
             // lblLastName
             // 
@@ -351,6 +354,7 @@
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(157, 23);
             this.tbxLastName.TabIndex = 2;
+            this.tbxLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxLastName_KeyPress);
             // 
             // dtpDateOfBirth
             // 
@@ -423,6 +427,7 @@
             this.tbxGuardianWorkPl.Name = "tbxGuardianWorkPl";
             this.tbxGuardianWorkPl.Size = new System.Drawing.Size(157, 23);
             this.tbxGuardianWorkPl.TabIndex = 5;
+            this.tbxGuardianWorkPl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxGuardianWorkPl_KeyPress);
             // 
             // lblEmerContactPhone
             // 
@@ -474,6 +479,7 @@
             this.tbxGuardianName.Name = "tbxGuardianName";
             this.tbxGuardianName.Size = new System.Drawing.Size(157, 23);
             this.tbxGuardianName.TabIndex = 2;
+            this.tbxGuardianName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxGuardianName_KeyPress);
             // 
             // lblGuardianCell
             // 
@@ -508,6 +514,7 @@
             this.tbxEmerContactName.Name = "tbxEmerContactName";
             this.tbxEmerContactName.Size = new System.Drawing.Size(157, 23);
             this.tbxEmerContactName.TabIndex = 0;
+            this.tbxEmerContactName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxEmerContactName_KeyPress);
             // 
             // frmEditStudent
             // 

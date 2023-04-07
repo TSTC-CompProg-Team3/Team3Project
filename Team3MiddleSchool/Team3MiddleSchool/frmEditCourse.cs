@@ -53,15 +53,15 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (!clsValidation.ValidateCourseName(tbxClassName.Text))
+            if (!clsValidation.ValidateCourseNameEdit(tbxClassName.Text))
             {
-                clsDatabaseHandler.EditCourse(courseID, tbxClassName, cbxTeacherID, cbxSubjectID, cbxClassSize);
+                clsDatabaseHandler.AddCourse(tbxClassName, cbxTeacherID, cbxSubjectID, cbxClassSize);
             }
             else
             {
-                MessageBox.Show("Please enter a valid course name that is not in use", "Course Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbxClassName.BackColor = Color.Red;
             }
-            
+
 
         }
 

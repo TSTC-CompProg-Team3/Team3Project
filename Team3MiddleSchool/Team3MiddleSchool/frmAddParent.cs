@@ -29,7 +29,59 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.AddParent(tbxEmail,tbxFirstName,tbxLastName,tbxPassword,tbxUsername,cbxStudentSelect.Text);
+            if (clsValidation.ValidateEmail(tbxEmail.Text) && clsValidation.ValidateUsername(tbxUsername.Text) &&
+               clsValidation.ValidatePassword(tbxPassword.Text) && clsValidation.ValidateFirstName(tbxFirstName.Text) &&
+               clsValidation.ValidateLastName(tbxLastName.Text))
+            {
+                clsDatabaseHandler.AddParent(tbxEmail, tbxFirstName, tbxLastName, tbxPassword, tbxUsername, cbxStudentSelect.Text);
+            }
+            else
+            {
+                if (!clsValidation.ValidateEmail(tbxEmail.Text))
+                {
+                    tbxEmail.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxEmail.BackColor = SystemColors.Window;
+                }
+
+                if (!clsValidation.ValidateUsername(tbxUsername.Text))
+                {
+                    tbxUsername.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxUsername.BackColor = SystemColors.Window;
+                }
+
+                if (!clsValidation.ValidatePassword(tbxPassword.Text))
+                {
+                    tbxPassword.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxPassword.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateFirstName(tbxFirstName.Text))
+                {
+                    tbxFirstName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxFirstName.BackColor = SystemColors.Window;
+                }
+                if (!clsValidation.ValidateLastName(tbxLastName.Text))
+                {
+                    tbxLastName.BackColor = Color.Red;
+                }
+                else
+                {
+                    tbxLastName.BackColor = SystemColors.Window;
+                }
+            }
+
+                
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -54,6 +106,16 @@ namespace Team3MiddleSchool
             lblAssignStudent.ForeColor = ColorTranslator.FromHtml("#191919");
 
             clsDatabaseHandler.LoadAddParent(cbxStudentSelect);
+        }
+
+        private void tbxFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void tbxLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !clsValidation.ValidateString(e.KeyChar);
         }
     }
 }
