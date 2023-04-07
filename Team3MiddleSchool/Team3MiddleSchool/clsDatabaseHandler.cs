@@ -57,12 +57,11 @@ namespace Team3MiddleSchool
                 if (username.ToLower() == item.userName.ToLower() && password == item.passWord)
                 {
                     int loginID = item.loginID;
-                    int studentID = item.studentID;
                     string accountType = item.accountType;
                     lblPasswordWarning.Visible = false;
                     lblUsernameWarning.Visible = false;
                     database.CloseDatabase();
-                    frmMenu menu = new frmMenu(loginID,studentID, accountType);
+                    frmMenu menu = new frmMenu(loginID, accountType);
                     menu.ShowDialog();
                     return;
                 }
@@ -740,6 +739,13 @@ namespace Team3MiddleSchool
             database.CloseDatabase();
         }
 
-        
+        internal static int GetStudentID(int loginID)
+        {
+            database.OpenDatabase();
+
+            return database.GetStudentID(loginID);
+
+            database.CloseDatabase();
+        }
     }
 }
