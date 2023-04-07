@@ -14,12 +14,14 @@ namespace Team3MiddleSchool
     public partial class frmGradebook : Form
     {
         public int loginID;
+        public int studentID;
         public string accountType;
         DatabaseConnection database = new DatabaseConnection();
        public DataGridView grade= new DataGridView();
-        public frmGradebook(int loginid, string accounttype)
+        public frmGradebook(int loginid,int studentID, string accounttype)
         {
             loginID = loginid;
+            this.studentID = studentID;
             accountType = accounttype;
             InitializeComponent();
         }
@@ -29,56 +31,77 @@ namespace Team3MiddleSchool
             this.Close();
         }
 
-        public int dgvcounter = 1;
 
+        public int dgvcounter;
+
+        CurrencyManager  NameManager;
         private void frmGradebook_Load(object sender, EventArgs e)
         {
+            /*            database.getHomework(lblID.Text, lblHomework);
+                        database.displayGrade(lblTotal);*/
+
+            /*            database.getFinal(lblID.Text);
+                        database.getTest(lblID.Text);
+                        database.getLab(lblID.Text);
+                        database.getParticipation(lblID.Text);*/
             switch (accountType.ToLower())
             {
                 case "officer":
                     btnRemove.Visible = true;
                     btnEdit.Visible = true;
                     btnAdd.Visible = true;
+                    DatabaseConnection.GradeBookDataGrid(dgvGradeBook, lblID.Text);
+                    DatabaseConnection.MidTermGName(tbxName, lblID);
                     break;
 
                 case "admin":
                     btnRemove.Visible = true;
                     btnEdit.Visible = true;
                     btnAdd.Visible = true;
+                    DatabaseConnection.GradeBookDataGrid(dgvGradeBook, lblID.Text);
+                    DatabaseConnection.MidTermGName(tbxName, lblID);
                     break;
 
                 case "teacher":
                     btnRemove.Visible = true;
                     btnEdit.Visible = true;
                     btnAdd.Visible = true;
+                    DatabaseConnection.GradeBookDataGrid(dgvGradeBook, lblID.Text);
+                    DatabaseConnection.MidTermGName(tbxName, lblID);
                     break;
                 case "student":
                     btnRemove.Visible = false;
                     btnEdit.Visible = false;
                     btnAdd.Visible = false;
+                    btnNext.Visible = false;
+                    btnPrev.Visible = false;
+                    DatabaseConnection.GradeBookDataGridStudent(dgvGradeBook, studentID);
+                    DatabaseConnection.MidTermGNameStudent(tbxName, loginID);
+
                     break;
                 default:
                     break;
             }
+
             grade = dgvGradeBook;
-            DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
-/*            database.GradeCalculations(lblTotal);*/
-            DatabaseConnection.MidTermGName(tbxName);
+
+            NameManager = (CurrencyManager)this.BindingContext[DatabaseConnection._nameeTable];
+
         }
 
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            dgvcounter++;
-            DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
-            database.Next(tbxName);
+
+            NameManager.Position++;
+            DatabaseConnection.GradeBookDataGrid(dgvGradeBook, lblID.Text);
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            dgvcounter--;
-            DatabaseConnection.GradeBookDataGrid(dgvGradeBook, dgvcounter);
-            database.Previous(tbxName);
+
+            NameManager.Position--;
+            DatabaseConnection.GradeBookDataGrid(dgvGradeBook, lblID.Text);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -96,7 +119,7 @@ namespace Team3MiddleSchool
             }
             else
             {
-                DatabaseConnection.RemoveGradeBook(dgvGradeBook, dgvcounter);
+                DatabaseConnection.RemoveGradeBook(dgvGradeBook,lblID.Text);
                 MessageBox.Show("Grade Removed");
             }
         }

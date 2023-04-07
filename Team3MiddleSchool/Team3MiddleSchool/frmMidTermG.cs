@@ -51,10 +51,10 @@ namespace Team3MiddleSchool
         {
             int count = 0;
             grade = dgvMDG;
-            DatabaseConnection.MidTermG(dgvMDG, count);
+/*            DatabaseConnection.MidTermG(dgvMDG, count);
             DatabaseConnection.MidTermGName(tbxName);
            //DatabaseConnection.MidTermGClass(dgvMDG, count);
-            midTermGradeManager = (CurrencyManager)this.BindingContext[DatabaseConnection.MidTermGDT];
+            midTermGradeManager = (CurrencyManager)this.BindingContext[DatabaseConnection.MidTermGDT];*/
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)

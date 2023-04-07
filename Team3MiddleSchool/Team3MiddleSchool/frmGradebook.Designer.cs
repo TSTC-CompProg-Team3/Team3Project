@@ -51,6 +51,7 @@
             this.lblNameCap = new System.Windows.Forms.Label();
             this.dgvGradeBook = new System.Windows.Forms.DataGridView();
             this.tbxName = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradeBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -300,7 +301,7 @@
             // 
             this.dgvGradeBook.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvGradeBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGradeBook.Location = new System.Drawing.Point(13, 13);
+            this.dgvGradeBook.Location = new System.Drawing.Point(11, 37);
             this.dgvGradeBook.Margin = new System.Windows.Forms.Padding(2);
             this.dgvGradeBook.Name = "dgvGradeBook";
             this.dgvGradeBook.RowHeadersWidth = 62;
@@ -314,6 +315,18 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(176, 31);
             this.tbxName.TabIndex = 44;
+            // 
+            // lblID
+            // 
+            this.lblID.BackColor = System.Drawing.Color.SeaShell;
+            this.lblID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(40, 139);
+            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(52, 28);
+            this.lblID.TabIndex = 45;
+            this.lblID.Text = "1";
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmGradebook
             // 
@@ -345,6 +358,7 @@
             this.Controls.Add(this.lblParticipation);
             this.Controls.Add(this.lblNameCap);
             this.Controls.Add(this.dgvGradeBook);
+            this.Controls.Add(this.lblID);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -383,5 +397,6 @@
         private System.Windows.Forms.Label lblNameCap;
         private System.Windows.Forms.DataGridView dgvGradeBook;
         private System.Windows.Forms.TextBox tbxName;
+        private System.Windows.Forms.Label lblID;
     }
 }

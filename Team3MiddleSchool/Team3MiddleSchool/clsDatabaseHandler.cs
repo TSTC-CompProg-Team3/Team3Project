@@ -56,11 +56,12 @@ namespace Team3MiddleSchool
                 if (username.ToLower() == item.userName.ToLower() && password == item.passWord)
                 {
                     int loginID = item.loginID;
+                    int studentID = item.studentID;
                     string accountType = item.accountType;
                     lblPasswordWarning.Visible = false;
                     lblUsernameWarning.Visible = false;
                     database.CloseDatabase();
-                    frmMenu menu = new frmMenu(loginID, accountType);
+                    frmMenu menu = new frmMenu(loginID,studentID, accountType);
                     menu.ShowDialog();
                     return;
                 }
