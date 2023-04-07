@@ -16,10 +16,9 @@ namespace Team3MiddleSchool
         public int loginID;
         public int studentID;
         public string accountType;
-        public frmMenu(int loginid,int studentID, string accounttype)
+        public frmMenu(int loginid, string accounttype)
         {
             loginID = loginid;
-            this.studentID = studentID;
             accountType = accounttype;
             InitializeComponent();
         }

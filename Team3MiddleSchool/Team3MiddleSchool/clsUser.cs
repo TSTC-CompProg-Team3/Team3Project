@@ -10,8 +10,6 @@ namespace Team3MiddleSchool
     {
         public int loginID { get; set; }
 
-        public int studentID { get; set; }
-
         public string accountType { get; set; }
 
         public string userName { get; set; }
@@ -24,11 +22,9 @@ namespace Team3MiddleSchool
 
 
 
-        public clsUser(int loginID,int studentID, string accountType, string userName, string passWord, string resetCode, string email)
+        public clsUser(int loginID, string accountType, string userName, string passWord, string resetCode, string email)
         {
             this.loginID = loginID;
-            
-            this.studentID = loginID;
 
             this.accountType = accountType;
 

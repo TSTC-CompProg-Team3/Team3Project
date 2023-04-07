@@ -62,20 +62,19 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Login Join team3sp232330.Student on Login.LoginID=Student.StudentID ", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Login", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     int loginID = (int)reader["LoginID"];
-                    int studentID = (int)reader["StudentID"];
                     string accountType = (string)reader["AccountType"];
                     string userName = (string)reader["UserName"];
                     string password = (string)reader["Password"];
                     string resetCode = reader.IsDBNull(reader.GetOrdinal("ResetCode")) ? null : (string)reader["ResetCode"];
                     string email = (string)reader["Email"];
 
-                    userList.Add(new clsUser(loginID,studentID, accountType, userName, password, resetCode, email));
+                    userList.Add(new clsUser(loginID,accountType, userName, password, resetCode, email));
                 }
                 reader.Close();
             }
