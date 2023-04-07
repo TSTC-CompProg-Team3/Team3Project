@@ -290,12 +290,12 @@ namespace Team3MiddleSchool
         {
             if (string.IsNullOrEmpty(subjectName))
             {
-                return true;
+                return false;
             }
 
             if (subjectName.Any(char.IsWhiteSpace))
             {
-                return true;
+                return false;
             }
 
             database.OpenDatabase();

@@ -329,18 +329,6 @@ namespace Team3MiddleSchool
 
             database.LoadEditCourse(courseName, tbxClassID, cbxTeacherID, cbxSubjectID);
 
-            if (cbxSubjectID.Items.Count > 0)
-            {
-                cbxSubjectID.SelectedIndex = 0;
-            }
-            
-            if (cbxTeacherID.Items.Count > 0)
-            {
-                cbxTeacherID.SelectedIndex = 0;
-            }
-            
-            cbxClassSize.SelectedIndex = 0;
-
             database.CloseDatabase();
         }
 

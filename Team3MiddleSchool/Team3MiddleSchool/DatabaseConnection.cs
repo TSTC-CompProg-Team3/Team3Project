@@ -551,35 +551,76 @@ namespace Team3MiddleSchool
             {
                 tbxcourseName.Text = courseName;
 
-                SqlCommand command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
+                SqlCommand command = new SqlCommand("SELECT SubjectID, TeacherID FROM team3sp232330.Class WHERE ClassName = @courseName", connection);
+                command.Parameters.AddWithValue("@courseName", courseName);
                 SqlDataReader reader = command.ExecuteReader();
 
-                while (reader.Read())
+                if (reader.Read())
                 {
                     int subjectID = (int)reader["SubjectID"];
-                    string subjectName = (string)reader["SubjectName"];
-                    subjectList.Items.Add(subjectID + " - " + subjectName);
-                }
-                reader.Close();
-
-                command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
                     int teacherID = (int)reader["TeacherID"];
-                    string lastName = (string)reader["LastName"];
-                    string firstName = (string)reader["FirstName"];
-                    teacherList.Items.Add(teacherID + " - " + lastName + ", " + firstName);
-                }
-                reader.Close();
 
+                    command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
+                    reader.Close();
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["SubjectID"];
+                        string name = (string)reader["SubjectName"];
+                        subjectList.Items.Add(id + " - " + name);
+                    }
+                    reader.Close();
+
+                    foreach (string item in subjectList.Items)
+                    {
+                        string currentItem = (string)item;
+                        string[] currentItemSplit = currentItem.Split('-');
+                        int id = int.Parse(currentItemSplit[0].Trim());
+
+                        if (id == subjectID)
+                        {
+                            subjectList.SelectedItem = item;
+                            break;
+                        }
+                    }
+
+                    command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["TeacherID"];
+                        string lastName = (string)reader["LastName"];
+                        string firstName = (string)reader["FirstName"];
+                        teacherList.Items.Add(id + " - " + lastName + ", " + firstName);
+                    }
+                    reader.Close();
+
+
+                    foreach (string item in teacherList.Items)
+                    {
+                        string currentItem = (string)item;
+                        string[] currentItemSplit = currentItem.Split('-');
+                        int id = int.Parse(currentItemSplit[0].Trim());
+
+                        if (id == teacherID)
+                        {
+                            teacherList.SelectedItem = item;
+                            break;
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Course not found.", "Load Course Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         //Edits the course in the database -CS
         public void EditCourse(string classID, string className, string teacherID, string subjectID, string classSize)
         {
