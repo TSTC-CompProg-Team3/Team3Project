@@ -33,17 +33,15 @@ namespace Team3MiddleSchool
 
 
         public int dgvcounter;
-
         CurrencyManager  NameManager;
         private void frmGradebook_Load(object sender, EventArgs e)
         {
-            /*            database.getHomework(lblID.Text, lblHomework);
-                        database.displayGrade(lblTotal);*/
-
-            /*            database.getFinal(lblID.Text);
-                        database.getTest(lblID.Text);
-                        database.getLab(lblID.Text);
-                        database.getParticipation(lblID.Text);*/
+            database.getHomework(lblID.Text, lblHomework);
+            database.getQuiz(lblID.Text, lblQuiz);
+            database.getTest(lblID.Text,lblTest);
+            database.getLab(lblID.Text,lblLab);
+            database.getParticipation(lblID.Text,lblParticipation);
+            database.displayGrade(lblTotal);
             switch (accountType.ToLower())
             {
                 case "officer":
@@ -94,6 +92,12 @@ namespace Team3MiddleSchool
         {
 
             NameManager.Position++;
+            database.getHomework(lblID.Text, lblHomework);
+            database.getQuiz(lblID.Text, lblQuiz);
+            database.getTest(lblID.Text, lblTest);
+            database.getLab(lblID.Text, lblLab);
+            database.getParticipation(lblID.Text, lblParticipation);
+            database.displayGrade(lblTotal);
             DatabaseConnection.GradeBookDataGrid(dgvGradeBook, lblID.Text);
         }
 
@@ -101,6 +105,12 @@ namespace Team3MiddleSchool
         {
 
             NameManager.Position--;
+            database.getHomework(lblID.Text, lblHomework);
+            database.getQuiz(lblID.Text, lblQuiz);
+            database.getTest(lblID.Text, lblTest);
+            database.getLab(lblID.Text, lblLab);
+            database.getParticipation(lblID.Text, lblParticipation);
+            database.displayGrade(lblTotal);
             DatabaseConnection.GradeBookDataGrid(dgvGradeBook, lblID.Text);
         }
 

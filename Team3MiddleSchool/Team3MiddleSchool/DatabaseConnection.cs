@@ -1714,29 +1714,68 @@ namespace Team3MiddleSchool
 
         }
 
-        decimal decHomework, test, quiz, lab, code, final, par;
+        decimal decHomework, decTest, decQuiz, decLab, decCode, decFinal, decPar;
 
-        public void getHomework(string studentID, Label test)
+        public void getHomework(string studentID, Label homework)
         {
 
             try
             {
 
 
-                using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as homework From team3sp232330.Grades Where AssignmentType='Homework' and StudentID=" + studentID + " ", connection))
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    OpenDatabase();
-                    var homework = cmdGradeInfo.ExecuteScalar();
-
-                    if (homework == null)
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as homework From team3sp232330.Grades Where AssignmentType='Homework' and StudentID=" + studentID + " ", connection))
                     {
-                        test.Text = "0";
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (homework == null)
+                        {
+                            homework.Text = "None";
+                        }
+                        else
+                        {
+                           homework.Text = grade.ToString();
+                            decHomework=decimal.Parse(grade.ToString());
+                        }
                     }
-                    else
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+            
+        
+        public void getQuiz(string studentID,Label quiz)
+        {
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as quiz From team3sp232330.Grades Where AssignmentType='Quiz' and StudentID=" + studentID + " ", connection))
                     {
-                        test.Text = homework.ToString();
-                        decHomework = (decimal)homework;
+                        connection.Open();
+                        var grade= cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            quiz.Text = "None";
+                        }
+                        else
+                        {
+                            quiz.Text = grade.ToString();
+                            decQuiz = decimal.Parse(grade.ToString());
+                        }
                     }
+
+
                 }
             }
             catch (Exception ex)
@@ -1745,25 +1784,98 @@ namespace Team3MiddleSchool
             }
 
         }
-        public void getQuiz(string studentID)
+        public void getTest(string studentID,Label test)
         {
 
             try
             {
 
-                OpenDatabase();
-                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as quiz From team3sp232330.Grades Where AssignmentType='Quiz' and StudentID=" + studentID + " ", connection);
-
-                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
-
-
-                while (reader.Read())
-
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    quiz = ((decimal)reader["quiz"]);
-                }
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as test From team3sp232330.Grades Where AssignmentType='Test' and StudentID=" + studentID + " ", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
 
-                reader.Close();
+                        if (grade == null)
+                        {
+                            test.Text = "None";
+                        }
+                        else
+                        {
+                            test.Text = grade.ToString();
+                            decTest = decimal.Parse(grade.ToString());
+                        }
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public void getLab(string studentID,Label lab)
+        {
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as lab From team3sp232330.Grades Where AssignmentType='Lab' and StudentID=" + studentID + " ", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            lab.Text = "None";
+                        }
+                        else
+                        {
+                            lab.Text = grade.ToString();
+                            decLab = decimal.Parse(grade.ToString());
+                        }
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public void getCode(string studentID,Label code)
+        {
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as code From team3sp232330.Grades Where AssignmentType='Code' and StudentID=" + studentID + " ", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            code.Text = "None";
+                        }
+                        else
+                        {
+                            code.Text = grade.ToString();
+                            decCode = decimal.Parse(grade.ToString());
+                        }
+                    }
+
+
+                }
 
             }
             catch (Exception ex)
@@ -1772,25 +1884,32 @@ namespace Team3MiddleSchool
             }
 
         }
-        public void getTest(string studentID)
+        public void getFinal(string studentID,Label final)
         {
 
             try
             {
 
-                OpenDatabase();
-                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as test From team3sp232330.Grades Where AssignmentType='Test' and StudentID=" + studentID + " ", connection);
-
-                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
-
-
-                while (reader.Read())
-
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    test = ((decimal)reader["test"]);
-                }
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " ", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
 
-                reader.Close();
+                        if (grade == null)
+                        {
+                            final.Text = "None";
+                        }
+                        else
+                        {
+                            final.Text = grade.ToString();
+                            decFinal = decimal.Parse(grade.ToString());
+                        }
+                    }
+
+
+                }
 
             }
             catch (Exception ex)
@@ -1799,107 +1918,31 @@ namespace Team3MiddleSchool
             }
 
         }
-        public void getLab(string studentID)
+        public void getParticipation(string studentID,Label par)
         {
 
             try
             {
-
-                OpenDatabase();
-                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as lab From team3sp232330.Grades Where AssignmentType='Lab' and StudentID=" + studentID + " ", connection);
-
-                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
-
-
-                while (reader.Read())
-
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    lab = ((decimal)reader["lab"]);
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as participation From team3sp232330.Grades Where AssignmentType='Participation' and StudentID=" + studentID + " ", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            par.Text = "None";
+                        }
+                        else
+                        {
+                            par.Text = grade.ToString();
+                            decPar = decimal.Parse(grade.ToString());
+                        }
+                    }
+
+
                 }
-
-                reader.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-        public void getCode(string studentID)
-        {
-
-            try
-            {
-
-                OpenDatabase();
-                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as code From team3sp232330.Grades Where AssignmentType='Code' and StudentID=" + studentID + " ", connection);
-
-                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
-
-
-                while (reader.Read())
-
-                {
-                    code = ((decimal)reader["code"]);
-                }
-
-                reader.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-        public void getFinal(string studentID)
-        {
-
-            try
-            {
-
-                OpenDatabase();
-                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " ", connection);
-
-                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
-
-
-                while (reader.Read())
-
-                {
-                    final = ((decimal)reader["final"]);
-                }
-
-                reader.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-        public void getParticipation(string studentID)
-        {
-
-            try
-            {
-
-                OpenDatabase();
-                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as par From team3sp232330.Grades Where AssignmentType='Participation' and StudentID=" + studentID + " ", connection);
-
-                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
-
-
-                while (reader.Read())
-
-                {
-                    par = ((decimal)reader["par"]);
-                }
-
-                reader.Close();
-
             }
             catch (Exception ex)
             {
@@ -1912,17 +1955,17 @@ namespace Team3MiddleSchool
         {
             try
             {
-                decimal totalGrade = 0;
+                //Get the Count of the assignment Types and times those by the weight
+                decimal tempH = 0,tempT=0, tempQ = 0, tempL = 0, tempP = 0, tempF = 0, total = 0,totalGrade=0;
+                tempH = decHomework * 10;
+                tempT = decTest * 25;
+                tempQ = decQuiz * 15;
+                tempL = decLab * 25;
+                tempF = decFinal * 20;
+                tempP = decPar * 5;
 
-                decHomework = decHomework / 10;
-                /*                quiz= quiz / 15;
-                                lab= lab / 25;
-                                code= code / 25;
-                                final= final / 20;
-                                par= par / 5;*/
-
-                totalGrade = decHomework; /*+ quiz + lab + code + final + par;*/
-
+                total = tempH + tempQ + tempL + tempT + tempF + tempP;
+                totalGrade = 100 - total;
                 lbltotalGrades.Text = totalGrade.ToString();
 
             }
