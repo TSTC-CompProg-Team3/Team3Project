@@ -62,19 +62,20 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Login", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Login Join team3sp232330.Student on Login.LoginID=Student.StudentID ", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     int loginID = (int)reader["LoginID"];
+                    int studentID = (int)reader["StudentID"];
                     string accountType = (string)reader["AccountType"];
                     string userName = (string)reader["UserName"];
                     string password = (string)reader["Password"];
                     string resetCode = reader.IsDBNull(reader.GetOrdinal("ResetCode")) ? null : (string)reader["ResetCode"];
                     string email = (string)reader["Email"];
 
-                    userList.Add(new clsUser(loginID, accountType, userName, password, resetCode, email));
+                    userList.Add(new clsUser(loginID,studentID, accountType, userName, password, resetCode, email));
                 }
                 reader.Close();
             }
@@ -1228,148 +1229,7 @@ namespace Team3MiddleSchool
 
 
 
-        private static DataTable _gradeBookDataTable;
-
-        public static DataTable gradeBookDataTable
-        {
-            get { return _gradeBookDataTable; }
-        }
-        public static void GradeBookDataGrid(DataGridView dgvGradeBook, int counter)
-        {
-            try
-            {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName ,AssignmentType,Grade From team3sp232330.Grades Where StudentID=" + counter + ";", connection);
-
-                _gradeBookDataTable = new DataTable();
-                gradeBookDataAdapter.Fill(_gradeBookDataTable);
-
-
-                dgvGradeBook.DataSource = gradeBookDataTable;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private DataTable _gradeTable;
-
-        /*
-         int gradeStudentID;
-         public void GradeCalculations(Label lbltotalGrade)
-         {
-
-             try
-             {
-
-
-                 SqlCommand cmdGradeInfo = new SqlCommand("Select StudentID,Grade from team3sp232330.Grades", connection);
-
-                 SqlDataReader reader = cmdGradeInfo.ExecuteReader();
-
-
-                 while (reader.Read())
-
-                 {
-                     gradeStudentID = Convert.ToInt32(reader["StudentID"]);
-                     lbltotalGrade.Text = ((decimal)reader["Grade"]).ToString();
-                 }
-                 reader.Close();
-                 SqlDataAdapter gradeAdapterInfo = new SqlDataAdapter(cmdGradeInfo);
-                 _gradeTable = new DataTable();
-                 gradeAdapterInfo.Fill(_gradeTable);
-                 lbltotalGrade.DataBindings.Add("Text", _gradeTable, "Grade");
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-
-         }*/
-
-        private static DataTable _nameTable;
-        public static void GradeBookName(Label lblName)
-        {
-            try
-            {
-                string query = "Select CONCAT(FirstName,' ',LastName) as studentName from team3sp232330.Student";
-
-                SqlCommand cmdName = new SqlCommand(query, connection);
-
-                SqlDataAdapter nameAdapter = new SqlDataAdapter(cmdName);
-
-                _nameTable = new DataTable();
-                nameAdapter.Fill(_nameTable);
-                lblName.DataBindings.Add("Text", _nameTable, "studentName");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-        }
-
-        public static void RemoveGradeBook(DataGridView dgvGradebook, int counter)
-        {
-            try
-            {
-                string query = "Delete From team3sp232330.Grades Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + "";
-
-                SqlCommand cmdRemove = new SqlCommand(query, connection);
-                SqlDataAdapter removeAdapter = new SqlDataAdapter(cmdRemove);
-
-                removeAdapter.Fill(_gradeBookDataTable);
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-        public static void AddGradeBook(int counter, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
-        {
-            try
-            {
-                string query = "Insert Into team3sp232330.Grades(StudentID,AssignmentName,AssignmentType,Grade) Values(" + counter + ",'" + tbxAssignName.Text + "','" + tbxAssignType.Text + "'," + tbxGrade.Text + ")";
-                SqlCommand cmdAdd = new SqlCommand(query, connection);
-
-                SqlDataAdapter addAdapter = new SqlDataAdapter(cmdAdd);
-
-                addAdapter.Fill(_gradeBookDataTable);
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        public static void EditGradeBook(DataGridView dgvGradebook, int counter, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
-        {
-            try
-            {
-                string query = "Update team3sp232330.Grades set AssignmentName='" + tbxAssignName.Text + "', AssignmentType='" + tbxAssignType.Text + "',Grade=" + tbxGrade.Text + " Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + "";
-                SqlCommand cmdEdit = new SqlCommand(query, connection);
-
-
-                SqlDataAdapter editAdapter = new SqlDataAdapter(cmdEdit);
-                editAdapter.Fill(_gradeBookDataTable);
-                MessageBox.Show("Edit Successful");
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
+       
 
         public List<string> GetStudentNames20(ComboBox cbxStudentNames, ComboBox cbxStudentNames2, ComboBox cbxStudentNames3, ComboBox cbxStudentNames4, ComboBox cbxStudentNames5,
                                               ComboBox cbxStudentNames6, ComboBox cbxStudnetNames7, ComboBox cbxStudentNames8, ComboBox cbxStudentNames9, ComboBox cbxStudentNames10,
@@ -1640,44 +1500,361 @@ namespace Team3MiddleSchool
         }
 
 
-        //add the command object
-        private static SqlCommand _midTermGCommand;
+        private static DataTable _gradeBookDataTable;
 
-        //data adapter
-        private static SqlDataAdapter _midTermG = new SqlDataAdapter();
-        //data tables
-        private static DataTable _midTermGTable = new DataTable();
-
-        public static DataTable MidTermGDT
+        public static DataTable gradeBookDataTable
         {
-            get { return _midTermGTable; }
-            // set { _midTermGTable = value; }
+            get { return _gradeBookDataTable; }
         }
-        public static void MidTermG(DataGridView dgvMDG, int counter)
+
+        public static void GradeBookDataGrid(DataGridView dgvGradeBook, string StudentID)
+        {
+            try
+            {
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName ,AssignmentType,Grade From team3sp232330.Grades Where StudentID='" + StudentID + "'", connection);
+
+                _gradeBookDataTable = new DataTable();
+                gradeBookDataAdapter.Fill(_gradeBookDataTable);
+
+
+                dgvGradeBook.DataSource = gradeBookDataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public static void GradeBookDataGridStudent(DataGridView dgvGradeBook, int studentID)
+        {
+            try
+            {
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Where StudentID=" + studentID + " ", connection);
+
+                _gradeBookDataTable = new DataTable();
+                gradeBookDataAdapter.Fill(_gradeBookDataTable);
+
+
+                dgvGradeBook.DataSource = gradeBookDataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private DataTable _gradeTable;
+
+        public void GradeCalculationsStudent(Label lbltotalGrade, int studentID)
         {
 
+            try
+            {
+
+                OpenDatabase();
+                SqlCommand cmdGradeInfo = new SqlCommand("Select Grade from team3sp232330.Grades Where StudentID=" + studentID + "", connection);
+
+                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
+
+
+                while (reader.Read())
+
+                {
+                    lbltotalGrade.Text = ((decimal)reader["Grade"]).ToString();
+                }
+                reader.Close();
+                SqlDataAdapter gradeAdapterInfo = new SqlDataAdapter(cmdGradeInfo);
+                _gradeTable = new DataTable();
+                gradeAdapterInfo.Fill(_gradeTable);
+                lbltotalGrade.DataBindings.Add("Text", _gradeTable, "Grade");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        decimal decHomework, test, quiz, lab, code, final, par;
+
+        public void getHomework(string studentID, Label test)
+        {
 
             try
             {
 
 
-                string query = "Select AssignmentName, AssignmentType, Grade From team3sp232330.Grades ";
-                //est command obj
-                _midTermGCommand = new SqlCommand(query, connection);
-                //est data adapter
-                //_midTermG = new SqlDataAdapter();
-                _midTermG.SelectCommand = _midTermGCommand;
-                //fill data table
-                //_midTermGTable = new DataTable();
-                _midTermG.Fill(_midTermGTable);
-                dgvMDG.DataSource = _midTermGTable;
+                using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as homework From team3sp232330.Grades Where AssignmentType='Homework' and StudentID=" + studentID + " ", connection))
+                {
+                    OpenDatabase();
+                    var homework = cmdGradeInfo.ExecuteScalar();
+
+                    if (homework == null)
+                    {
+                        test.Text = "0";
+                    }
+                    else
+                    {
+                        test.Text = homework.ToString();
+                        decHomework = (decimal)homework;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public void getQuiz(string studentID)
+        {
+
+            try
+            {
+
+                OpenDatabase();
+                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as quiz From team3sp232330.Grades Where AssignmentType='Quiz' and StudentID=" + studentID + " ", connection);
+
+                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
+
+
+                while (reader.Read())
+
+                {
+                    quiz = ((decimal)reader["quiz"]);
+                }
+
+                reader.Close();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error in Processing SQL",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+        public void getTest(string studentID)
+        {
+
+            try
+            {
+
+                OpenDatabase();
+                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as test From team3sp232330.Grades Where AssignmentType='Test' and StudentID=" + studentID + " ", connection);
+
+                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
+
+
+                while (reader.Read())
+
+                {
+                    test = ((decimal)reader["test"]);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public void getLab(string studentID)
+        {
+
+            try
+            {
+
+                OpenDatabase();
+                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as lab From team3sp232330.Grades Where AssignmentType='Lab' and StudentID=" + studentID + " ", connection);
+
+                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
+
+
+                while (reader.Read())
+
+                {
+                    lab = ((decimal)reader["lab"]);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public void getCode(string studentID)
+        {
+
+            try
+            {
+
+                OpenDatabase();
+                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as code From team3sp232330.Grades Where AssignmentType='Code' and StudentID=" + studentID + " ", connection);
+
+                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
+
+
+                while (reader.Read())
+
+                {
+                    code = ((decimal)reader["code"]);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public void getFinal(string studentID)
+        {
+
+            try
+            {
+
+                OpenDatabase();
+                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " ", connection);
+
+                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
+
+
+                while (reader.Read())
+
+                {
+                    final = ((decimal)reader["final"]);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public void getParticipation(string studentID)
+        {
+
+            try
+            {
+
+                OpenDatabase();
+                SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as par From team3sp232330.Grades Where AssignmentType='Participation' and StudentID=" + studentID + " ", connection);
+
+                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
+
+
+                while (reader.Read())
+
+                {
+                    par = ((decimal)reader["par"]);
+                }
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        public void displayGrade(Label lbltotalGrades)
+        {
+            try
+            {
+                decimal totalGrade = 0;
+
+                decHomework = decHomework / 10;
+                /*                quiz= quiz / 15;
+                                lab= lab / 25;
+                                code= code / 25;
+                                final= final / 20;
+                                par= par / 5;*/
+
+                totalGrade = decHomework; /*+ quiz + lab + code + final + par;*/
+
+                lbltotalGrades.Text = totalGrade.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in Displaying Grade", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public static void RemoveGradeBook(DataGridView dgvGradebook, string studentID)
+        {
+            try
+            {
+                string query = "Delete From team3sp232330.Grades Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + studentID + "";
+
+                SqlCommand cmdRemove = new SqlCommand(query, connection);
+                SqlDataAdapter removeAdapter = new SqlDataAdapter(cmdRemove);
+
+                removeAdapter.Fill(_gradeBookDataTable);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public static void AddGradeBook(int studentID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
+        {
+            try
+            {
+                string query = "Insert Into team3sp232330.Grades(AssignmentName,AssignmentType,Grade) Values('" + tbxAssignName.Text + "','" + tbxAssignType.Text + "'," + tbxGrade.Text + ")Where StudentID=" + studentID + "";
+                SqlCommand cmdAdd = new SqlCommand(query, connection);
+
+                SqlDataAdapter addAdapter = new SqlDataAdapter(cmdAdd);
+
+                addAdapter.Fill(_gradeBookDataTable);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+
+
+
+
+        public static void EditGradeBook(DataGridView dgvGradebook, int counter, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
+        {
+            try
+            {
+                string query = "Update team3sp232330.Grades set AssignmentName='" + tbxAssignName.Text + "', AssignmentType='" + tbxAssignType.Text + "',Grade=" + tbxGrade.Text + " Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + "";
+                SqlCommand cmdEdit = new SqlCommand(query, connection);
+
+
+                SqlDataAdapter editAdapter = new SqlDataAdapter(cmdEdit);
+                editAdapter.Fill(_gradeBookDataTable);
+                MessageBox.Show("Edit Successful");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
 
@@ -1687,17 +1864,18 @@ namespace Team3MiddleSchool
         //data adapter
         private static SqlDataAdapter _nameAD = new SqlDataAdapter();
         //data tables
-        private static DataTable _nameeTable = new DataTable();
+        public static DataTable _nameeTable = new DataTable();
 
-        public static void MidTermGName(TextBox tbxName)
+        public static void MidTermGName(TextBox tbxName,Label ID)
         {
             try
             {
-                string query = "Select CONCAT(FirstName,' ',LastName) as studentName FROM team3sp232330.Student";
+                string query = "Select CONCAT(FirstName,' ',LastName)as studentName,StudentID as ID from team3sp232330.Student ";
                 _nameCommand = new SqlCommand(query, connection);
                 _nameAD.SelectCommand = _nameCommand;
                 _nameAD.Fill(_nameeTable);
                 tbxName.DataBindings.Add("Text", _nameeTable, "studentName");
+                ID.DataBindings.Add("Text", _nameeTable, "ID");
             }
             catch (Exception ex)
             {
@@ -1705,7 +1883,21 @@ namespace Team3MiddleSchool
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        public static void MidTermGNameStudent(TextBox tbxName, int loginID)
+        {
+            try
+            {
+                string query = "Select CONCAT(FirstName,' ',LastName) as studentName FROM team3sp232330.Student Where LoginID=" + loginID + "";
+                _nameCommand = new SqlCommand(query, connection);
+                _nameAD.SelectCommand = _nameCommand;
+                _nameAD.Fill(_nameeTable);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in Processing SQL",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
         private static int counter = 0;

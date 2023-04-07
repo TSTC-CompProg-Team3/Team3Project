@@ -14,10 +14,12 @@ namespace Team3MiddleSchool
     public partial class frmMenu : Form
     {
         public int loginID;
+        public int studentID;
         public string accountType;
-        public frmMenu(int loginid, string accounttype)
+        public frmMenu(int loginid,int studentID, string accounttype)
         {
             loginID = loginid;
+            this.studentID = studentID;
             accountType = accounttype;
             InitializeComponent();
         }
@@ -114,7 +116,7 @@ namespace Team3MiddleSchool
 
         private void btnGradeBook_Click(object sender, EventArgs e)
         {
-            frmGradebook gradebook = new frmGradebook(loginID,accountType);
+            frmGradebook gradebook = new frmGradebook(loginID,studentID,accountType);
             gradebook.ShowDialog();
         }
 
