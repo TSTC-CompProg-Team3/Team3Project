@@ -388,15 +388,15 @@
         private System.Windows.Forms.Label lblQuizCap;
         private System.Windows.Forms.Label lblHomeworkCap;
         private System.Windows.Forms.Label lblParticipationCap;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label lblTest;
-        private System.Windows.Forms.Label lblLab;
-        private System.Windows.Forms.Label lblQuiz;
-        private System.Windows.Forms.Label lblHomework;
-        private System.Windows.Forms.Label lblParticipation;
         private System.Windows.Forms.Label lblNameCap;
         private System.Windows.Forms.DataGridView dgvGradeBook;
-        private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label lblID;
+        public System.Windows.Forms.Label lblTotal;
+        public System.Windows.Forms.Label lblTest;
+        public System.Windows.Forms.Label lblLab;
+        public System.Windows.Forms.Label lblQuiz;
+        public System.Windows.Forms.Label lblHomework;
+        public System.Windows.Forms.Label lblParticipation;
+        public System.Windows.Forms.TextBox tbxName;
     }
 }

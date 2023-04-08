@@ -74,7 +74,7 @@ namespace Team3MiddleSchool
                     string resetCode = reader.IsDBNull(reader.GetOrdinal("ResetCode")) ? null : (string)reader["ResetCode"];
                     string email = (string)reader["Email"];
 
-                    userList.Add(new clsUser(loginID,accountType, userName, password, resetCode, email));
+                    userList.Add(new clsUser(loginID, accountType, userName, password, resetCode, email));
                 }
                 reader.Close();
             }
@@ -1642,19 +1642,25 @@ namespace Team3MiddleSchool
             int classID = 0;
             int spaceIndex = classSelect.IndexOf("-");
             string className = classSelect.Substring(0, spaceIndex - 1);
-
-            
-            SqlCommand commandID = new SqlCommand("SELECT ClassID FROM team3sp232330.Class WHERE ClassName = '" + className + "';", connection);
-            SqlDataReader reader = commandID.ExecuteReader();
-
-            while (reader.Read())
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
             {
-                classID = Int32.Parse($"{reader["ClassID"]}");
+                using (SqlCommand commandID = new SqlCommand("SELECT ClassID FROM team3sp232330.Class WHERE ClassName = '" + className + "';", connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = commandID.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        classID = Int32.Parse($"{reader["ClassID"]}");
+                    }
+
+                    reader.Close();
+
+                    return classID;
+                }
             }
-
-            reader.Close();
-
-            return classID;
+           
+           
         }
         
         public int GetStudentID(int loginID, string accountType)
@@ -1726,11 +1732,11 @@ namespace Team3MiddleSchool
             get { return _gradeBookDataTable; }
         }
 
-        public static void GradeBookDataGrid(DataGridView dgvGradeBook, string StudentID)
+        public void GradeBookDataGrid(DataGridView dgvGradeBook, string StudentID,int classID)
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName ,AssignmentType,Grade From team3sp232330.Grades Where StudentID='" + StudentID + "'", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName ,AssignmentType,Grade From team3sp232330.Grades Where StudentID='" + StudentID + "' and ClassID="+classID+"", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -1743,11 +1749,29 @@ namespace Team3MiddleSchool
                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public static void GradeBookDataGridStudent(DataGridView dgvGradeBook, int studentID)
+        public  void GradeBookDataGridStudent(DataGridView dgvGradeBook, int studentID,int classID)
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Where StudentID=" + studentID + " ", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Where StudentID=" + studentID + " and ClassID=" + classID + " ", connection);
+
+                _gradeBookDataTable = new DataTable();
+                gradeBookDataAdapter.Fill(_gradeBookDataTable);
+
+
+                dgvGradeBook.DataSource = gradeBookDataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public  void GradeBookDataGridParent(DataGridView dgvGradeBook, int parentID,int classID)
+        {
+            try
+            {
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where parentID=" + parentID + " and ClassID="+classID+" ", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -1762,39 +1786,11 @@ namespace Team3MiddleSchool
         }
         private DataTable _gradeTable;
 
-        public void GradeCalculationsStudent(Label lbltotalGrade, int studentID)
-        {
-
-            try
-            {
-
-                OpenDatabase();
-                SqlCommand cmdGradeInfo = new SqlCommand("Select Grade from team3sp232330.Grades Where StudentID=" + studentID + "", connection);
-
-                SqlDataReader reader = cmdGradeInfo.ExecuteReader();
-
-
-                while (reader.Read())
-
-                {
-                    lbltotalGrade.Text = ((decimal)reader["Grade"]).ToString();
-                }
-                reader.Close();
-                SqlDataAdapter gradeAdapterInfo = new SqlDataAdapter(cmdGradeInfo);
-                _gradeTable = new DataTable();
-                gradeAdapterInfo.Fill(_gradeTable);
-                lbltotalGrade.DataBindings.Add("Text", _gradeTable, "Grade");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        decimal decHomework, decTest, decQuiz, decLab, decCode, decFinal, decPar;
-
-        public void getHomework(string studentID, Label homework)
+        decimal decHomework, decTest, decQuiz, decLab, decFinal, decPar;
+        decimal decGHomework, decGTest, decGQuiz, decGLab, decGFinal, decGPar;
+        int intHomework, intTest, intQuiz, intLab, intFinal, intPar;
+        //Teacher Grade
+        public void getHomework(string studentID, Label homework,int classID)
         {
 
             try
@@ -1803,20 +1799,56 @@ namespace Team3MiddleSchool
 
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as homework From team3sp232330.Grades Where AssignmentType='Homework' and StudentID=" + studentID + " ", connection))
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as homework From team3sp232330.Grades Where AssignmentType='Homework' and StudentID=" + studentID + " and ClassID=" + classID + " ", connection))
                     {
                         connection.Open();
                         var grade = cmdGradeInfo.ExecuteScalar();
 
-                        if (homework == null)
+                        if (grade == null)
                         {
-                            homework.Text = "None";
+                            homework.Text = "0";
                         }
                         else
                         {
-                           homework.Text = grade.ToString();
-                            decHomework=decimal.Parse(grade.ToString());
+                            homework.Text = grade.ToString();
+                            decimal.TryParse(grade.ToString(), out decHomework);
                         }
+                        connection.Close();
+                    }
+                    
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Count
+        public void getHomeworkCount(string studentID, int classID)
+        {
+
+            try
+            {
+
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select count(Grade) as homework From team3sp232330.Grades Where AssignmentType='Homework' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            MessageBox.Show("Error Getting Count");
+                        }
+                        else
+                        {
+                            int.TryParse(grade.ToString(), out intHomework);
+                        }
+                        connection.Close();
                     }
 
 
@@ -1827,9 +1859,47 @@ namespace Team3MiddleSchool
                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-            
-        
-        public void getQuiz(string studentID,Label quiz)
+
+
+        public void getHomeworkGrade(string studentID, int classID)
+        {
+
+            try
+            {
+
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select sum(Grade*10) as homework From team3sp232330.Grades Where AssignmentType='Homework' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            MessageBox.Show("Error Getting Count");
+                        }
+                        else
+                        {
+                            decimal.TryParse(grade.ToString(), out decGHomework);
+
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+        public void getQuiz(string studentID,Label quiz, int classID)
         {
 
             try
@@ -1837,20 +1907,22 @@ namespace Team3MiddleSchool
 
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as quiz From team3sp232330.Grades Where AssignmentType='Quiz' and StudentID=" + studentID + " ", connection))
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as quiz From team3sp232330.Grades Where AssignmentType='Quiz' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
                     {
                         connection.Open();
                         var grade= cmdGradeInfo.ExecuteScalar();
 
+
                         if (grade == null)
                         {
-                            quiz.Text = "None";
+                            quiz.Text = "0";
                         }
                         else
                         {
                             quiz.Text = grade.ToString();
-                            decQuiz = decimal.Parse(grade.ToString());
+                            decimal.TryParse(grade.ToString(), out decQuiz);
                         }
+                        connection.Close();
                     }
 
 
@@ -1862,7 +1934,7 @@ namespace Team3MiddleSchool
             }
 
         }
-        public void getTest(string studentID,Label test)
+        public void getQuizCount(string studentID, int classID)
         {
 
             try
@@ -1870,7 +1942,78 @@ namespace Team3MiddleSchool
 
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as test From team3sp232330.Grades Where AssignmentType='Test' and StudentID=" + studentID + " ", connection))
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select count(Grade) as quiz From team3sp232330.Grades Where AssignmentType='Quiz' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+
+                        if (grade == null)
+                        {
+
+                        }
+                        else
+                        {
+
+                            int.TryParse(grade.ToString(), out intQuiz);
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        public void getQuizGrade(string studentID, int classID)
+        {
+
+            try
+            {
+
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select sum(Grade*15) as quiz From team3sp232330.Grades Where AssignmentType='Quiz' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            MessageBox.Show("Error Getting Count");
+                        }
+                        else
+                        {
+                            decimal.TryParse(grade.ToString(), out decGQuiz);
+
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void getTest(string studentID,Label test, int classID)
+        {
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as test From team3sp232330.Grades Where AssignmentType='Test' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
                     {
                         connection.Open();
                         var grade = cmdGradeInfo.ExecuteScalar();
@@ -1882,8 +2025,9 @@ namespace Team3MiddleSchool
                         else
                         {
                             test.Text = grade.ToString();
-                            decTest = decimal.Parse(grade.ToString());
+                            decimal.TryParse(grade.ToString(), out decTest);
                         }
+                        connection.Close();
                     }
 
 
@@ -1895,7 +2039,8 @@ namespace Team3MiddleSchool
             }
 
         }
-        public void getLab(string studentID,Label lab)
+
+        public void getTestCount(string studentID, int classID)
         {
 
             try
@@ -1903,20 +2048,93 @@ namespace Team3MiddleSchool
 
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as lab From team3sp232330.Grades Where AssignmentType='Lab' and StudentID=" + studentID + " ", connection))
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select count(Grade) as test From team3sp232330.Grades Where AssignmentType='Test' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
                     {
                         connection.Open();
                         var grade = cmdGradeInfo.ExecuteScalar();
 
                         if (grade == null)
                         {
-                            lab.Text = "None";
+                            
+                        }
+                        else
+                        {
+                            int.TryParse(grade.ToString(), out intTest);
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+        public void getTestGrade(string studentID, int classID)
+        {
+
+            try
+            {
+
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select sum(Grade*25) as test From team3sp232330.Grades Where AssignmentType='Test' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            MessageBox.Show("Error Getting Count");
+                        }
+                        else
+                        {
+                            decimal.TryParse(grade.ToString(), out decGTest);
+
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        public void getLab(string studentID,Label lab, int classID)
+        {
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as lab From team3sp232330.Grades Where AssignmentType='Lab' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+
+                        if (grade == null)
+                        {
+                            lab.Text = "0";
                         }
                         else
                         {
                             lab.Text = grade.ToString();
-                            decLab = decimal.Parse(grade.ToString());
+                            decimal.TryParse(grade.ToString(), out decLab);
                         }
+                        connection.Close();
                     }
 
 
@@ -1928,41 +2146,44 @@ namespace Team3MiddleSchool
             }
 
         }
-        public void getCode(string studentID,Label code)
+
+
+        public void getLabGrade(string studentID, int classID)
         {
 
             try
             {
 
+
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as code From team3sp232330.Grades Where AssignmentType='Code' and StudentID=" + studentID + " ", connection))
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select sum(Grade*25) as lab From team3sp232330.Grades Where AssignmentType='Lab' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
                     {
                         connection.Open();
                         var grade = cmdGradeInfo.ExecuteScalar();
 
                         if (grade == null)
                         {
-                            code.Text = "None";
+                            MessageBox.Show("Error Getting Count");
                         }
                         else
                         {
-                            code.Text = grade.ToString();
-                            decCode = decimal.Parse(grade.ToString());
+                            decimal.TryParse(grade.ToString(), out decGLab);
+
                         }
+                        connection.Close();
                     }
 
 
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-        public void getFinal(string studentID,Label final)
+
+        public void getLabCount(string studentID, int classID)
         {
 
             try
@@ -1970,20 +2191,56 @@ namespace Team3MiddleSchool
 
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " ", connection))
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select count(Grade) as lab From team3sp232330.Grades Where AssignmentType='Lab' and StudentID=" + studentID + "and ClassID=" + classID + " ", connection))
                     {
                         connection.Open();
                         var grade = cmdGradeInfo.ExecuteScalar();
 
+
                         if (grade == null)
                         {
-                            final.Text = "None";
+
+                        }
+                        else
+                        {
+                            int.TryParse(grade.ToString(), out intLab);
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        public void getFinal(string studentID,Label final, int classID)
+        {
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+
+                        if (grade == null)
+                        {
+                            final.Text = "0";
                         }
                         else
                         {
                             final.Text = grade.ToString();
-                            decFinal = decimal.Parse(grade.ToString());
+                            decimal.TryParse(grade.ToString(), out decFinal);
                         }
+                        connection.Close();
                     }
 
 
@@ -1996,27 +2253,175 @@ namespace Team3MiddleSchool
             }
 
         }
-        public void getParticipation(string studentID,Label par)
+
+
+
+        public void getFinalGrade(string studentID, int classID)
         {
 
             try
             {
+
+
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as participation From team3sp232330.Grades Where AssignmentType='Participation' and StudentID=" + studentID + " ", connection))
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select sum(Grade*20) as test From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
                     {
                         connection.Open();
                         var grade = cmdGradeInfo.ExecuteScalar();
 
                         if (grade == null)
                         {
-                            par.Text = "None";
+                            MessageBox.Show("Error Getting Count");
+                        }
+                        else
+                        {
+                            decimal.TryParse(grade.ToString(), out decGFinal);
+
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void getFinalCount(string studentID, int classID)
+        {
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select count(Grade) as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+
+                        if (grade == null)
+                        {
+
+                        }
+                        else
+                        {
+                            int.TryParse(grade.ToString(), out intFinal);
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+        public void getParticipation(string studentID,Label par, int classID)
+        {
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as participation From team3sp232330.Grades Where AssignmentType='Participation' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+
+                        if (grade == null)
+                        {
+                            par.Text = "0";
                         }
                         else
                         {
                             par.Text = grade.ToString();
-                            decPar = decimal.Parse(grade.ToString());
+                            decimal.TryParse(grade.ToString(), out decPar);
                         }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+        public void getParticipationGrade(string studentID, int classID)
+        {
+
+            try
+            {
+
+
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select sum(Grade*5) as test From team3sp232330.Grades Where AssignmentType='Participation' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+                        if (grade == null)
+                        {
+                            MessageBox.Show("Error Getting Count");
+                        }
+                        else
+                        {
+                            decimal.TryParse(grade.ToString(), out decGPar);
+
+                        }
+                        connection.Close();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        public void getParticipationCount(string studentID,int classID)
+        {
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select count(Grade) as participation From team3sp232330.Grades Where AssignmentType='Participation' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    {
+                        connection.Open();
+                        var grade = cmdGradeInfo.ExecuteScalar();
+
+
+                        if (grade == null)
+                        {
+
+                        }
+                        else
+                        {
+                            int.TryParse(grade.ToString(), out intPar);
+                        }
+                        connection.Close();
                     }
 
 
@@ -2034,17 +2439,13 @@ namespace Team3MiddleSchool
             try
             {
                 //Get the Count of the assignment Types and times those by the weight
-                decimal tempH = 0,tempT=0, tempQ = 0, tempL = 0, tempP = 0, tempF = 0, total = 0,totalGrade=0;
-                tempH = decHomework * 10;
-                tempT = decTest * 25;
-                tempQ = decQuiz * 15;
-                tempL = decLab * 25;
-                tempF = decFinal * 20;
-                tempP = decPar * 5;
-
+                decimal tempH = decGHomework, tempT = decGTest, tempQ = decGQuiz, tempL = decGLab, tempP = decGPar, tempF = decGFinal, total = 0,finalTotal=0;
+                int countH = intHomework*10, countT = intTest*25, countQ = intQuiz*15, countL = intLab*25, countP = intPar*5, countF = intFinal*20,countTotal=0;
+                
+                countTotal = countH + countF + countL + countP + countQ + countT;
                 total = tempH + tempQ + tempL + tempT + tempF + tempP;
-                totalGrade = 100 - total;
-                lbltotalGrades.Text = totalGrade.ToString();
+                finalTotal= total / countTotal;
+                lbltotalGrades.Text = String.Format("{0:N2}", finalTotal.ToString());
 
             }
             catch (Exception ex)
@@ -2052,11 +2453,11 @@ namespace Team3MiddleSchool
                 MessageBox.Show(ex.Message, "Error in Displaying Grade", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public static void RemoveGradeBook(DataGridView dgvGradebook, string studentID)
+        public static void RemoveGradeBook(DataGridView dgvGradebook, string studentID,int classID)
         {
             try
             {
-                string query = "Delete From team3sp232330.Grades Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + studentID + "";
+                string query = "Delete From team3sp232330.Grades Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + studentID + "And ClassID=" + classID + "";
 
                 SqlCommand cmdRemove = new SqlCommand(query, connection);
                 SqlDataAdapter removeAdapter = new SqlDataAdapter(cmdRemove);
@@ -2072,11 +2473,11 @@ namespace Team3MiddleSchool
             }
 
         }
-        public static void AddGradeBook(int studentID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
+        public static void AddGradeBook(string studentID,int classID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
         {
             try
             {
-                string query = "Insert Into team3sp232330.Grades(AssignmentName,AssignmentType,Grade) Values('" + tbxAssignName.Text + "','" + tbxAssignType.Text + "'," + tbxGrade.Text + ")Where StudentID=" + studentID + "";
+                string query = "Insert Into team3sp232330.Grades(StudentID,ClassID,AssignmentName,AssignmentType,Grade) Values("+studentID+","+classID+",'" + tbxAssignName.Text + "','" + tbxAssignType.Text + "'," + tbxGrade.Text + ")";
                 SqlCommand cmdAdd = new SqlCommand(query, connection);
 
                 SqlDataAdapter addAdapter = new SqlDataAdapter(cmdAdd);
@@ -2098,11 +2499,11 @@ namespace Team3MiddleSchool
 
 
 
-        public static void EditGradeBook(DataGridView dgvGradebook, int counter, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
+        public static void EditGradeBook(DataGridView dgvGradebook, string counter,int classID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
         {
             try
             {
-                string query = "Update team3sp232330.Grades set AssignmentName='" + tbxAssignName.Text + "', AssignmentType='" + tbxAssignType.Text + "',Grade=" + tbxGrade.Text + " Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + "";
+                string query = "Update team3sp232330.Grades set AssignmentName='" + tbxAssignName.Text + "', AssignmentType='" + tbxAssignType.Text + "',Grade=" + tbxGrade.Text + " Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + " And ClassID="+classID+"";
                 SqlCommand cmdEdit = new SqlCommand(query, connection);
 
 
@@ -2127,8 +2528,7 @@ namespace Team3MiddleSchool
         private static SqlDataAdapter _nameAD = new SqlDataAdapter();
         //data tables
         public static DataTable _nameeTable = new DataTable();
-
-        public static void MidTermGName(TextBox tbxName,Label ID)
+        public  void MidTermGName(TextBox tbxName,Label ID)
         {
             try
             {
@@ -2136,7 +2536,9 @@ namespace Team3MiddleSchool
                 _nameCommand = new SqlCommand(query, connection);
                 _nameAD.SelectCommand = _nameCommand;
                 _nameAD.Fill(_nameeTable);
+                tbxName.DataBindings.Clear();
                 tbxName.DataBindings.Add("Text", _nameeTable, "studentName");
+                ID.DataBindings.Clear();
                 ID.DataBindings.Add("Text", _nameeTable, "ID");
             }
             catch (Exception ex)
@@ -2145,7 +2547,7 @@ namespace Team3MiddleSchool
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public static void MidTermGNameStudent(TextBox tbxName, int loginID)
+        public void MidTermGNameStudent(TextBox tbxName, int loginID)
         {
             try
             {
@@ -2153,6 +2555,26 @@ namespace Team3MiddleSchool
                 _nameCommand = new SqlCommand(query, connection);
                 _nameAD.SelectCommand = _nameCommand;
                 _nameAD.Fill(_nameeTable);
+                tbxName.DataBindings.Clear();
+                tbxName.DataBindings.Add("Text", _nameeTable, "studentName");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in Processing SQL",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public  void MidTermGNameParent(TextBox tbxName, int parentID)
+        {
+            try
+            {
+                string query = "Select Concat(FirstName,' ',LastName)as studentName from team3sp232330.Student join team3sp232330.StudentParent on Student.StudentID=StudentParent.StudentID Where ParentID=" + parentID + "";
+                _nameCommand = new SqlCommand(query, connection);
+                _nameAD.SelectCommand = _nameCommand;
+                _nameAD.Fill(_nameeTable);
+                tbxName.DataBindings.Clear();
+                tbxName.DataBindings.Add("Text", _nameeTable, "studentName");
             }
             catch (Exception ex)
             {
@@ -2230,7 +2652,65 @@ namespace Team3MiddleSchool
             }
         }
 
-        
+
+        internal int GradeParentID(int loginID)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand command = new SqlCommand("SELECT ParentID FROM team3sp232330.Parent WHERE LoginID = " + loginID+"", connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            int parentID = (int)reader["ParentID"];
+                            return parentID;
+                        }
+                        return -1;
+                        reader.Close();
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                return -1;
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        internal int GetStudentID(int loginID)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand command = new SqlCommand("SELECT StudentID FROM team3sp232330.Student WHERE LoginID = " + loginID, connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            int studentID = (int)reader["StudentID"];
+                            return studentID;
+                        }
+                        return -1;
+                        reader.Close();
+                    }
+                }
+               
+               
+            }
+            catch (Exception ex)
+            {
+                return -1;
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
 }

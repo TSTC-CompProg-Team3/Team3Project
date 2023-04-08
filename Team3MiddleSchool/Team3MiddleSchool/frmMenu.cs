@@ -14,9 +14,8 @@ namespace Team3MiddleSchool
     public partial class frmMenu : Form
     {
         public int loginID;
-        public int studentID;
         public string accountType;
-        public frmMenu(int loginid, string accounttype)
+        public frmMenu(int loginid,string accounttype)
         {
             loginID = loginid;
             accountType = accounttype;
@@ -124,10 +123,11 @@ namespace Team3MiddleSchool
         {
 
         }
-
+        
         private void btnGradeBook_Click(object sender, EventArgs e)
         {
-            frmGradebook gradebook = new frmGradebook(loginID,studentID,accountType);
+            string classSelect = cbxCourseSelect.SelectedItem as string;
+            frmGradebook gradebook = new frmGradebook(loginID,classSelect,accountType);
             gradebook.ShowDialog();
         }
 
