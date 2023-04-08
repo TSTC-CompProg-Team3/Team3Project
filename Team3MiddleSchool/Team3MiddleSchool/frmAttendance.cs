@@ -17,20 +17,21 @@ namespace Team3MiddleSchool
         private string dateSelection = DateTime.Now.ToString("yyyy-MM-dd");
         private int loginID;
         private int classID;
+        private int studentID;
         private string accountType;
         private string classSelect;
+        private bool isStudent;
         
 
-        public frmAttendance(int loginID, string accountType, string classSelect)
+        public frmAttendance(int loginID, string accountType, string classSelect, bool isStudent)
         {
             this.loginID = loginID;
+            //this.studentID = studentID;
             this.accountType = accountType;
             this.classSelect = classSelect;
+            this.isStudent = isStudent;
             InitializeComponent();
         }
-
-        //TODO: Filter query to current logged in teacher and selected class
-        //TODO: Ensure edits made are pushed to database
 
 
         public frmAttendance()
@@ -41,13 +42,28 @@ namespace Team3MiddleSchool
         private void frmAttendance_Load(object sender, EventArgs e)
         {
             
-            database.OpenDatabase();
-            binding.DataSource = database.AttendanceInfo(accountType, classSelect);
-            classID = database.GetClassID(classSelect);
             DateTime day = DateTime.Now;
 
-            if ((accountType.Equals("Teacher") || accountType.Equals("Admin")) && (day.DayOfWeek != DayOfWeek.Sunday || day.DayOfWeek != DayOfWeek.Saturday))
+            if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer") || accountType.Equals("Parent"))
             {
+                database.OpenDatabase();
+            }
+
+            if (accountType.Equals("student") || accountType.Equals("Parent"))
+            {
+                studentID = database.GetStudentID(loginID, accountType);
+            }
+            binding.DataSource = database.AttendanceInfo(accountType, classSelect, loginID);
+            classID = database.GetClassID(classSelect);
+            if ((accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer")) && (day.DayOfWeek != DayOfWeek.Sunday || day.DayOfWeek != DayOfWeek.Saturday))
+            {
+                isStudent = false;
+                btnEditAttend.Enabled = true;
+                btnEditAttend.BackColor = ColorTranslator.FromHtml("#F15025");
+                btnEditAttend.ForeColor = ColorTranslator.FromHtml("#191919");
+                btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
+                btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
+
                 if (binding.Count < 1)
                 {
                     DialogResult result = MessageBox.Show("No data exists for " + classSelect + " on " + DateTime.Now.ToString("dddd, MMMM dd yyyy") + "\n\nWould you like to enter today's attendance?", "Attendance", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button3);
@@ -56,7 +72,7 @@ namespace Team3MiddleSchool
                     {
                         database.GenerateAttendance(classSelect);
                         MessageBox.Show("Attendance for " + classSelect + " on " + DateTime.Now.ToString("dddd, MMMM dd yyyy") + " has been generated." + "\n\nEnter student attendance and submit to save.");
-                        NewQuery(day.ToString("yyyy-MM-dd"));
+                        NewQuery(day.ToString("yyyy-MM-dd"), accountType);
                     }
 
                     if (result == DialogResult.No)
@@ -70,15 +86,20 @@ namespace Team3MiddleSchool
                     }
                 }
             }
-            
+            else
+            {
+                isStudent = true;
+                btnEditAttend.Enabled = false;
+                btnEditAttend.BackColor = Color.LightGray;
+                btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
+                btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
+            }
 
             dgvAttendance.DataSource = binding;
+            dgvAttendance.EditMode.Equals(false);
+            dgvAttendance.AllowUserToAddRows = false;
 
             FillUserInfo();
-            btnEditAttend.BackColor = ColorTranslator.FromHtml("#F15025");
-            btnEditAttend.ForeColor = ColorTranslator.FromHtml("#191919");
-            btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
-            btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
         }
 
         private void dgvAttendance_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -114,7 +135,7 @@ namespace Team3MiddleSchool
 
         private void btnEditAttend_Click(object sender, EventArgs e)
         {
-            frmAttendanceEdit edit = new frmAttendanceEdit(loginID, classID, accountType, classSelect);
+            frmAttendanceEdit edit = new frmAttendanceEdit(loginID, studentID, classID, accountType, classSelect, isStudent);
             edit.ShowDialog();
         }
 
@@ -130,19 +151,24 @@ namespace Team3MiddleSchool
         private void dtpAttendance_ValueChanged(object sender, EventArgs e)
         {
             dateSelection = dtpAttendance.Value.Date.ToString("yyyy-MM-dd");
-            NewQuery(dateSelection);
+            NewQuery(dateSelection, accountType);
         }
 
-        private void NewQuery(string date)
+        private void NewQuery(string date, string accountType)
         {
-            string newQuery;
+            string newQuery = "";
+            
 
-            newQuery = "SELECT CONCAT(s.FirstName, ' ', s.LastName) AS \"Student\", s.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s JOIN team3sp232330.StudentSchedule ss ON s.StudentID = ss.StudentID JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND a.AttendanceDate = '" + date + "';";
+            if (accountType.Equals("Parent") || accountType.Equals("student"))
+            {
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND a.StudentID = " + studentID + " AND AttendanceDate = '" + date + "';";
+            }
+            else if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
+            {
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND AttendanceDate = '" + date + "';";
+            }
 
             binding.DataSource = database.AttendanceInfo(newQuery);
         }
     }
 }
-
-
-//"SELECT CONCAT(s.FirstName, ' ', s.LastName) AS \"Student\", s.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s JOIN team3sp232330.StudentSchedule ss ON s.StudentID = ss.StudentID JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND a.AttendanceDate = '" + date + "';"

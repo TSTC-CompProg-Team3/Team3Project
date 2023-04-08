@@ -28,18 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbxTotalG = new System.Windows.Forms.TextBox();
-            this.tbxTest = new System.Windows.Forms.TextBox();
-            this.tbxLab = new System.Windows.Forms.TextBox();
-            this.tbxQuiz = new System.Windows.Forms.TextBox();
-            this.tbxHW = new System.Windows.Forms.TextBox();
-            this.tbxClassP = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
@@ -50,136 +38,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMDG)).BeginInit();
             this.SuspendLayout();
             // 
-            // tbxTotalG
-            // 
-            this.tbxTotalG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxTotalG.Location = new System.Drawing.Point(872, 364);
-            this.tbxTotalG.Multiline = true;
-            this.tbxTotalG.Name = "tbxTotalG";
-            this.tbxTotalG.Size = new System.Drawing.Size(140, 49);
-            this.tbxTotalG.TabIndex = 37;
-            // 
-            // tbxTest
-            // 
-            this.tbxTest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxTest.Location = new System.Drawing.Point(872, 266);
-            this.tbxTest.Multiline = true;
-            this.tbxTest.Name = "tbxTest";
-            this.tbxTest.Size = new System.Drawing.Size(140, 49);
-            this.tbxTest.TabIndex = 36;
-            // 
-            // tbxLab
-            // 
-            this.tbxLab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxLab.Location = new System.Drawing.Point(872, 219);
-            this.tbxLab.Multiline = true;
-            this.tbxLab.Name = "tbxLab";
-            this.tbxLab.Size = new System.Drawing.Size(140, 49);
-            this.tbxLab.TabIndex = 35;
-            // 
-            // tbxQuiz
-            // 
-            this.tbxQuiz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxQuiz.Location = new System.Drawing.Point(872, 172);
-            this.tbxQuiz.Multiline = true;
-            this.tbxQuiz.Name = "tbxQuiz";
-            this.tbxQuiz.Size = new System.Drawing.Size(140, 51);
-            this.tbxQuiz.TabIndex = 34;
-            // 
-            // tbxHW
-            // 
-            this.tbxHW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxHW.Location = new System.Drawing.Point(872, 130);
-            this.tbxHW.Multiline = true;
-            this.tbxHW.Name = "tbxHW";
-            this.tbxHW.Size = new System.Drawing.Size(140, 49);
-            this.tbxHW.TabIndex = 33;
-            // 
-            // tbxClassP
-            // 
-            this.tbxClassP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxClassP.Location = new System.Drawing.Point(872, 85);
-            this.tbxClassP.Multiline = true;
-            this.tbxClassP.Name = "tbxClassP";
-            this.tbxClassP.Size = new System.Drawing.Size(140, 49);
-            this.tbxClassP.TabIndex = 32;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.SeaShell;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label7.Location = new System.Drawing.Point(729, 378);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(100, 23);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Total Grade";
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.SeaShell;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label6.Location = new System.Drawing.Point(729, 279);
-            this.label6.Name = "label6";
-            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(100, 23);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "Test";
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.SeaShell;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label5.Location = new System.Drawing.Point(729, 230);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(100, 23);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Lab";
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.SeaShell;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label4.Location = new System.Drawing.Point(729, 184);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(100, 23);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Quiz";
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.SeaShell;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Location = new System.Drawing.Point(729, 139);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Homework";
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.SeaShell;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(677, 99);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(152, 23);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Class Participation";
-            // 
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxName.Location = new System.Drawing.Point(707, 16);
+            this.tbxName.Location = new System.Drawing.Point(122, 40);
             this.tbxName.Multiline = true;
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(305, 38);
@@ -189,7 +51,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.SeaShell;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(618, 25);
+            this.label1.Location = new System.Drawing.Point(33, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 24;
@@ -200,9 +62,9 @@
             // 
             this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(463, 436);
+            this.btnNext.Location = new System.Drawing.Point(461, 444);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(118, 41);
+            this.btnNext.Size = new System.Drawing.Size(100, 41);
             this.btnNext.TabIndex = 23;
             this.btnNext.Text = "&Next";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -212,9 +74,9 @@
             // 
             this.btnPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrevious.Location = new System.Drawing.Point(323, 436);
+            this.btnPrevious.Location = new System.Drawing.Point(321, 444);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(118, 41);
+            this.btnPrevious.Size = new System.Drawing.Size(100, 41);
             this.btnPrevious.TabIndex = 22;
             this.btnPrevious.Text = "&Previous";
             this.btnPrevious.UseVisualStyleBackColor = false;
@@ -224,9 +86,9 @@
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(178, 436);
+            this.btnBack.Location = new System.Drawing.Point(176, 444);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(118, 41);
+            this.btnBack.Size = new System.Drawing.Size(100, 41);
             this.btnBack.TabIndex = 21;
             this.btnBack.Text = "&Back";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -236,9 +98,9 @@
             // 
             this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(29, 436);
+            this.btnPrint.Location = new System.Drawing.Point(27, 444);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(118, 41);
+            this.btnPrint.Size = new System.Drawing.Size(100, 41);
             this.btnPrint.TabIndex = 20;
             this.btnPrint.Text = "&Print";
             this.btnPrint.UseVisualStyleBackColor = false;
@@ -248,9 +110,9 @@
             this.dgvMDG.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvMDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMDG.GridColor = System.Drawing.Color.Gray;
-            this.dgvMDG.Location = new System.Drawing.Point(29, 28);
+            this.dgvMDG.Location = new System.Drawing.Point(29, 105);
             this.dgvMDG.Name = "dgvMDG";
-            this.dgvMDG.Size = new System.Drawing.Size(585, 385);
+            this.dgvMDG.Size = new System.Drawing.Size(532, 308);
             this.dgvMDG.TabIndex = 19;
             // 
             // frmMidTermG
@@ -258,20 +120,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
-            this.ClientSize = new System.Drawing.Size(1049, 497);
-            this.ControlBox = false;
-            this.Controls.Add(this.tbxTotalG);
-            this.Controls.Add(this.tbxTest);
-            this.Controls.Add(this.tbxLab);
-            this.Controls.Add(this.tbxQuiz);
-            this.Controls.Add(this.tbxHW);
-            this.Controls.Add(this.tbxClassP);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+
+            this.ClientSize = new System.Drawing.Size(713, 497);
+
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNext);
@@ -292,19 +143,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbxTotalG;
-        private System.Windows.Forms.TextBox tbxTest;
-        private System.Windows.Forms.TextBox tbxLab;
-        private System.Windows.Forms.TextBox tbxQuiz;
-        private System.Windows.Forms.TextBox tbxHW;
-        private System.Windows.Forms.TextBox tbxClassP;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNext;

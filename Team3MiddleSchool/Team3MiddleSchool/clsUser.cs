@@ -25,6 +25,7 @@ namespace Team3MiddleSchool
         public clsUser(int loginID, string accountType, string userName, string passWord, string resetCode, string email)
         {
             this.loginID = loginID;
+            
 
             this.accountType = accountType;
 
