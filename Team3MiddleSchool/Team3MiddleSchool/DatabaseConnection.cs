@@ -2449,13 +2449,14 @@ namespace Team3MiddleSchool
                 
                 countTotal = countH + countF + countL + countP + countQ + countT;
                 total = tempH + tempQ + tempL + tempT + tempF + tempP;
-                finalTotal= total / countTotal;
+                String.Format("{0:N2},{1:N2}", countTotal, total);
+                finalTotal = total / countTotal;
                 lbltotalGrades.Text = String.Format("{0:N2}", finalTotal.ToString());
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error in Displaying Grade", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lbltotalGrades.Text = "0";
             }
         }
         public static void RemoveGradeBook(DataGridView dgvGradebook, string studentID,int classID)
