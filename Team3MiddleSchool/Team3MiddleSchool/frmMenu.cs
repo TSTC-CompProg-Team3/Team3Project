@@ -79,8 +79,6 @@ namespace Team3MiddleSchool
                     btnGradeBook.Visible = false;
                     btnAttendance.Visible = false;
                     clsDatabaseHandler.LoadStudentMenu(cbxCourseSelect, loginID);
-
-                    
                     break;
 
                 case "Parent":
