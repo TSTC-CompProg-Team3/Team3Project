@@ -1059,8 +1059,6 @@ namespace Team3MiddleSchool
             }
         }
 
-
-
         public string GetClassIDFromComboBox(ComboBox comboBox)
         {
             string selectedItemText = comboBox.SelectedItem?.ToString();
@@ -1166,10 +1164,6 @@ namespace Team3MiddleSchool
                         break;
                     }
                 }
-
-
-
-
             }
             catch (Exception ex)
             {
@@ -1861,8 +1855,6 @@ namespace Team3MiddleSchool
             }
         }
 
-
-
         private static int counter = 0;
 
         public void Next(TextBox tbxName/*,Label lblGrade*/)
@@ -1959,35 +1951,6 @@ namespace Team3MiddleSchool
             }
         }
 
-
-        internal int GetStudentID(int loginID)
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
-                {
-                    using (SqlCommand command = new SqlCommand("SELECT StudentID FROM team3sp232330.Student WHERE LoginID = " + loginID, connection))
-                    {
-                        SqlDataReader reader = command.ExecuteReader();
-
-                        while (reader.Read())
-                        {
-                            int studentID = (int)reader["StudentID"];
-                            return studentID;
-                        }
-                        return -1;
-                        reader.Close();
-                    }
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                return -1;
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }
 
