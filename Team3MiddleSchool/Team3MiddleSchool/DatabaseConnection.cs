@@ -1489,45 +1489,7 @@ namespace Team3MiddleSchool
             return studentNames;
         }
 
-        public List<string> GetStudentNames16Through20(ComboBox[] comboBoxes)
-        {
-            List<string> studentNames = new List<string>();
-
-            try
-            {
-                using (SqlCommand command = new SqlCommand(@"SELECT * FROM (SELECT *, ROW_NUMBER() OVER (ORDER BY StudentID) AS RowNum
-                                                           FROM team3sp232330.Student) AS RankedStudents
-                                                           WHERE RowNum BETWEEN 16 AND 20", connection))
-                {
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string firstName = reader["FirstName"].ToString();
-                            string lastName = reader["LastName"].ToString();
-                            string fullName = $"{firstName} {lastName}";
-                            studentNames.Add(fullName);
-
-                            // Add the item to each ComboBox
-                            foreach (ComboBox comboBox in comboBoxes)
-                            {
-                                comboBox.Items.Add(fullName);
-                            }
-                        }
-                    }
-
-                    connection.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return studentNames;
-        }
+        
 
         public List<string> GetStudentNames11Through20(ComboBox[] comboBoxes)
         {
@@ -1931,7 +1893,68 @@ namespace Team3MiddleSchool
             }
         }
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public List<string> GetStudentNames16Through20(ComboBox[] comboBoxes)
+        {
+            List<string> studentNames = new List<string>();
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(@"SELECT * FROM (SELECT *, ROW_NUMBER() OVER (ORDER BY StudentID) AS RowNum
+                                                           FROM team3sp232330.Student) AS RankedStudents
+                                                           WHERE RowNum BETWEEN 16 AND 20", connection))
+                {
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string firstName = reader["FirstName"].ToString();
+                            string lastName = reader["LastName"].ToString();
+                            string fullName = $"{firstName} {lastName}";
+                            studentNames.Add(fullName);
+
+                            // Add the item to each ComboBox
+                            foreach (ComboBox comboBox in comboBoxes)
+                            {
+                                comboBox.Items.Add(fullName);
+                            }
+                        }
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return studentNames;
+        }
+
+
     }
 
 }

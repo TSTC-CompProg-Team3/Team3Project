@@ -67,17 +67,20 @@ namespace Team3MiddleSchool
                     break;
 
                 case "student":
+
+                    // Change the location of the logout button and seating chart
+                    // Move the button up by 150 pixels
+                    btnSeatingChart.Location = new Point(btnSeatingChart.Location.X, btnSeatingChart.Location.Y - 90);
+                    // Move the button up by 75 pixels
+                    btnReturnToLogin.Location = new Point(btnReturnToLogin.Location.X, btnReturnToLogin.Location.Y - 75);
+
                     btnAdmin.Visible = false;
                     btnOfficer.Visible = false;
                     btnGradeBook.Visible = false;
                     btnAttendance.Visible = false;
                     clsDatabaseHandler.LoadStudentMenu(cbxCourseSelect, loginID);
 
-                    // Change the location of the logout button and seating chart
-                    // Move the button up by 150 pixels
-                    btnSeatingChart.Location = new Point(btnSeatingChart.Location.X, btnSeatingChart.Location.Y - 90);
-                    // Move the button up by 75 pixels
-                    btnReturnToLogin.Location = new Point(btnReturnToLogin.Location.X, btnReturnToLogin.Location.Y - 75); 
+                    
                     break;
 
                 case "Parent":
