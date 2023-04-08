@@ -1930,6 +1930,64 @@ namespace Team3MiddleSchool
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        internal int GradeParentID(int loginID)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand command = new SqlCommand("SELECT ParentID FROM team3sp232330.Parent WHERE LoginID = " + loginID + "", connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            int parentID = (int)reader["ParentID"];
+                            return parentID;
+                        }
+                        return -1;
+                        reader.Close();
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                return -1;
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        internal int GetStudentID(int loginID)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
+                {
+                    using (SqlCommand command = new SqlCommand("SELECT StudentID FROM team3sp232330.Student WHERE LoginID = " + loginID, connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            int studentID = (int)reader["StudentID"];
+                            return studentID;
+                        }
+                        return -1;
+                        reader.Close();
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                return -1;
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 
