@@ -62,8 +62,8 @@ namespace Team3MiddleSchool
             //counter--;
 
             //btnPrevious.BackColor = ColorTranslator.FromHtml("#F15025");
-            midTermGradeManager.Position--;
-            database.Previous(tbxName);
+            //midTermGradeManager.Position--;
+            //database.Previous(tbxName);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -71,8 +71,8 @@ namespace Team3MiddleSchool
            // counter++;
 
            // btnNext.BackColor = ColorTranslator.FromHtml("#F15025");
-            midTermGradeManager.Position++;
-            database.Next(tbxName);
+            //midTermGradeManager.Position++;
+            //database.Next(tbxName);
 
         }
     }
