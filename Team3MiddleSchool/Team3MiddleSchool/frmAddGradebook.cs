@@ -13,12 +13,17 @@ namespace Team3MiddleSchool
 {
     public partial class frmAddGradebook : Form
     {
+        public string studentID;
+        public int classID;
+        public frmGradebook gradebook;
         DatabaseConnection database = new DatabaseConnection();
-        frmGradebook mainGradbook;
-        public frmAddGradebook(frmGradebook grade)
+        public frmAddGradebook(string studentID,int classID, frmGradebook gradebook)
         {
+            this.classID = classID;
+            this.studentID = studentID;
+            this.gradebook = gradebook;
             InitializeComponent();
-            mainGradbook = grade;
+            
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -26,13 +31,37 @@ namespace Team3MiddleSchool
             DialogResult confrimation = MessageBox.Show("Would You like to Add Another Grade?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confrimation == DialogResult.Yes)
             {
-                DatabaseConnection.AddGradeBook(mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
+                DatabaseConnection.AddGradeBook(studentID,classID, tbxAssignName, tbxAssignType, tbxGrade);
 
             }
             else
             {
-                DatabaseConnection.AddGradeBook(mainGradbook.dgvcounter, tbxAssignName, tbxAssignType, tbxGrade);
+                DatabaseConnection.AddGradeBook(studentID,classID, tbxAssignName, tbxAssignType, tbxGrade);
+
                 MessageBox.Show("Grade Added");
+                database.GradeBookDataGrid(gradebook.grade, studentID.ToString(), classID);
+                database.getHomework(studentID, gradebook.lblHomework, classID);
+                database.getQuiz(studentID, gradebook.lblQuiz, classID);
+                database.getTest(studentID, gradebook.lblTest, classID);
+                database.getLab(studentID, gradebook.lblLab, classID);
+                database.getParticipation(studentID, gradebook.lblParticipation, classID);
+
+
+                database.getHomeworkGrade(studentID, classID);
+                database.getTestGrade(studentID, classID);
+                database.getQuizGrade(studentID, classID);
+                database.getFinalGrade(studentID, classID);
+                database.getLabGrade(studentID, classID);
+                database.getParticipationGrade(studentID, classID);
+
+
+                database.getHomeworkCount(studentID, classID);
+                database.getQuizCount(studentID, classID);
+                database.getTestCount(studentID, classID);
+                database.getLabCount(studentID, classID);
+                database.getParticipationCount(studentID, classID);
+
+                database.displayGrade(gradebook.lblTotal);
                 this.Hide();
 
             }
