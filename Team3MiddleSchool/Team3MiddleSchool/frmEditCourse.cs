@@ -55,7 +55,7 @@ namespace Team3MiddleSchool
         {
             if (!clsValidation.ValidateCourseNameEdit(tbxClassName.Text))
             {
-                clsDatabaseHandler.AddCourse(tbxClassName, cbxTeacherID, cbxSubjectID, cbxClassSize);
+                clsDatabaseHandler.EditCourse(courseID, tbxClassName, cbxTeacherID, cbxSubjectID, cbxClassSize);
             }
             else
             {
