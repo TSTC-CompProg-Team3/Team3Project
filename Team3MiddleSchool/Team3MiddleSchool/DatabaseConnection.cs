@@ -1750,9 +1750,6 @@ namespace Team3MiddleSchool
             }
         }
 
-
-
-
         public DataTable AttendanceInfo(int loginID, string accountType, string classSelect)
         {
             string classID = "";
