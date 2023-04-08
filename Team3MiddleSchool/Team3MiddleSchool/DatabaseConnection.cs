@@ -2225,7 +2225,8 @@ namespace Team3MiddleSchool
 
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    //using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
+                    using (SqlCommand cmdGradeInfo = new SqlCommand("SELECT ROUND(AVG(Grade),2) as final From team3sp232330.Grades Where AssignmentType='Final' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
                     {
                         connection.Open();
                         var grade = cmdGradeInfo.ExecuteScalar();
@@ -2242,6 +2243,10 @@ namespace Team3MiddleSchool
                         }
                         connection.Close();
                     }
+
+
+
+
 
 
                 }
@@ -2475,10 +2480,16 @@ namespace Team3MiddleSchool
         }
         public static void AddGradeBook(string studentID,int classID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
         {
+
+           
+
+
             try
             {
                 string query = "Insert Into team3sp232330.Grades(StudentID,ClassID,AssignmentName,AssignmentType,Grade) Values("+studentID+","+classID+",'" + tbxAssignName.Text + "','" + tbxAssignType.Text + "'," + tbxGrade.Text + ")";
                 SqlCommand cmdAdd = new SqlCommand(query, connection);
+
+               
 
                 SqlDataAdapter addAdapter = new SqlDataAdapter(cmdAdd);
 

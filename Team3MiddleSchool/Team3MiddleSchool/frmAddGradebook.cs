@@ -28,10 +28,25 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            //limit to 100 still needs work
+            //if (decimal.TryParse(tbxGrade.Text, out decimal gradeValue))
+            //{
+            //    if (gradeValue > 100)
+            //    {
+            //        MessageBox.Show("Grade must be less than or equal to 100", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
+
             DialogResult confrimation = MessageBox.Show("Would You like to Add Another Grade?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confrimation == DialogResult.Yes)
             {
                 DatabaseConnection.AddGradeBook(studentID,classID, tbxAssignName, tbxAssignType, tbxGrade);
+
+
+                //clears data if user would like to enter another grade
+                tbxAssignName.Clear();
+                tbxAssignType.Clear();
+                tbxGrade.Clear();
 
             }
             else
