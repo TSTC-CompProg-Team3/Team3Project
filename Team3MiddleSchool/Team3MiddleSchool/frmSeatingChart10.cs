@@ -14,12 +14,13 @@ namespace Team3MiddleSchool
     public partial class frmSeatingChart10 : Form
     {
         DatabaseConnection database = new DatabaseConnection();
-        public frmSeatingChart10()
+
+        int cbxCourseSelect;
+        public frmSeatingChart10(int Course)
         {
             InitializeComponent();
 
-            LoadStudentNames();
-
+            cbxCourseSelect = Course;
         }
 
         private void btnRan_Click(object sender, EventArgs e)
@@ -114,31 +115,18 @@ namespace Team3MiddleSchool
             btnMain.BackColor = ColorTranslator.FromHtml("#FF5733");
             btnMain.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
+            Console.WriteLine($"Selected index: {cbxCourseSelect}");
 
 
-            database.PopulateStudentListBox(lstStudentsAvailable);
-
-        }
-
-
-        private void LoadStudentNames()
-        {
-            List<string> studentNames = database.GetStudentNames10(cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5, cbxStudentNames6,
-                                                                   cbxStudentNames7, cbxStudentNames8, cbxStudentNames9, cbxStudentNames10);
-
-            // add students to cbx 
-            foreach (string name in studentNames)
+            if (cbxCourseSelect == 4)
             {
-                cbxStudentNames.Items.Add(name);
-                cbxStudentNames2.Items.Add(name);
-                cbxStudentNames3.Items.Add(name);
-                cbxStudentNames4.Items.Add(name);
-                cbxStudentNames5.Items.Add(name);
-                cbxStudentNames6.Items.Add(name);
-                cbxStudentNames7.Items.Add(name);
-                cbxStudentNames8.Items.Add(name);
-                cbxStudentNames9.Items.Add(name);
-                cbxStudentNames10.Items.Add(name);
+                database.PopulateStudentListBox11Through20(lstStudentsAvailable);
+                database.GetStudentNames11Through20(new ComboBox [] {cbxStudentNames, cbxStudentNames2, cbxStudentNames3,cbxStudentNames4,cbxStudentNames5,cbxStudentNames6,
+                                                    cbxStudentNames7, cbxStudentNames8, cbxStudentNames9, cbxStudentNames10});
+            }
+            else
+            {
+                database.PopulateStudentListBox(lstStudentsAvailable, 10);
             }
         }
 

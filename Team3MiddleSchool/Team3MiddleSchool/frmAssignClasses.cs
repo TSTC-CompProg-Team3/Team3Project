@@ -12,6 +12,7 @@ namespace Team3MiddleSchool
 {
     public partial class frmAssignClasses : Form
     {
+
         public frmAssignClasses()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace Team3MiddleSchool
             btnReset.ForeColor = ColorTranslator.FromHtml("#191919");
            
 
-            clsDatabaseHandler.PopulateClassesLbx(lbxStudents);
+            clsDatabaseHandler.PopulateClassesLbx(lbxStudents );
             clsDatabaseHandler.PopulateAvailableClasses(cbxClass1,cbxClass2,cbxClass3,cbxClass4,cbxClass5,cbxClass6);
         }
 

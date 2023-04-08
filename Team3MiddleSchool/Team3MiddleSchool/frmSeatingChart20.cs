@@ -14,11 +14,18 @@ namespace Team3MiddleSchool
     public partial class frmSeatingChart20 : Form
     {
         DatabaseConnection database = new DatabaseConnection();
+
         public frmSeatingChart20()
         {
             InitializeComponent();
 
-            LoadStudentNames();
+            // Load top 20 student names
+            database.GetStudentNames(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5,
+                                     cbxStudentNames6,cbxStudentNames7,cbxStudentNames8, cbxStudentNames9, cbxStudentNames10, cbxStudentNames11,
+                                     cbxStudentNames12, cbxStudentNames13, cbxStudentNames14, cbxStudentNames15, cbxStudentNames16, cbxStudentNames17, 
+                                     cbxStudentNames18, cbxStudentNames19, cbxStudentNames20}, 20);
+
+            
         }
 
 
@@ -79,8 +86,7 @@ namespace Team3MiddleSchool
             btnMain.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
 
-
-            database.PopulateStudentListBox(lstStudentsAvailable);
+            database.PopulateStudentListBox(lstStudentsAvailable, 20);
         }
 
         private void btnRan_Click(object sender, EventArgs e)
@@ -115,39 +121,6 @@ namespace Team3MiddleSchool
                     comboBox.SelectedItem = selectedName;
                     usedNames.Add(selectedName);
                 }
-            }
-        }
-
-        private void LoadStudentNames()
-        {
-            List<string> studentNames = database.GetStudentNames20(cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5, cbxStudentNames6,
-                                                                   cbxStudentNames7, cbxStudentNames8, cbxStudentNames9, cbxStudentNames10, cbxStudentNames11, cbxStudentNames12,
-                                                                   cbxStudentNames13, cbxStudentNames14, cbxStudentNames15, cbxStudentNames16, cbxStudentNames17, cbxStudentNames18,
-                                                                   cbxStudentNames19, cbxStudentNames20);
-
-            // add students to cbx 
-            foreach (string name in studentNames)
-            {
-                cbxStudentNames.Items.Add(name);
-                cbxStudentNames2.Items.Add(name);
-                cbxStudentNames3.Items.Add(name);
-                cbxStudentNames4.Items.Add(name);
-                cbxStudentNames5.Items.Add(name);
-                cbxStudentNames6.Items.Add(name);
-                cbxStudentNames7.Items.Add(name);
-                cbxStudentNames8.Items.Add(name);
-                cbxStudentNames9.Items.Add(name);
-                cbxStudentNames10.Items.Add(name);
-                cbxStudentNames11.Items.Add(name);
-                cbxStudentNames12.Items.Add(name);
-                cbxStudentNames13.Items.Add(name);
-                cbxStudentNames14.Items.Add(name);
-                cbxStudentNames15.Items.Add(name);
-                cbxStudentNames16.Items.Add(name);
-                cbxStudentNames17.Items.Add(name);
-                cbxStudentNames18.Items.Add(name);
-                cbxStudentNames19.Items.Add(name);
-                cbxStudentNames20.Items.Add(name);
             }
         }
 

@@ -18,6 +18,7 @@ namespace Team3MiddleSchool
         static DatabaseConnection database = new DatabaseConnection();
         //Creates random number object -CS
         private static Random random = new Random();
+        public static int topCount { get; set; }
 
         internal static void ConfirmResetPass(TextBox tbxEnterCode, TextBox tbxNewPassword, TextBox tbxConfirmPassword)
         {
@@ -174,6 +175,7 @@ namespace Team3MiddleSchool
             database.OpenDatabase();
             database.classList.Clear();
             database.TeacherClasses(loginID);
+
             foreach (string subject in database.classList)
             {
                 cbxCourseSelect.Items.Add(subject);
@@ -548,7 +550,8 @@ namespace Team3MiddleSchool
 
         internal static void PopulateClassesLbx(ListBox lbxStudents)
         {
-            database.PopulateStudentListBox(lbxStudents);
+
+            database.PopulateStudentListBox(lbxStudents, topCount);
         }
 
         internal static void PopulateAvailableClasses(ComboBox cbxClass1, ComboBox cbxClass2, ComboBox cbxClass3, ComboBox cbxClass4, ComboBox cbxClass5, ComboBox cbxClass6)

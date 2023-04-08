@@ -8,16 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Team3MiddleSchool
 {
     public partial class frmSeatingChart5 : Form
     {
         DatabaseConnection database = new DatabaseConnection();
-        public frmSeatingChart5()
+
+        int cbxCourseSelect;
+
+        public frmSeatingChart5(int Course)
         {
             InitializeComponent();
-            LoadStudentNames();
+            cbxCourseSelect = Course;
         }
 
         private void btnRan_Click(object sender, EventArgs e)
@@ -53,13 +57,6 @@ namespace Team3MiddleSchool
                 }
             }
         }
-
-
-
-
-
-
-
 
 
 
@@ -106,26 +103,46 @@ namespace Team3MiddleSchool
             btnMain.BackColor = ColorTranslator.FromHtml("#FF5733");
             btnMain.ForeColor = ColorTranslator.FromHtml("#F2F2F2");
 
-            
+            //Console.WriteLine($"Selected index: {cbxStudentNames.SelectedIndex}");
 
-            database.PopulateStudentListBox(lstStudentsAvailable);
-        }
+            Console.WriteLine($"Selected index: {cbxCourseSelect}");
 
-        private void LoadStudentNames()
-        {
-            List<string> studentNames = database.GetStudentNames(cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5);
-
-            // add students to cbx 
-            foreach (string name in studentNames)
+            if (cbxCourseSelect == 0)
             {
-                cbxStudentNames.Items.Add(name);
-                cbxStudentNames2.Items.Add(name);
-                cbxStudentNames3.Items.Add(name);
-                cbxStudentNames4.Items.Add(name);
-                cbxStudentNames5.Items.Add(name);
+                database.PopulateStudentListBox(lstStudentsAvailable, 5);
+                database.GetStudentNames(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 }, 5);
+
             }
+            else if (cbxCourseSelect == 3)
+            {
+                database.PopulateStudentListBox11Through15(lstStudentsAvailable);
+                database.GetStudentNames11Through15(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 });
+            }
+            else if (cbxCourseSelect == 4)
+            {
+                database.PopulateStudentListBox6Through10(lstStudentsAvailable);
+                database.GetStudentNames6Through10(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 });
+            }
+            else if (cbxCourseSelect == 5)
+            {
+                database.PopulateStudentListBox16Through20(lstStudentsAvailable);
+                database.GetStudentNames16Through20(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 });
+            }
+            else
+            {
+                // if its a 20 class
+                database.PopulateStudentListBox(lstStudentsAvailable, 5);
+                // Load top 5 student names
+                database.GetStudentNames(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 }, 5);
+            }
+
+
+
         }
 
-        
+
+
+
+
     }
 }

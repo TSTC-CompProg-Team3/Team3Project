@@ -69,7 +69,15 @@ namespace Team3MiddleSchool
                 case "student":
                     btnAdmin.Visible = false;
                     btnOfficer.Visible = false;
+                    btnGradeBook.Visible = false;
+                    btnAttendance.Visible = false;
                     clsDatabaseHandler.LoadStudentMenu(cbxCourseSelect, loginID);
+
+                    // Change the location of the logout button and seating chart
+                    // Move the button up by 150 pixels
+                    btnSeatingChart.Location = new Point(btnSeatingChart.Location.X, btnSeatingChart.Location.Y - 90);
+                    // Move the button up by 75 pixels
+                    btnReturnToLogin.Location = new Point(btnReturnToLogin.Location.X, btnReturnToLogin.Location.Y - 75); 
                     break;
 
                 case "Parent":
@@ -130,12 +138,12 @@ namespace Team3MiddleSchool
                 switch (classSize)
                 {
                     case 5:
-                        frmSeatingChart5 chart5 = new frmSeatingChart5();
+                        frmSeatingChart5 chart5 = new frmSeatingChart5(cbxCourseSelect.SelectedIndex);
                         chart5.ShowDialog();
                         break;
 
                     case 10:
-                        frmSeatingChart10 chart10 = new frmSeatingChart10();
+                        frmSeatingChart10 chart10 = new frmSeatingChart10(cbxCourseSelect.SelectedIndex);
                         chart10.ShowDialog();
                         break;
 
@@ -168,5 +176,7 @@ namespace Team3MiddleSchool
             frmAssignClasses assignClasses = new frmAssignClasses();
             assignClasses.ShowDialog();
         }
+
+        
     }
 }
