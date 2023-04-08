@@ -13,6 +13,7 @@ namespace Team3MiddleSchool
 {
     public partial class frmMenu : Form
     {
+        public int studentID;
         public int loginID;
         public string accountType;
         public frmMenu(int loginid,string accounttype)
