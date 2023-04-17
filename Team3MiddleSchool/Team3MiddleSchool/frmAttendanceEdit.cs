@@ -21,16 +21,15 @@ namespace Team3MiddleSchool
         private int classID;
         private string accountType;
         private string classSelect;
-        private bool isStudent;
 
-        public frmAttendanceEdit(int loginID, int studentID, int classID, string accountType, string classSelect, bool isStudent)
+        public frmAttendanceEdit(int loginID, int studentID, int classID, string accountType, string classSelect, string date, bool isStudent)
         {
             this.loginID = loginID;
             this.studentID = studentID;
             this.classID = database.GetClassID(classSelect);
             this.accountType = accountType;
+            this.dateSelection = date;
             this.classSelect = classSelect;
-            this.isStudent = isStudent;
             InitializeComponent();
         }
 
@@ -45,7 +44,7 @@ namespace Team3MiddleSchool
         private void frmAttendanceEdit_Load(object sender, EventArgs e)
         {
             dgvAttendanceEdit.AllowUserToAddRows = false;
-            binding.DataSource = database.AttendanceInfo(accountType, classSelect, loginID);
+            binding.DataSource = database.AttendanceInfo(accountType, classSelect, dateSelection, loginID);
             dgvAttendanceEdit.DataSource = binding;
             FillUserInfo();
 

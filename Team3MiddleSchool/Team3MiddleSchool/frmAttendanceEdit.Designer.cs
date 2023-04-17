@@ -121,7 +121,7 @@
             // 
             // lblAttendTeacher
             // 
-            this.lblAttendTeacher.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttendTeacher.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAttendTeacher.Location = new System.Drawing.Point(2, 2);
             this.lblAttendTeacher.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAttendTeacher.Name = "lblAttendTeacher";
@@ -132,8 +132,8 @@
             // 
             // lblAttendClass
             // 
-            this.lblAttendClass.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAttendClass.Location = new System.Drawing.Point(410, 0);
+            this.lblAttendClass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttendClass.Location = new System.Drawing.Point(410, 2);
             this.lblAttendClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAttendClass.Name = "lblAttendClass";
             this.lblAttendClass.Size = new System.Drawing.Size(328, 63);
