@@ -55,7 +55,7 @@ namespace Team3MiddleSchool
             }
             binding.DataSource = database.AttendanceInfo(accountType, classSelect, loginID);
             classID = database.GetClassID(classSelect);
-            if ((accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer")) && (day.DayOfWeek != DayOfWeek.Sunday || day.DayOfWeek != DayOfWeek.Saturday))
+            if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
             {
                 isStudent = false;
                 btnEditAttend.Enabled = true;
@@ -64,7 +64,7 @@ namespace Team3MiddleSchool
                 btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
                 btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
 
-                if (binding.Count < 1)
+                if (binding.Count < 1 && (day.DayOfWeek != DayOfWeek.Sunday && day.DayOfWeek != DayOfWeek.Saturday))
                 {
                     DialogResult result = MessageBox.Show("No data exists for " + classSelect + " on " + DateTime.Now.ToString("dddd, MMMM dd yyyy") + "\n\nWould you like to enter today's attendance?", "Attendance", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button3);
 
