@@ -32,10 +32,13 @@ namespace Team3MiddleSchool
             if (clsValidation.ValidateSubject(tbxSubjectName.Text))
             {
                 clsDatabaseHandler.AddSubject(tbxSubjectName.Text);
+                lblSubjectWarning.Visible = false;
+                this.Close();
             }
             else
             {
                 tbxSubjectName.BackColor = Color.Red;
+                lblSubjectWarning.Visible = true;
             }
             
         }

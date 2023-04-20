@@ -59,62 +59,83 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateEmail(tbxEmail.Text) && clsValidation.ValidateUsernameEdit(tbxUsername.Text) &&
-               clsValidation.ValidatePassword(tbxPassword.Text) && clsValidation.ValidateFirstName(tbxFirstName.Text) &&
-               clsValidation.ValidateLastName(tbxLastName.Text))
+            if (clsValidation.ValidateEmail(tbxEmail.Text) && clsValidation.ValidateUsername(tbxUsername.Text) &&
+                clsValidation.ValidatePassword(tbxPassword.Text) && clsValidation.ValidateFirstName(tbxFirstName.Text) &&
+                clsValidation.ValidateLastName(tbxLastName.Text) && cbxStudentSelect.Text != "")
             {
                 string hold = parentInfo;
                 string[] holdSplit = hold.Split('-');
                 string parentID = holdSplit[0].Trim();
                 clsDatabaseHandler.EditParent(tbxEmail, tbxFirstName, tbxLastName, tbxPassword, tbxUsername, cbxStudentSelect, parentID);
+                this.Close();
             }
             else
             {
                 if (!clsValidation.ValidateEmail(tbxEmail.Text))
                 {
                     tbxEmail.BackColor = Color.Red;
+                    lblEmailWarning.Visible = true;
                 }
                 else
                 {
                     tbxEmail.BackColor = SystemColors.Window;
+                    lblEmailWarning.Visible = false;
                 }
 
                 if (!clsValidation.ValidateUsername(tbxUsername.Text))
                 {
                     tbxUsername.BackColor = Color.Red;
+                    lblUsernameWarning.Visible = true;
                 }
                 else
                 {
                     tbxUsername.BackColor = SystemColors.Window;
+                    lblUsernameWarning.Visible = false;
                 }
 
                 if (!clsValidation.ValidatePassword(tbxPassword.Text))
                 {
                     tbxPassword.BackColor = Color.Red;
+                    lblPasswordWarning.Visible = true;
                 }
                 else
                 {
                     tbxPassword.BackColor = SystemColors.Window;
+                    lblPasswordWarning.Visible = false;
                 }
                 if (!clsValidation.ValidateFirstName(tbxFirstName.Text))
                 {
                     tbxFirstName.BackColor = Color.Red;
+                    lblNameWarning.Visible = true;
                 }
                 else
                 {
                     tbxFirstName.BackColor = SystemColors.Window;
+                    lblNameWarning.Visible = false;
                 }
                 if (!clsValidation.ValidateLastName(tbxLastName.Text))
                 {
                     tbxLastName.BackColor = Color.Red;
+                    lblNameWarning.Visible = true;
                 }
                 else
                 {
                     tbxLastName.BackColor = SystemColors.Window;
+                    lblNameWarning.Visible = false;
                 }
-            }
+                if (cbxStudentSelect.Text == "")
+                {
+                    cbxStudentSelect.BackColor = Color.Red;
+                    lblAssignStudentWarning.Visible = true;
+                }
+                else
+                {
+                    cbxStudentSelect.BackColor = SystemColors.Window;
+                    lblAssignStudentWarning.Visible = false;
+                }
 
-            
+
+            }
         }
     }
 }

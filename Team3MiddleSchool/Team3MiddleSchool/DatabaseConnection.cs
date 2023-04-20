@@ -200,7 +200,8 @@ namespace Team3MiddleSchool
 
                 reader.Close();
 
-                if (classes.Count > 0) {
+                if (classes.Count > 0)
+                {
 
                     command = new SqlCommand("SELECT ClassName, SubjectName, ClassSize FROM team3sp232330.Class c JOIN team3sp232330.Subject s on c.SubjectID = s.SubjectID WHERE ClassID IN (@id1,@id2,@id3,@id4,@id5,@id6)", connection);
 
@@ -223,7 +224,7 @@ namespace Team3MiddleSchool
                     }
                 }
 
-                
+
 
             }
             catch (Exception ex)
@@ -278,7 +279,7 @@ namespace Team3MiddleSchool
                     }
                 }
 
-                
+
 
             }
             catch (Exception ex)
@@ -322,7 +323,7 @@ namespace Team3MiddleSchool
             try
             {
 
-                SqlCommand command = new SqlCommand("Select ClassID, ClassName, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID", connection);
+                SqlCommand command = new SqlCommand("Select ClassID, ClassName, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID ORDER BY ClassName", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -336,7 +337,7 @@ namespace Team3MiddleSchool
                 reader.Close();
 
 
-                command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher ORDER BY LastName", connection);
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -349,7 +350,7 @@ namespace Team3MiddleSchool
                 }
                 reader.Close();
 
-                command = new SqlCommand("SELECT StudentID, LastName, FirstName FROM team3sp232330.Student", connection);
+                command = new SqlCommand("SELECT StudentID, LastName, FirstName FROM team3sp232330.Student ORDER BY LastName", connection);
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -376,8 +377,9 @@ namespace Team3MiddleSchool
             try
             {
 
-                SqlCommand command = new SqlCommand("Select ClassID, ClassName, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID", connection);
+                SqlCommand command = new SqlCommand("Select ClassID, ClassName, SubjectName FROM team3sp232330.Class c JOIN team3sp232330.Subject s ON c.SubjectID = s.SubjectID JOIN team3sp232330.Teacher t ON t.TeacherID = c.TeacherID ORDER BY ClassName", connection);
                 SqlDataReader reader = command.ExecuteReader();
+
 
                 while (reader.Read())
                 {
@@ -390,7 +392,7 @@ namespace Team3MiddleSchool
                 reader.Close();
 
 
-                command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher ORDER BY LastName", connection);
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -403,7 +405,7 @@ namespace Team3MiddleSchool
                 }
                 reader.Close();
 
-                command = new SqlCommand("SELECT StudentID, LastName, FirstName FROM team3sp232330.Student", connection);
+                command = new SqlCommand("SELECT StudentID, LastName, FirstName FROM team3sp232330.Student ORDER BY LastName", connection);
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -416,7 +418,7 @@ namespace Team3MiddleSchool
                 }
                 reader.Close();
 
-                command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
+                command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject ORDER BY SubjectName", connection);
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -428,7 +430,7 @@ namespace Team3MiddleSchool
                 }
                 reader.Close();
 
-                command = new SqlCommand("SELECT ParentID, LastName, FirstName FROM team3sp232330.Parent", connection);
+                command = new SqlCommand("SELECT ParentID, LastName, FirstName FROM team3sp232330.Parent ORDER BY LastName", connection);
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -454,7 +456,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                SqlCommand command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher ORDER BY LastName", connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -467,7 +469,7 @@ namespace Team3MiddleSchool
                 }
                 reader.Close();
 
-                command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
+                command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject ORDER BY SubjectName", connection);
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -545,13 +547,13 @@ namespace Team3MiddleSchool
             }
         }
         //loads the edit course info -CS
-        public void LoadEditCourse(string courseName, TextBox tbxcourseName, ComboBox teacherList, ComboBox subjectList)
+        public void LoadEditCourse(string courseName, TextBox tbxcourseName, ComboBox teacherList, ComboBox subjectList, ComboBox classSize)
         {
             try
             {
                 tbxcourseName.Text = courseName;
 
-                SqlCommand command = new SqlCommand("SELECT SubjectID, TeacherID FROM team3sp232330.Class WHERE ClassName = @courseName", connection);
+                SqlCommand command = new SqlCommand("SELECT SubjectID, TeacherID, ClassSize FROM team3sp232330.Class WHERE ClassName = @courseName", connection);
                 command.Parameters.AddWithValue("@courseName", courseName);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -559,8 +561,9 @@ namespace Team3MiddleSchool
                 {
                     int subjectID = (int)reader["SubjectID"];
                     int teacherID = (int)reader["TeacherID"];
+                    int classAmount = (int)reader["ClassSize"];
 
-                    command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject", connection);
+                    command = new SqlCommand("SELECT SubjectID, SubjectName FROM team3sp232330.Subject ORDER BY SubjectName", connection);
                     reader.Close();
                     reader = command.ExecuteReader();
                     while (reader.Read())
@@ -584,7 +587,16 @@ namespace Team3MiddleSchool
                         }
                     }
 
-                    command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher", connection);
+                    foreach (string item in classSize.Items)
+                    {
+                        if (int.Parse(item) == classAmount)
+                        {
+                            classSize.SelectedItem = item;
+                            break;
+                        }
+                    }
+
+                    command = new SqlCommand("SELECT TeacherID, LastName, FirstName FROM team3sp232330.Teacher ORDER BY LastName", connection);
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -759,7 +771,7 @@ namespace Team3MiddleSchool
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            
+
         }
 
         public void AddStudent(string firstName, string middleName, string lastName, DateTime dateOfBirth, string phoneNumber, string mailingAddress, string streetAddress, string city, string state, string zip, string email, string username, string password, string emerContactName, string emerContactPhone, string guardianName, string guardianCell, string guardianWorkPhone, string guardianWorkPl)
@@ -838,7 +850,7 @@ namespace Team3MiddleSchool
 
         public void LoadEditStudent(string studentID, TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName,
             DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity,
-            TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
+            ComboBox cbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
             TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork,
             TextBox tbxGuardianWorkPl)
         {
@@ -859,7 +871,7 @@ namespace Team3MiddleSchool
                     tbxMailingAddress.Text = (string)reader["MailingAddress"];
                     tbxStreetAddress.Text = (string)reader["StreetAddress"];
                     tbxCity.Text = (string)reader["City"];
-                    tbxState.Text = (string)reader["State"];
+                    cbxState.SelectedItem = (string)reader["State"];
                     tbxZip.Text = (string)reader["Zip"];
                     tbxEmerContactName.Text = (string)reader["EmergencyContactName"];
                     tbxEmerContactPhone.Text = (string)reader["EmergencyContactPhone"];
@@ -1260,7 +1272,7 @@ namespace Team3MiddleSchool
                 }
                 reader.Close();
                 return false;
-                
+
             }
             catch (Exception ex)
             {
@@ -1283,10 +1295,6 @@ namespace Team3MiddleSchool
                     if (subjectName == subjectname)
                     {
                         return true;
-                    }
-                    else
-                    {
-                        return false;
                     }
                 }
                 reader.Close();
@@ -1795,14 +1803,14 @@ namespace Team3MiddleSchool
             {
                 studentID = GetStudentID(loginID, accountType);
             }
-            
-            
+
+
 
 
             if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
             {
-                
-                SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND AttendanceDate = '" + date + "';" ,  connection);
+
+                SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND AttendanceDate = '" + date + "';", connection);
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = command;
@@ -1843,7 +1851,7 @@ namespace Team3MiddleSchool
             DataTable table = new DataTable();
 
             SqlCommand command = new SqlCommand("CREATE TABLE #tempAttendance "
-                                                    + "(StudentID INT PRIMARY KEY, " 
+                                                    + "(StudentID INT PRIMARY KEY, "
                                                     + "ClassID INT, "
                                                     + "AttendanceDate DATE, "
                                                     + "Present BIT, "
@@ -1900,15 +1908,15 @@ namespace Team3MiddleSchool
                     return classID;
                 }
             }
-           
-           
+
+
         }
-        
+
         public int GetStudentID(int loginID, string accountType)
         {
             int studentID = 0;
             string query = "";
-            
+
             if (accountType.Equals("Parent"))
             {
                 query = "SELECT StudentID FROM team3sp232330.StudentParent sp JOIN team3sp232330.Parent p ON sp.ParentID = p.ParentID WHERE LoginID = " + loginID + ";";
@@ -1973,7 +1981,7 @@ namespace Team3MiddleSchool
             get { return _gradeBookDataTable; }
         }
 
-        public void GradeBookDataGrid(DataGridView dgvGradeBook, string StudentID,int classID)
+        public void GradeBookDataGrid(DataGridView dgvGradeBook, string StudentID, int classID)
         {
             try
             {
@@ -2026,11 +2034,11 @@ namespace Team3MiddleSchool
             }
         }
 
-        public  void GradeBookDataGridParent(DataGridView dgvGradeBook, int parentID,int classID)
+        public void GradeBookDataGridParent(DataGridView dgvGradeBook, int parentID, int classID)
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where parentID=" + parentID + " and ClassID="+classID+" ", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where parentID=" + parentID + " and ClassID=" + classID + " ", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -2049,7 +2057,7 @@ namespace Team3MiddleSchool
         decimal decGHomework, decGTest, decGQuiz, decGLab, decGFinal, decGPar;
         int intHomework, intTest, intQuiz, intLab, intFinal, intPar;
         //Teacher Grade
-        public void getHomework(string studentID, Label homework,int classID)
+        public void getHomework(string studentID, Label homework, int classID)
         {
 
             try
@@ -2074,7 +2082,7 @@ namespace Team3MiddleSchool
                         }
                         connection.Close();
                     }
-                    
+
 
 
                 }
@@ -2158,7 +2166,7 @@ namespace Team3MiddleSchool
 
 
 
-        public void getQuiz(string studentID,Label quiz, int classID)
+        public void getQuiz(string studentID, Label quiz, int classID)
         {
 
             try
@@ -2169,7 +2177,7 @@ namespace Team3MiddleSchool
                     using (SqlCommand cmdGradeInfo = new SqlCommand("Select Format(avg(Grade),'#.##') as quiz From team3sp232330.Grades Where AssignmentType='Quiz' and StudentID=" + studentID + " and ClassID=" + classID + "", connection))
                     {
                         connection.Open();
-                        var grade= cmdGradeInfo.ExecuteScalar();
+                        var grade = cmdGradeInfo.ExecuteScalar();
 
 
                         if (grade == null)
@@ -2264,7 +2272,7 @@ namespace Team3MiddleSchool
             }
         }
 
-        public void getTest(string studentID,Label test, int classID)
+        public void getTest(string studentID, Label test, int classID)
         {
 
             try
@@ -2314,7 +2322,7 @@ namespace Team3MiddleSchool
 
                         if (grade == null)
                         {
-                            
+
                         }
                         else
                         {
@@ -2370,7 +2378,7 @@ namespace Team3MiddleSchool
         }
 
 
-        public void getLab(string studentID,Label lab, int classID)
+        public void getLab(string studentID, Label lab, int classID)
         {
 
             try
@@ -2476,7 +2484,7 @@ namespace Team3MiddleSchool
             }
 
         }
-        public void getFinal(string studentID,Label final, int classID)
+        public void getFinal(string studentID, Label final, int classID)
         {
 
             try
@@ -2591,7 +2599,7 @@ namespace Team3MiddleSchool
         }
 
 
-        public void getParticipation(string studentID,Label par, int classID)
+        public void getParticipation(string studentID, Label par, int classID)
         {
 
             try
@@ -2663,7 +2671,7 @@ namespace Team3MiddleSchool
         }
 
 
-        public void getParticipationCount(string studentID,int classID)
+        public void getParticipationCount(string studentID, int classID)
         {
 
             try
@@ -2728,7 +2736,7 @@ namespace Team3MiddleSchool
                 lbltotalGrades.Text = "0";
             }
         }
-        public static void RemoveGradeBook(DataGridView dgvGradebook, string studentID,int classID)
+        public static void RemoveGradeBook(DataGridView dgvGradebook, string studentID, int classID)
         {
             try
             {
@@ -2748,18 +2756,18 @@ namespace Team3MiddleSchool
             }
 
         }
-        public static void AddGradeBook(string studentID,int classID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
+        public static void AddGradeBook(string studentID, int classID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
         {
 
-           
+
 
 
             try
             {
-                string query = "Insert Into team3sp232330.Grades(StudentID,ClassID,AssignmentName,AssignmentType,Grade) Values("+studentID+","+classID+",'" + tbxAssignName.Text + "','" + tbxAssignType.Text + "'," + tbxGrade.Text + ")";
+                string query = "Insert Into team3sp232330.Grades(StudentID,ClassID,AssignmentName,AssignmentType,Grade) Values(" + studentID + "," + classID + ",'" + tbxAssignName.Text + "','" + tbxAssignType.Text + "'," + tbxGrade.Text + ")";
                 SqlCommand cmdAdd = new SqlCommand(query, connection);
 
-               
+
 
                 SqlDataAdapter addAdapter = new SqlDataAdapter(cmdAdd);
 
@@ -2780,11 +2788,11 @@ namespace Team3MiddleSchool
 
 
 
-        public static void EditGradeBook(DataGridView dgvGradebook, string counter,int classID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
+        public static void EditGradeBook(DataGridView dgvGradebook, string counter, int classID, TextBox tbxAssignName, TextBox tbxAssignType, TextBox tbxGrade)
         {
             try
             {
-                string query = "Update team3sp232330.Grades set AssignmentName='" + tbxAssignName.Text + "', AssignmentType='" + tbxAssignType.Text + "',Grade=" + tbxGrade.Text + " Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + " And ClassID="+classID+"";
+                string query = "Update team3sp232330.Grades set AssignmentName='" + tbxAssignName.Text + "', AssignmentType='" + tbxAssignType.Text + "',Grade=" + tbxGrade.Text + " Where AssignmentName='" + dgvGradebook.CurrentCell.FormattedValue + "' And StudentID=" + counter + " And ClassID=" + classID + "";
                 SqlCommand cmdEdit = new SqlCommand(query, connection);
 
 
@@ -2809,7 +2817,7 @@ namespace Team3MiddleSchool
         private static SqlDataAdapter _nameAD = new SqlDataAdapter();
         //data tables
         public static DataTable _nameeTable = new DataTable();
-        public  void MidTermGName(TextBox tbxName,Label ID)
+        public void MidTermGName(TextBox tbxName, Label ID)
         {
             try
             {
@@ -2846,7 +2854,7 @@ namespace Team3MiddleSchool
             }
         }
 
-        public  void MidTermGNameParent(TextBox tbxName, int parentID)
+        public void MidTermGNameParent(TextBox tbxName, int parentID)
         {
             try
             {
@@ -2940,7 +2948,7 @@ namespace Team3MiddleSchool
             {
                 using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    using (SqlCommand command = new SqlCommand("SELECT ParentID FROM team3sp232330.Parent WHERE LoginID = " + loginID+"", connection))
+                    using (SqlCommand command = new SqlCommand("SELECT ParentID FROM team3sp232330.Parent WHERE LoginID = " + loginID + "", connection))
                     {
                         SqlDataReader reader = command.ExecuteReader();
 
@@ -2983,8 +2991,8 @@ namespace Team3MiddleSchool
                         reader.Close();
                     }
                 }
-               
-               
+
+
             }
             catch (Exception ex)
             {
@@ -2992,8 +3000,29 @@ namespace Team3MiddleSchool
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
 
+        public void LoadStudentsLbx(ListBox lbxStudents)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM team3sp232330.Student ORDER BY LastName", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string studentInfo = $"{reader["StudentID"]} - {reader["LastName"]} , {reader["FirstName"]}";
+                    lbxStudents.Items.Add(studentInfo);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+    }
 }
 
 

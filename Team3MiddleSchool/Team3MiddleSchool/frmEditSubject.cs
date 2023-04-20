@@ -49,10 +49,13 @@ namespace Team3MiddleSchool
                 string[] holdSplit = hold.Split('-');
                 string subjectID = holdSplit[0].Trim();
                 clsDatabaseHandler.EditSubject(subjectID, tbxSubjectName.Text);
+                lblSubjectWarning.Visible = false;
+                this.Close();
             }
             else
             {
                 tbxSubjectName.BackColor = Color.Red;
+                lblSubjectWarning.Visible = true;
             }
 
             

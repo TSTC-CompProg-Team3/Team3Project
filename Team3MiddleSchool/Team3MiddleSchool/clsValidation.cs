@@ -304,22 +304,22 @@ namespace Team3MiddleSchool
 
             database.CloseDatabase();
 
-            return exists;
+            return !exists;
         }
 
         internal static bool ValidateSubjectEdit(string subjectName)
         {
             if (string.IsNullOrEmpty(subjectName))
             {
-                return true;
+                return false;
             }
 
             if (subjectName.Any(char.IsWhiteSpace))
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
         internal static bool ValidatePhoneNumber(string phoneNumber)
@@ -386,11 +386,6 @@ namespace Team3MiddleSchool
         internal static bool ValidateWorkPlace(string workPlace)
         {
             if (string.IsNullOrEmpty(workPlace))
-            {
-                return false;
-            }
-
-            if (workPlace.Any(char.IsWhiteSpace))
             {
                 return false;
             }

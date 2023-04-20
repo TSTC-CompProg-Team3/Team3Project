@@ -34,30 +34,40 @@ namespace Team3MiddleSchool
                 clsValidation.ValidateLastName(tbxLastName.Text))
             {
                 clsDatabaseHandler.AddTeacher(tbxFirstName, tbxLastName, tbxEmail, tbxUsername, tbxPassword);
+                lblNameWarning.Visible = false;
+                lblEmailWarning.Visible = false;
+                lblUsernameWarning.Visible = false;
+                lblPasswordWarning.Visible = false;
+                this.Close();
             }
             else
             {
                 if (!clsValidation.ValidateEmail(tbxEmail.Text))
                 {
                     tbxEmail.BackColor = Color.Red;
+                    lblEmailWarning.Visible = true;    
                 }
                 else
                 {
+                    lblEmailWarning.Visible = false;
                     tbxEmail.BackColor = SystemColors.Window;
                 }
 
                 if (!clsValidation.ValidateUsername(tbxUsername.Text))
                 {
                     tbxUsername.BackColor = Color.Red;
+                    lblUsernameWarning.Visible = true;
                 }
                 else
                 {
+                    lblUsernameWarning.Visible = false;
                     tbxUsername.BackColor = SystemColors.Window;
                 }
 
                 if (!clsValidation.ValidatePassword(tbxPassword.Text))
                 {
                     tbxPassword.BackColor = Color.Red;
+                    lblPasswordWarning.Visible = true;  
                 }
                 else
                 {
@@ -66,17 +76,21 @@ namespace Team3MiddleSchool
                 if (!clsValidation.ValidateFirstName(tbxFirstName.Text))
                 {
                     tbxFirstName.BackColor = Color.Red;
+                    lblNameWarning.Visible = true;
                 }
                 else
                 {
+                    lblNameWarning.Visible = false;
                     tbxFirstName.BackColor = SystemColors.Window;
                 }
                 if (!clsValidation.ValidateLastName(tbxLastName.Text))
                 {
                     tbxLastName.BackColor = Color.Red;
+                    lblNameWarning.Visible = true;
                 }
                 else
                 {
+                    lblNameWarning.Visible = false;
                     tbxLastName.BackColor = SystemColors.Window;
                 }
             }
