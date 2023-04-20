@@ -33,6 +33,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.lblSubjectWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbxSubjectName
@@ -86,12 +87,25 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // lblSubjectWarning
+            // 
+            this.lblSubjectWarning.AutoSize = true;
+            this.lblSubjectWarning.BackColor = System.Drawing.Color.Red;
+            this.lblSubjectWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblSubjectWarning.Location = new System.Drawing.Point(235, 53);
+            this.lblSubjectWarning.Name = "lblSubjectWarning";
+            this.lblSubjectWarning.Size = new System.Drawing.Size(105, 15);
+            this.lblSubjectWarning.TabIndex = 35;
+            this.lblSubjectWarning.Text = "Must Not Be Blank";
+            this.lblSubjectWarning.Visible = false;
+            // 
             // frmEditSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 165);
             this.ControlBox = false;
+            this.Controls.Add(this.lblSubjectWarning);
             this.Controls.Add(this.tbxSubjectName);
             this.Controls.Add(this.lblSubjectName);
             this.Controls.Add(this.btnBack);
@@ -101,7 +115,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmEditSubject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmEditSubject";
+            this.Text = "Edit Subject";
             this.Load += new System.EventHandler(this.frmEditSubject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -115,5 +129,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label lblSubjectWarning;
     }
 }

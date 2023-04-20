@@ -56,10 +56,13 @@ namespace Team3MiddleSchool
             if (!clsValidation.ValidateCourseNameEdit(tbxClassName.Text))
             {
                 clsDatabaseHandler.EditCourse(courseID, tbxClassName, cbxTeacherID, cbxSubjectID, cbxClassSize);
+                lblClassNameWarning.Visible = false;
+                this.Close();
             }
             else
             {
                 tbxClassName.BackColor = Color.Red;
+                lblClassNameWarning.Visible = true;
             }
 
 

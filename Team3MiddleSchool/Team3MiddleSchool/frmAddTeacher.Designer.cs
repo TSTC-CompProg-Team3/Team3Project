@@ -43,6 +43,10 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.tbxLastName = new System.Windows.Forms.TextBox();
+            this.lblNameWarning = new System.Windows.Forms.Label();
+            this.lblEmailWarning = new System.Windows.Forms.Label();
+            this.lblUsernameWarning = new System.Windows.Forms.Label();
+            this.lblPasswordWarning = new System.Windows.Forms.Label();
             this.gbxLogin.SuspendLayout();
             this.gbxStudentContact.SuspendLayout();
             this.SuspendLayout();
@@ -50,10 +54,10 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(280, 281);
+            this.btnBack.Location = new System.Drawing.Point(280, 292);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
-            this.btnBack.TabIndex = 9;
+            this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -61,10 +65,10 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(34, 281);
+            this.btnClear.Location = new System.Drawing.Point(34, 292);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(117, 40);
-            this.btnClear.TabIndex = 5;
+            this.btnClear.TabIndex = 2;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -72,16 +76,19 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(157, 281);
+            this.btnSubmit.Location = new System.Drawing.Point(157, 292);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(117, 40);
-            this.btnSubmit.TabIndex = 6;
+            this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // gbxLogin
             // 
+            this.gbxLogin.Controls.Add(this.lblPasswordWarning);
+            this.gbxLogin.Controls.Add(this.lblUsernameWarning);
+            this.gbxLogin.Controls.Add(this.lblEmailWarning);
             this.gbxLogin.Controls.Add(this.tbxEmail);
             this.gbxLogin.Controls.Add(this.tbxPassword);
             this.gbxLogin.Controls.Add(this.lblEmail);
@@ -90,30 +97,30 @@
             this.gbxLogin.Controls.Add(this.tbxUsername);
             this.gbxLogin.Location = new System.Drawing.Point(38, 119);
             this.gbxLogin.Name = "gbxLogin";
-            this.gbxLogin.Size = new System.Drawing.Size(354, 141);
-            this.gbxLogin.TabIndex = 10;
+            this.gbxLogin.Size = new System.Drawing.Size(354, 167);
+            this.gbxLogin.TabIndex = 1;
             this.gbxLogin.TabStop = false;
             this.gbxLogin.Text = "Login Information";
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(180, 22);
+            this.tbxEmail.Location = new System.Drawing.Point(125, 22);
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(157, 23);
+            this.tbxEmail.Size = new System.Drawing.Size(217, 23);
             this.tbxEmail.TabIndex = 0;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(180, 104);
+            this.tbxPassword.Location = new System.Drawing.Point(125, 116);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(157, 23);
+            this.tbxPassword.Size = new System.Drawing.Size(217, 23);
             this.tbxPassword.TabIndex = 2;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(7, 20);
+            this.lblEmail.Location = new System.Drawing.Point(12, 20);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(59, 25);
             this.lblEmail.TabIndex = 19;
@@ -123,7 +130,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(7, 102);
+            this.lblPassword.Location = new System.Drawing.Point(12, 114);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(97, 25);
             this.lblPassword.TabIndex = 23;
@@ -133,7 +140,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(7, 61);
+            this.lblUsername.Location = new System.Drawing.Point(12, 68);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(101, 25);
             this.lblUsername.TabIndex = 21;
@@ -141,13 +148,14 @@
             // 
             // tbxUsername
             // 
-            this.tbxUsername.Location = new System.Drawing.Point(180, 61);
+            this.tbxUsername.Location = new System.Drawing.Point(125, 68);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(157, 23);
+            this.tbxUsername.Size = new System.Drawing.Size(217, 23);
             this.tbxUsername.TabIndex = 1;
             // 
             // gbxStudentContact
             // 
+            this.gbxStudentContact.Controls.Add(this.lblNameWarning);
             this.gbxStudentContact.Controls.Add(this.tbxFirstName);
             this.gbxStudentContact.Controls.Add(this.lblFirstName);
             this.gbxStudentContact.Controls.Add(this.lblLastName);
@@ -155,15 +163,15 @@
             this.gbxStudentContact.Location = new System.Drawing.Point(38, 4);
             this.gbxStudentContact.Name = "gbxStudentContact";
             this.gbxStudentContact.Size = new System.Drawing.Size(354, 99);
-            this.gbxStudentContact.TabIndex = 7;
+            this.gbxStudentContact.TabIndex = 0;
             this.gbxStudentContact.TabStop = false;
             this.gbxStudentContact.Text = "Contact Information";
             // 
             // tbxFirstName
             // 
-            this.tbxFirstName.Location = new System.Drawing.Point(185, 22);
+            this.tbxFirstName.Location = new System.Drawing.Point(125, 22);
             this.tbxFirstName.Name = "tbxFirstName";
-            this.tbxFirstName.Size = new System.Drawing.Size(157, 23);
+            this.tbxFirstName.Size = new System.Drawing.Size(217, 23);
             this.tbxFirstName.TabIndex = 0;
             this.tbxFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxFirstName_KeyPress);
             // 
@@ -181,7 +189,7 @@
             // 
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(12, 56);
+            this.lblLastName.Location = new System.Drawing.Point(12, 48);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(104, 25);
             this.lblLastName.TabIndex = 29;
@@ -189,11 +197,59 @@
             // 
             // tbxLastName
             // 
-            this.tbxLastName.Location = new System.Drawing.Point(185, 58);
+            this.tbxLastName.Location = new System.Drawing.Point(125, 50);
             this.tbxLastName.Name = "tbxLastName";
-            this.tbxLastName.Size = new System.Drawing.Size(157, 23);
-            this.tbxLastName.TabIndex = 2;
+            this.tbxLastName.Size = new System.Drawing.Size(217, 23);
+            this.tbxLastName.TabIndex = 1;
             this.tbxLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxLastName_KeyPress);
+            // 
+            // lblNameWarning
+            // 
+            this.lblNameWarning.AutoSize = true;
+            this.lblNameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblNameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblNameWarning.Location = new System.Drawing.Point(163, 76);
+            this.lblNameWarning.Name = "lblNameWarning";
+            this.lblNameWarning.Size = new System.Drawing.Size(127, 15);
+            this.lblNameWarning.TabIndex = 28;
+            this.lblNameWarning.Text = "Must Enter Valid Name";
+            this.lblNameWarning.Visible = false;
+            // 
+            // lblEmailWarning
+            // 
+            this.lblEmailWarning.AutoSize = true;
+            this.lblEmailWarning.BackColor = System.Drawing.Color.Red;
+            this.lblEmailWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblEmailWarning.Location = new System.Drawing.Point(163, 48);
+            this.lblEmailWarning.Name = "lblEmailWarning";
+            this.lblEmailWarning.Size = new System.Drawing.Size(124, 15);
+            this.lblEmailWarning.TabIndex = 30;
+            this.lblEmailWarning.Text = "Must Enter Valid Email";
+            this.lblEmailWarning.Visible = false;
+            // 
+            // lblUsernameWarning
+            // 
+            this.lblUsernameWarning.AutoSize = true;
+            this.lblUsernameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblUsernameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblUsernameWarning.Location = new System.Drawing.Point(163, 94);
+            this.lblUsernameWarning.Name = "lblUsernameWarning";
+            this.lblUsernameWarning.Size = new System.Drawing.Size(148, 15);
+            this.lblUsernameWarning.TabIndex = 31;
+            this.lblUsernameWarning.Text = "Must Enter Valid Username";
+            this.lblUsernameWarning.Visible = false;
+            // 
+            // lblPasswordWarning
+            // 
+            this.lblPasswordWarning.AutoSize = true;
+            this.lblPasswordWarning.BackColor = System.Drawing.Color.Red;
+            this.lblPasswordWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblPasswordWarning.Location = new System.Drawing.Point(163, 142);
+            this.lblPasswordWarning.Name = "lblPasswordWarning";
+            this.lblPasswordWarning.Size = new System.Drawing.Size(145, 15);
+            this.lblPasswordWarning.TabIndex = 32;
+            this.lblPasswordWarning.Text = "Must Enter Valid Password";
+            this.lblPasswordWarning.Visible = false;
             // 
             // frmAddTeacher
             // 
@@ -237,5 +293,9 @@
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.TextBox tbxLastName;
+        private System.Windows.Forms.Label lblNameWarning;
+        private System.Windows.Forms.Label lblEmailWarning;
+        private System.Windows.Forms.Label lblUsernameWarning;
+        private System.Windows.Forms.Label lblPasswordWarning;
     }
 }
