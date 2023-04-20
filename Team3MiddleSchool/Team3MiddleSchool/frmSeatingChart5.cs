@@ -48,7 +48,8 @@ namespace Team3MiddleSchool
                     {
                         int randomIndex = random.Next(allNames.Count);
                         selectedName = allNames[randomIndex];
-                    } while (usedNames.Contains(selectedName));
+                    } 
+                    while (usedNames.Contains(selectedName));
 
                     comboBox.SelectedItem = selectedName;
                     usedNames.Add(selectedName);
@@ -62,11 +63,11 @@ namespace Team3MiddleSchool
         {
 
             // When youre clearing the selections you made, it makes the defaults different
-            cbxStudentNames.SelectedIndex = 0;
-            cbxStudentNames2.SelectedIndex = 1;
-            cbxStudentNames3.SelectedIndex = 2;
-            cbxStudentNames4.SelectedIndex = 3;
-            cbxStudentNames5.SelectedIndex = 4;
+            cbxStudentNames.SelectedIndex = -1;
+            cbxStudentNames2.SelectedIndex = -1;
+            cbxStudentNames3.SelectedIndex = -1;
+            cbxStudentNames4.SelectedIndex = -1;
+            cbxStudentNames5.SelectedIndex = -1;
 
 
         }
@@ -107,36 +108,265 @@ namespace Team3MiddleSchool
             {
                 database.PopulateStudentListBox(lstStudentsAvailable, 5);
                 database.GetStudentNames(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 }, 5);
+                // loads students in there seats
+                cbxStudentNames.SelectedIndex = 0;
+                cbxStudentNames2.SelectedIndex = 1;
+                cbxStudentNames3.SelectedIndex = 2;
+                cbxStudentNames4.SelectedIndex = 3;
+                cbxStudentNames5.SelectedIndex = 4;
 
             }
             else if (cbxCourseSelect == 3)
             {
                 database.PopulateStudentListBox11Through15(lstStudentsAvailable);
                 database.GetStudentNames11Through15(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 });
+                // loads students in there seats
+                cbxStudentNames.SelectedIndex = 0;
+                cbxStudentNames2.SelectedIndex = 1;
+                cbxStudentNames3.SelectedIndex = 2;
+                cbxStudentNames4.SelectedIndex = 3;
+                cbxStudentNames5.SelectedIndex = 4;
             }
             else if (cbxCourseSelect == 4)
             {
                 database.PopulateStudentListBox6Through10(lstStudentsAvailable);
                 database.GetStudentNames6Through10(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 });
+                // loads students in there seats
+                cbxStudentNames.SelectedIndex = 0;
+                cbxStudentNames2.SelectedIndex = 1;
+                cbxStudentNames3.SelectedIndex = 2;
+                cbxStudentNames4.SelectedIndex = 3;
+                cbxStudentNames5.SelectedIndex = 4;
             }
             else if (cbxCourseSelect == 5)
             {
                 database.PopulateStudentListBox16Through20(lstStudentsAvailable);
                 database.GetStudentNames16Through20(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 });
+                // loads students in there seats
+                cbxStudentNames.SelectedIndex = 0;
+                cbxStudentNames2.SelectedIndex = 1;
+                cbxStudentNames3.SelectedIndex = 2;
+                cbxStudentNames4.SelectedIndex = 3;
+                cbxStudentNames5.SelectedIndex = 4;
             }
             else
             {
-                // if its a 20 class
+                // if its a 5 class
                 database.PopulateStudentListBox(lstStudentsAvailable, 5);
                 // Load top 5 student names
                 database.GetStudentNames(new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 }, 5);
+                // loads students in there seats
+                cbxStudentNames.SelectedIndex = 0;
+                cbxStudentNames2.SelectedIndex = 1;
+                cbxStudentNames3.SelectedIndex = 2;
+                cbxStudentNames4.SelectedIndex = 3;
+                cbxStudentNames5.SelectedIndex = 4;
             }
-
         }
 
-        
-        
+        private void cbxStudentNames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox currentComboBox = (ComboBox)sender;
+            ComboBox[] comboBoxes = new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 };
 
-        
+
+            // Check if the current ComboBox already has the selected student
+            bool alreadySelected = false;
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                {
+                    alreadySelected = true;
+                    break;
+                }
+            }
+
+            if (alreadySelected)
+            {
+                // Ask the user if they want to clear the selection of the other ComboBox
+                DialogResult result = MessageBox.Show("This student is already selected in another seat. Clear the other seat and select this student?", "Duplicate Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Clear the selection of the other ComboBox
+                    foreach (ComboBox comboBox in comboBoxes)
+                    {
+                        if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                        {
+                            comboBox.SelectedItem = null;
+                        }
+                    }
+                }
+                else
+                {
+                    // Clear the selection of the current ComboBox
+                    currentComboBox.SelectedItem = null;
+                }
+            }
+        }
+
+        private void cbxStudentNames2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox currentComboBox = (ComboBox)sender;
+            ComboBox[] comboBoxes = new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 };
+
+
+            // Check if the current ComboBox already has the selected student
+            bool alreadySelected = false;
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                {
+                    alreadySelected = true;
+                    break;
+                }
+            }
+
+            if (alreadySelected)
+            {
+                // Ask the user if they want to clear the selection of the other ComboBox
+                DialogResult result = MessageBox.Show("This student is already selected in another seat. Clear the other seat and select this student?", "Duplicate Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Clear the selection of the other ComboBox
+                    foreach (ComboBox comboBox in comboBoxes)
+                    {
+                        if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                        {
+                            comboBox.SelectedItem = null;
+                        }
+                    }
+                }
+                else
+                {
+                    // Clear the selection of the current ComboBox
+                    currentComboBox.SelectedItem = null;
+                }
+            }
+        }
+
+        private void cbxStudentNames4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox currentComboBox = (ComboBox)sender;
+            ComboBox[] comboBoxes = new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 };
+
+
+            // Check if the current ComboBox already has the selected student
+            bool alreadySelected = false;
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                {
+                    alreadySelected = true;
+                    break;
+                }
+            }
+
+            if (alreadySelected)
+            {
+                // Ask the user if they want to clear the selection of the other ComboBox
+                DialogResult result = MessageBox.Show("This student is already selected in another seat. Clear the other seat and select this student?", "Duplicate Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Clear the selection of the other ComboBox
+                    foreach (ComboBox comboBox in comboBoxes)
+                    {
+                        if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                        {
+                            comboBox.SelectedItem = null;
+                        }
+                    }
+                }
+                else
+                {
+                    // Clear the selection of the current ComboBox
+                    currentComboBox.SelectedItem = null;
+                }
+            }
+        }
+
+        private void cbxStudentNames3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox currentComboBox = (ComboBox)sender;
+            ComboBox[] comboBoxes = new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 };
+
+
+            // Check if the current ComboBox already has the selected student
+            bool alreadySelected = false;
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                {
+                    alreadySelected = true;
+                    break;
+                }
+            }
+
+            if (alreadySelected)
+            {
+                // Ask the user if they want to clear the selection of the other ComboBox
+                DialogResult result = MessageBox.Show("This student is already selected in another seat. Clear the other seat and select this student?", "Duplicate Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Clear the selection of the other ComboBox
+                    foreach (ComboBox comboBox in comboBoxes)
+                    {
+                        if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                        {
+                            comboBox.SelectedItem = null;
+                        }
+                    }
+                }
+                else
+                {
+                    // Clear the selection of the current ComboBox
+                    currentComboBox.SelectedItem = null;
+                }
+            }
+        }
+
+        private void cbxStudentNames5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox currentComboBox = (ComboBox)sender;
+            ComboBox[] comboBoxes = new ComboBox[] { cbxStudentNames, cbxStudentNames2, cbxStudentNames3, cbxStudentNames4, cbxStudentNames5 };
+
+
+            // Check if the current ComboBox already has the selected student
+            bool alreadySelected = false;
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                {
+                    alreadySelected = true;
+                    break;
+                }
+            }
+
+            if (alreadySelected)
+            {
+                // Ask the user if they want to clear the selection of the other ComboBox
+                DialogResult result = MessageBox.Show("This student is already selected in another seat. Clear the other seat and select this student?", "Duplicate Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Clear the selection of the other ComboBox
+                    foreach (ComboBox comboBox in comboBoxes)
+                    {
+                        if (comboBox != currentComboBox && comboBox.SelectedItem != null && comboBox.SelectedItem.Equals(currentComboBox.SelectedItem))
+                        {
+                            comboBox.SelectedItem = null;
+                        }
+                    }
+                }
+                else
+                {
+                    // Clear the selection of the current ComboBox
+                    currentComboBox.SelectedItem = null;
+                }
+            }
+        }
     }
 }

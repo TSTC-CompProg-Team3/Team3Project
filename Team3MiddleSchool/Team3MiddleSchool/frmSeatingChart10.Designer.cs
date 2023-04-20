@@ -33,7 +33,6 @@
             this.btnRan = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.lstStudentsAvailable = new System.Windows.Forms.ListBox();
-            this.cbxStudentNames5 = new System.Windows.Forms.ComboBox();
             this.cbxStudentNames4 = new System.Windows.Forms.ComboBox();
             this.cbxStudentNames3 = new System.Windows.Forms.ComboBox();
             this.cbxStudentNames2 = new System.Windows.Forms.ComboBox();
@@ -44,6 +43,7 @@
             this.cbxStudentNames9 = new System.Windows.Forms.ComboBox();
             this.cbxStudentNames10 = new System.Windows.Forms.ComboBox();
             this.pbxDesk10 = new System.Windows.Forms.PictureBox();
+            this.cbxStudentNames5 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDesk10)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,14 +89,6 @@
             this.lstStudentsAvailable.Size = new System.Drawing.Size(186, 379);
             this.lstStudentsAvailable.TabIndex = 20;
             // 
-            // cbxStudentNames5
-            // 
-            this.cbxStudentNames5.FormattingEnabled = true;
-            this.cbxStudentNames5.Location = new System.Drawing.Point(612, 297);
-            this.cbxStudentNames5.Name = "cbxStudentNames5";
-            this.cbxStudentNames5.Size = new System.Drawing.Size(86, 23);
-            this.cbxStudentNames5.TabIndex = 32;
-            // 
             // cbxStudentNames4
             // 
             this.cbxStudentNames4.FormattingEnabled = true;
@@ -104,6 +96,7 @@
             this.cbxStudentNames4.Name = "cbxStudentNames4";
             this.cbxStudentNames4.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames4.TabIndex = 31;
+            this.cbxStudentNames4.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames4_SelectedIndexChanged);
             // 
             // cbxStudentNames3
             // 
@@ -112,6 +105,7 @@
             this.cbxStudentNames3.Name = "cbxStudentNames3";
             this.cbxStudentNames3.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames3.TabIndex = 30;
+            this.cbxStudentNames3.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames3_SelectedIndexChanged);
             // 
             // cbxStudentNames2
             // 
@@ -120,6 +114,7 @@
             this.cbxStudentNames2.Name = "cbxStudentNames2";
             this.cbxStudentNames2.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames2.TabIndex = 29;
+            this.cbxStudentNames2.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames2_SelectedIndexChanged);
             // 
             // cbxStudentNames
             // 
@@ -128,6 +123,7 @@
             this.cbxStudentNames.Name = "cbxStudentNames";
             this.cbxStudentNames.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames.TabIndex = 28;
+            this.cbxStudentNames.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames_SelectedIndexChanged);
             // 
             // cbxStudentNames6
             // 
@@ -136,6 +132,7 @@
             this.cbxStudentNames6.Name = "cbxStudentNames6";
             this.cbxStudentNames6.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames6.TabIndex = 34;
+            this.cbxStudentNames6.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames6_SelectedIndexChanged);
             // 
             // cbxStudentNames7
             // 
@@ -144,6 +141,7 @@
             this.cbxStudentNames7.Name = "cbxStudentNames7";
             this.cbxStudentNames7.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames7.TabIndex = 35;
+            this.cbxStudentNames7.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames7_SelectedIndexChanged);
             // 
             // cbxStudentNames8
             // 
@@ -152,6 +150,7 @@
             this.cbxStudentNames8.Name = "cbxStudentNames8";
             this.cbxStudentNames8.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames8.TabIndex = 36;
+            this.cbxStudentNames8.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames8_SelectedIndexChanged);
             // 
             // cbxStudentNames9
             // 
@@ -160,6 +159,7 @@
             this.cbxStudentNames9.Name = "cbxStudentNames9";
             this.cbxStudentNames9.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames9.TabIndex = 37;
+            this.cbxStudentNames9.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames9_SelectedIndexChanged);
             // 
             // cbxStudentNames10
             // 
@@ -168,6 +168,7 @@
             this.cbxStudentNames10.Name = "cbxStudentNames10";
             this.cbxStudentNames10.Size = new System.Drawing.Size(86, 23);
             this.cbxStudentNames10.TabIndex = 38;
+            this.cbxStudentNames10.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames10_SelectedIndexChanged);
             // 
             // pbxDesk10
             // 
@@ -178,6 +179,15 @@
             this.pbxDesk10.Size = new System.Drawing.Size(700, 500);
             this.pbxDesk10.TabIndex = 39;
             this.pbxDesk10.TabStop = false;
+            // 
+            // cbxStudentNames5
+            // 
+            this.cbxStudentNames5.FormattingEnabled = true;
+            this.cbxStudentNames5.Location = new System.Drawing.Point(612, 297);
+            this.cbxStudentNames5.Name = "cbxStudentNames5";
+            this.cbxStudentNames5.Size = new System.Drawing.Size(86, 23);
+            this.cbxStudentNames5.TabIndex = 32;
+            this.cbxStudentNames5.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames5_SelectedIndexChanged);
             // 
             // frmSeatingChart10
             // 
@@ -221,7 +231,6 @@
         private System.Windows.Forms.Button btnRan;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ListBox lstStudentsAvailable;
-        private System.Windows.Forms.ComboBox cbxStudentNames5;
         private System.Windows.Forms.ComboBox cbxStudentNames4;
         private System.Windows.Forms.ComboBox cbxStudentNames3;
         private System.Windows.Forms.ComboBox cbxStudentNames2;
@@ -232,5 +241,6 @@
         private System.Windows.Forms.ComboBox cbxStudentNames9;
         private System.Windows.Forms.ComboBox cbxStudentNames10;
         private System.Windows.Forms.PictureBox pbxDesk10;
+        private System.Windows.Forms.ComboBox cbxStudentNames5;
     }
 }
