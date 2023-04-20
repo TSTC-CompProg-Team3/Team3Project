@@ -28,14 +28,6 @@ namespace Team3MiddleSchool
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //limit to 100 still needs work
-            //if (decimal.TryParse(tbxGrade.Text, out decimal gradeValue))
-            //{
-            //    if (gradeValue > 100)
-            //    {
-            //        MessageBox.Show("Grade must be less than or equal to 100", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
 
             DialogResult confrimation = MessageBox.Show("Would You like to Add Another Grade?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (confrimation == DialogResult.Yes)
@@ -55,7 +47,10 @@ namespace Team3MiddleSchool
 
                 MessageBox.Show("Grade Added");
                 database.GradeBookDataGrid(gradebook.grade, studentID.ToString(), classID);
+
+
                 database.getHomework(studentID, gradebook.lblHomework, classID);
+                database.getFinal(studentID,gradebook.lblFinal,classID);
                 database.getQuiz(studentID, gradebook.lblQuiz, classID);
                 database.getTest(studentID, gradebook.lblTest, classID);
                 database.getLab(studentID, gradebook.lblLab, classID);
@@ -71,6 +66,7 @@ namespace Team3MiddleSchool
 
 
                 database.getHomeworkCount(studentID, classID);
+                database.getFinalCount(studentID, classID);
                 database.getQuizCount(studentID, classID);
                 database.getTestCount(studentID, classID);
                 database.getLabCount(studentID, classID);
