@@ -33,6 +33,7 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.tbxSubjectName = new System.Windows.Forms.TextBox();
             this.lblSubjectName = new System.Windows.Forms.Label();
+            this.lblSubjectWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -86,12 +87,25 @@
             this.lblSubjectName.TabIndex = 27;
             this.lblSubjectName.Text = "Subject Name";
             // 
+            // lblSubjectWarning
+            // 
+            this.lblSubjectWarning.AutoSize = true;
+            this.lblSubjectWarning.BackColor = System.Drawing.Color.Red;
+            this.lblSubjectWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblSubjectWarning.Location = new System.Drawing.Point(225, 64);
+            this.lblSubjectWarning.Name = "lblSubjectWarning";
+            this.lblSubjectWarning.Size = new System.Drawing.Size(130, 15);
+            this.lblSubjectWarning.TabIndex = 34;
+            this.lblSubjectWarning.Text = "Must Be A New Subject";
+            this.lblSubjectWarning.Visible = false;
+            // 
             // frmAddSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 165);
             this.ControlBox = false;
+            this.Controls.Add(this.lblSubjectWarning);
             this.Controls.Add(this.tbxSubjectName);
             this.Controls.Add(this.lblSubjectName);
             this.Controls.Add(this.btnBack);
@@ -115,5 +129,6 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox tbxSubjectName;
         private System.Windows.Forms.Label lblSubjectName;
+        private System.Windows.Forms.Label lblSubjectWarning;
     }
 }

@@ -329,7 +329,7 @@ namespace Team3MiddleSchool
         {
             database.OpenDatabase();
 
-            database.LoadEditCourse(courseName, tbxClassID, cbxTeacherID, cbxSubjectID);
+            database.LoadEditCourse(courseName, tbxClassID, cbxTeacherID, cbxSubjectID, cbxClassSize);
 
             database.CloseDatabase();
         }
@@ -429,7 +429,7 @@ namespace Team3MiddleSchool
             database.CloseDatabase();
         }
 
-        internal static void AddStudent(TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName, DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity, TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName, TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, TextBox tbxGuardianWorkPl)
+        internal static void AddStudent(TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName, DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity, String state, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName, TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, TextBox tbxGuardianWorkPl)
         {
             database.OpenDatabase();
 
@@ -441,7 +441,6 @@ namespace Team3MiddleSchool
             string mailingAddress = tbxMailingAddress.Text;
             string streetAddress = tbxStreetAddress.Text;
             string city = tbxCity.Text;
-            string state = tbxState.Text;
             string zip = tbxZip.Text;
             string email = tbxEmail.Text;
             string username = tbxUsername.Text;
@@ -493,14 +492,14 @@ namespace Team3MiddleSchool
 
         internal static void LoadEditStudent(string studentID, TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName,
             DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity,
-            TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
+            ComboBox cbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
             TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, 
             TextBox tbxGuardianWorkPl)
         {
             database.OpenDatabase();
 
             database.LoadEditStudent(studentID,tbxFirstName,tbxMiddleName,tbxLastName,dtpDateOfBirth,tbxPhoneNumber,tbxMailingAddress,
-                tbxStreetAddress,tbxCity,tbxState,tbxZip,tbxEmail,tbxUsername,tbxPassword,tbxEmerContactName,tbxEmerContactPhone,
+                tbxStreetAddress,tbxCity,cbxState,tbxZip,tbxEmail,tbxUsername,tbxPassword,tbxEmerContactName,tbxEmerContactPhone,
                 tbxGuardianName,tbxGuardianCell,tbxGuardianWork,tbxGuardianWorkPl);
 
             database.CloseDatabase();
@@ -537,7 +536,7 @@ namespace Team3MiddleSchool
 
         internal static void EditStudent(string studentID, TextBox tbxFirstName, TextBox tbxMiddleName, TextBox tbxLastName, 
             DateTimePicker dtpDateOfBirth, TextBox tbxPhoneNumber, TextBox tbxMailingAddress, TextBox tbxStreetAddress, TextBox tbxCity, 
-            TextBox tbxState, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
+            ComboBox state, TextBox tbxZip, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxEmerContactName,
             TextBox tbxEmerContactPhone, TextBox tbxGuardianName, TextBox tbxGuardianCell, TextBox tbxGuardianWork, 
             TextBox tbxGuardianWorkPl)
         {
@@ -551,7 +550,6 @@ namespace Team3MiddleSchool
             string mailingAddress = tbxMailingAddress.Text;
             string streetAddress = tbxStreetAddress.Text;
             string city = tbxCity.Text;
-            string state = tbxState.Text;
             string zip = tbxZip.Text;
             string email = tbxEmail.Text;
             string username = tbxUsername.Text;
@@ -564,7 +562,7 @@ namespace Team3MiddleSchool
             string guardianWorkPl = tbxGuardianWorkPl.Text;
 
 
-            database.EditStudent(studentID, firstName, middleName, lastName, dateValue, phoneNumber, mailingAddress, streetAddress, city, state,
+            database.EditStudent(studentID, firstName, middleName, lastName, dateValue, phoneNumber, mailingAddress, streetAddress, city, state.Text,
                 zip, email, username, password, emerContactName, emerContactPhone, guardianName, guardianCell, guardianWorkPhone, guardianWorkPl);
 
             database.CloseDatabase();
@@ -574,7 +572,9 @@ namespace Team3MiddleSchool
 
         internal static void PopulateClassesLbx(ListBox lbxStudents)
         {
-            database.PopulateStudentListBox(lbxStudents, topCount);
+            database.OpenDatabase();
+            database.LoadStudentsLbx(lbxStudents);
+            database.CloseDatabase();
         }
 
         internal static void PopulateAvailableClasses(ComboBox cbxClass1, ComboBox cbxClass2, ComboBox cbxClass3, ComboBox cbxClass4, ComboBox cbxClass5, ComboBox cbxClass6)

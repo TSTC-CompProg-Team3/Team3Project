@@ -39,6 +39,7 @@
             this.cbxClassSize = new System.Windows.Forms.ComboBox();
             this.cbxSubjectID = new System.Windows.Forms.ComboBox();
             this.cbxTeacherID = new System.Windows.Forms.ComboBox();
+            this.lblClassNameWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -47,7 +48,7 @@
             this.btnBack.Location = new System.Drawing.Point(381, 441);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
-            this.btnBack.TabIndex = 26;
+            this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -58,7 +59,7 @@
             this.btnClear.Location = new System.Drawing.Point(49, 441);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(117, 40);
-            this.btnClear.TabIndex = 25;
+            this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -69,7 +70,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(216, 441);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(117, 40);
-            this.btnSubmit.TabIndex = 24;
+            this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -79,7 +80,7 @@
             this.tbxClassName.Location = new System.Drawing.Point(261, 90);
             this.tbxClassName.Name = "tbxClassName";
             this.tbxClassName.Size = new System.Drawing.Size(157, 23);
-            this.tbxClassName.TabIndex = 20;
+            this.tbxClassName.TabIndex = 0;
             this.tbxClassName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxClassName_KeyPress);
             // 
             // lblClassSize
@@ -132,7 +133,7 @@
             this.cbxClassSize.Location = new System.Drawing.Point(261, 317);
             this.cbxClassSize.Name = "cbxClassSize";
             this.cbxClassSize.Size = new System.Drawing.Size(157, 23);
-            this.cbxClassSize.TabIndex = 23;
+            this.cbxClassSize.TabIndex = 3;
             // 
             // cbxSubjectID
             // 
@@ -140,7 +141,7 @@
             this.cbxSubjectID.Location = new System.Drawing.Point(261, 243);
             this.cbxSubjectID.Name = "cbxSubjectID";
             this.cbxSubjectID.Size = new System.Drawing.Size(157, 23);
-            this.cbxSubjectID.TabIndex = 22;
+            this.cbxSubjectID.TabIndex = 2;
             // 
             // cbxTeacherID
             // 
@@ -148,7 +149,19 @@
             this.cbxTeacherID.Location = new System.Drawing.Point(261, 164);
             this.cbxTeacherID.Name = "cbxTeacherID";
             this.cbxTeacherID.Size = new System.Drawing.Size(157, 23);
-            this.cbxTeacherID.TabIndex = 21;
+            this.cbxTeacherID.TabIndex = 1;
+            // 
+            // lblClassNameWarning
+            // 
+            this.lblClassNameWarning.AutoSize = true;
+            this.lblClassNameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblClassNameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblClassNameWarning.Location = new System.Drawing.Point(261, 116);
+            this.lblClassNameWarning.Name = "lblClassNameWarning";
+            this.lblClassNameWarning.Size = new System.Drawing.Size(157, 15);
+            this.lblClassNameWarning.TabIndex = 27;
+            this.lblClassNameWarning.Text = "Must Enter Valid Class Name";
+            this.lblClassNameWarning.Visible = false;
             // 
             // frmEditCourse
             // 
@@ -157,6 +170,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.lblClassNameWarning);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
@@ -192,5 +206,6 @@
         private System.Windows.Forms.ComboBox cbxClassSize;
         private System.Windows.Forms.ComboBox cbxSubjectID;
         private System.Windows.Forms.ComboBox cbxTeacherID;
+        private System.Windows.Forms.Label lblClassNameWarning;
     }
 }
