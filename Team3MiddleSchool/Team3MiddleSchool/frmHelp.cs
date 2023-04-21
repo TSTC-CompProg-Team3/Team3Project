@@ -20,7 +20,7 @@ namespace Team3MiddleSchool
 
         private void frmHelp_Load(object sender, EventArgs e)
         {
-            wbHelp.Url = new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "index.html"));
+            wbHelp.Url = new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "login.html"));
         }
 
         private void btnClose_Click(object sender, EventArgs e)
