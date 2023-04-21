@@ -32,7 +32,10 @@ namespace Team3MiddleSchool
         {
             DatabaseConnection.EditGradeBook(gradebook.grade, studentID, classID, tbxAssignName, tbxAssignType, tbxGrade);
             database.GradeBookDataGrid(gradebook.grade, studentID.ToString(), classID);
+
+
             database.getHomework(studentID, gradebook.lblHomework, classID);
+            database.getFinal(studentID, gradebook.lblFinal, classID);
             database.getQuiz(studentID, gradebook.lblQuiz, classID);
             database.getTest(studentID, gradebook.lblTest, classID);
             database.getLab(studentID, gradebook.lblLab, classID);
@@ -48,6 +51,7 @@ namespace Team3MiddleSchool
 
 
             database.getHomeworkCount(studentID, classID);
+            database.getFinalCount(studentID, classID);
             database.getQuizCount(studentID, classID);
             database.getTestCount(studentID, classID);
             database.getLabCount(studentID, classID);
