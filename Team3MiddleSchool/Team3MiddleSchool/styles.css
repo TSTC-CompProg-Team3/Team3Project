@@ -58,8 +58,9 @@ dl {
 }
 
 h2 {
-  padding-left: 30px;
-  text-align: left;
+    padding-left: 30px;
+    text-align: left;
+    text-decoration: underline;
 }
 
 h1 {
@@ -67,4 +68,8 @@ h1 {
   font-size: 60px;
   font-weight: bold;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+dt {
+    font-weight: bold;
 }
