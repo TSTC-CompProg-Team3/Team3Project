@@ -1774,7 +1774,7 @@ namespace Team3MiddleSchool
 
             string updateQuery = "";
 
-            for (int i = 0; i < dgv.Rows.Count - 1; i++)
+            for (int i = 0; i <= dgv.Rows.Count - 1; i++)
             {
                 studentID.Add(dgv.Rows[i].Cells[1].Value.ToString());
                 string convertPresent = dgv.Rows[i].Cells[4].Value.ToString().ToLower();
