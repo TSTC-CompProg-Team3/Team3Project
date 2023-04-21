@@ -1,0 +1,59 @@
+body {
+  background-color: #f15025;
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+.navigation {
+  padding: 50px;
+  height: 100vw;
+  width: 20vw;
+  background-color: #cfd0ce;
+}
+
+.banner {
+  width: 100vw;
+  height: 30vh;
+  background-color: #cfd0ce;
+}
+
+.banner img {
+  height: 100%;
+}
+
+.btn {
+  display: flex;
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: line-through;
+}
+
+.btn:visited {
+  color: black;
+}
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content {
+  display: flex;
+}
+
+.content-text {
+  width: 80%;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: left;
+  padding: 30px;
+}
