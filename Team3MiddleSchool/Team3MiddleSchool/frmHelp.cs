@@ -13,14 +13,15 @@ namespace Team3MiddleSchool
 {
     public partial class frmHelp : Form
     {
-        public frmHelp()
+        public frmHelp(string url)
         {
             InitializeComponent();
+            wbHelp.Url = new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, url));
         }
 
         private void frmHelp_Load(object sender, EventArgs e)
         {
-            wbHelp.Url = new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "login.html"));
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)

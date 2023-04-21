@@ -191,5 +191,16 @@ namespace Team3MiddleSchool
             frmAssignClasses assignClasses = new frmAssignClasses();
             assignClasses.ShowDialog();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHelp help = new frmHelp("menu.html");
+            help.ShowDialog();
+        }
     }
 }
