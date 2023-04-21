@@ -41,7 +41,6 @@ namespace Team3MiddleSchool
 
         private void frmAttendance_Load(object sender, EventArgs e)
         {
-            
             DateTime day = DateTime.Now;
 
             if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer") || accountType.Equals("Parent"))
@@ -55,16 +54,19 @@ namespace Team3MiddleSchool
             }
             binding.DataSource = database.AttendanceInfo(accountType, classSelect, loginID);
             classID = database.GetClassID(classSelect);
-            if ((accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer")) && (day.DayOfWeek != DayOfWeek.Sunday || day.DayOfWeek != DayOfWeek.Saturday))
+            if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
             {
                 isStudent = false;
                 btnEditAttend.Enabled = true;
+                btnSubmitAttend.Enabled = true;
                 btnEditAttend.BackColor = ColorTranslator.FromHtml("#F15025");
                 btnEditAttend.ForeColor = ColorTranslator.FromHtml("#191919");
                 btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
                 btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
+                btnSubmitAttend.BackColor = ColorTranslator.FromHtml("#F15025");
+                btnSubmitAttend.ForeColor = ColorTranslator.FromHtml("#191919");
 
-                if (binding.Count < 1)
+                if (binding.Count < 1 && (day.DayOfWeek != DayOfWeek.Sunday && day.DayOfWeek != DayOfWeek.Saturday))
                 {
                     DialogResult result = MessageBox.Show("No data exists for " + classSelect + " on " + DateTime.Now.ToString("dddd, MMMM dd yyyy") + "\n\nWould you like to enter today's attendance?", "Attendance", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button3);
 
@@ -90,6 +92,7 @@ namespace Team3MiddleSchool
             {
                 isStudent = true;
                 btnEditAttend.Enabled = false;
+                btnSubmitAttend.Enabled = false;
                 btnEditAttend.BackColor = Color.LightGray;
                 btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
                 btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
@@ -128,14 +131,14 @@ namespace Team3MiddleSchool
         }
 
         private void btnBackAttend_Click(object sender, EventArgs e)
-        {
+        { 
             database.CloseDatabase();
             this.Close();
         }
 
         private void btnEditAttend_Click(object sender, EventArgs e)
         {
-            frmAttendanceEdit edit = new frmAttendanceEdit(loginID, studentID, classID, accountType, classSelect, isStudent);
+            frmAttendanceEdit edit = new frmAttendanceEdit(loginID, studentID, classID, accountType, classSelect, dateSelection, isStudent);
             edit.ShowDialog();
         }
 
@@ -169,6 +172,30 @@ namespace Team3MiddleSchool
             }
 
             binding.DataSource = database.AttendanceInfo(newQuery);
+        }
+
+        private void btnSubmitAttend_Click(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Parse(dateSelection);
+
+            if (date.ToString("yyyy-MM-dd") != DateTime.Now.ToString("yyyy-MM-dd"))
+            {  
+                MessageBox.Show("Only updates for the current day can be made from this window.\n\nPlease use the 'Edit' window to make changes to specific dates.", "Records Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                database.UpdateAttendance(dgvAttendance, dateSelection);
+
+                MessageBox.Show("Today's attendance has been updated.", "Attendance Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                NewQuery(dateSelection, accountType);
+                dtpAttendance.Value = date;
+            }
+        }
+
+        private void frmAttendance_Activated(object sender, EventArgs e)
+        {
+            NewQuery(dateSelection, accountType);
         }
     }
 }
