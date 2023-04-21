@@ -45,6 +45,11 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.tbxLastName = new System.Windows.Forms.TextBox();
+            this.lblNameWarning = new System.Windows.Forms.Label();
+            this.lblPasswordWarning = new System.Windows.Forms.Label();
+            this.lblUsernameWarning = new System.Windows.Forms.Label();
+            this.lblEmailWarning = new System.Windows.Forms.Label();
+            this.lblAssignStudentWarning = new System.Windows.Forms.Label();
             this.gbxLogin.SuspendLayout();
             this.gbxStudentContact.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +57,7 @@
             // cbxStudentSelect
             // 
             this.cbxStudentSelect.FormattingEnabled = true;
-            this.cbxStudentSelect.Location = new System.Drawing.Point(192, 288);
+            this.cbxStudentSelect.Location = new System.Drawing.Point(192, 296);
             this.cbxStudentSelect.Name = "cbxStudentSelect";
             this.cbxStudentSelect.Size = new System.Drawing.Size(157, 23);
             this.cbxStudentSelect.TabIndex = 32;
@@ -61,7 +66,7 @@
             // 
             this.lblAssignStudent.AutoSize = true;
             this.lblAssignStudent.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssignStudent.Location = new System.Drawing.Point(19, 288);
+            this.lblAssignStudent.Location = new System.Drawing.Point(19, 296);
             this.lblAssignStudent.Name = "lblAssignStudent";
             this.lblAssignStudent.Size = new System.Drawing.Size(146, 25);
             this.lblAssignStudent.TabIndex = 31;
@@ -102,7 +107,10 @@
             // 
             // gbxLogin
             // 
+            this.gbxLogin.Controls.Add(this.lblEmailWarning);
             this.gbxLogin.Controls.Add(this.tbxEmail);
+            this.gbxLogin.Controls.Add(this.lblUsernameWarning);
+            this.gbxLogin.Controls.Add(this.lblPasswordWarning);
             this.gbxLogin.Controls.Add(this.tbxPassword);
             this.gbxLogin.Controls.Add(this.lblEmail);
             this.gbxLogin.Controls.Add(this.lblPassword);
@@ -110,7 +118,7 @@
             this.gbxLogin.Controls.Add(this.tbxUsername);
             this.gbxLogin.Location = new System.Drawing.Point(12, 126);
             this.gbxLogin.Name = "gbxLogin";
-            this.gbxLogin.Size = new System.Drawing.Size(354, 141);
+            this.gbxLogin.Size = new System.Drawing.Size(354, 164);
             this.gbxLogin.TabIndex = 30;
             this.gbxLogin.TabStop = false;
             this.gbxLogin.Text = "Login Information";
@@ -124,7 +132,7 @@
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(180, 104);
+            this.tbxPassword.Location = new System.Drawing.Point(180, 116);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(157, 23);
             this.tbxPassword.TabIndex = 2;
@@ -143,7 +151,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(7, 102);
+            this.lblPassword.Location = new System.Drawing.Point(7, 114);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(97, 25);
             this.lblPassword.TabIndex = 23;
@@ -153,7 +161,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(7, 61);
+            this.lblUsername.Location = new System.Drawing.Point(7, 67);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(101, 25);
             this.lblUsername.TabIndex = 21;
@@ -161,13 +169,14 @@
             // 
             // tbxUsername
             // 
-            this.tbxUsername.Location = new System.Drawing.Point(180, 61);
+            this.tbxUsername.Location = new System.Drawing.Point(180, 67);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(157, 23);
             this.tbxUsername.TabIndex = 1;
             // 
             // gbxStudentContact
             // 
+            this.gbxStudentContact.Controls.Add(this.lblNameWarning);
             this.gbxStudentContact.Controls.Add(this.tbxFirstName);
             this.gbxStudentContact.Controls.Add(this.lblFirstName);
             this.gbxStudentContact.Controls.Add(this.lblLastName);
@@ -200,7 +209,7 @@
             // 
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(12, 56);
+            this.lblLastName.Location = new System.Drawing.Point(12, 48);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(104, 25);
             this.lblLastName.TabIndex = 29;
@@ -208,10 +217,70 @@
             // 
             // tbxLastName
             // 
-            this.tbxLastName.Location = new System.Drawing.Point(185, 58);
+            this.tbxLastName.Location = new System.Drawing.Point(185, 50);
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(157, 23);
             this.tbxLastName.TabIndex = 2;
+            // 
+            // lblNameWarning
+            // 
+            this.lblNameWarning.AutoSize = true;
+            this.lblNameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblNameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblNameWarning.Location = new System.Drawing.Point(197, 76);
+            this.lblNameWarning.Name = "lblNameWarning";
+            this.lblNameWarning.Size = new System.Drawing.Size(127, 15);
+            this.lblNameWarning.TabIndex = 38;
+            this.lblNameWarning.Text = "Must Enter Valid Name";
+            this.lblNameWarning.Visible = false;
+            // 
+            // lblPasswordWarning
+            // 
+            this.lblPasswordWarning.AutoSize = true;
+            this.lblPasswordWarning.BackColor = System.Drawing.Color.Red;
+            this.lblPasswordWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblPasswordWarning.Location = new System.Drawing.Point(197, 142);
+            this.lblPasswordWarning.Name = "lblPasswordWarning";
+            this.lblPasswordWarning.Size = new System.Drawing.Size(145, 15);
+            this.lblPasswordWarning.TabIndex = 41;
+            this.lblPasswordWarning.Text = "Must Enter Valid Password";
+            this.lblPasswordWarning.Visible = false;
+            // 
+            // lblUsernameWarning
+            // 
+            this.lblUsernameWarning.AutoSize = true;
+            this.lblUsernameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblUsernameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblUsernameWarning.Location = new System.Drawing.Point(197, 93);
+            this.lblUsernameWarning.Name = "lblUsernameWarning";
+            this.lblUsernameWarning.Size = new System.Drawing.Size(148, 15);
+            this.lblUsernameWarning.TabIndex = 40;
+            this.lblUsernameWarning.Text = "Must Enter Valid Username";
+            this.lblUsernameWarning.Visible = false;
+            // 
+            // lblEmailWarning
+            // 
+            this.lblEmailWarning.AutoSize = true;
+            this.lblEmailWarning.BackColor = System.Drawing.Color.Red;
+            this.lblEmailWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblEmailWarning.Location = new System.Drawing.Point(197, 48);
+            this.lblEmailWarning.Name = "lblEmailWarning";
+            this.lblEmailWarning.Size = new System.Drawing.Size(124, 15);
+            this.lblEmailWarning.TabIndex = 39;
+            this.lblEmailWarning.Text = "Must Enter Valid Email";
+            this.lblEmailWarning.Visible = false;
+            // 
+            // lblAssignStudentWarning
+            // 
+            this.lblAssignStudentWarning.AutoSize = true;
+            this.lblAssignStudentWarning.BackColor = System.Drawing.Color.Red;
+            this.lblAssignStudentWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblAssignStudentWarning.Location = new System.Drawing.Point(213, 322);
+            this.lblAssignStudentWarning.Name = "lblAssignStudentWarning";
+            this.lblAssignStudentWarning.Size = new System.Drawing.Size(116, 15);
+            this.lblAssignStudentWarning.TabIndex = 42;
+            this.lblAssignStudentWarning.Text = "Must Assign Student";
+            this.lblAssignStudentWarning.Visible = false;
             // 
             // frmEditParent
             // 
@@ -219,6 +288,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 392);
             this.ControlBox = false;
+            this.Controls.Add(this.lblAssignStudentWarning);
             this.Controls.Add(this.cbxStudentSelect);
             this.Controls.Add(this.lblAssignStudent);
             this.Controls.Add(this.btnBack);
@@ -260,5 +330,10 @@
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.TextBox tbxLastName;
+        private System.Windows.Forms.Label lblEmailWarning;
+        private System.Windows.Forms.Label lblUsernameWarning;
+        private System.Windows.Forms.Label lblPasswordWarning;
+        private System.Windows.Forms.Label lblNameWarning;
+        private System.Windows.Forms.Label lblAssignStudentWarning;
     }
 }
