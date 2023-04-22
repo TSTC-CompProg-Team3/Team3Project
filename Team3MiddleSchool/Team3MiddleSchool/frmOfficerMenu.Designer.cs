@@ -50,13 +50,20 @@
             this.btnEditParent = new System.Windows.Forms.Button();
             this.cbxParentSelect = new System.Windows.Forms.ComboBox();
             this.btnAddParent = new System.Windows.Forms.Button();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbxOfficerMenu)).BeginInit();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnEditSubject
             // 
             this.btnEditSubject.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditSubject.Location = new System.Drawing.Point(161, 313);
+            this.btnEditSubject.Location = new System.Drawing.Point(161, 329);
             this.btnEditSubject.Name = "btnEditSubject";
             this.btnEditSubject.Size = new System.Drawing.Size(117, 40);
             this.btnEditSubject.TabIndex = 30;
@@ -67,7 +74,7 @@
             // btnRemoveSubject
             // 
             this.btnRemoveSubject.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveSubject.Location = new System.Drawing.Point(513, 313);
+            this.btnRemoveSubject.Location = new System.Drawing.Point(513, 329);
             this.btnRemoveSubject.Name = "btnRemoveSubject";
             this.btnRemoveSubject.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveSubject.TabIndex = 31;
@@ -79,7 +86,7 @@
             // cbxSubjectSelect
             // 
             this.cbxSubjectSelect.FormattingEnabled = true;
-            this.cbxSubjectSelect.Location = new System.Drawing.Point(294, 324);
+            this.cbxSubjectSelect.Location = new System.Drawing.Point(294, 340);
             this.cbxSubjectSelect.Name = "cbxSubjectSelect";
             this.cbxSubjectSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxSubjectSelect.TabIndex = 32;
@@ -88,7 +95,7 @@
             // btnAddSubject
             // 
             this.btnAddSubject.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSubject.Location = new System.Drawing.Point(38, 313);
+            this.btnAddSubject.Location = new System.Drawing.Point(38, 329);
             this.btnAddSubject.Name = "btnAddSubject";
             this.btnAddSubject.Size = new System.Drawing.Size(117, 40);
             this.btnAddSubject.TabIndex = 29;
@@ -99,7 +106,7 @@
             // btnEditTeacher
             // 
             this.btnEditTeacher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditTeacher.Location = new System.Drawing.Point(161, 255);
+            this.btnEditTeacher.Location = new System.Drawing.Point(161, 271);
             this.btnEditTeacher.Name = "btnEditTeacher";
             this.btnEditTeacher.Size = new System.Drawing.Size(117, 40);
             this.btnEditTeacher.TabIndex = 22;
@@ -110,7 +117,7 @@
             // btnEditCourse
             // 
             this.btnEditCourse.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditCourse.Location = new System.Drawing.Point(161, 197);
+            this.btnEditCourse.Location = new System.Drawing.Point(161, 213);
             this.btnEditCourse.Name = "btnEditCourse";
             this.btnEditCourse.Size = new System.Drawing.Size(117, 40);
             this.btnEditCourse.TabIndex = 18;
@@ -121,7 +128,7 @@
             // btnEditStudent
             // 
             this.btnEditStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditStudent.Location = new System.Drawing.Point(161, 371);
+            this.btnEditStudent.Location = new System.Drawing.Point(161, 387);
             this.btnEditStudent.Name = "btnEditStudent";
             this.btnEditStudent.Size = new System.Drawing.Size(117, 40);
             this.btnEditStudent.TabIndex = 26;
@@ -132,7 +139,7 @@
             // btnRemoveStudent
             // 
             this.btnRemoveStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveStudent.Location = new System.Drawing.Point(513, 371);
+            this.btnRemoveStudent.Location = new System.Drawing.Point(513, 387);
             this.btnRemoveStudent.Name = "btnRemoveStudent";
             this.btnRemoveStudent.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveStudent.TabIndex = 27;
@@ -144,7 +151,7 @@
             // cbxStudentSelect
             // 
             this.cbxStudentSelect.FormattingEnabled = true;
-            this.cbxStudentSelect.Location = new System.Drawing.Point(294, 382);
+            this.cbxStudentSelect.Location = new System.Drawing.Point(294, 398);
             this.cbxStudentSelect.Name = "cbxStudentSelect";
             this.cbxStudentSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxStudentSelect.TabIndex = 28;
@@ -153,7 +160,7 @@
             // btnAddStudent
             // 
             this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddStudent.Location = new System.Drawing.Point(38, 371);
+            this.btnAddStudent.Location = new System.Drawing.Point(38, 387);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(117, 40);
             this.btnAddStudent.TabIndex = 25;
@@ -164,7 +171,7 @@
             // btnRemoveTeacher
             // 
             this.btnRemoveTeacher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveTeacher.Location = new System.Drawing.Point(513, 255);
+            this.btnRemoveTeacher.Location = new System.Drawing.Point(513, 271);
             this.btnRemoveTeacher.Name = "btnRemoveTeacher";
             this.btnRemoveTeacher.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveTeacher.TabIndex = 23;
@@ -176,7 +183,7 @@
             // cbxTeacherSelect
             // 
             this.cbxTeacherSelect.FormattingEnabled = true;
-            this.cbxTeacherSelect.Location = new System.Drawing.Point(294, 266);
+            this.cbxTeacherSelect.Location = new System.Drawing.Point(294, 282);
             this.cbxTeacherSelect.Name = "cbxTeacherSelect";
             this.cbxTeacherSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxTeacherSelect.TabIndex = 24;
@@ -196,7 +203,7 @@
             // btnAddTeacher
             // 
             this.btnAddTeacher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTeacher.Location = new System.Drawing.Point(38, 255);
+            this.btnAddTeacher.Location = new System.Drawing.Point(38, 271);
             this.btnAddTeacher.Name = "btnAddTeacher";
             this.btnAddTeacher.Size = new System.Drawing.Size(117, 40);
             this.btnAddTeacher.TabIndex = 21;
@@ -207,7 +214,7 @@
             // btnRemoveCourse
             // 
             this.btnRemoveCourse.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveCourse.Location = new System.Drawing.Point(513, 197);
+            this.btnRemoveCourse.Location = new System.Drawing.Point(513, 213);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
             this.btnRemoveCourse.Size = new System.Drawing.Size(117, 40);
             this.btnRemoveCourse.TabIndex = 19;
@@ -219,7 +226,7 @@
             // btnAddCourse
             // 
             this.btnAddCourse.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCourse.Location = new System.Drawing.Point(38, 197);
+            this.btnAddCourse.Location = new System.Drawing.Point(38, 213);
             this.btnAddCourse.Name = "btnAddCourse";
             this.btnAddCourse.Size = new System.Drawing.Size(117, 40);
             this.btnAddCourse.TabIndex = 17;
@@ -230,7 +237,7 @@
             // cbxCourseSelect
             // 
             this.cbxCourseSelect.FormattingEnabled = true;
-            this.cbxCourseSelect.Location = new System.Drawing.Point(294, 208);
+            this.cbxCourseSelect.Location = new System.Drawing.Point(294, 224);
             this.cbxCourseSelect.Name = "cbxCourseSelect";
             this.cbxCourseSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxCourseSelect.TabIndex = 20;
@@ -239,7 +246,7 @@
             // pbxOfficerMenu
             // 
             this.pbxOfficerMenu.Image = ((System.Drawing.Image)(resources.GetObject("pbxOfficerMenu.Image")));
-            this.pbxOfficerMenu.Location = new System.Drawing.Point(38, 12);
+            this.pbxOfficerMenu.Location = new System.Drawing.Point(38, 28);
             this.pbxOfficerMenu.Name = "pbxOfficerMenu";
             this.pbxOfficerMenu.Size = new System.Drawing.Size(582, 163);
             this.pbxOfficerMenu.TabIndex = 34;
@@ -248,7 +255,7 @@
             // btnEditParent
             // 
             this.btnEditParent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditParent.Location = new System.Drawing.Point(161, 429);
+            this.btnEditParent.Location = new System.Drawing.Point(161, 445);
             this.btnEditParent.Name = "btnEditParent";
             this.btnEditParent.Size = new System.Drawing.Size(117, 40);
             this.btnEditParent.TabIndex = 36;
@@ -259,7 +266,7 @@
             // cbxParentSelect
             // 
             this.cbxParentSelect.FormattingEnabled = true;
-            this.cbxParentSelect.Location = new System.Drawing.Point(294, 440);
+            this.cbxParentSelect.Location = new System.Drawing.Point(294, 456);
             this.cbxParentSelect.Name = "cbxParentSelect";
             this.cbxParentSelect.Size = new System.Drawing.Size(203, 23);
             this.cbxParentSelect.TabIndex = 38;
@@ -267,13 +274,61 @@
             // btnAddParent
             // 
             this.btnAddParent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddParent.Location = new System.Drawing.Point(38, 429);
+            this.btnAddParent.Location = new System.Drawing.Point(38, 445);
             this.btnAddParent.Name = "btnAddParent";
             this.btnAddParent.Size = new System.Drawing.Size(117, 40);
             this.btnAddParent.TabIndex = 35;
             this.btnAddParent.Text = "Add Parent";
             this.btnAddParent.UseVisualStyleBackColor = true;
             this.btnAddParent.Click += new System.EventHandler(this.btnAddParent_Click);
+            // 
+            // mnuStrip
+            // 
+            this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.helpToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(659, 24);
+            this.mnuStrip.TabIndex = 39;
+            this.mnuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManualToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // userManualToolStripMenuItem
+            // 
+            this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmOfficerMenu
             // 
@@ -283,6 +338,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.mnuStrip);
             this.Controls.Add(this.pbxOfficerMenu);
             this.Controls.Add(this.btnRemoveSubject);
             this.Controls.Add(this.btnRemoveStudent);
@@ -311,7 +367,10 @@
             this.Text = "Officer Menu";
             this.Load += new System.EventHandler(this.frmOfficerMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxOfficerMenu)).EndInit();
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -338,5 +397,11 @@
         private System.Windows.Forms.Button btnEditParent;
         private System.Windows.Forms.ComboBox cbxParentSelect;
         private System.Windows.Forms.Button btnAddParent;
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
     }
 }
