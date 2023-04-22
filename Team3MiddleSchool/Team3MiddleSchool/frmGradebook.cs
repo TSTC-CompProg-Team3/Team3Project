@@ -373,8 +373,7 @@ namespace Team3MiddleSchool
 
         private void btnMidterm_Click(object sender, EventArgs e)
         {
-            frmMidTermG midterm = new frmMidTermG();
-            midterm.ShowDialog();
+        
         }
     }
 }
