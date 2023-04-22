@@ -39,6 +39,7 @@
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.tbxConfirmPassword = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblEmailWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbxEmail
@@ -142,6 +143,18 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // lblEmailWarning
+            // 
+            this.lblEmailWarning.AutoSize = true;
+            this.lblEmailWarning.BackColor = System.Drawing.Color.Red;
+            this.lblEmailWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblEmailWarning.Location = new System.Drawing.Point(112, 150);
+            this.lblEmailWarning.Name = "lblEmailWarning";
+            this.lblEmailWarning.Size = new System.Drawing.Size(180, 15);
+            this.lblEmailWarning.TabIndex = 33;
+            this.lblEmailWarning.Text = "No user was found for that email";
+            this.lblEmailWarning.Visible = false;
+            // 
             // frmForgotPass
             // 
             this.AcceptButton = this.btnConfirm;
@@ -149,6 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.lblEmailWarning);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.tbxConfirmPassword);
@@ -184,5 +198,6 @@
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.TextBox tbxConfirmPassword;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblEmailWarning;
     }
 }

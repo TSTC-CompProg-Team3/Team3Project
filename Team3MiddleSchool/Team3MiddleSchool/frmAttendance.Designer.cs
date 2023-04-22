@@ -35,6 +35,7 @@
             this.btnEditAttend = new System.Windows.Forms.Button();
             this.btnBackAttend = new System.Windows.Forms.Button();
             this.dtpAttendance = new System.Windows.Forms.DateTimePicker();
+            this.btnSubmitAttend = new System.Windows.Forms.Button();
             this.pnlAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +89,7 @@
             // btnEditAttend
             // 
             this.btnEditAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAttend.Location = new System.Drawing.Point(200, 620);
+            this.btnEditAttend.Location = new System.Drawing.Point(160, 620);
             this.btnEditAttend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditAttend.Name = "btnEditAttend";
             this.btnEditAttend.Size = new System.Drawing.Size(112, 43);
@@ -100,7 +101,7 @@
             // btnBackAttend
             // 
             this.btnBackAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackAttend.Location = new System.Drawing.Point(40, 620);
+            this.btnBackAttend.Location = new System.Drawing.Point(20, 620);
             this.btnBackAttend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackAttend.Name = "btnBackAttend";
             this.btnBackAttend.Size = new System.Drawing.Size(112, 43);
@@ -111,11 +112,23 @@
             // 
             // dtpAttendance
             // 
-            this.dtpAttendance.Location = new System.Drawing.Point(400, 630);
+            this.dtpAttendance.Location = new System.Drawing.Point(428, 630);
             this.dtpAttendance.Name = "dtpAttendance";
             this.dtpAttendance.Size = new System.Drawing.Size(309, 26);
             this.dtpAttendance.TabIndex = 19;
             this.dtpAttendance.ValueChanged += new System.EventHandler(this.dtpAttendance_ValueChanged);
+            // 
+            // btnSubmitAttend
+            // 
+            this.btnSubmitAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitAttend.Location = new System.Drawing.Point(300, 620);
+            this.btnSubmitAttend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSubmitAttend.Name = "btnSubmitAttend";
+            this.btnSubmitAttend.Size = new System.Drawing.Size(112, 43);
+            this.btnSubmitAttend.TabIndex = 20;
+            this.btnSubmitAttend.Text = "Submit";
+            this.btnSubmitAttend.UseVisualStyleBackColor = true;
+            this.btnSubmitAttend.Click += new System.EventHandler(this.btnSubmitAttend_Click);
             // 
             // frmAttendance
             // 
@@ -124,6 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 691);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSubmitAttend);
             this.Controls.Add(this.dtpAttendance);
             this.Controls.Add(this.pnlAttendance);
             this.Controls.Add(this.btnEditAttend);
@@ -131,6 +145,7 @@
             this.Name = "frmAttendance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attendance";
+            this.Activated += new System.EventHandler(this.frmAttendance_Activated);
             this.Load += new System.EventHandler(this.frmAttendance_Load);
             this.pnlAttendance.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();
@@ -146,5 +161,6 @@
         private System.Windows.Forms.Label lblAttendTeacher;
         private System.Windows.Forms.Label lblAttendClass;
         private System.Windows.Forms.DateTimePicker dtpAttendance;
+        private System.Windows.Forms.Button btnSubmitAttend;
     }
 }

@@ -1420,37 +1420,40 @@ namespace Team3MiddleSchool
 
             try
             {
-                using (SqlCommand command = new SqlCommand($"SELECT TOP {topCount} FirstName, LastName FROM team3sp232330.Student", connection))
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
                     connection.Open();
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand($"SELECT TOP {topCount} FirstName, LastName FROM team3sp232330.Student", connection))
                     {
-                        while (reader.Read())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            string firstName = reader["FirstName"].ToString();
-                            string lastName = reader["LastName"].ToString();
-                            string fullName = $"{firstName} {lastName}";
-                            studentNames.Add(fullName);
-
-                            // Add the item to each ComboBox
-                            foreach (ComboBox comboBox in comboBoxes)
+                            while (reader.Read())
                             {
-                                comboBox.Items.Add(fullName);
+                                string firstName = reader["FirstName"].ToString();
+                                string lastName = reader["LastName"].ToString();
+                                string fullName = $"{firstName} {lastName}";
+                                studentNames.Add(fullName);
+
+                                // Add the item to each ComboBox
+                                foreach (ComboBox comboBox in comboBoxes)
+                                {
+                                    comboBox.Items.Add(fullName);
+                                }
                             }
                         }
                     }
-
-                    connection.Close();
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return studentNames;
         }
+
 
         public List<string> GetStudentNames6Through10(ComboBox[] comboBoxes)
         {
@@ -1619,32 +1622,33 @@ namespace Team3MiddleSchool
         {
             try
             {
-                connection.Open();
-
-                string query = $"SELECT TOP {topCount} * FROM team3sp232330.Student";
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.AppSettings["connectionString"]))
                 {
-                    // Create a string representation of the student's information
-                    string studentInfo = $"{reader["StudentID"]} - {reader["FirstName"]} {reader["MiddleName"]} {reader["LastName"]}";
+                    connection.Open();
 
-                    // Add the student's information to the ListBox
-                    lstStudentsAvailable.Items.Add(studentInfo);
+                    string query = $"SELECT TOP {topCount} * FROM team3sp232330.Student";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        // Create a string representation of the student's information
+                        string studentInfo = $"{reader["StudentID"]} - {reader["FirstName"]} {reader["MiddleName"]} {reader["LastName"]}";
+
+                        // Add the student's information to the ListBox
+                        lstStudentsAvailable.Items.Add(studentInfo);
+                    }
+
+                    reader.Close();
                 }
-
-                reader.Close();
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                connection.Close();
-            }
         }
+
 
         public void PopulateStudentListBox6Through10(ListBox lstStudentsAvailable)
         {
@@ -1804,7 +1808,39 @@ namespace Team3MiddleSchool
                 studentID = GetStudentID(loginID, accountType);
             }
 
+            if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
+            {
 
+                SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + " AND AttendanceDate = '" + date + "';", connection);
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = command;
+
+                adapter.Fill(table);
+            }
+            else if (accountType.Equals("student") || accountType.Equals("Parent"))
+            {
+                SqlCommand command = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.StudentID = " + studentID + " AND a.ClassID = " + classID + ";", connection);
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = command;
+
+                adapter.Fill(table);
+            }
+
+            return table;
+        }
+
+        public DataTable AttendanceInfo(string accountType, string classSelect, string date, int loginID)
+        {
+            int classID = GetClassID(classSelect);
+            int studentID = 0;
+            DataTable table = new DataTable();
+
+            if (accountType.Equals("Parent") || accountType.Equals("student"))
+            {
+                studentID = GetStudentID(loginID, accountType);
+            }
 
 
             if (accountType.Equals("Teacher") || accountType.Equals("Admin") || accountType.Equals("Officer"))
@@ -1949,7 +1985,7 @@ namespace Team3MiddleSchool
 
             string updateQuery = "";
 
-            for (int i = 0; i < dgv.Rows.Count - 1; i++)
+            for (int i = 0; i <= dgv.Rows.Count - 1; i++)
             {
                 studentID.Add(dgv.Rows[i].Cells[1].Value.ToString());
                 string convertPresent = dgv.Rows[i].Cells[4].Value.ToString().ToLower();

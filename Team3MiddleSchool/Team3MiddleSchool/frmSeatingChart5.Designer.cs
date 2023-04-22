@@ -91,6 +91,7 @@
             this.cbxStudentNames.Name = "cbxStudentNames";
             this.cbxStudentNames.Size = new System.Drawing.Size(81, 23);
             this.cbxStudentNames.TabIndex = 22;
+            this.cbxStudentNames.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames_SelectedIndexChanged);
             // 
             // cbxStudentNames2
             // 
@@ -99,6 +100,7 @@
             this.cbxStudentNames2.Name = "cbxStudentNames2";
             this.cbxStudentNames2.Size = new System.Drawing.Size(78, 23);
             this.cbxStudentNames2.TabIndex = 23;
+            this.cbxStudentNames2.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames2_SelectedIndexChanged);
             // 
             // cbxStudentNames3
             // 
@@ -107,6 +109,7 @@
             this.cbxStudentNames3.Name = "cbxStudentNames3";
             this.cbxStudentNames3.Size = new System.Drawing.Size(80, 23);
             this.cbxStudentNames3.TabIndex = 24;
+            this.cbxStudentNames3.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames3_SelectedIndexChanged);
             // 
             // cbxStudentNames4
             // 
@@ -115,6 +118,7 @@
             this.cbxStudentNames4.Name = "cbxStudentNames4";
             this.cbxStudentNames4.Size = new System.Drawing.Size(81, 23);
             this.cbxStudentNames4.TabIndex = 25;
+            this.cbxStudentNames4.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames4_SelectedIndexChanged);
             // 
             // cbxStudentNames5
             // 
@@ -123,6 +127,7 @@
             this.cbxStudentNames5.Name = "cbxStudentNames5";
             this.cbxStudentNames5.Size = new System.Drawing.Size(80, 23);
             this.cbxStudentNames5.TabIndex = 26;
+            this.cbxStudentNames5.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames5_SelectedIndexChanged);
             // 
             // pbxDesk5
             // 

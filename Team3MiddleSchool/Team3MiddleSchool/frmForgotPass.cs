@@ -43,7 +43,7 @@ namespace Team3MiddleSchool
         //sends code to email and stores in database -CS
         private void btnSendCode_Click(object sender, EventArgs e)
         {
-            clsDatabaseHandler.SendEmail(tbxEmail);
+            clsDatabaseHandler.SendEmail(tbxEmail, lblEmailWarning);
 
         }
 

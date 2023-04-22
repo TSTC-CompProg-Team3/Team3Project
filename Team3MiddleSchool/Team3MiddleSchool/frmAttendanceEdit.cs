@@ -21,16 +21,15 @@ namespace Team3MiddleSchool
         private int classID;
         private string accountType;
         private string classSelect;
-        private bool isStudent;
 
-        public frmAttendanceEdit(int loginID, int studentID, int classID, string accountType, string classSelect, bool isStudent)
+        public frmAttendanceEdit(int loginID, int studentID, int classID, string accountType, string classSelect, string date, bool isStudent)
         {
             this.loginID = loginID;
             this.studentID = studentID;
             this.classID = database.GetClassID(classSelect);
             this.accountType = accountType;
+            this.dateSelection = date;
             this.classSelect = classSelect;
-            this.isStudent = isStudent;
             InitializeComponent();
         }
 
@@ -45,7 +44,7 @@ namespace Team3MiddleSchool
         private void frmAttendanceEdit_Load(object sender, EventArgs e)
         {
             dgvAttendanceEdit.AllowUserToAddRows = false;
-            binding.DataSource = database.AttendanceInfo(accountType, classSelect, loginID);
+            binding.DataSource = database.AttendanceInfo(accountType, classSelect, dateSelection, loginID);
             dgvAttendanceEdit.DataSource = binding;
             FillUserInfo();
 
@@ -65,13 +64,16 @@ namespace Team3MiddleSchool
         //Populate dropdown list of students to edit specific student
         private void NameDropdown()
         {
+
+            NewQuery("All", "All", null);
+
             List<string> students = new List<string>();
 
             cmbNamesEdit.Items.Add("All Students");
 
             foreach (DataRowView row in binding)
             {
-                string student = row["student"].ToString();
+                string student = row["Student"].ToString();
                 int position = students.IndexOf(student);
                 if (position == -1)
                 {
@@ -83,6 +85,8 @@ namespace Team3MiddleSchool
             {
                 cmbNamesEdit.Items.Add(student);
             }
+
+            NewQuery("All", "All", dateSelection);
         }
 
 
@@ -134,7 +138,7 @@ namespace Team3MiddleSchool
                 firstName = selection.Substring(0, space);
                 lastName = selection.Substring(space + 1);
 
-                NewQuery(firstName, lastName, dateSelection);
+                NewQuery(firstName, lastName, null);
             }
         }
 
@@ -164,8 +168,15 @@ namespace Team3MiddleSchool
         {
             string newQuery;
 
-
-            if ((first.Equals("All") && last.Equals("All")) || first == null || last == null)
+            if ((first.Equals("All") || last.Equals("All") || first == null || last == null) && date == null)
+            {
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.ClassID = " + classID + ";";
+            }
+            else if (date == null)
+            {
+                newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE s.FirstName = '" + first + "' AND s.LastName = '" + last + "' AND a.ClassID = " + classID + ";";
+            }
+            else if ((first.Equals("All") && last.Equals("All")) || first == null || last == null)
             {
                 newQuery = "SELECT CONCAT(FirstName, ' ', LastName) AS \"Student\", a.StudentID, a.ClassID, a.AttendanceDate, a.Present FROM team3sp232330.Student s INNER JOIN team3sp232330.Attendance a ON s.StudentID = a.StudentID WHERE a.AttendanceDate = '" + date + "' AND a.ClassID = " + classID + ";";
             }
