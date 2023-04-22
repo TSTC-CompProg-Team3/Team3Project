@@ -237,5 +237,16 @@ namespace Team3MiddleSchool
                 btnRemoveStudent.Visible = false;
             }
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHelp help = new frmHelp("officer.html");
+            help.ShowDialog();
+        }
     }
 }
