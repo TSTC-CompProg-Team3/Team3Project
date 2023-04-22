@@ -190,12 +190,6 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMidTermG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMidTermG.Designer.cs">
-      <DependentUpon>frmMidTermG.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmOfficerMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,9 +277,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMidTermG.resx">
-      <DependentUpon>frmMidTermG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOfficerMenu.resx">
       <DependentUpon>frmOfficerMenu.cs</DependentUpon>
