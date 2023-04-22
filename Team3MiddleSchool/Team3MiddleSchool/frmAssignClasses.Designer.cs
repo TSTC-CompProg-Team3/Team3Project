@@ -44,15 +44,22 @@
             this.btnEditCourses = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbxStudents
             // 
             this.lbxStudents.FormattingEnabled = true;
             this.lbxStudents.ItemHeight = 15;
-            this.lbxStudents.Location = new System.Drawing.Point(12, 12);
+            this.lbxStudents.Location = new System.Drawing.Point(12, 27);
             this.lbxStudents.Name = "lbxStudents";
-            this.lbxStudents.Size = new System.Drawing.Size(204, 514);
+            this.lbxStudents.Size = new System.Drawing.Size(204, 499);
             this.lbxStudents.TabIndex = 0;
             this.lbxStudents.SelectedIndexChanged += new System.EventHandler(this.lbxStudents_SelectedIndexChanged);
             // 
@@ -197,6 +204,54 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // mnuStrip
+            // 
+            this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.helpToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(659, 24);
+            this.mnuStrip.TabIndex = 36;
+            this.mnuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManualToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // userManualToolStripMenuItem
+            // 
+            this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
+            // 
             // frmAssignClasses
             // 
             this.AcceptButton = this.btnEditCourses;
@@ -204,6 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.mnuStrip);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnEditCourses);
@@ -226,6 +282,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Assign Classes";
             this.Load += new System.EventHandler(this.frmAssignClasses_Load);
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +307,11 @@
         private System.Windows.Forms.Button btnEditCourses;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
     }
 }
