@@ -34,7 +34,6 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
-            this.btnMidterm = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblTotalCap = new System.Windows.Forms.Label();
             this.lblTestCap = new System.Windows.Forms.Label();
@@ -55,6 +54,8 @@
             this.lblClass = new System.Windows.Forms.Label();
             this.lblFinalCap = new System.Windows.Forms.Label();
             this.lblFinal = new System.Windows.Forms.Label();
+            this.lblMidTermG = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradeBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,10 +64,10 @@
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnAdd.Location = new System.Drawing.Point(633, 367);
+            this.btnAdd.Location = new System.Drawing.Point(604, 428);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 44);
+            this.btnAdd.Size = new System.Drawing.Size(128, 44);
             this.btnAdd.TabIndex = 43;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -77,10 +78,10 @@
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnEdit.Location = new System.Drawing.Point(528, 367);
+            this.btnEdit.Location = new System.Drawing.Point(480, 428);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 44);
+            this.btnEdit.Size = new System.Drawing.Size(120, 44);
             this.btnEdit.TabIndex = 42;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -91,10 +92,10 @@
             this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnRemove.Location = new System.Drawing.Point(426, 366);
+            this.btnRemove.Location = new System.Drawing.Point(350, 428);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(100, 44);
+            this.btnRemove.Size = new System.Drawing.Size(119, 44);
             this.btnRemove.TabIndex = 41;
             this.btnRemove.Text = "&Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -105,10 +106,10 @@
             this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnNext.Location = new System.Drawing.Point(321, 367);
+            this.btnNext.Location = new System.Drawing.Point(237, 428);
             this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(100, 44);
+            this.btnNext.Size = new System.Drawing.Size(109, 44);
             this.btnNext.TabIndex = 40;
             this.btnNext.Text = "Ne&xt";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -119,38 +120,24 @@
             this.btnPrev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnPrev.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnPrev.Location = new System.Drawing.Point(216, 367);
+            this.btnPrev.Location = new System.Drawing.Point(122, 428);
             this.btnPrev.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(100, 44);
+            this.btnPrev.Size = new System.Drawing.Size(111, 44);
             this.btnPrev.TabIndex = 39;
             this.btnPrev.Text = "Pr&evious";
             this.btnPrev.UseVisualStyleBackColor = false;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnMidterm
-            // 
-            this.btnMidterm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
-            this.btnMidterm.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMidterm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnMidterm.Location = new System.Drawing.Point(111, 367);
-            this.btnMidterm.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMidterm.Name = "btnMidterm";
-            this.btnMidterm.Size = new System.Drawing.Size(100, 44);
-            this.btnMidterm.TabIndex = 38;
-            this.btnMidterm.Text = "Midterm &Grades";
-            this.btnMidterm.UseVisualStyleBackColor = false;
-            this.btnMidterm.Click += new System.EventHandler(this.btnMidterm_Click);
             // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnBack.Location = new System.Drawing.Point(6, 367);
+            this.btnBack.Location = new System.Drawing.Point(6, 428);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(100, 44);
+            this.btnBack.Size = new System.Drawing.Size(112, 44);
             this.btnBack.TabIndex = 37;
             this.btnBack.Text = "B&ack";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -253,7 +240,7 @@
             this.lblTotal.Location = new System.Drawing.Point(404, 328);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(176, 41);
+            this.lblTotal.Size = new System.Drawing.Size(176, 35);
             this.lblTotal.TabIndex = 30;
             // 
             // lblTest
@@ -334,14 +321,14 @@
             this.dgvGradeBook.ReadOnly = true;
             this.dgvGradeBook.RowHeadersWidth = 62;
             this.dgvGradeBook.RowTemplate.Height = 28;
-            this.dgvGradeBook.Size = new System.Drawing.Size(383, 325);
+            this.dgvGradeBook.Size = new System.Drawing.Size(374, 375);
             this.dgvGradeBook.TabIndex = 22;
             // 
             // tbxName
             // 
             this.tbxName.Location = new System.Drawing.Point(403, 13);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(176, 31);
+            this.tbxName.Size = new System.Drawing.Size(176, 23);
             this.tbxName.TabIndex = 44;
             // 
             // lblID
@@ -365,7 +352,7 @@
             this.lblClass.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblClass.Location = new System.Drawing.Point(12, 4);
             this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(53, 32);
+            this.lblClass.Size = new System.Drawing.Size(38, 22);
             this.lblClass.TabIndex = 46;
             this.lblClass.Text = "Null";
             // 
@@ -394,14 +381,36 @@
             this.lblFinal.Size = new System.Drawing.Size(104, 29);
             this.lblFinal.TabIndex = 47;
             // 
+            // lblMidTermG
+            // 
+            this.lblMidTermG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.lblMidTermG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMidTermG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMidTermG.Location = new System.Drawing.Point(583, 378);
+            this.lblMidTermG.Name = "lblMidTermG";
+            this.lblMidTermG.Size = new System.Drawing.Size(149, 35);
+            this.lblMidTermG.TabIndex = 49;
+            this.lblMidTermG.Text = "Mid Term ";
+            this.lblMidTermG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Location = new System.Drawing.Point(404, 378);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 35);
+            this.label1.TabIndex = 50;
+            // 
             // frmGradebook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(744, 422);
+            this.ClientSize = new System.Drawing.Size(744, 483);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMidTermG);
             this.Controls.Add(this.lblFinalCap);
             this.Controls.Add(this.lblFinal);
             this.Controls.Add(this.lblClass);
@@ -411,7 +420,6 @@
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.btnMidterm);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblTotalCap);
             this.Controls.Add(this.lblTestCap);
@@ -449,7 +457,6 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.Button btnMidterm;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblTotalCap;
         private System.Windows.Forms.Label lblTestCap;
@@ -470,5 +477,7 @@
         private System.Windows.Forms.Label lblClass;
         private System.Windows.Forms.Label lblFinalCap;
         public System.Windows.Forms.Label lblFinal;
+        private System.Windows.Forms.Label lblMidTermG;
+        private System.Windows.Forms.Label label1;
     }
 }
