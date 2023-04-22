@@ -38,13 +38,20 @@
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnOfficer = new System.Windows.Forms.Button();
             this.btnAssignClass = new System.Windows.Forms.Button();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).BeginInit();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbxBanner
             // 
             this.pbxBanner.Image = ((System.Drawing.Image)(resources.GetObject("pbxBanner.Image")));
-            this.pbxBanner.Location = new System.Drawing.Point(12, 12);
+            this.pbxBanner.Location = new System.Drawing.Point(12, 26);
             this.pbxBanner.Name = "pbxBanner";
             this.pbxBanner.Size = new System.Drawing.Size(635, 213);
             this.pbxBanner.TabIndex = 0;
@@ -53,7 +60,7 @@
             // cbxCourseSelect
             // 
             this.cbxCourseSelect.FormattingEnabled = true;
-            this.cbxCourseSelect.Location = new System.Drawing.Point(147, 236);
+            this.cbxCourseSelect.Location = new System.Drawing.Point(147, 250);
             this.cbxCourseSelect.Name = "cbxCourseSelect";
             this.cbxCourseSelect.Size = new System.Drawing.Size(365, 23);
             this.cbxCourseSelect.TabIndex = 1;
@@ -61,7 +68,7 @@
             // btnGradeBook
             // 
             this.btnGradeBook.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGradeBook.Location = new System.Drawing.Point(271, 277);
+            this.btnGradeBook.Location = new System.Drawing.Point(271, 291);
             this.btnGradeBook.Name = "btnGradeBook";
             this.btnGradeBook.Size = new System.Drawing.Size(117, 40);
             this.btnGradeBook.TabIndex = 2;
@@ -72,7 +79,7 @@
             // btnAttendance
             // 
             this.btnAttendance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttendance.Location = new System.Drawing.Point(271, 338);
+            this.btnAttendance.Location = new System.Drawing.Point(271, 352);
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(117, 40);
             this.btnAttendance.TabIndex = 3;
@@ -83,7 +90,7 @@
             // btnSeatingChart
             // 
             this.btnSeatingChart.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeatingChart.Location = new System.Drawing.Point(271, 399);
+            this.btnSeatingChart.Location = new System.Drawing.Point(271, 413);
             this.btnSeatingChart.Name = "btnSeatingChart";
             this.btnSeatingChart.Size = new System.Drawing.Size(117, 40);
             this.btnSeatingChart.TabIndex = 4;
@@ -94,7 +101,7 @@
             // btnReturnToLogin
             // 
             this.btnReturnToLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnToLogin.Location = new System.Drawing.Point(271, 460);
+            this.btnReturnToLogin.Location = new System.Drawing.Point(271, 474);
             this.btnReturnToLogin.Name = "btnReturnToLogin";
             this.btnReturnToLogin.Size = new System.Drawing.Size(117, 40);
             this.btnReturnToLogin.TabIndex = 5;
@@ -117,7 +124,7 @@
             // btnOfficer
             // 
             this.btnOfficer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOfficer.Location = new System.Drawing.Point(486, 277);
+            this.btnOfficer.Location = new System.Drawing.Point(486, 291);
             this.btnOfficer.Name = "btnOfficer";
             this.btnOfficer.Size = new System.Drawing.Size(117, 40);
             this.btnOfficer.TabIndex = 7;
@@ -129,7 +136,7 @@
             // btnAssignClass
             // 
             this.btnAssignClass.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssignClass.Location = new System.Drawing.Point(486, 338);
+            this.btnAssignClass.Location = new System.Drawing.Point(486, 352);
             this.btnAssignClass.Name = "btnAssignClass";
             this.btnAssignClass.Size = new System.Drawing.Size(117, 40);
             this.btnAssignClass.TabIndex = 8;
@@ -137,6 +144,54 @@
             this.btnAssignClass.UseVisualStyleBackColor = true;
             this.btnAssignClass.Visible = false;
             this.btnAssignClass.Click += new System.EventHandler(this.btnAssignClass_Click);
+            // 
+            // mnuStrip
+            // 
+            this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.helpToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(659, 24);
+            this.mnuStrip.TabIndex = 9;
+            this.mnuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManualToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // userManualToolStripMenuItem
+            // 
+            this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -146,6 +201,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.mnuStrip);
             this.Controls.Add(this.btnAssignClass);
             this.Controls.Add(this.btnOfficer);
             this.Controls.Add(this.btnAdmin);
@@ -163,7 +219,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
             this.Load += new System.EventHandler(this.frmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).EndInit();
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -178,5 +237,11 @@
         private System.Windows.Forms.Button btnOfficer;
         private System.Windows.Forms.ComboBox cbxCourseSelect;
         private System.Windows.Forms.Button btnAssignClass;
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
     }
 }

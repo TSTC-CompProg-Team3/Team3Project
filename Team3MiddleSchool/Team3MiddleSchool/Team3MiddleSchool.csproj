@@ -178,6 +178,12 @@
     <Compile Include="frmGradebook.Designer.cs">
       <DependentUpon>frmGradebook.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp.Designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     <EmbeddedResource Include="frmGradebook.resx">
       <DependentUpon>frmGradebook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHelp.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +334,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="menu.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="login.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="styles.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
