@@ -94,7 +94,7 @@ namespace Team3MiddleSchool
             database.CloseDatabase();
         }
 
-        internal static void SendEmail(TextBox tbxEmail)
+        internal static void SendEmail(TextBox tbxEmail, Label warning)
         {
             database.OpenDatabase();
             database.UserInfo();
@@ -129,6 +129,7 @@ namespace Team3MiddleSchool
 
 
                         MessageBox.Show("Password reset code sent to email.");
+                        warning.Visible = false;
                         break;
 
                     }
@@ -140,6 +141,9 @@ namespace Team3MiddleSchool
                     }
 
 
+                }else
+                {
+                    warning.Visible = true;
                 }
             }
             database.CloseDatabase();
