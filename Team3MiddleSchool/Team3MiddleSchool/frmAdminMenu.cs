@@ -191,8 +191,7 @@ namespace Team3MiddleSchool
 
         private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmHelp help = new frmHelp("admin.html");
-            help.ShowDialog();
+            System.Diagnostics.Process.Start("admin.html");
         }
     }
 }

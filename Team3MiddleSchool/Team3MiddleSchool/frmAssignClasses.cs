@@ -78,8 +78,7 @@ namespace Team3MiddleSchool
 
         private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmHelp help = new frmHelp("assignClasses.html");
-            help.ShowDialog();
+            System.Diagnostics.Process.Start("assignClasses.html");
         }
     }
 }

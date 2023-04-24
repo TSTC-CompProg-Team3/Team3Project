@@ -197,5 +197,15 @@ namespace Team3MiddleSchool
         {
             NewQuery(dateSelection, accountType);
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("attendance.html");
+        }
     }
 }
