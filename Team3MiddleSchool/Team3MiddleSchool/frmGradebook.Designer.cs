@@ -34,7 +34,6 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
-            this.btnMidterm = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblTotalCap = new System.Windows.Forms.Label();
             this.lblTestCap = new System.Windows.Forms.Label();
@@ -60,6 +59,8 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblMidTermG = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradeBook)).BeginInit();
             this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -69,10 +70,11 @@
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnAdd.Location = new System.Drawing.Point(633, 399);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 44);
+            this.btnAdd.Size = new System.Drawing.Size(128, 44);
             this.btnAdd.TabIndex = 43;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -83,10 +85,11 @@
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnEdit.Location = new System.Drawing.Point(528, 399);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 44);
+            this.btnEdit.Size = new System.Drawing.Size(120, 44);
             this.btnEdit.TabIndex = 42;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -100,7 +103,7 @@
             this.btnRemove.Location = new System.Drawing.Point(426, 398);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(100, 44);
+            this.btnRemove.Size = new System.Drawing.Size(119, 44);
             this.btnRemove.TabIndex = 41;
             this.btnRemove.Text = "&Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -114,7 +117,7 @@
             this.btnNext.Location = new System.Drawing.Point(321, 399);
             this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(100, 44);
+            this.btnNext.Size = new System.Drawing.Size(109, 44);
             this.btnNext.TabIndex = 40;
             this.btnNext.Text = "Ne&xt";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -125,15 +128,17 @@
             this.btnPrev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnPrev.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnPrev.Location = new System.Drawing.Point(216, 399);
             this.btnPrev.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(100, 44);
+            this.btnPrev.Size = new System.Drawing.Size(111, 44);
             this.btnPrev.TabIndex = 39;
             this.btnPrev.Text = "Pr&evious";
             this.btnPrev.UseVisualStyleBackColor = false;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
+
             // btnMidterm
             // 
             this.btnMidterm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
@@ -148,6 +153,7 @@
             this.btnMidterm.UseVisualStyleBackColor = false;
             this.btnMidterm.Click += new System.EventHandler(this.btnMidterm_Click);
             // 
+
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
@@ -156,7 +162,7 @@
             this.btnBack.Location = new System.Drawing.Point(6, 399);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(100, 44);
+            this.btnBack.Size = new System.Drawing.Size(112, 44);
             this.btnBack.TabIndex = 37;
             this.btnBack.Text = "B&ack";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -259,7 +265,7 @@
             this.lblTotal.Location = new System.Drawing.Point(404, 360);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(176, 41);
+            this.lblTotal.Size = new System.Drawing.Size(176, 35);
             this.lblTotal.TabIndex = 30;
             // 
             // lblTest
@@ -340,7 +346,7 @@
             this.dgvGradeBook.ReadOnly = true;
             this.dgvGradeBook.RowHeadersWidth = 62;
             this.dgvGradeBook.RowTemplate.Height = 28;
-            this.dgvGradeBook.Size = new System.Drawing.Size(383, 325);
+            this.dgvGradeBook.Size = new System.Drawing.Size(374, 375);
             this.dgvGradeBook.TabIndex = 22;
             // 
             // tbxName
@@ -448,6 +454,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.ClientSize = new System.Drawing.Size(744, 461);
             this.ControlBox = false;
             this.Controls.Add(this.mnuStrip);
@@ -460,7 +467,6 @@
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.btnMidterm);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblTotalCap);
             this.Controls.Add(this.lblTestCap);
@@ -500,7 +506,6 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.Button btnMidterm;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblTotalCap;
         private System.Windows.Forms.Label lblTestCap;
@@ -526,5 +531,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
+
     }
 }
