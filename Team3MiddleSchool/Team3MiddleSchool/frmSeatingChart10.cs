@@ -80,6 +80,7 @@ namespace Team3MiddleSchool
             cbxStudentNames7.SelectedIndex = -1;
             cbxStudentNames8.SelectedIndex = -1;
             cbxStudentNames9.SelectedIndex = -1;
+            cbxStudentNames10.SelectedIndex = -1;   
 
 
         }
