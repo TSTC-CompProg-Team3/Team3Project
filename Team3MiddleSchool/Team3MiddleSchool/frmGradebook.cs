@@ -45,7 +45,8 @@ namespace Team3MiddleSchool
         CurrencyManager  NameManager;
         private void frmGradebook_Load(object sender, EventArgs e)
         {
-            
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
             studentID = database.GetStudentID(loginID);
             parentID = database.GradeParentID(loginID);
             classID = database.GetClassID(classSelect);
@@ -374,6 +375,16 @@ namespace Team3MiddleSchool
         private void btnMidterm_Click(object sender, EventArgs e)
         {
         
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("gradebook.html");
         }
     }
 }

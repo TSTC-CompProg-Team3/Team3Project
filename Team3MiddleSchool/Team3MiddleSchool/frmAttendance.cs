@@ -65,6 +65,8 @@ namespace Team3MiddleSchool
                 btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
                 btnSubmitAttend.BackColor = ColorTranslator.FromHtml("#F15025");
                 btnSubmitAttend.ForeColor = ColorTranslator.FromHtml("#191919");
+                mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+                mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
 
                 if (binding.Count < 1 && (day.DayOfWeek != DayOfWeek.Sunday && day.DayOfWeek != DayOfWeek.Saturday))
                 {
@@ -196,6 +198,16 @@ namespace Team3MiddleSchool
         private void frmAttendance_Activated(object sender, EventArgs e)
         {
             NewQuery(dateSelection, accountType);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("attendance.html");
         }
     }
 }

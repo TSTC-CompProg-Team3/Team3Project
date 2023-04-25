@@ -26,7 +26,9 @@ namespace Team3MiddleSchool
             btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
             btnReset.BackColor = ColorTranslator.FromHtml("#F15025");
             btnReset.ForeColor = ColorTranslator.FromHtml("#191919");
-           
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
+
 
             clsDatabaseHandler.PopulateClassesLbx(lbxStudents);
             clsDatabaseHandler.PopulateAvailableClasses(cbxClass1,cbxClass2,cbxClass3,cbxClass4,cbxClass5,cbxClass6);
@@ -69,6 +71,16 @@ namespace Team3MiddleSchool
                 clsDatabaseHandler.EditCourses(studentID,cbxClass1,cbxClass2,cbxClass3,cbxClass4,cbxClass5,cbxClass6);
             }
             
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("assignClasses.html");
         }
     }
 }

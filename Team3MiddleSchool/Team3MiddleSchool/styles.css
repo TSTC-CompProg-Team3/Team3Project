@@ -7,7 +7,7 @@ body {
 
 .navigation {
   padding: 50px;
-  height: 100vw;
+  height: 100;
   width: 20vw;
   background-color: #cfd0ce;
 }
@@ -58,9 +58,9 @@ dl {
 }
 
 h2 {
-    padding-left: 30px;
-    text-align: left;
-    text-decoration: underline;
+  padding-left: 30px;
+  text-align: left;
+  text-decoration: underline;
 }
 
 h1 {
@@ -71,5 +71,5 @@ h1 {
 }
 
 dt {
-    font-weight: bold;
+  font-weight: bold;
 }

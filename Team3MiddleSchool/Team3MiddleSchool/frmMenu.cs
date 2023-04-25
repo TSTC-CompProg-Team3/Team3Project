@@ -119,6 +119,8 @@ namespace Team3MiddleSchool
             btnOfficer.ForeColor = ColorTranslator.FromHtml("#191919");
             btnAssignClass.BackColor = ColorTranslator.FromHtml("#F15025");
             btnAssignClass.ForeColor = ColorTranslator.FromHtml("#191919");
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
 
         }
 
@@ -199,8 +201,7 @@ namespace Team3MiddleSchool
 
         private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmHelp help = new frmHelp("menu.html");
-            help.ShowDialog();
+            System.Diagnostics.Process.Start("menu.html");
         }
     }
 }
