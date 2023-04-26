@@ -96,6 +96,7 @@ namespace Team3MiddleSchool
                 btnEditAttend.Enabled = false;
                 btnSubmitAttend.Enabled = false;
                 btnEditAttend.BackColor = Color.LightGray;
+                btnSubmitAttend.BackColor = Color.LightGray;
                 btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
                 btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
             }
