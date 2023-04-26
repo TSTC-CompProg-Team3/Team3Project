@@ -66,7 +66,7 @@
             this.cbxStudentSelect.Location = new System.Drawing.Point(192, 325);
             this.cbxStudentSelect.Name = "cbxStudentSelect";
             this.cbxStudentSelect.Size = new System.Drawing.Size(157, 23);
-            this.cbxStudentSelect.TabIndex = 32;
+            this.cbxStudentSelect.TabIndex = 2;
             // 
             // lblAssignStudent
             // 
@@ -84,8 +84,8 @@
             this.btnBack.Location = new System.Drawing.Point(259, 370);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
-            this.btnBack.TabIndex = 29;
-            this.btnBack.Text = "Back";
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "&Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
@@ -95,8 +95,8 @@
             this.btnClear.Location = new System.Drawing.Point(13, 370);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(117, 40);
-            this.btnClear.TabIndex = 26;
-            this.btnClear.Text = "Clear";
+            this.btnClear.TabIndex = 3;
+            this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -106,8 +106,8 @@
             this.btnSubmit.Location = new System.Drawing.Point(136, 370);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(117, 40);
-            this.btnSubmit.TabIndex = 27;
-            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.TabIndex = 4;
+            this.btnSubmit.Text = "&Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
@@ -125,7 +125,7 @@
             this.gbxLogin.Location = new System.Drawing.Point(12, 155);
             this.gbxLogin.Name = "gbxLogin";
             this.gbxLogin.Size = new System.Drawing.Size(354, 164);
-            this.gbxLogin.TabIndex = 30;
+            this.gbxLogin.TabIndex = 1;
             this.gbxLogin.TabStop = false;
             this.gbxLogin.Text = "Login Information";
             // 
@@ -226,7 +226,7 @@
             this.gbxStudentContact.Location = new System.Drawing.Point(12, 40);
             this.gbxStudentContact.Name = "gbxStudentContact";
             this.gbxStudentContact.Size = new System.Drawing.Size(354, 99);
-            this.gbxStudentContact.TabIndex = 28;
+            this.gbxStudentContact.TabIndex = 0;
             this.gbxStudentContact.TabStop = false;
             this.gbxStudentContact.Text = "Contact Information";
             // 
@@ -274,7 +274,7 @@
             this.tbxLastName.Location = new System.Drawing.Point(185, 50);
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(157, 23);
-            this.tbxLastName.TabIndex = 2;
+            this.tbxLastName.TabIndex = 1;
             // 
             // lblAssignStudentWarning
             // 
@@ -311,7 +311,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -321,13 +321,13 @@
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
             this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Text = "&User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmEditParent

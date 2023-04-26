@@ -65,7 +65,7 @@
             this.btnEditSubject.Location = new System.Drawing.Point(161, 329);
             this.btnEditSubject.Name = "btnEditSubject";
             this.btnEditSubject.Size = new System.Drawing.Size(117, 40);
-            this.btnEditSubject.TabIndex = 30;
+            this.btnEditSubject.TabIndex = 9;
             this.btnEditSubject.Text = "Edit Subject";
             this.btnEditSubject.UseVisualStyleBackColor = true;
             this.btnEditSubject.Click += new System.EventHandler(this.btnEditSubject_Click);
@@ -76,7 +76,7 @@
             this.btnRemoveSubject.Location = new System.Drawing.Point(513, 329);
             this.btnRemoveSubject.Name = "btnRemoveSubject";
             this.btnRemoveSubject.Size = new System.Drawing.Size(117, 40);
-            this.btnRemoveSubject.TabIndex = 31;
+            this.btnRemoveSubject.TabIndex = 11;
             this.btnRemoveSubject.Text = "Remove Subject";
             this.btnRemoveSubject.UseVisualStyleBackColor = true;
             this.btnRemoveSubject.Visible = false;
@@ -88,7 +88,7 @@
             this.cbxSubjectSelect.Location = new System.Drawing.Point(294, 340);
             this.cbxSubjectSelect.Name = "cbxSubjectSelect";
             this.cbxSubjectSelect.Size = new System.Drawing.Size(203, 23);
-            this.cbxSubjectSelect.TabIndex = 32;
+            this.cbxSubjectSelect.TabIndex = 10;
             this.cbxSubjectSelect.SelectedIndexChanged += new System.EventHandler(this.cbxSubjectSelect_SelectedIndexChanged);
             // 
             // btnAddSubject
@@ -97,7 +97,7 @@
             this.btnAddSubject.Location = new System.Drawing.Point(38, 329);
             this.btnAddSubject.Name = "btnAddSubject";
             this.btnAddSubject.Size = new System.Drawing.Size(117, 40);
-            this.btnAddSubject.TabIndex = 29;
+            this.btnAddSubject.TabIndex = 8;
             this.btnAddSubject.Text = "Add Subject";
             this.btnAddSubject.UseVisualStyleBackColor = true;
             this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
@@ -108,7 +108,7 @@
             this.btnEditTeacher.Location = new System.Drawing.Point(161, 271);
             this.btnEditTeacher.Name = "btnEditTeacher";
             this.btnEditTeacher.Size = new System.Drawing.Size(117, 40);
-            this.btnEditTeacher.TabIndex = 22;
+            this.btnEditTeacher.TabIndex = 5;
             this.btnEditTeacher.Text = "Edit Teacher";
             this.btnEditTeacher.UseVisualStyleBackColor = true;
             this.btnEditTeacher.Click += new System.EventHandler(this.btnEditTeacher_Click);
@@ -119,7 +119,7 @@
             this.btnEditCourse.Location = new System.Drawing.Point(161, 213);
             this.btnEditCourse.Name = "btnEditCourse";
             this.btnEditCourse.Size = new System.Drawing.Size(117, 40);
-            this.btnEditCourse.TabIndex = 18;
+            this.btnEditCourse.TabIndex = 1;
             this.btnEditCourse.Text = "Edit Course";
             this.btnEditCourse.UseVisualStyleBackColor = true;
             this.btnEditCourse.Click += new System.EventHandler(this.btnEditCourse_Click);
@@ -130,7 +130,7 @@
             this.btnEditStudent.Location = new System.Drawing.Point(161, 387);
             this.btnEditStudent.Name = "btnEditStudent";
             this.btnEditStudent.Size = new System.Drawing.Size(117, 40);
-            this.btnEditStudent.TabIndex = 26;
+            this.btnEditStudent.TabIndex = 13;
             this.btnEditStudent.Text = "Edit Student";
             this.btnEditStudent.UseVisualStyleBackColor = true;
             this.btnEditStudent.Click += new System.EventHandler(this.btnEditStudent_Click);
@@ -141,7 +141,7 @@
             this.btnRemoveStudent.Location = new System.Drawing.Point(513, 387);
             this.btnRemoveStudent.Name = "btnRemoveStudent";
             this.btnRemoveStudent.Size = new System.Drawing.Size(117, 40);
-            this.btnRemoveStudent.TabIndex = 27;
+            this.btnRemoveStudent.TabIndex = 15;
             this.btnRemoveStudent.Text = "Remove Student";
             this.btnRemoveStudent.UseVisualStyleBackColor = true;
             this.btnRemoveStudent.Visible = false;
@@ -153,7 +153,7 @@
             this.cbxStudentSelect.Location = new System.Drawing.Point(294, 398);
             this.cbxStudentSelect.Name = "cbxStudentSelect";
             this.cbxStudentSelect.Size = new System.Drawing.Size(203, 23);
-            this.cbxStudentSelect.TabIndex = 28;
+            this.cbxStudentSelect.TabIndex = 14;
             this.cbxStudentSelect.SelectedIndexChanged += new System.EventHandler(this.cbxStudentSelect_SelectedIndexChanged);
             // 
             // btnAddStudent
@@ -162,7 +162,7 @@
             this.btnAddStudent.Location = new System.Drawing.Point(38, 387);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(117, 40);
-            this.btnAddStudent.TabIndex = 25;
+            this.btnAddStudent.TabIndex = 12;
             this.btnAddStudent.Text = "Add Student";
             this.btnAddStudent.UseVisualStyleBackColor = true;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
@@ -173,7 +173,7 @@
             this.btnRemoveTeacher.Location = new System.Drawing.Point(513, 271);
             this.btnRemoveTeacher.Name = "btnRemoveTeacher";
             this.btnRemoveTeacher.Size = new System.Drawing.Size(117, 40);
-            this.btnRemoveTeacher.TabIndex = 23;
+            this.btnRemoveTeacher.TabIndex = 7;
             this.btnRemoveTeacher.Text = "Remove Teacher";
             this.btnRemoveTeacher.UseVisualStyleBackColor = true;
             this.btnRemoveTeacher.Visible = false;
@@ -185,7 +185,7 @@
             this.cbxTeacherSelect.Location = new System.Drawing.Point(294, 282);
             this.cbxTeacherSelect.Name = "cbxTeacherSelect";
             this.cbxTeacherSelect.Size = new System.Drawing.Size(203, 23);
-            this.cbxTeacherSelect.TabIndex = 24;
+            this.cbxTeacherSelect.TabIndex = 6;
             this.cbxTeacherSelect.SelectedIndexChanged += new System.EventHandler(this.cbxTeacherSelect_SelectedIndexChanged);
             // 
             // btnBack
@@ -194,7 +194,7 @@
             this.btnBack.Location = new System.Drawing.Point(530, 484);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
-            this.btnBack.TabIndex = 33;
+            this.btnBack.TabIndex = 19;
             this.btnBack.Text = "&Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -205,7 +205,7 @@
             this.btnAddTeacher.Location = new System.Drawing.Point(38, 271);
             this.btnAddTeacher.Name = "btnAddTeacher";
             this.btnAddTeacher.Size = new System.Drawing.Size(117, 40);
-            this.btnAddTeacher.TabIndex = 21;
+            this.btnAddTeacher.TabIndex = 4;
             this.btnAddTeacher.Text = "Add Teacher";
             this.btnAddTeacher.UseVisualStyleBackColor = true;
             this.btnAddTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
@@ -216,7 +216,7 @@
             this.btnRemoveCourse.Location = new System.Drawing.Point(513, 213);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
             this.btnRemoveCourse.Size = new System.Drawing.Size(117, 40);
-            this.btnRemoveCourse.TabIndex = 19;
+            this.btnRemoveCourse.TabIndex = 3;
             this.btnRemoveCourse.Text = "Remove Course";
             this.btnRemoveCourse.UseVisualStyleBackColor = true;
             this.btnRemoveCourse.Visible = false;
@@ -228,7 +228,7 @@
             this.btnAddCourse.Location = new System.Drawing.Point(38, 213);
             this.btnAddCourse.Name = "btnAddCourse";
             this.btnAddCourse.Size = new System.Drawing.Size(117, 40);
-            this.btnAddCourse.TabIndex = 17;
+            this.btnAddCourse.TabIndex = 0;
             this.btnAddCourse.Text = "Add Course";
             this.btnAddCourse.UseVisualStyleBackColor = true;
             this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
@@ -239,7 +239,7 @@
             this.cbxCourseSelect.Location = new System.Drawing.Point(294, 224);
             this.cbxCourseSelect.Name = "cbxCourseSelect";
             this.cbxCourseSelect.Size = new System.Drawing.Size(203, 23);
-            this.cbxCourseSelect.TabIndex = 20;
+            this.cbxCourseSelect.TabIndex = 2;
             this.cbxCourseSelect.SelectedIndexChanged += new System.EventHandler(this.cbxCourseSelect_SelectedIndexChanged);
             // 
             // pbxOfficerMenu
@@ -257,7 +257,7 @@
             this.btnEditParent.Location = new System.Drawing.Point(161, 445);
             this.btnEditParent.Name = "btnEditParent";
             this.btnEditParent.Size = new System.Drawing.Size(117, 40);
-            this.btnEditParent.TabIndex = 36;
+            this.btnEditParent.TabIndex = 17;
             this.btnEditParent.Text = "Edit Parent";
             this.btnEditParent.UseVisualStyleBackColor = true;
             this.btnEditParent.Click += new System.EventHandler(this.btnEditParent_Click);
@@ -268,7 +268,7 @@
             this.cbxParentSelect.Location = new System.Drawing.Point(294, 456);
             this.cbxParentSelect.Name = "cbxParentSelect";
             this.cbxParentSelect.Size = new System.Drawing.Size(203, 23);
-            this.cbxParentSelect.TabIndex = 38;
+            this.cbxParentSelect.TabIndex = 18;
             // 
             // btnAddParent
             // 
@@ -276,7 +276,7 @@
             this.btnAddParent.Location = new System.Drawing.Point(38, 445);
             this.btnAddParent.Name = "btnAddParent";
             this.btnAddParent.Size = new System.Drawing.Size(117, 40);
-            this.btnAddParent.TabIndex = 35;
+            this.btnAddParent.TabIndex = 16;
             this.btnAddParent.Text = "Add Parent";
             this.btnAddParent.UseVisualStyleBackColor = true;
             this.btnAddParent.Click += new System.EventHandler(this.btnAddParent_Click);
@@ -314,13 +314,13 @@
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
             this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Text = "&User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmOfficerMenu
