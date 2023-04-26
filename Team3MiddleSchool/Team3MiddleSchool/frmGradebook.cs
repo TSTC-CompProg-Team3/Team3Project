@@ -45,6 +45,7 @@ namespace Team3MiddleSchool
         private void frmGradebook_Load(object sender, EventArgs e)
         {
             studentID = database.GetStudentID(loginID);
+            
             parentID = 3;
             mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
@@ -131,6 +132,7 @@ namespace Team3MiddleSchool
                     break;
 
                 case "teacher":
+                    classID = database.GetClassID(classSelect);
                     database.GetClass(classID, lblClass);
 
                     btnRemove.Visible = true;
