@@ -80,6 +80,7 @@ namespace Team3MiddleSchool
             cbxStudentNames7.SelectedIndex = -1;
             cbxStudentNames8.SelectedIndex = -1;
             cbxStudentNames9.SelectedIndex = -1;
+            cbxStudentNames10.SelectedIndex = -1;   
 
 
         }
@@ -565,6 +566,16 @@ namespace Team3MiddleSchool
                     currentComboBox.SelectedItem = null;
                 }
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("seatingChart.html");
         }
     }
 }

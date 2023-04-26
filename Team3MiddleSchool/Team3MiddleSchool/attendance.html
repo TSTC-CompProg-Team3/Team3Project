@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Help Menu</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="banner">
+        <img src="Logo.png" alt="" />
+        <h1>Attendance</h1>
+      </div>
+    </header>
+    <main class="content">
+      <nav class="navigation">
+        <a href="login.html" class="btn">LOGIN</a>
+        <a href="forgotPassword.html" class="btn">FORGOT PASSWORD</a>
+        <a href="menu.html" class="btn">MENU</a>
+        <a href="admin.html" class="btn">ADMIN MENU</a>
+        <a href="officer.html" class="btn">OFFICER MENU</a>
+        <a href="assignClasses.html" class="btn">ASSIGN CLASSES</a>
+        <a href="gradebook.html" class="btn">GRADEBOOK</a>
+        <a href="attendance.html" class="btn">ATTENDANCE</a>
+        <a href="seatingChart.html" class="btn">SEATING CHART</a>
+      </nav>
+      <div class="content-text">
+        <h2>User Permissions</h2>
+        <dl>
+          <dt>Administration, Officers, and Teachers</dt>
+          <dd>
+            - Users under this access level will be able to generate, submit, and edit attendance data for selected classes
+              as well as print attendance reports for selected students.
+          </dd>
+          <dt>Students and Parents</dt>
+          <dd>
+            - Users under this access level can only view attendance data for the relevant student, users can also print
+              attendance reports for the selected class.
+          </dd>
+        </dl>
+        <h2>Buttons</h2>
+        <dl>
+          <dt>Back</dt>
+          <dd>
+            - When clicked the program will take the user back to the main menu.
+          </dd>
+          <dt>Edit</dt>
+          <dd>
+            - When clicked the program will take the user to the edit attendance
+            form where they can edit the specified date's attendance.
+          </dd>
+          <dt>Submit</dt>
+          <dd>
+            - When clicked the program will save the current data for attendance
+            for the specified date. Changes made on the Attendance form can only be applied to the current day's attendance data,
+            changes made to all other day's must be made from the Edit window.
+          </dd>
+        </dl>
+        <h2>Selectors</h2>
+        <dl>
+          <dt>Attendance Date</dt>
+          <dd>
+            - The user can use the attendance date selector to select a specific
+            date to edit or view.
+          </dd>
+          <dt>Student Selection</dt>
+          <dd>
+            - The user can use the drop down box in the Edit form to select a specific student to view all of their attendance
+            data for the current class.
+          </dd>
+        </dl>
+        <h2>Attendance Reports</h2>
+        <dl>
+          <dt>Report</dt>
+          <dd>
+            - Selecting the Attendance Report from the menu will generate a printable report of the relevant student's
+            attendance for the selected class. Administration, Officers, and Teachers will need to select a student from the Edit
+            form to generate a report for the selected student.
+          </dd>
+        </dl>
+      </div>
+    </main>
+  </body>
+</html>

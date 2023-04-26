@@ -44,15 +44,21 @@
             this.btnEditCourses = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbxStudents
             // 
             this.lbxStudents.FormattingEnabled = true;
             this.lbxStudents.ItemHeight = 15;
-            this.lbxStudents.Location = new System.Drawing.Point(12, 12);
+            this.lbxStudents.Location = new System.Drawing.Point(12, 27);
             this.lbxStudents.Name = "lbxStudents";
-            this.lbxStudents.Size = new System.Drawing.Size(204, 514);
+            this.lbxStudents.Size = new System.Drawing.Size(204, 499);
             this.lbxStudents.TabIndex = 0;
             this.lbxStudents.SelectedIndexChanged += new System.EventHandler(this.lbxStudents_SelectedIndexChanged);
             // 
@@ -122,7 +128,7 @@
             this.cbxClass1.Location = new System.Drawing.Point(357, 56);
             this.cbxClass1.Name = "cbxClass1";
             this.cbxClass1.Size = new System.Drawing.Size(206, 23);
-            this.cbxClass1.TabIndex = 27;
+            this.cbxClass1.TabIndex = 0;
             // 
             // cbxClass2
             // 
@@ -130,7 +136,7 @@
             this.cbxClass2.Location = new System.Drawing.Point(357, 122);
             this.cbxClass2.Name = "cbxClass2";
             this.cbxClass2.Size = new System.Drawing.Size(206, 23);
-            this.cbxClass2.TabIndex = 28;
+            this.cbxClass2.TabIndex = 1;
             // 
             // cbxClass3
             // 
@@ -138,7 +144,7 @@
             this.cbxClass3.Location = new System.Drawing.Point(357, 188);
             this.cbxClass3.Name = "cbxClass3";
             this.cbxClass3.Size = new System.Drawing.Size(206, 23);
-            this.cbxClass3.TabIndex = 29;
+            this.cbxClass3.TabIndex = 2;
             // 
             // cbxClass4
             // 
@@ -146,7 +152,7 @@
             this.cbxClass4.Location = new System.Drawing.Point(357, 254);
             this.cbxClass4.Name = "cbxClass4";
             this.cbxClass4.Size = new System.Drawing.Size(206, 23);
-            this.cbxClass4.TabIndex = 30;
+            this.cbxClass4.TabIndex = 3;
             // 
             // cbxClass5
             // 
@@ -154,7 +160,7 @@
             this.cbxClass5.Location = new System.Drawing.Point(357, 320);
             this.cbxClass5.Name = "cbxClass5";
             this.cbxClass5.Size = new System.Drawing.Size(206, 23);
-            this.cbxClass5.TabIndex = 31;
+            this.cbxClass5.TabIndex = 4;
             // 
             // cbxClass6
             // 
@@ -162,7 +168,7 @@
             this.cbxClass6.Location = new System.Drawing.Point(357, 386);
             this.cbxClass6.Name = "cbxClass6";
             this.cbxClass6.Size = new System.Drawing.Size(206, 23);
-            this.cbxClass6.TabIndex = 32;
+            this.cbxClass6.TabIndex = 5;
             // 
             // btnEditCourses
             // 
@@ -170,8 +176,8 @@
             this.btnEditCourses.Location = new System.Drawing.Point(382, 484);
             this.btnEditCourses.Name = "btnEditCourses";
             this.btnEditCourses.Size = new System.Drawing.Size(117, 40);
-            this.btnEditCourses.TabIndex = 33;
-            this.btnEditCourses.Text = "Edit Courses";
+            this.btnEditCourses.TabIndex = 7;
+            this.btnEditCourses.Text = "&Edit Courses";
             this.btnEditCourses.UseVisualStyleBackColor = true;
             this.btnEditCourses.Click += new System.EventHandler(this.btnEditCourses_Click);
             // 
@@ -181,8 +187,8 @@
             this.btnReset.Location = new System.Drawing.Point(234, 484);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(117, 40);
-            this.btnReset.TabIndex = 34;
-            this.btnReset.Text = "Reset";
+            this.btnReset.TabIndex = 6;
+            this.btnReset.Text = "&Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -192,10 +198,52 @@
             this.btnBack.Location = new System.Drawing.Point(530, 484);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
-            this.btnBack.TabIndex = 35;
-            this.btnBack.Text = "Back";
+            this.btnBack.TabIndex = 8;
+            this.btnBack.Text = "&Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // mnuStrip
+            // 
+            this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(659, 24);
+            this.mnuStrip.TabIndex = 36;
+            this.mnuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManualToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // userManualToolStripMenuItem
+            // 
+            this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userManualToolStripMenuItem.Text = "&User Manual";
+            this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmAssignClasses
             // 
@@ -204,6 +252,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.mnuStrip);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnEditCourses);
@@ -226,6 +275,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Assign Classes";
             this.Load += new System.EventHandler(this.frmAssignClasses_Load);
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +300,10 @@
         private System.Windows.Forms.Button btnEditCourses;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
     }
 }

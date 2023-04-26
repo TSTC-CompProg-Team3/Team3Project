@@ -43,7 +43,13 @@
             this.btnEditCourse = new System.Windows.Forms.Button();
             this.btnEditTeacher = new System.Windows.Forms.Button();
             this.pbxAdminMenu = new System.Windows.Forms.PictureBox();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAdminMenu)).BeginInit();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
@@ -52,7 +58,7 @@
             this.btnBack.Location = new System.Drawing.Point(530, 484);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
-            this.btnBack.TabIndex = 16;
+            this.btnBack.TabIndex = 12;
             this.btnBack.Text = "&Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -74,7 +80,7 @@
             this.btnRemoveCourse.Location = new System.Drawing.Point(503, 264);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
             this.btnRemoveCourse.Size = new System.Drawing.Size(117, 40);
-            this.btnRemoveCourse.TabIndex = 2;
+            this.btnRemoveCourse.TabIndex = 3;
             this.btnRemoveCourse.Text = "Remove Course";
             this.btnRemoveCourse.UseVisualStyleBackColor = true;
             this.btnRemoveCourse.Visible = false;
@@ -97,7 +103,7 @@
             this.cbxCourseSelect.Location = new System.Drawing.Point(294, 275);
             this.cbxCourseSelect.Name = "cbxCourseSelect";
             this.cbxCourseSelect.Size = new System.Drawing.Size(203, 23);
-            this.cbxCourseSelect.TabIndex = 3;
+            this.cbxCourseSelect.TabIndex = 2;
             this.cbxCourseSelect.SelectedIndexChanged += new System.EventHandler(this.cbxCourseSelect_SelectedIndexChanged);
             // 
             // btnRemoveTeacher
@@ -106,7 +112,7 @@
             this.btnRemoveTeacher.Location = new System.Drawing.Point(503, 340);
             this.btnRemoveTeacher.Name = "btnRemoveTeacher";
             this.btnRemoveTeacher.Size = new System.Drawing.Size(117, 40);
-            this.btnRemoveTeacher.TabIndex = 6;
+            this.btnRemoveTeacher.TabIndex = 7;
             this.btnRemoveTeacher.Text = "Remove Teacher";
             this.btnRemoveTeacher.UseVisualStyleBackColor = true;
             this.btnRemoveTeacher.Visible = false;
@@ -118,7 +124,7 @@
             this.cbxTeacherSelect.Location = new System.Drawing.Point(294, 351);
             this.cbxTeacherSelect.Name = "cbxTeacherSelect";
             this.cbxTeacherSelect.Size = new System.Drawing.Size(203, 23);
-            this.cbxTeacherSelect.TabIndex = 7;
+            this.cbxTeacherSelect.TabIndex = 6;
             this.cbxTeacherSelect.SelectedIndexChanged += new System.EventHandler(this.cbxTeacherSelect_SelectedIndexChanged);
             // 
             // btnRemoveStudent
@@ -127,7 +133,7 @@
             this.btnRemoveStudent.Location = new System.Drawing.Point(503, 420);
             this.btnRemoveStudent.Name = "btnRemoveStudent";
             this.btnRemoveStudent.Size = new System.Drawing.Size(117, 40);
-            this.btnRemoveStudent.TabIndex = 10;
+            this.btnRemoveStudent.TabIndex = 11;
             this.btnRemoveStudent.Text = "Remove Student";
             this.btnRemoveStudent.UseVisualStyleBackColor = true;
             this.btnRemoveStudent.Visible = false;
@@ -139,7 +145,7 @@
             this.cbxStudentSelect.Location = new System.Drawing.Point(294, 431);
             this.cbxStudentSelect.Name = "cbxStudentSelect";
             this.cbxStudentSelect.Size = new System.Drawing.Size(203, 23);
-            this.cbxStudentSelect.TabIndex = 11;
+            this.cbxStudentSelect.TabIndex = 10;
             this.cbxStudentSelect.SelectedIndexChanged += new System.EventHandler(this.cbxStudentSelect_SelectedIndexChanged);
             // 
             // btnAddStudent
@@ -195,6 +201,48 @@
             this.pbxAdminMenu.TabIndex = 17;
             this.pbxAdminMenu.TabStop = false;
             // 
+            // mnuStrip
+            // 
+            this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(659, 24);
+            this.mnuStrip.TabIndex = 18;
+            this.mnuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManualToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // userManualToolStripMenuItem
+            // 
+            this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userManualToolStripMenuItem.Text = "&User Manual";
+            this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
+            // 
             // frmAdminMenu
             // 
             this.AcceptButton = this.btnBack;
@@ -203,6 +251,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(659, 536);
             this.ControlBox = false;
+            this.Controls.Add(this.mnuStrip);
             this.Controls.Add(this.pbxAdminMenu);
             this.Controls.Add(this.btnEditTeacher);
             this.Controls.Add(this.btnEditCourse);
@@ -227,7 +276,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAdminMenu_FormClosing);
             this.Load += new System.EventHandler(this.frmAdminMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxAdminMenu)).EndInit();
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -246,5 +298,10 @@
         private System.Windows.Forms.Button btnEditCourse;
         private System.Windows.Forms.Button btnEditTeacher;
         private System.Windows.Forms.PictureBox pbxAdminMenu;
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
     }
 }

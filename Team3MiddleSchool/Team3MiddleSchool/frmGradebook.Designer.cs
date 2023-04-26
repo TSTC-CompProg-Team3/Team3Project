@@ -54,10 +54,18 @@
             this.lblClass = new System.Windows.Forms.Label();
             this.lblFinalCap = new System.Windows.Forms.Label();
             this.lblFinal = new System.Windows.Forms.Label();
+
             this.lblMidTermG = new System.Windows.Forms.Label();
             this.lblmidTerm = new System.Windows.Forms.Label();
             this.btnmidTRep = new System.Windows.Forms.Button();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMidtermGrades = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradeBook)).BeginInit();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -65,6 +73,7 @@
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnAdd.Location = new System.Drawing.Point(527, 428);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
@@ -79,6 +88,7 @@
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnEdit.Location = new System.Drawing.Point(423, 428);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
@@ -93,7 +103,9 @@
             this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnRemove.Location = new System.Drawing.Point(319, 428);
+
             this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(100, 44);
@@ -107,7 +119,9 @@
             this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnNext.Location = new System.Drawing.Point(215, 428);
+
             this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 44);
@@ -121,7 +135,9 @@
             this.btnPrev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnPrev.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnPrev.Location = new System.Drawing.Point(115, 428);
+
             this.btnPrev.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(100, 44);
@@ -135,7 +151,9 @@
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+
             this.btnBack.Location = new System.Drawing.Point(11, 428);
+
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(100, 44);
@@ -151,7 +169,7 @@
             this.lblTotalCap.CausesValidation = false;
             this.lblTotalCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotalCap.Location = new System.Drawing.Point(584, 328);
+            this.lblTotalCap.Location = new System.Drawing.Point(681, 378);
             this.lblTotalCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalCap.Name = "lblTotalCap";
             this.lblTotalCap.Size = new System.Drawing.Size(149, 35);
@@ -166,7 +184,7 @@
             this.lblTestCap.CausesValidation = false;
             this.lblTestCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTestCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTestCap.Location = new System.Drawing.Point(584, 236);
+            this.lblTestCap.Location = new System.Drawing.Point(681, 286);
             this.lblTestCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTestCap.Name = "lblTestCap";
             this.lblTestCap.Size = new System.Drawing.Size(149, 35);
@@ -181,7 +199,7 @@
             this.lblLabCap.CausesValidation = false;
             this.lblLabCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLabCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblLabCap.Location = new System.Drawing.Point(583, 192);
+            this.lblLabCap.Location = new System.Drawing.Point(680, 242);
             this.lblLabCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLabCap.Name = "lblLabCap";
             this.lblLabCap.Size = new System.Drawing.Size(149, 35);
@@ -196,7 +214,7 @@
             this.lblQuizCap.CausesValidation = false;
             this.lblQuizCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuizCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblQuizCap.Location = new System.Drawing.Point(584, 148);
+            this.lblQuizCap.Location = new System.Drawing.Point(681, 198);
             this.lblQuizCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuizCap.Name = "lblQuizCap";
             this.lblQuizCap.Size = new System.Drawing.Size(149, 35);
@@ -211,7 +229,7 @@
             this.lblHomeworkCap.CausesValidation = false;
             this.lblHomeworkCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHomeworkCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblHomeworkCap.Location = new System.Drawing.Point(584, 101);
+            this.lblHomeworkCap.Location = new System.Drawing.Point(681, 151);
             this.lblHomeworkCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHomeworkCap.Name = "lblHomeworkCap";
             this.lblHomeworkCap.Size = new System.Drawing.Size(149, 35);
@@ -226,7 +244,7 @@
             this.lblParticipationCap.CausesValidation = false;
             this.lblParticipationCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblParticipationCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblParticipationCap.Location = new System.Drawing.Point(583, 59);
+            this.lblParticipationCap.Location = new System.Drawing.Point(680, 109);
             this.lblParticipationCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblParticipationCap.Name = "lblParticipationCap";
             this.lblParticipationCap.Size = new System.Drawing.Size(149, 35);
@@ -238,7 +256,7 @@
             // 
             this.lblTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotal.Location = new System.Drawing.Point(404, 328);
+            this.lblTotal.Location = new System.Drawing.Point(501, 378);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(176, 35);
@@ -248,7 +266,7 @@
             // 
             this.lblTest.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTest.Location = new System.Drawing.Point(475, 236);
+            this.lblTest.Location = new System.Drawing.Point(572, 286);
             this.lblTest.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTest.Name = "lblTest";
             this.lblTest.Size = new System.Drawing.Size(104, 29);
@@ -258,7 +276,7 @@
             // 
             this.lblLab.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblLab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblLab.Location = new System.Drawing.Point(474, 195);
+            this.lblLab.Location = new System.Drawing.Point(571, 245);
             this.lblLab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLab.Name = "lblLab";
             this.lblLab.Size = new System.Drawing.Size(104, 29);
@@ -268,7 +286,7 @@
             // 
             this.lblQuiz.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblQuiz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblQuiz.Location = new System.Drawing.Point(475, 151);
+            this.lblQuiz.Location = new System.Drawing.Point(572, 201);
             this.lblQuiz.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuiz.Name = "lblQuiz";
             this.lblQuiz.Size = new System.Drawing.Size(104, 29);
@@ -278,7 +296,7 @@
             // 
             this.lblHomework.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblHomework.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblHomework.Location = new System.Drawing.Point(475, 101);
+            this.lblHomework.Location = new System.Drawing.Point(572, 151);
             this.lblHomework.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHomework.Name = "lblHomework";
             this.lblHomework.Size = new System.Drawing.Size(104, 29);
@@ -288,7 +306,7 @@
             // 
             this.lblParticipation.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblParticipation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblParticipation.Location = new System.Drawing.Point(474, 59);
+            this.lblParticipation.Location = new System.Drawing.Point(571, 109);
             this.lblParticipation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblParticipation.Name = "lblParticipation";
             this.lblParticipation.Size = new System.Drawing.Size(104, 29);
@@ -301,7 +319,7 @@
             this.lblNameCap.CausesValidation = false;
             this.lblNameCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNameCap.Location = new System.Drawing.Point(584, 9);
+            this.lblNameCap.Location = new System.Drawing.Point(681, 59);
             this.lblNameCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNameCap.Name = "lblNameCap";
             this.lblNameCap.Size = new System.Drawing.Size(149, 35);
@@ -316,31 +334,32 @@
             this.dgvGradeBook.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvGradeBook.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvGradeBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGradeBook.Location = new System.Drawing.Point(11, 38);
+            this.dgvGradeBook.Location = new System.Drawing.Point(11, 59);
             this.dgvGradeBook.Margin = new System.Windows.Forms.Padding(2);
             this.dgvGradeBook.Name = "dgvGradeBook";
             this.dgvGradeBook.ReadOnly = true;
             this.dgvGradeBook.RowHeadersWidth = 62;
             this.dgvGradeBook.RowTemplate.Height = 28;
-            this.dgvGradeBook.Size = new System.Drawing.Size(374, 375);
+            this.dgvGradeBook.Size = new System.Drawing.Size(448, 375);
             this.dgvGradeBook.TabIndex = 22;
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(403, 13);
+            this.tbxName.Location = new System.Drawing.Point(500, 63);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(176, 23);
+            this.tbxName.Size = new System.Drawing.Size(176, 31);
             this.tbxName.TabIndex = 44;
             // 
             // lblID
             // 
             this.lblID.BackColor = System.Drawing.Color.SeaShell;
             this.lblID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(13, 212);
+            this.lblID.Location = new System.Drawing.Point(13, 244);
             this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(52, 28);
             this.lblID.TabIndex = 45;
+            this.lblID.Text = "82";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblClass
@@ -351,9 +370,9 @@
             this.lblClass.CausesValidation = false;
             this.lblClass.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClass.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblClass.Location = new System.Drawing.Point(12, 4);
+            this.lblClass.Location = new System.Drawing.Point(12, 25);
             this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(38, 22);
+            this.lblClass.Size = new System.Drawing.Size(53, 32);
             this.lblClass.TabIndex = 46;
             this.lblClass.Text = "Null";
             // 
@@ -364,7 +383,7 @@
             this.lblFinalCap.CausesValidation = false;
             this.lblFinalCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFinalCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFinalCap.Location = new System.Drawing.Point(583, 282);
+            this.lblFinalCap.Location = new System.Drawing.Point(680, 332);
             this.lblFinalCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFinalCap.Name = "lblFinalCap";
             this.lblFinalCap.Size = new System.Drawing.Size(149, 35);
@@ -376,12 +395,13 @@
             // 
             this.lblFinal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFinal.Location = new System.Drawing.Point(474, 282);
+            this.lblFinal.Location = new System.Drawing.Point(571, 332);
             this.lblFinal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFinal.Name = "lblFinal";
             this.lblFinal.Size = new System.Drawing.Size(104, 29);
             this.lblFinal.TabIndex = 47;
             // 
+
             // lblMidTermG
             // 
             this.lblMidTermG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
@@ -413,18 +433,79 @@
             this.btnmidTRep.Text = "&Midterm report";
             this.btnmidTRep.UseVisualStyleBackColor = false;
             this.btnmidTRep.Click += new System.EventHandler(this.btnmidTRep_Click);
+
+            // mnuStrip
+            // 
+            this.mnuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(852, 33);
+            this.mnuStrip.TabIndex = 49;
+            this.mnuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 34);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManualToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // userManualToolStripMenuItem
+            // 
+            this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(212, 34);
+            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
+            // 
+            // btnMidtermGrades
+            // 
+            this.btnMidtermGrades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnMidtermGrades.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMidtermGrades.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.btnMidtermGrades.Location = new System.Drawing.Point(131, 445);
+            this.btnMidtermGrades.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMidtermGrades.Name = "btnMidtermGrades";
+            this.btnMidtermGrades.Size = new System.Drawing.Size(111, 44);
+            this.btnMidtermGrades.TabIndex = 50;
+            this.btnMidtermGrades.Text = "MidTerm Grades";
+            this.btnMidtermGrades.UseVisualStyleBackColor = false;
+
             // 
             // frmGradebook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.ClientSize = new System.Drawing.Size(762, 483);
             this.ControlBox = false;
             this.Controls.Add(this.btnmidTRep);
             this.Controls.Add(this.lblmidTerm);
             this.Controls.Add(this.lblMidTermG);
+            this.Controls.Add(this.btnMidtermGrades);
+            this.Controls.Add(this.mnuStrip);
+
             this.Controls.Add(this.lblFinalCap);
             this.Controls.Add(this.lblFinal);
             this.Controls.Add(this.lblClass);
@@ -459,6 +540,8 @@
             this.Text = "Gradebook";
             this.Load += new System.EventHandler(this.frmGradebook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradeBook)).EndInit();
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,8 +574,17 @@
         private System.Windows.Forms.Label lblClass;
         private System.Windows.Forms.Label lblFinalCap;
         public System.Windows.Forms.Label lblFinal;
+
         private System.Windows.Forms.Label lblMidTermG;
         private System.Windows.Forms.Label lblmidTerm;
         private System.Windows.Forms.Button btnmidTRep;
+
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
+        private System.Windows.Forms.Button btnMidtermGrades;
+
     }
 }

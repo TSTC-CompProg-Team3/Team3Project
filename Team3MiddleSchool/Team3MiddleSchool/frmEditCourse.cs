@@ -37,6 +37,9 @@ namespace Team3MiddleSchool
             lblTeacherID.ForeColor = ColorTranslator.FromHtml("#191919");
             lblSubjectID.ForeColor = ColorTranslator.FromHtml("#191919");
             lblClassSize.ForeColor = ColorTranslator.FromHtml("#191919");
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -71,6 +74,16 @@ namespace Team3MiddleSchool
         private void tbxClassName_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("editCourse.html");
         }
     }
 }

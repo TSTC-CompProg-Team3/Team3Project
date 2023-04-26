@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,6 @@ namespace Team3MiddleSchool
         public frmAttendance(int loginID, string accountType, string classSelect, bool isStudent)
         {
             this.loginID = loginID;
-            //this.studentID = studentID;
             this.accountType = accountType;
             this.classSelect = classSelect;
             this.isStudent = isStudent;
@@ -65,6 +65,8 @@ namespace Team3MiddleSchool
                 btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
                 btnSubmitAttend.BackColor = ColorTranslator.FromHtml("#F15025");
                 btnSubmitAttend.ForeColor = ColorTranslator.FromHtml("#191919");
+                mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+                mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
 
                 if (binding.Count < 1 && (day.DayOfWeek != DayOfWeek.Sunday && day.DayOfWeek != DayOfWeek.Saturday))
                 {
@@ -94,6 +96,7 @@ namespace Team3MiddleSchool
                 btnEditAttend.Enabled = false;
                 btnSubmitAttend.Enabled = false;
                 btnEditAttend.BackColor = Color.LightGray;
+                btnSubmitAttend.BackColor = Color.LightGray;
                 btnBackAttend.BackColor = ColorTranslator.FromHtml("#F15025");
                 btnBackAttend.ForeColor = ColorTranslator.FromHtml("#191919");
             }
@@ -184,7 +187,7 @@ namespace Team3MiddleSchool
             }
             else
             {
-                database.UpdateAttendance(dgvAttendance, dateSelection);
+                database.UpdateAttendance(dgvAttendance);
 
                 MessageBox.Show("Today's attendance has been updated.", "Attendance Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
@@ -196,6 +199,104 @@ namespace Team3MiddleSchool
         private void frmAttendance_Activated(object sender, EventArgs e)
         {
             NewQuery(dateSelection, accountType);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("attendance.html");
+        }
+
+        private void attendanceReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (accountType.Equals("student") || accountType.Equals("Parent"))
+            {
+                string studentName = database.GetStudentName(studentID);
+                int spaceIndex = classSelect.IndexOf("-");
+                string className = classSelect.Substring(0, spaceIndex - 1);
+                string teacher = database.LoggedTeacher(classID);
+                List<string> attendanceData = database.GetTotalAttendance(studentID, classID);
+                float totalDays = float.Parse(attendanceData[0]);
+                float absentDays = 0;
+                if (attendanceData[1].Equals("none"))
+                {
+                    absentDays = 0;
+                }
+                else
+                {
+                    absentDays = float.Parse(attendanceData[1]);
+                }
+
+                float presentDays = totalDays - absentDays;
+                float percentageDays = (presentDays / totalDays) * 100;
+                string percentage = (totalDays - absentDays) + " of " + totalDays + " - " + percentageDays.ToString("#.##");
+                List<string> daysMissed = new List<string>();
+                if (attendanceData.Count > 2)
+                {
+                    for (int i = 2; i < attendanceData.Count; i++)
+                    {
+                        spaceIndex = attendanceData[i].IndexOf(" ");
+                        string addDay = attendanceData[i].Substring(0, spaceIndex);
+                        daysMissed.Add(addDay);
+                    }
+                }
+                generateAttendanceReport(studentName, className, teacher, percentage, daysMissed);
+            }
+            else
+            {
+                MessageBox.Show("Please select a student from the 'Edit' window to generate an attendance report.");
+            }
+        }
+
+        private void generateAttendanceReport(string studentName, string className, string teacher, string attendance, List<string> daysMissed)
+        {
+            string template = "attendanceReportTemplate.html";
+
+            StreamReader sr = new StreamReader(template);
+            string content = sr.ReadToEnd();
+            sr.Close();
+
+
+            string daysMissedString = "";
+
+            foreach (string day in daysMissed)
+            {
+                daysMissedString += "<br>&emsp;&emsp;" + day;
+            }
+
+            string search = "<h2 id=\"studentNameHeader\">Student Name</h2>";
+            string replace = "<h2 id=\"studentNameHeader\">" + studentName + "</h2>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"c1\"></dt>";
+            replace = "<dt id=\"c1\">Class: " + className + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"t1\"></dt>";
+            replace = "<dt id=\"t1\">Teacher: " + teacher + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"a1\"></dt>";
+            replace = "<dt id=\"a1\">Attendance: " + attendance + "%</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"d1\"></dt>";
+            replace = "<dt id=\"d1\">Days Missed: " + daysMissedString + "</dt>";
+            content = content.Replace(search, replace);
+
+
+
+            string report = "reportGenerator.html";
+            StreamWriter sw = new StreamWriter(report, false);
+            sw.Write(content);
+            sw.Close();
+
+            System.Diagnostics.Process.Start("reportGenerator.html");
+
         }
     }
 }

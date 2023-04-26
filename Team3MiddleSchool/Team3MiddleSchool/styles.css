@@ -7,7 +7,7 @@ body {
 
 .navigation {
   padding: 50px;
-  height: 100vw;
+  height: 100;
   width: 20vw;
   background-color: #cfd0ce;
 }
@@ -40,6 +40,22 @@ body {
   color: black;
 }
 
+.subBtn {
+  display: flex;
+  padding-top: 10px;
+  padding-left: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.subBtn:hover {
+  text-decoration: line-through;
+}
+
+.subBtn:visited {
+  color: black;
+}
+
 .header-container {
   height: 30vh;
 }
@@ -58,9 +74,9 @@ dl {
 }
 
 h2 {
-    padding-left: 30px;
-    text-align: left;
-    text-decoration: underline;
+  padding-left: 30px;
+  text-align: left;
+  text-decoration: underline;
 }
 
 h1 {
@@ -71,5 +87,5 @@ h1 {
 }
 
 dt {
-    font-weight: bold;
+  font-weight: bold;
 }

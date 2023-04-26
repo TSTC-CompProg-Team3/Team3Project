@@ -41,7 +41,6 @@
             this.mnuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBanner)).BeginInit();
@@ -63,7 +62,7 @@
             this.cbxCourseSelect.Location = new System.Drawing.Point(147, 250);
             this.cbxCourseSelect.Name = "cbxCourseSelect";
             this.cbxCourseSelect.Size = new System.Drawing.Size(365, 23);
-            this.cbxCourseSelect.TabIndex = 1;
+            this.cbxCourseSelect.TabIndex = 0;
             // 
             // btnGradeBook
             // 
@@ -71,7 +70,7 @@
             this.btnGradeBook.Location = new System.Drawing.Point(271, 291);
             this.btnGradeBook.Name = "btnGradeBook";
             this.btnGradeBook.Size = new System.Drawing.Size(117, 40);
-            this.btnGradeBook.TabIndex = 2;
+            this.btnGradeBook.TabIndex = 1;
             this.btnGradeBook.Text = "&Grade Book";
             this.btnGradeBook.UseVisualStyleBackColor = true;
             this.btnGradeBook.Click += new System.EventHandler(this.btnGradeBook_Click);
@@ -82,7 +81,7 @@
             this.btnAttendance.Location = new System.Drawing.Point(271, 352);
             this.btnAttendance.Name = "btnAttendance";
             this.btnAttendance.Size = new System.Drawing.Size(117, 40);
-            this.btnAttendance.TabIndex = 3;
+            this.btnAttendance.TabIndex = 2;
             this.btnAttendance.Text = "&Attendance";
             this.btnAttendance.UseVisualStyleBackColor = true;
             this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
@@ -93,7 +92,7 @@
             this.btnSeatingChart.Location = new System.Drawing.Point(271, 413);
             this.btnSeatingChart.Name = "btnSeatingChart";
             this.btnSeatingChart.Size = new System.Drawing.Size(117, 40);
-            this.btnSeatingChart.TabIndex = 4;
+            this.btnSeatingChart.TabIndex = 3;
             this.btnSeatingChart.Text = "&Seating Chart";
             this.btnSeatingChart.UseVisualStyleBackColor = true;
             this.btnSeatingChart.Click += new System.EventHandler(this.btnSeatingChart_Click);
@@ -104,7 +103,7 @@
             this.btnReturnToLogin.Location = new System.Drawing.Point(271, 474);
             this.btnReturnToLogin.Name = "btnReturnToLogin";
             this.btnReturnToLogin.Size = new System.Drawing.Size(117, 40);
-            this.btnReturnToLogin.TabIndex = 5;
+            this.btnReturnToLogin.TabIndex = 4;
             this.btnReturnToLogin.Text = "&Return to Login";
             this.btnReturnToLogin.UseVisualStyleBackColor = true;
             this.btnReturnToLogin.Click += new System.EventHandler(this.btnReturnToLogin_Click);
@@ -112,7 +111,7 @@
             // btnAdmin
             // 
             this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdmin.Location = new System.Drawing.Point(486, 277);
+            this.btnAdmin.Location = new System.Drawing.Point(486, 291);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(117, 40);
             this.btnAdmin.TabIndex = 6;
@@ -127,7 +126,7 @@
             this.btnOfficer.Location = new System.Drawing.Point(486, 291);
             this.btnOfficer.Name = "btnOfficer";
             this.btnOfficer.Size = new System.Drawing.Size(117, 40);
-            this.btnOfficer.TabIndex = 7;
+            this.btnOfficer.TabIndex = 5;
             this.btnOfficer.Text = "&Officer";
             this.btnOfficer.UseVisualStyleBackColor = true;
             this.btnOfficer.Visible = false;
@@ -139,7 +138,7 @@
             this.btnAssignClass.Location = new System.Drawing.Point(486, 352);
             this.btnAssignClass.Name = "btnAssignClass";
             this.btnAssignClass.Size = new System.Drawing.Size(117, 40);
-            this.btnAssignClass.TabIndex = 8;
+            this.btnAssignClass.TabIndex = 6;
             this.btnAssignClass.Text = "Assign &Classes";
             this.btnAssignClass.UseVisualStyleBackColor = true;
             this.btnAssignClass.Visible = false;
@@ -150,7 +149,6 @@
             this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.helpToolStripMenuItem});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuStrip.Name = "mnuStrip";
@@ -169,14 +167,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
             // 
             // helpToolStripMenuItem
             // 
@@ -184,13 +177,13 @@
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
             this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Text = "&User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmMenu
@@ -240,7 +233,6 @@
         private System.Windows.Forms.MenuStrip mnuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
     }

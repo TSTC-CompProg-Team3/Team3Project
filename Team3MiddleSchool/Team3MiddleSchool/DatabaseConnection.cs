@@ -1979,9 +1979,91 @@ namespace Team3MiddleSchool
             return studentID;
         }
 
-        public void UpdateAttendance(DataGridView dgv, string date)
+        public string GetStudentName(int studentID)
+        {
+            string studentName = "";
+            string query = "SELECT CONCAT(FirstName, ' ', LastName) AS Name FROM team3sp232330.Student where StudentID = " + studentID + ";";
+
+            SqlCommand commandID = new SqlCommand(query, connection);
+
+
+            SqlDataReader reader = commandID.ExecuteReader();
+
+            while (reader.Read())
+            {
+                studentName = $"{reader["Name"]}";
+            }
+
+            reader.Close();
+
+            return studentName;
+        }
+
+        public int GetStudentIDByName(string name)
+        {
+            int studentID = 0;
+            string studentIDString = "";
+            int spaceIndex = name.IndexOf(" ");
+            string first = name.Substring(0, spaceIndex);
+            string last = name.Substring(spaceIndex + 1);
+            string query = "SELECT StudentID FROM team3sp232330.Student where FirstName = '" + first + "' AND LastName = '" + last + "';";
+
+            SqlCommand commandID = new SqlCommand(query, connection);
+
+
+            SqlDataReader reader = commandID.ExecuteReader();
+
+            while (reader.Read())
+            {
+                studentIDString = $"{reader["StudentID"]}";
+            }
+            reader.Close();
+
+            studentID = Int32.Parse(studentIDString);
+
+            return studentID;
+        }
+
+        public List<string> GetTotalAttendance(int studentID, int classID)
+        {
+            List<string> attendanceData = new List<string>() { "none", "none" };
+            string query = "SELECT COUNT(StudentID) AS Total FROM team3sp232330.Attendance WHERE StudentID = " + studentID.ToString() + " AND ClassID = " + classID.ToString() + " GROUP BY StudentID;";
+
+            SqlCommand commandID = new SqlCommand(query, connection);
+            SqlDataReader reader = commandID.ExecuteReader();
+            while (reader.Read())
+            {
+                attendanceData[0] = $"{reader["Total"]}";
+            }
+            reader.Close();
+
+
+            query = "SELECT COUNT(StudentID) AS Absent FROM team3sp232330.Attendance WHERE StudentID = " + studentID.ToString() + " AND ClassID = " + classID.ToString() + " AND Present = 0 GROUP BY StudentID;";
+            commandID = new SqlCommand(query, connection);
+            reader = commandID.ExecuteReader();
+            while (reader.Read())
+            {
+                attendanceData[1] = $"{reader["Absent"]}";
+            }
+            reader.Close();
+
+
+            query = "SELECT AttendanceDate FROM team3sp232330.Attendance WHERE StudentID = " + studentID.ToString() + " AND ClassID = " + classID.ToString() + " AND Present = 0;";
+            commandID = new SqlCommand(query, connection);
+            reader = commandID.ExecuteReader();
+            while (reader.Read())
+            {
+                attendanceData.Add($"{reader["AttendanceDate"]}");
+            }
+            reader.Close();
+
+            return attendanceData;
+        }
+
+        public void UpdateAttendance(DataGridView dgv)
         {
             List<string> studentID = new List<string>();
+            List<string> dates = new List<string>();
             List<int> present = new List<int>();
 
             string updateQuery = "";
@@ -1989,6 +2071,7 @@ namespace Team3MiddleSchool
             for (int i = 0; i <= dgv.Rows.Count - 1; i++)
             {
                 studentID.Add(dgv.Rows[i].Cells[1].Value.ToString());
+                dates.Add(dgv.Rows[i].Cells[3].Value.ToString());
                 string convertPresent = dgv.Rows[i].Cells[4].Value.ToString().ToLower();
                 if (convertPresent.Equals("true"))
                 {
@@ -2002,7 +2085,8 @@ namespace Team3MiddleSchool
 
             for (int i = 0; i < studentID.Count; i++)
             {
-                updateQuery += "UPDATE team3sp232330.Attendance SET Present = " + present[i] + " WHERE StudentId = " + studentID[i] + " AND AttendanceDate = '" + date + "';";
+                Console.WriteLine("UPDATE team3sp232330.Attendance SET Present = " + present[i] + " WHERE StudentId = " + studentID[i] + " AND AttendanceDate = '" + dates[i] + "';");
+                updateQuery += "UPDATE team3sp232330.Attendance SET Present = " + present[i] + " WHERE StudentId = " + studentID[i] + " AND AttendanceDate = '" + dates[i] + "';";
             }
 
             SqlCommand command = new SqlCommand(updateQuery, connection);
@@ -2022,7 +2106,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName as Assignment_Name ,AssignmentType as Assignment_Type ,Grade From team3sp232330.Grades Where StudentID='" + StudentID + "' and ClassID="+classID+"", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName as Assignment_Name ,AssignmentType as Assignment_Type ,Grade From team3sp232330.Grades Where StudentID='" + StudentID + "' and ClassID="+classID+" Order by Assignment_Type asc", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -2053,11 +2137,13 @@ namespace Team3MiddleSchool
                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
         public  void GradeBookDataGridStudent(DataGridView dgvGradeBook, int studentID,int classID)
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Where StudentID=" + studentID + " and ClassID=" + classID + " ", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName as  Assignment_Name  ,AssignmentType as  Assignment_Type,Grade from team3sp232330.Grades Where StudentID=" + studentID + " and ClassID=" + classID + " Order by Assignment_Type asc  ", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -2075,7 +2161,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where parentID=" + parentID + " and ClassID=" + classID + " ", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName as  Assignment_Name  ,AssignmentType as  Assignment_Type,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where ParentID=" + parentID +" and ClassID="+ classID+ " Order by Assignment_Type asc ", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -2090,6 +2176,7 @@ namespace Team3MiddleSchool
         }
         private DataTable _gradeTable;
 
+
           
 
 
@@ -2097,6 +2184,65 @@ namespace Team3MiddleSchool
         decimal decGHomework, decGTest, decGQuiz, decGLab, decGFinal, decGMidTerm, decGPar;
         int intHomework, intTest, intQuiz, intLab, intFinal, intMidTerm, intPar;
         //Teacher Grade
+
+        public void StudentGradeClasses(DataGridView dgvGradebook ,int loginID,string studentID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT Class1, Class2, Class3, Class4, Class5, Class6 FROM team3sp232330.StudentSchedule sc JOIN team3sp232330.Student s ON sc.StudentID = s.StudentID WHERE LoginID = " + loginID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                List<int> classes = new List<int>();
+
+                while (reader.Read())
+                {
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class1")) ? -1 : (int)reader["Class1"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class2")) ? -1 : (int)reader["Class2"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class3")) ? -1 : (int)reader["Class3"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class4")) ? -1 : (int)reader["Class4"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class5")) ? -1 : (int)reader["Class5"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class6")) ? -1 : (int)reader["Class6"]);
+
+                }
+
+                reader.Close();
+
+                if (classes.Count > 0)
+                {
+                    SqlCommand cmd = new SqlCommand(" SELECT AssignmentName, AssignmentType, Grade FROM team3sp232330.Grades c WHERE ClassID= @id1 or ClassID=@id2 or ClassID=@id3 or ClassID=@id4 or ClassID=@id5 or ClassID=@id6 and StudentID=" + studentID + "", connection);
+
+                    cmd.Parameters.AddWithValue("@id1", classes[0]);
+                    cmd.Parameters.AddWithValue("@id2", classes[1]);
+                    cmd.Parameters.AddWithValue("@id3", classes[2]);
+                    cmd.Parameters.AddWithValue("@id4", classes[3]);
+                    cmd.Parameters.AddWithValue("@id5", classes[4]);
+                    cmd.Parameters.AddWithValue("@id6", classes[5]);
+                    SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter();
+                    _gradeBookDataTable = new DataTable();
+                    gradeBookDataAdapter.Fill(_gradeBookDataTable);
+
+
+                    dgvGradebook.DataSource = gradeBookDataTable;
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Fetching Grades", "Gradebook Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
+
+
+        decimal decHomework, decTest, decQuiz, decLab, decFinal, decPar;
+        decimal decGHomework, decGTest, decGQuiz, decGLab, decGFinal, decGPar;
+        int intHomework, intTest, intQuiz, intLab, intFinal, intPar;
+
         public void getHomework(string studentID, Label homework, int classID)
         {
 
@@ -2771,7 +2917,7 @@ namespace Team3MiddleSchool
                 {
                     finalTotal = total / countTotal;
                 }
-                lbltotalGrades.Text = String.Format("{0:N2}",Convert.ToDecimal(finalTotal));
+                lbltotalGrades.Text = String.Format("{0:N2}",Convert.ToDecimal(finalTotal))+"%";
 
             }
             catch (Exception ex)
@@ -3034,7 +3180,7 @@ namespace Team3MiddleSchool
         }
 
 
-        internal int GradeParentID(int loginID)
+        public int GradeParentID(int loginID)
         {
             try
             {
@@ -3046,12 +3192,15 @@ namespace Team3MiddleSchool
 
                         while (reader.Read())
                         {
-                            int parentID = (int)reader["ParentID"];
+                          int  parentID = (int)reader["ParentID"];
                             return parentID;
+                            
                         }
                         return -1;
                         reader.Close();
+                        
                     }
+                    
                 }
 
 
@@ -3092,6 +3241,7 @@ namespace Team3MiddleSchool
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+       
 
         public void LoadStudentsLbx(ListBox lbxStudents)
         {

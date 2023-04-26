@@ -34,6 +34,8 @@ namespace Team3MiddleSchool
             lblUsername.ForeColor = ColorTranslator.FromHtml("#191919");
             lblPassword.ForeColor = ColorTranslator.FromHtml("#191919");
             lblAssignStudent.ForeColor = ColorTranslator.FromHtml("#191919");
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
 
 
             string hold = parentInfo;
@@ -136,6 +138,16 @@ namespace Team3MiddleSchool
 
 
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("editParent.html");
         }
     }
 }

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Help Menu</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="banner">
+        <img src="Logo.png" alt="" />
+        <h1>Edit Student</h1>
+      </div>
+    </header>
+    <main class="content">
+      <nav class="navigation">
+        <a href="login.html" class="btn">LOGIN</a>
+        <a href="forgotPassword.html" class="btn">FORGOT PASSWORD</a>
+        <a href="menu.html" class="btn">MENU</a>
+        <a href="admin.html" class="btn">ADMIN MENU</a>
+        <a href="addCourse.html" class="subBtn">- ADD COURSE</a>
+        <a href="editCourse.html" class="subBtn">- EDIT COURSE</a>
+        <a href="addTeacher.html" class="subBtn">- ADD TEACHER</a>
+        <a href="editTeacher.html" class="subBtn">- EDIT TEACHER</a>
+        <a href="addStudent.html" class="subBtn">- ADD STUDENT</a>
+        <a href="editStudent.html" class="subBtn">- EDIT STUDENT</a>
+        <a href="officer.html" class="btn">OFFICER MENU</a>
+        <a href="addCourse.html" class="subBtn">- ADD COURSE</a>
+        <a href="editCourse.html" class="subBtn">- EDIT COURSE</a>
+        <a href="addTeacher.html" class="subBtn">- ADD TEACHER</a>
+        <a href="editTeacher.html" class="subBtn">- EDIT TEACHER</a>
+        <a href="addSubject.html" class="subBtn">- ADD SUBJECT</a>
+        <a href="editSubject.html" class="subBtn">- EDIT SUBJECT</a>
+        <a href="addStudent.html" class="subBtn">- ADD STUDENT</a>
+        <a href="editStudent.html" class="subBtn">- EDIT STUDENT</a>
+        <a href="addParent.html" class="subBtn">- ADD PARENT</a>
+        <a href="editParent.html" class="subBtn">- EDIT PARENT</a>
+        <a href="assignClasses.html" class="btn">ASSIGN CLASSES</a>
+        <a href="gradebook.html" class="btn">GRADEBOOK</a>
+        <a href="attendance.html" class="btn">ATTENDANCE</a>
+        <a href="seatingChart.html" class="btn">SEATING CHART</a>
+      </nav>
+      <div class="content-text">
+        <h2>Buttons</h2>
+        <dl>
+          <dt>Clear</dt>
+          <dd>
+            - When clicked the program will clear all textboxes and calendar
+            menus in the current form.
+          </dd>
+          <dt>Submit</dt>
+          <dd>
+            - When clicked the program will gather all of the information from
+            the text boxes and calendar menus and add them to the database to
+            edit the currently selected student.
+          </dd>
+          <dt>Back</dt>
+          <dd>
+            - When clicked the program will send the user back to the
+            Admin/Officer menu.
+          </dd>
+        </dl>
+        <h2>Text Boxes</h2>
+        <dl>
+          <dt>First Name</dt>
+          <dd>
+            - The First Name of the currently selected student will be populated
+            in the text box, and the user can chose to edit or keep the
+            original. This textbox will not allow numbers or special characters.
+          </dd>
+          <dt>Last Name</dt>
+          <dd>
+            - The Last Name of the currently selected student will be populated
+            in the text box, and the user can chose to edit or keep the original
+            last name. This textbox will not allow numbers or special
+            characters.
+          </dd>
+          <dt>Email</dt>
+          <dd>
+            - The email of the currently selected student will be populated in
+            the text box, and the user can chose to edit or keep the original
+            email. This textbox will check if the email is valid before it can
+            be submitted.
+          </dd>
+          <dt>Username</dt>
+          <dd>
+            - The username of the currently selected studnet will be populated
+            in the text box, and the user can chose to edit or keep the original
+            username. This textbox will check if the username is null or empty,
+            contains whitespace, has characters other than letters, digits,
+            underscore and hyphen, and if it's length is between 3 and 20
+            characters. If the criteria is met then the program will upload the
+            data to the database otherwise the user will be presented with a
+            warning.
+          </dd>
+          <dt>Password</dt>
+          <dd>
+            - The Password of the currently selected student will be populated
+            in the text box, and the user can chose to edit or keep the original
+            password. This textbox will check if the password is null or empty,
+            contains whitespace, has atleast one character that is uppercase,
+            and one number. It will also check to see if the length is between 8
+            and 20 characters. If the criteria is met then the program will
+            upload the data to the database otherwise the user will be presented
+            with a warning.
+          </dd>
+          <dt>Phone Number</dt>
+          <dd>
+            - The Phone Number of the currently selected student will be
+            populated in the text box, and the user can chose to edit or keep
+            the original phone number. This textbox will check if the phone
+            number is valid and if so it will then be able to be uploaded to the
+            database. If the phone number is not valid then the user will be
+            presented with a warning.
+          </dd>
+          <dt>Mailing Address</dt>
+          <dd>
+            - The Mailing Address of the currently selected student will be
+            populated in the text box, and the user can chose to edit or keep
+            the original mailing address. This textbox will check if the address
+            is valid and if so it will then be able to be uploaded to the
+            database. If the address is not valid then the user will be
+            presented with a warning.
+          </dd>
+          <dt>Street Address</dt>
+          <dd>
+            - The Street Address of the currently selected student will be
+            populated in the text box, and the user can chose to edit or keep
+            the original street address. This textbox will check if the address
+            is valid and if so it will then be able to be uploaded to the
+            database. If the address is not valid then the user will be
+            presented with a warning.
+          </dd>
+          <dt>City</dt>
+          <dd>
+            - The City of the currently selected student will be populated in
+            the text box, and the user can chose to edit or keep the original
+            city. This textbox will check if the city is valid and if so it will
+            then be able to be uploaded to the database. If the city is not
+            valid then the user will be presented with a warning.
+          </dd>
+          <dt>Zip</dt>
+          <dd>
+            - The Zip Code of the currently selected student will be populated
+            in the text box, and the user can chose to edit or keep the original
+            zip code. This textbox will check if the zip code is valid and if so
+            it will then be able to be uploaded to the database. If the zip code
+            is not valid then the user will be presented with a warning.
+          </dd>
+          <dt>Emergency Contact Name</dt>
+          <dd>
+            - The Emergency Contact Name of the currently selected student will
+            be populated in the text box, and the user can chose to edit or keep
+            the original emergency contact name. This textbox will check if the
+            name is valid and if so it will then be able to be uploaded to the
+            database. If the name is not valid then the user will be presented
+            with a warning.
+          </dd>
+          <dt>Emergency Contact Phone</dt>
+          <dd>
+            - The Emergency Contact Phone of the currently selected student will
+            be populated in the text box, and the user can chose to edit or keep
+            the original emergency contact phone. This textbox will check if the
+            phone number is valid and if so it will then be able to be uploaded
+            to the database. If the phone number is not valid then the user will
+            be presented with a warning.
+          </dd>
+          <dt>Guardian Name</dt>
+          <dd>
+            - The Guardian Name of the currently selected student will be
+            populated in the text box, and the user can chose to edit or keep
+            the original guardian name. This textbox will check if the name is
+            valid and if so it will then be able to be uploaded to the database.
+            If the name is not valid then the user will be presented with a
+            warning.
+          </dd>
+          <dt>Guardian Cell Phone</dt>
+          <dd>
+            - The Guardian Cell Phone of the currently selected student will be
+            populated in the text box, and the user can chose to edit or keep
+            the original guardian cell phone. This textbox will check if the
+            phone number is valid and if so it will then be able to be uploaded
+            to the database. If the phone number is not valid then the user will
+            be presented with a warning.
+          </dd>
+          <dt>Guardian Work Phone</dt>
+          <dd>
+            - The Guardian Work Phone of the currently selected student will be
+            populated in the text box, and the user can chose to edit or keep
+            the original guardian work phone. This textbox will check if the
+            phone number is valid and if so it will then be able to be uploaded
+            to the database. If the phone number is not valid then the user will
+            be presented with a warning.
+          </dd>
+          <dt>Guardian Work Place</dt>
+          <dd>
+            - The Guardian Work Place of the currently selected student will be
+            populated in the text box, and the user can chose to edit or keep
+            the original guardian work place. This textbox will check if the
+            work place name is valid and if so it will then be able to be
+            uploaded to the database. If the work place name is not valid then
+            the user will be presented with a warning.
+          </dd>
+        </dl>
+        <h2>Calendar Selectors</h2>
+        <dl>
+          <dt>Date Of Birth</dt>
+          <dd>
+            - The Date Of Birth of the currently selected student will be
+            populated in the calendar selector, and the user can chose to edit
+            or keep the original date of birth.
+          </dd>
+        </dl>
+        <h2>Drop-down Menus</h2>
+        <dl>
+          <dt>State</dt>
+          <dd>
+            - The State of the currently selected student will be populated in
+            the drop-down menu, and the user can chose to edit or keep the
+            original state.
+          </dd>
+        </dl>
+      </div>
+    </main>
+  </body>
+</html>

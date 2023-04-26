@@ -38,6 +38,8 @@ namespace Team3MiddleSchool
             lblEnterEmail.ForeColor = ColorTranslator.FromHtml("#191919");
             lblNewPassword.ForeColor = ColorTranslator.FromHtml("#191919");
             lblNewPassword.ForeColor = ColorTranslator.FromHtml("#191919");
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
         }
 
         //sends code to email and stores in database -CS
@@ -69,6 +71,16 @@ namespace Team3MiddleSchool
         private void frmForgotPass_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("forgotPassword.html");
         }
     }
 
