@@ -45,7 +45,7 @@ namespace Team3MiddleSchool
         private void frmGradebook_Load(object sender, EventArgs e)
         {
             studentID = database.GetStudentID(loginID);
-            parentID = database.GradeParentID(loginID);
+            parentID = 3;
             mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
             mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
             

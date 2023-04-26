@@ -2904,7 +2904,7 @@ namespace Team3MiddleSchool
                 {
                     finalTotal = total / countTotal;
                 }
-                lbltotalGrades.Text = String.Format("{0:N2}",Convert.ToDecimal(finalTotal));
+                lbltotalGrades.Text = String.Format("{0:N2}",Convert.ToDecimal(finalTotal))+"%";
 
             }
             catch (Exception ex)
