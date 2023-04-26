@@ -60,7 +60,7 @@
             this.tbxEnterCode.Location = new System.Drawing.Point(106, 228);
             this.tbxEnterCode.Name = "tbxEnterCode";
             this.tbxEnterCode.Size = new System.Drawing.Size(350, 23);
-            this.tbxEnterCode.TabIndex = 1;
+            this.tbxEnterCode.TabIndex = 2;
             // 
             // lblEnterEmail
             // 
@@ -88,7 +88,7 @@
             this.btnSendCode.Location = new System.Drawing.Point(471, 113);
             this.btnSendCode.Name = "btnSendCode";
             this.btnSendCode.Size = new System.Drawing.Size(117, 40);
-            this.btnSendCode.TabIndex = 4;
+            this.btnSendCode.TabIndex = 1;
             this.btnSendCode.Text = "&Send Code";
             this.btnSendCode.UseVisualStyleBackColor = true;
             this.btnSendCode.Click += new System.EventHandler(this.btnSendCode_Click);
@@ -108,7 +108,7 @@
             this.tbxNewPassword.Location = new System.Drawing.Point(106, 295);
             this.tbxNewPassword.Name = "tbxNewPassword";
             this.tbxNewPassword.Size = new System.Drawing.Size(350, 23);
-            this.tbxNewPassword.TabIndex = 2;
+            this.tbxNewPassword.TabIndex = 3;
             // 
             // btnConfirm
             // 
@@ -136,7 +136,7 @@
             this.tbxConfirmPassword.Location = new System.Drawing.Point(106, 355);
             this.tbxConfirmPassword.Name = "tbxConfirmPassword";
             this.tbxConfirmPassword.Size = new System.Drawing.Size(350, 23);
-            this.tbxConfirmPassword.TabIndex = 3;
+            this.tbxConfirmPassword.TabIndex = 4;
             // 
             // btnCancel
             // 
@@ -184,7 +184,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -194,13 +194,13 @@
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
             this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Text = "&User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmForgotPass

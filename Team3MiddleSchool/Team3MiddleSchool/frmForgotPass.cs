@@ -56,6 +56,7 @@ namespace Team3MiddleSchool
             if (clsValidation.ValidatePassword(tbxNewPassword.Text))
             {
                 clsDatabaseHandler.ConfirmResetPass(tbxEnterCode, tbxNewPassword, tbxConfirmPassword);
+                this.Close();
             }
             else
             {

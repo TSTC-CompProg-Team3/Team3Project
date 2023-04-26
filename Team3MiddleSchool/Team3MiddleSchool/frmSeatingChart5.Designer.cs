@@ -54,7 +54,7 @@
             this.btnMain.Location = new System.Drawing.Point(634, 370);
             this.btnMain.Name = "btnMain";
             this.btnMain.Size = new System.Drawing.Size(134, 41);
-            this.btnMain.TabIndex = 19;
+            this.btnMain.TabIndex = 7;
             this.btnMain.Text = "&Main Menu";
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
@@ -65,7 +65,7 @@
             this.btnRan.Location = new System.Drawing.Point(268, 370);
             this.btnRan.Name = "btnRan";
             this.btnRan.Size = new System.Drawing.Size(121, 41);
-            this.btnRan.TabIndex = 18;
+            this.btnRan.TabIndex = 5;
             this.btnRan.Text = "&Random";
             this.btnRan.UseVisualStyleBackColor = true;
             this.btnRan.Click += new System.EventHandler(this.btnRan_Click);
@@ -76,7 +76,7 @@
             this.btnClear.Location = new System.Drawing.Point(451, 370);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(121, 41);
-            this.btnClear.TabIndex = 17;
+            this.btnClear.TabIndex = 6;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -96,7 +96,7 @@
             this.cbxStudentNames.Location = new System.Drawing.Point(406, 132);
             this.cbxStudentNames.Name = "cbxStudentNames";
             this.cbxStudentNames.Size = new System.Drawing.Size(81, 23);
-            this.cbxStudentNames.TabIndex = 22;
+            this.cbxStudentNames.TabIndex = 0;
             this.cbxStudentNames.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames_SelectedIndexChanged);
             // 
             // cbxStudentNames2
@@ -105,7 +105,7 @@
             this.cbxStudentNames2.Location = new System.Drawing.Point(551, 132);
             this.cbxStudentNames2.Name = "cbxStudentNames2";
             this.cbxStudentNames2.Size = new System.Drawing.Size(78, 23);
-            this.cbxStudentNames2.TabIndex = 23;
+            this.cbxStudentNames2.TabIndex = 1;
             this.cbxStudentNames2.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames2_SelectedIndexChanged);
             // 
             // cbxStudentNames3
@@ -114,7 +114,7 @@
             this.cbxStudentNames3.Location = new System.Drawing.Point(479, 254);
             this.cbxStudentNames3.Name = "cbxStudentNames3";
             this.cbxStudentNames3.Size = new System.Drawing.Size(80, 23);
-            this.cbxStudentNames3.TabIndex = 24;
+            this.cbxStudentNames3.TabIndex = 3;
             this.cbxStudentNames3.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames3_SelectedIndexChanged);
             // 
             // cbxStudentNames4
@@ -123,7 +123,7 @@
             this.cbxStudentNames4.Location = new System.Drawing.Point(349, 254);
             this.cbxStudentNames4.Name = "cbxStudentNames4";
             this.cbxStudentNames4.Size = new System.Drawing.Size(81, 23);
-            this.cbxStudentNames4.TabIndex = 25;
+            this.cbxStudentNames4.TabIndex = 2;
             this.cbxStudentNames4.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames4_SelectedIndexChanged);
             // 
             // cbxStudentNames5
@@ -132,7 +132,7 @@
             this.cbxStudentNames5.Location = new System.Drawing.Point(606, 254);
             this.cbxStudentNames5.Name = "cbxStudentNames5";
             this.cbxStudentNames5.Size = new System.Drawing.Size(80, 23);
-            this.cbxStudentNames5.TabIndex = 26;
+            this.cbxStudentNames5.TabIndex = 4;
             this.cbxStudentNames5.SelectedIndexChanged += new System.EventHandler(this.cbxStudentNames5_SelectedIndexChanged);
             // 
             // pbxDesk5
@@ -168,7 +168,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -178,13 +178,13 @@
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
             this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Text = "&User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmSeatingChart5

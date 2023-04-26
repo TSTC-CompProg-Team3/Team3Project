@@ -57,7 +57,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(85, 32);
-            this.btnCancel.TabIndex = 25;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -71,7 +71,7 @@
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(85, 32);
-            this.btnSubmit.TabIndex = 24;
+            this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "&Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -83,16 +83,16 @@
             this.tbxGrade.Margin = new System.Windows.Forms.Padding(2);
             this.tbxGrade.Name = "tbxGrade";
             this.tbxGrade.Size = new System.Drawing.Size(51, 23);
-            this.tbxGrade.TabIndex = 23;
+            this.tbxGrade.TabIndex = 2;
             // 
             // tbxAssignType
             // 
             this.tbxAssignType.BackColor = System.Drawing.SystemColors.Control;
-            this.tbxAssignType.Location = new System.Drawing.Point(170, 60);
+            this.tbxAssignType.Location = new System.Drawing.Point(170, 62);
             this.tbxAssignType.Margin = new System.Windows.Forms.Padding(2);
             this.tbxAssignType.Name = "tbxAssignType";
             this.tbxAssignType.Size = new System.Drawing.Size(125, 23);
-            this.tbxAssignType.TabIndex = 22;
+            this.tbxAssignType.TabIndex = 1;
             // 
             // tbxAssignName
             // 
@@ -101,7 +101,7 @@
             this.tbxAssignName.Margin = new System.Windows.Forms.Padding(2);
             this.tbxAssignName.Name = "tbxAssignName";
             this.tbxAssignName.Size = new System.Drawing.Size(125, 23);
-            this.tbxAssignName.TabIndex = 21;
+            this.tbxAssignName.TabIndex = 0;
             // 
             // lblGrade
             // 

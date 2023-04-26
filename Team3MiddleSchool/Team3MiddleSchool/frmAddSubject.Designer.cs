@@ -48,8 +48,8 @@
             this.btnBack.Location = new System.Drawing.Point(265, 111);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
-            this.btnBack.TabIndex = 12;
-            this.btnBack.Text = "Back";
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "&Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
@@ -59,8 +59,8 @@
             this.btnClear.Location = new System.Drawing.Point(19, 111);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(117, 40);
-            this.btnClear.TabIndex = 10;
-            this.btnClear.Text = "Clear";
+            this.btnClear.TabIndex = 1;
+            this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -70,24 +70,24 @@
             this.btnSubmit.Location = new System.Drawing.Point(142, 111);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(117, 40);
-            this.btnSubmit.TabIndex = 11;
-            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.TabIndex = 2;
+            this.btnSubmit.Text = "&Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // tbxSubjectName
             // 
-            this.tbxSubjectName.Location = new System.Drawing.Point(208, 38);
+            this.tbxSubjectName.Location = new System.Drawing.Point(208, 49);
             this.tbxSubjectName.Name = "tbxSubjectName";
             this.tbxSubjectName.Size = new System.Drawing.Size(157, 23);
-            this.tbxSubjectName.TabIndex = 26;
+            this.tbxSubjectName.TabIndex = 0;
             this.tbxSubjectName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxSubjectName_KeyPress);
             // 
             // lblSubjectName
             // 
             this.lblSubjectName.AutoSize = true;
             this.lblSubjectName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectName.Location = new System.Drawing.Point(35, 36);
+            this.lblSubjectName.Location = new System.Drawing.Point(35, 47);
             this.lblSubjectName.Name = "lblSubjectName";
             this.lblSubjectName.Size = new System.Drawing.Size(135, 25);
             this.lblSubjectName.TabIndex = 27;
@@ -98,7 +98,7 @@
             this.lblSubjectWarning.AutoSize = true;
             this.lblSubjectWarning.BackColor = System.Drawing.Color.Red;
             this.lblSubjectWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblSubjectWarning.Location = new System.Drawing.Point(225, 64);
+            this.lblSubjectWarning.Location = new System.Drawing.Point(225, 75);
             this.lblSubjectWarning.Name = "lblSubjectWarning";
             this.lblSubjectWarning.Size = new System.Drawing.Size(130, 15);
             this.lblSubjectWarning.TabIndex = 34;
@@ -128,7 +128,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -138,13 +138,13 @@
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
             this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Text = "&User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmAddSubject

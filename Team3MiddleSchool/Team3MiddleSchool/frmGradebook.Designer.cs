@@ -73,7 +73,7 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(128, 44);
-            this.btnAdd.TabIndex = 43;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -87,7 +87,7 @@
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(120, 44);
-            this.btnEdit.TabIndex = 42;
+            this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -101,7 +101,7 @@
             this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(119, 44);
-            this.btnRemove.TabIndex = 41;
+            this.btnRemove.TabIndex = 5;
             this.btnRemove.Text = "&Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -115,7 +115,7 @@
             this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(109, 44);
-            this.btnNext.TabIndex = 40;
+            this.btnNext.TabIndex = 4;
             this.btnNext.Text = "Ne&xt";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -129,7 +129,7 @@
             this.btnPrev.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(111, 44);
-            this.btnPrev.TabIndex = 39;
+            this.btnPrev.TabIndex = 3;
             this.btnPrev.Text = "Pr&evious";
             this.btnPrev.UseVisualStyleBackColor = false;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
@@ -143,7 +143,7 @@
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(112, 44);
-            this.btnBack.TabIndex = 37;
+            this.btnBack.TabIndex = 1;
             this.btnBack.Text = "B&ack";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -327,7 +327,7 @@
             this.dgvGradeBook.RowHeadersWidth = 62;
             this.dgvGradeBook.RowTemplate.Height = 28;
             this.dgvGradeBook.Size = new System.Drawing.Size(448, 375);
-            this.dgvGradeBook.TabIndex = 22;
+            this.dgvGradeBook.TabIndex = 0;
             // 
             // tbxName
             // 
@@ -419,13 +419,13 @@
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
-            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userManualToolStripMenuItem.Text = "&User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // btnMidtermGrades
@@ -437,8 +437,8 @@
             this.btnMidtermGrades.Margin = new System.Windows.Forms.Padding(2);
             this.btnMidtermGrades.Name = "btnMidtermGrades";
             this.btnMidtermGrades.Size = new System.Drawing.Size(111, 44);
-            this.btnMidtermGrades.TabIndex = 50;
-            this.btnMidtermGrades.Text = "MidTerm Grades";
+            this.btnMidtermGrades.TabIndex = 2;
+            this.btnMidtermGrades.Text = "&MidTerm Grades";
             this.btnMidtermGrades.UseVisualStyleBackColor = false;
             // 
             // frmGradebook
