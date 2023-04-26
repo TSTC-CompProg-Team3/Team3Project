@@ -40,6 +40,22 @@ body {
   color: black;
 }
 
+.subBtn {
+  display: flex;
+  padding-top: 10px;
+  padding-left: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.subBtn:hover {
+  text-decoration: line-through;
+}
+
+.subBtn:visited {
+  color: black;
+}
+
 .header-container {
   height: 30vh;
 }

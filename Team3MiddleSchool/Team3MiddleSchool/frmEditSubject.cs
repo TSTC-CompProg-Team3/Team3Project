@@ -28,6 +28,8 @@ namespace Team3MiddleSchool
             btnSubmit.ForeColor = ColorTranslator.FromHtml("#191919");
             btnBack.BackColor = ColorTranslator.FromHtml("#F15025");
             btnBack.ForeColor = ColorTranslator.FromHtml("#191919");
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
 
 
             string hold = subjectInfo;
@@ -69,6 +71,16 @@ namespace Team3MiddleSchool
         private void tbxSubjectName_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("editSubject.html");
         }
     }
 }

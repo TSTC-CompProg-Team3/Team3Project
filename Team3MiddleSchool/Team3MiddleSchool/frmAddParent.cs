@@ -125,6 +125,8 @@ namespace Team3MiddleSchool
             lblUsername.ForeColor = ColorTranslator.FromHtml("#191919");
             lblPassword.ForeColor = ColorTranslator.FromHtml("#191919");
             lblAssignStudent.ForeColor = ColorTranslator.FromHtml("#191919");
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
 
             clsDatabaseHandler.LoadAddParent(cbxStudentSelect);
         }
@@ -137,6 +139,16 @@ namespace Team3MiddleSchool
         private void tbxLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("addParent.html");
         }
     }
 }
