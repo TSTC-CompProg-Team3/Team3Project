@@ -41,18 +41,22 @@ namespace Team3MiddleSchool
         }
 
 
-        public int dgvcounter;
         CurrencyManager  NameManager;
         private void frmGradebook_Load(object sender, EventArgs e)
         {
-            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
-            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
             studentID = database.GetStudentID(loginID);
             parentID = database.GradeParentID(loginID);
-            classID = database.GetClassID(classSelect);
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
+            
+
+
+
+
             switch (accountType.ToLower())
             {
                 case "officer":
+                    classID = database.GetClassID(classSelect);
                     database.GetClass(classID, lblClass);
                     btnRemove.Visible = true;
                     btnEdit.Visible = true;
@@ -84,17 +88,20 @@ namespace Team3MiddleSchool
                     break;
 
                 case "admin":
+
+                    classID = database.GetClassID(classSelect);
                     database.GetClass(classID, lblClass);
-
                     database.GradeBookDataGrid(dgvGradeBook, lblID.Text, classID);
+                    database.MidTermGName(tbxName, lblID);
 
-                    
+
+
 
                     btnRemove.Visible = true;
                     btnEdit.Visible = true;
                     btnAdd.Visible = true;
 
-                    database.MidTermGName(tbxName, lblID);
+             
 
                     database.getHomeworkGrade(lblID.Text, classID);
                     database.getTestGrade(lblID.Text, classID);
@@ -125,6 +132,7 @@ namespace Team3MiddleSchool
 
                 case "teacher":
                     database.GetClass(classID, lblClass);
+
                     btnRemove.Visible = true;
                     btnEdit.Visible = true;
                     btnAdd.Visible = true;
@@ -154,6 +162,8 @@ namespace Team3MiddleSchool
                     database.displayGrade(lblTotal);
                     break;
                 case "student":
+
+                    classID = database.GetClassID(classSelect);
                     database.GetClass(classID, lblClass);
                     btnRemove.Visible = false;
                     btnEdit.Visible = false;
@@ -185,6 +195,8 @@ namespace Team3MiddleSchool
 
                     break;
                 case "parent":
+
+                    classID = database.GetClassID(classSelect);
                     database.GetClass(classID, lblClass);
                     btnRemove.Visible = false;
                     btnEdit.Visible = false;
@@ -220,7 +232,7 @@ namespace Team3MiddleSchool
                 default:
                     break;
             }
-
+            
             grade = dgvGradeBook;
 
             NameManager = (CurrencyManager)this.BindingContext[DatabaseConnection._nameeTable];

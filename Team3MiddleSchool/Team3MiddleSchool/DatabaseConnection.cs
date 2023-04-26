@@ -2052,6 +2052,8 @@ namespace Team3MiddleSchool
                 MessageBox.Show(ex.Message, "Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
         public  void GradeBookDataGridStudent(DataGridView dgvGradeBook, int studentID,int classID)
         {
             try
@@ -2074,7 +2076,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where parentID=" + parentID + " and ClassID=" + classID + " ", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where ParentID=" + parentID + " and ClassID=" + classID + " ", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -2089,10 +2091,64 @@ namespace Team3MiddleSchool
         }
         private DataTable _gradeTable;
 
+        public void StudentGradeClasses(DataGridView dgvGradebook ,int loginID,string studentID)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("SELECT Class1, Class2, Class3, Class4, Class5, Class6 FROM team3sp232330.StudentSchedule sc JOIN team3sp232330.Student s ON sc.StudentID = s.StudentID WHERE LoginID = " + loginID, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                List<int> classes = new List<int>();
+
+                while (reader.Read())
+                {
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class1")) ? -1 : (int)reader["Class1"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class2")) ? -1 : (int)reader["Class2"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class3")) ? -1 : (int)reader["Class3"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class4")) ? -1 : (int)reader["Class4"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class5")) ? -1 : (int)reader["Class5"]);
+                    classes.Add(reader.IsDBNull(reader.GetOrdinal("Class6")) ? -1 : (int)reader["Class6"]);
+
+                }
+
+                reader.Close();
+
+                if (classes.Count > 0)
+                {
+                    SqlCommand cmd = new SqlCommand(" SELECT AssignmentName, AssignmentType, Grade FROM team3sp232330.Grades c WHERE ClassID= @id1 or ClassID=@id2 or ClassID=@id3 or ClassID=@id4 or ClassID=@id5 or ClassID=@id6 and StudentID=" + studentID + "", connection);
+
+                    cmd.Parameters.AddWithValue("@id1", classes[0]);
+                    cmd.Parameters.AddWithValue("@id2", classes[1]);
+                    cmd.Parameters.AddWithValue("@id3", classes[2]);
+                    cmd.Parameters.AddWithValue("@id4", classes[3]);
+                    cmd.Parameters.AddWithValue("@id5", classes[4]);
+                    cmd.Parameters.AddWithValue("@id6", classes[5]);
+                    SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter();
+                    _gradeBookDataTable = new DataTable();
+                    gradeBookDataAdapter.Fill(_gradeBookDataTable);
+
+
+                    dgvGradebook.DataSource = gradeBookDataTable;
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Fetching Grades", "Gradebook Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
+
+
         decimal decHomework, decTest, decQuiz, decLab, decFinal, decPar;
         decimal decGHomework, decGTest, decGQuiz, decGLab, decGFinal, decGPar;
         int intHomework, intTest, intQuiz, intLab, intFinal, intPar;
-        //Teacher Grade
+        
         public void getHomework(string studentID, Label homework, int classID)
         {
 
@@ -2978,7 +3034,7 @@ namespace Team3MiddleSchool
         }
 
 
-        internal int GradeParentID(int loginID)
+        public int GradeParentID(int loginID)
         {
             try
             {
@@ -2990,12 +3046,15 @@ namespace Team3MiddleSchool
 
                         while (reader.Read())
                         {
-                            int parentID = (int)reader["ParentID"];
+                          int  parentID = (int)reader["ParentID"];
                             return parentID;
+                            
                         }
                         return -1;
                         reader.Close();
+                        
                     }
+                    
                 }
 
 
@@ -3036,6 +3095,7 @@ namespace Team3MiddleSchool
                 MessageBox.Show("Database Connection Unsuccessful", "Database Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+       
 
         public void LoadStudentsLbx(ListBox lbxStudents)
         {
