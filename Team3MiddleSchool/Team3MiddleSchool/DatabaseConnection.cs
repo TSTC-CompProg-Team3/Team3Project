@@ -2090,9 +2090,7 @@ namespace Team3MiddleSchool
         }
         private DataTable _gradeTable;
 
-        private static SqlCommand _sqlMReportCommand;
-        private static SqlDataAdapter _daMReport = new SqlDataAdapter();
-        private static DataTable _dtMReportTable  = new DataTable();    
+          
 
 
         decimal decHomework, decTest, decQuiz, decLab, decFinal, decMidTerm, decPar;
