@@ -55,7 +55,8 @@
             this.lblFinalCap = new System.Windows.Forms.Label();
             this.lblFinal = new System.Windows.Forms.Label();
             this.lblMidTermG = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblmidTerm = new System.Windows.Forms.Label();
+            this.btnmidTRep = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradeBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,10 +65,10 @@
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnAdd.Location = new System.Drawing.Point(604, 428);
+            this.btnAdd.Location = new System.Drawing.Point(527, 428);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(128, 44);
+            this.btnAdd.Size = new System.Drawing.Size(100, 44);
             this.btnAdd.TabIndex = 43;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -78,10 +79,10 @@
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnEdit.Location = new System.Drawing.Point(480, 428);
+            this.btnEdit.Location = new System.Drawing.Point(423, 428);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(120, 44);
+            this.btnEdit.Size = new System.Drawing.Size(100, 44);
             this.btnEdit.TabIndex = 42;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -92,10 +93,10 @@
             this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnRemove.Location = new System.Drawing.Point(350, 428);
+            this.btnRemove.Location = new System.Drawing.Point(319, 428);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(119, 44);
+            this.btnRemove.Size = new System.Drawing.Size(100, 44);
             this.btnRemove.TabIndex = 41;
             this.btnRemove.Text = "&Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -106,10 +107,10 @@
             this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnNext.Location = new System.Drawing.Point(237, 428);
+            this.btnNext.Location = new System.Drawing.Point(215, 428);
             this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(109, 44);
+            this.btnNext.Size = new System.Drawing.Size(100, 44);
             this.btnNext.TabIndex = 40;
             this.btnNext.Text = "Ne&xt";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -120,10 +121,10 @@
             this.btnPrev.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnPrev.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnPrev.Location = new System.Drawing.Point(122, 428);
+            this.btnPrev.Location = new System.Drawing.Point(115, 428);
             this.btnPrev.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(111, 44);
+            this.btnPrev.Size = new System.Drawing.Size(100, 44);
             this.btnPrev.TabIndex = 39;
             this.btnPrev.Text = "Pr&evious";
             this.btnPrev.UseVisualStyleBackColor = false;
@@ -134,10 +135,10 @@
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnBack.Location = new System.Drawing.Point(6, 428);
+            this.btnBack.Location = new System.Drawing.Point(11, 428);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(112, 44);
+            this.btnBack.Size = new System.Drawing.Size(100, 44);
             this.btnBack.TabIndex = 37;
             this.btnBack.Text = "B&ack";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -393,13 +394,25 @@
             this.lblMidTermG.Text = "Mid Term ";
             this.lblMidTermG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // lblmidTerm
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(404, 378);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 35);
-            this.label1.TabIndex = 50;
+            this.lblmidTerm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblmidTerm.Location = new System.Drawing.Point(404, 378);
+            this.lblmidTerm.Name = "lblmidTerm";
+            this.lblmidTerm.Size = new System.Drawing.Size(176, 35);
+            this.lblmidTerm.TabIndex = 50;
+            // 
+            // btnmidTRep
+            // 
+            this.btnmidTRep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(80)))), ((int)(((byte)(37)))));
+            this.btnmidTRep.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmidTRep.Location = new System.Drawing.Point(632, 428);
+            this.btnmidTRep.Name = "btnmidTRep";
+            this.btnmidTRep.Size = new System.Drawing.Size(100, 44);
+            this.btnmidTRep.TabIndex = 51;
+            this.btnmidTRep.Text = "&Midterm report";
+            this.btnmidTRep.UseVisualStyleBackColor = false;
+            this.btnmidTRep.Click += new System.EventHandler(this.btnmidTRep_Click);
             // 
             // frmGradebook
             // 
@@ -407,9 +420,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(744, 483);
+            this.ClientSize = new System.Drawing.Size(762, 483);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnmidTRep);
+            this.Controls.Add(this.lblmidTerm);
             this.Controls.Add(this.lblMidTermG);
             this.Controls.Add(this.lblFinalCap);
             this.Controls.Add(this.lblFinal);
@@ -478,6 +492,7 @@
         private System.Windows.Forms.Label lblFinalCap;
         public System.Windows.Forms.Label lblFinal;
         private System.Windows.Forms.Label lblMidTermG;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblmidTerm;
+        private System.Windows.Forms.Button btnmidTRep;
     }
 }

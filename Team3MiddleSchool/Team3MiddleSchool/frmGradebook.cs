@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Team3MiddleSchool
 {
@@ -26,7 +27,7 @@ namespace Team3MiddleSchool
         public string classSelect;
         public string accountType;
         DatabaseConnection database = new DatabaseConnection();
-       public DataGridView grade= new DataGridView();
+        public DataGridView grade= new DataGridView();
         public frmGradebook(int loginid,string classSelect,string accounttype)
         {
             this.classSelect = classSelect;
@@ -63,6 +64,7 @@ namespace Team3MiddleSchool
                     database.getTest(lblID.Text, lblTest, classID);
                     database.getLab(lblID.Text, lblLab, classID);
                     database.getParticipation(lblID.Text, lblParticipation, classID);
+                 //   database.getmidTerm(lblID.Text, lblmidTerm, classID);
 
 
                     database.getHomeworkGrade(lblID.Text, classID);
@@ -71,6 +73,7 @@ namespace Team3MiddleSchool
                     database.getFinalGrade(lblID.Text, classID);
                     database.getLabGrade(lblID.Text, classID);
                     database.getParticipationGrade(lblID.Text, classID);
+                 //   database.getMidTermGrade(lblID.Text, classID);
 
 
                     database.getHomeworkCount(lblID.Text, classID);
@@ -78,8 +81,10 @@ namespace Team3MiddleSchool
                     database.getQuizCount(lblID.Text, classID);
                     database.getTestCount(lblID.Text, classID);
                     database.getLabCount(lblID.Text, classID);
+                  //  database.getMidtermCount(lblID.Text, classID);
                     database.getParticipationCount(lblID.Text, classID);
                     database.displayGrade(lblTotal);
+                    database.displayMidtermGrade(lblmidTerm);
                     break;
 
                 case "admin":
@@ -99,6 +104,7 @@ namespace Team3MiddleSchool
                     database.getTestGrade(lblID.Text, classID);
                     database.getQuizGrade(lblID.Text, classID);
                     database.getFinalGrade(lblID.Text, classID);
+                  //  database.getMidTermGrade(lblID.Text, classID);
                     database.getLabGrade(lblID.Text, classID);
                     database.getParticipationGrade(lblID.Text, classID);
 
@@ -108,6 +114,7 @@ namespace Team3MiddleSchool
                     database.getQuizCount(lblID.Text, classID);
                     database.getTestCount(lblID.Text, classID);
                     database.getLabCount(lblID.Text, classID);
+                  //  database.getMidtermCount(lblID.Text, classID);
                     database.getParticipationCount(lblID.Text, classID);
 
                     database.getHomework(lblID.Text, lblHomework, classID);
@@ -115,11 +122,13 @@ namespace Team3MiddleSchool
                     database.getQuiz(lblID.Text, lblQuiz, classID);
                     database.getTest(lblID.Text, lblTest, classID);
                     database.getLab(lblID.Text, lblLab, classID);
+                  //  database.getmidTerm(lblID.Text, lblLab, classID);
                     database.getParticipation(lblID.Text, lblParticipation, classID);
 
 
                     
                     database.displayGrade(lblTotal);
+                    database.displayMidtermGrade(lblmidTerm);
                     break;
 
                 case "teacher":
@@ -133,6 +142,7 @@ namespace Team3MiddleSchool
                     database.getQuiz(lblID.Text, lblQuiz, classID);
                     database.getTest(lblID.Text, lblTest, classID);
                     database.getLab(lblID.Text, lblLab, classID);
+                   // database.getmidTerm(lblID.Text, lblLab, classID);
                     database.getParticipation(lblID.Text, lblParticipation, classID);
 
 
@@ -140,6 +150,7 @@ namespace Team3MiddleSchool
                     database.getTestGrade(lblID.Text, classID);
                     database.getQuizGrade(lblID.Text, classID);
                     database.getFinalGrade(lblID.Text, classID);
+                   // database.getMidTermGrade(lblID.Text, classID);
                     database.getLabGrade(lblID.Text, classID);
                     database.getParticipationGrade(lblID.Text, classID);
 
@@ -149,8 +160,10 @@ namespace Team3MiddleSchool
                     database.getQuizCount(lblID.Text, classID);
                     database.getTestCount(lblID.Text, classID);
                     database.getLabCount(lblID.Text, classID);
+                   // database.getMidtermCount(lblID.Text, classID);
                     database.getParticipationCount(lblID.Text, classID);
                     database.displayGrade(lblTotal);
+                    database.displayMidtermGrade(lblmidTerm);
                     break;
                 case "student":
                     database.GetClass(classID, lblClass);
@@ -165,6 +178,7 @@ namespace Team3MiddleSchool
                     database.getQuiz(studentID.ToString(), lblQuiz, classID);
                     database.getTest(studentID.ToString(), lblTest, classID);
                     database.getLab(studentID.ToString(), lblLab, classID);
+                   // database.getmidTerm(studentID.ToString(), lblmidTerm, classID);
                     database.getParticipation(studentID.ToString(), lblParticipation, classID);
 
                     database.getHomeworkGrade(studentID.ToString(), classID);
@@ -172,6 +186,7 @@ namespace Team3MiddleSchool
                     database.getQuizGrade(studentID.ToString(), classID);
                     database.getFinalGrade(studentID.ToString(), classID);
                     database.getLabGrade(studentID.ToString(), classID);
+                   // database.getMidTermGrade(studentID.ToString(), classID);
                     database.getParticipationGrade(studentID.ToString(), classID);
 
                     database.getHomeworkCount(studentID.ToString(), classID);
@@ -179,8 +194,10 @@ namespace Team3MiddleSchool
                     database.getQuizCount(studentID.ToString(), classID);
                     database.getTestCount(studentID.ToString(), classID);
                     database.getLabCount(studentID.ToString(), classID);
+                   // database.getMidtermCount(studentID.ToString(), classID);
                     database.getParticipationCount(studentID.ToString(), classID);
                     database.displayGrade(lblTotal);
+                    database.displayMidtermGrade(lblmidTerm);
 
                     break;
                 case "parent":
@@ -196,6 +213,7 @@ namespace Team3MiddleSchool
                     database.getQuiz(studentID.ToString(), lblQuiz, classID);
                     database.getTest(studentID.ToString(), lblTest, classID);
                     database.getLab(studentID.ToString(), lblLab, classID);
+                  //  database.getmidTerm(studentID.ToString(), lblmidTerm, classID);
                     database.getParticipation(studentID.ToString(), lblParticipation, classID);
 
                     database.getHomeworkGrade(studentID.ToString(), classID);
@@ -203,6 +221,7 @@ namespace Team3MiddleSchool
                     database.getQuizGrade(studentID.ToString(), classID);
                     database.getFinalGrade(studentID.ToString(), classID);
                     database.getLabGrade(studentID.ToString(), classID);
+                 //   database.getMidTermGrade(studentID.ToString(), classID);
                     database.getParticipationGrade(studentID.ToString(), classID);
 
                     database.getHomeworkCount(studentID.ToString(), classID);
@@ -210,8 +229,10 @@ namespace Team3MiddleSchool
                     database.getQuizCount(studentID.ToString(), classID);
                     database.getTestCount(studentID.ToString(), classID);
                     database.getLabCount(studentID.ToString(), classID);
+                   // database.getMidtermCount(studentID.ToString(), classID);
                     database.getParticipationCount(studentID.ToString(), classID);
                     database.displayGrade(lblTotal);
+                    database.displayMidtermGrade(lblmidTerm);
 
 
 
@@ -245,6 +266,7 @@ namespace Team3MiddleSchool
                 database.getTestGrade(lblID.Text, classID);
                 database.getQuizGrade(lblID.Text, classID);
                 database.getFinalGrade(lblID.Text, classID);
+               // database.getMidTermGrade(lblID.Text, classID);
                 database.getLabGrade(lblID.Text, classID);
                 database.getParticipationGrade(lblID.Text, classID);
 
@@ -254,18 +276,21 @@ namespace Team3MiddleSchool
                 database.getQuizCount(lblID.Text, classID);
                 database.getTestCount(lblID.Text, classID);
                 database.getLabCount(lblID.Text, classID);
+              //  database.getMidtermCount(lblID.Text, classID);
                 database.getParticipationCount(lblID.Text, classID);
 
                 database.getHomework(lblID.Text, lblHomework, classID);
                 database.getFinal(lblID.Text, lblFinal, classID);
                 database.getQuiz(lblID.Text, lblQuiz, classID);
                 database.getTest(lblID.Text, lblTest, classID);
+              //  database.getmidTerm(lblID.Text, lblmidTerm, classID);
                 database.getLab(lblID.Text, lblLab, classID);
                 database.getParticipation(lblID.Text, lblParticipation, classID);
 
 
 
                 database.displayGrade(lblTotal);
+                database.displayMidtermGrade(lblmidTerm);
             }
 
             
@@ -290,6 +315,7 @@ namespace Team3MiddleSchool
                 database.getTestGrade(lblID.Text, classID);
                 database.getQuizGrade(lblID.Text, classID);
                 database.getFinalGrade(lblID.Text, classID);
+               // database.getMidTermGrade(lblID.Text, classID);
                 database.getLabGrade(lblID.Text, classID);
                 database.getParticipationGrade(lblID.Text, classID);
 
@@ -299,6 +325,7 @@ namespace Team3MiddleSchool
                 database.getQuizCount(lblID.Text, classID);
                 database.getTestCount(lblID.Text, classID);
                 database.getLabCount(lblID.Text, classID);
+              //  database.getMidtermCount(lblID.Text, classID);
                 database.getParticipationCount(lblID.Text, classID);
 
                 database.getHomework(lblID.Text, lblHomework, classID);
@@ -311,6 +338,7 @@ namespace Team3MiddleSchool
 
 
                 database.displayGrade(lblTotal);
+                database.displayMidtermGrade(lblmidTerm);
             }
         }
 
@@ -342,6 +370,7 @@ namespace Team3MiddleSchool
                 database.getQuizGrade(lblID.Text, classID);
                 database.getFinalGrade(lblID.Text, classID);
                 database.getLabGrade(lblID.Text, classID);
+                //database.getMidTermGrade(lblID.Text, classID);
                 database.getParticipationGrade(lblID.Text, classID);
 
 
@@ -349,6 +378,7 @@ namespace Team3MiddleSchool
                 database.getFinalCount(lblID.Text, classID);
                 database.getQuizCount(lblID.Text, classID);
                 database.getTestCount(lblID.Text, classID);
+               // database.getMidtermCount(lblID.Text, classID);
                 database.getLabCount(lblID.Text, classID);
                 database.getParticipationCount(lblID.Text, classID);
 
@@ -356,12 +386,14 @@ namespace Team3MiddleSchool
                 database.getFinal(lblID.Text, lblFinal, classID);
                 database.getQuiz(lblID.Text, lblQuiz, classID);
                 database.getTest(lblID.Text, lblTest, classID);
+               // database.getmidTerm(lblID.Text, lblmidTerm, classID);
                 database.getLab(lblID.Text, lblLab, classID);
                 database.getParticipation(lblID.Text, lblParticipation, classID);
 
 
 
                 database.displayGrade(lblTotal);
+                database.displayMidtermGrade(lblmidTerm);
             }
         }
 
@@ -374,6 +406,73 @@ namespace Team3MiddleSchool
         private void btnMidterm_Click(object sender, EventArgs e)
         {
         
+        }
+
+        private void generateMidtermReport(Label lblmidTerm, TextBox tbxName)
+        {
+            string template = "midtermReportTemplate.html";
+            string report = "reportGenerator.html";
+
+            StreamReader sr = new StreamReader(template);
+            string content = sr.ReadToEnd();
+            sr.Close();
+
+            string search = "<h2 id=\"studentNameHeader\">Student Name</h2>";
+            string replace = "<h2 id=\"studentNameHeader\">This Midterm Report is for the parents of " + tbxName.Text + "</h2>";
+            content = content.Replace(search, replace);
+
+
+            search = "<dt id=\"classP\">Class Participation: </dt>";
+            replace = "<dt id=\"classP\">Class Participation: " + lblParticipation.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"homework\">Homework: </dt>";
+            replace = "<dt id=\"homework\">Homework: " + lblHomework.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"quiz\">Quiz: </dt>";
+            replace = "<dt id=\"quiz\">Quiz: " + lblQuiz.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"lab\">Lab: </dt>";
+            replace = "<dt id=\"lab\">Lab: " + lblLab.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+
+            search = "<dt id=\"test\">Test: </dt>";
+            replace = "<dt id=\"test\">Test: " + lblTest.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"final\">Final: </dt>";
+            replace = "<dt id=\"final\">Final: " + lblFinal.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"totalG\">Total Grade: </dt>";
+            replace = "<dt id=\"totalG\">Total Grade: " + lblTotal.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+
+
+
+            search = "<dt id=\"midtermGradeHeader\">Midterm: </dt>";
+            replace = "<dt id=\"midtermGradeHeader\">Midterm Grade: " + lblmidTerm.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+    
+
+            // content = content.Replace("[midterm]", lblmidTerm.Text);
+
+            StreamWriter sw = new StreamWriter(report, false);
+            sw.Write(content);
+            sw.Close();
+
+            System.Diagnostics.Process.Start("reportGenerator.html");
+
+        }
+
+        private void btnmidTRep_Click(object sender, EventArgs e)
+        {
+            generateMidtermReport(lblmidTerm, tbxName);
         }
     }
 }
