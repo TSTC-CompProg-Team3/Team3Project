@@ -88,7 +88,7 @@ namespace Team3MiddleSchool
 
                     // Change the location of the logout button and seating chart
                     // Move the button up by 150 pixels
-                    btnSeatingChart.Location = new Point(btnSeatingChart.Location.X, btnSeatingChart.Location.Y - 90);
+                    btnSeatingChart.Location = new Point(btnSeatingChart.Location.X, btnSeatingChart.Location.Y - 69);
                     // Move the button up by 75 pixels
                     btnReturnToLogin.Location = new Point(btnReturnToLogin.Location.X, btnReturnToLogin.Location.Y - 75);
 
