@@ -408,7 +408,7 @@ namespace Team3MiddleSchool
         
         }
 
-        private void generateMidtermReport(Label lblmidTerm, TextBox tbxName)
+        private void generateMidtermReport(Label lblmidTerm, TextBox tbxName, Label lblParticipation, Label lblHomework, Label lblQuiz, Label lblLab, Label lblTest, Label lblFinal, Label lblTotal)
         {
             string template = "midtermReportTemplate.html";
             string report = "reportGenerator.html";
@@ -472,7 +472,7 @@ namespace Team3MiddleSchool
 
         private void btnmidTRep_Click(object sender, EventArgs e)
         {
-            generateMidtermReport(lblmidTerm, tbxName);
+            generateMidtermReport(lblmidTerm, tbxName, lblParticipation, lblHomework, lblQuiz, lblLab, lblTest, lblFinal, lblTotal);
         }
     }
 }
