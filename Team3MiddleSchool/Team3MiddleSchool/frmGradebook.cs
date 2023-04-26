@@ -44,7 +44,7 @@ namespace Team3MiddleSchool
         CurrencyManager  NameManager;
         private void frmGradebook_Load(object sender, EventArgs e)
         {
-            studentID = database.GetStudentID(loginID);
+            
             
             parentID = 3;
             mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
@@ -164,7 +164,7 @@ namespace Team3MiddleSchool
                     database.displayGrade(lblTotal);
                     break;
                 case "student":
-
+                    studentID = database.GetStudentID(loginID);
                     classID = database.GetClassID(classSelect);
                     database.GetClass(classID, lblClass);
                     btnRemove.Visible = false;
@@ -197,7 +197,7 @@ namespace Team3MiddleSchool
 
                     break;
                 case "parent":
-
+                    studentID = 11;
                     classID = database.GetClassID(classSelect);
                     database.GetClass(classID, lblClass);
                     btnRemove.Visible = false;
