@@ -32,29 +32,35 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.gbxLogin = new System.Windows.Forms.GroupBox();
+            this.lblPasswordWarning = new System.Windows.Forms.Label();
             this.tbxEmail = new System.Windows.Forms.TextBox();
+            this.lblEmailWarning = new System.Windows.Forms.Label();
+            this.lblUsernameWarning = new System.Windows.Forms.Label();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.gbxStudentContact = new System.Windows.Forms.GroupBox();
+            this.lblNameWarning = new System.Windows.Forms.Label();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.tbxLastName = new System.Windows.Forms.TextBox();
-            this.lblNameWarning = new System.Windows.Forms.Label();
-            this.lblPasswordWarning = new System.Windows.Forms.Label();
-            this.lblUsernameWarning = new System.Windows.Forms.Label();
-            this.lblEmailWarning = new System.Windows.Forms.Label();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbxLogin.SuspendLayout();
             this.gbxStudentContact.SuspendLayout();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(280, 291);
+            this.btnBack.Location = new System.Drawing.Point(280, 338);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 40);
             this.btnBack.TabIndex = 4;
@@ -65,7 +71,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(34, 291);
+            this.btnClear.Location = new System.Drawing.Point(34, 338);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(117, 40);
             this.btnClear.TabIndex = 2;
@@ -76,7 +82,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(157, 291);
+            this.btnSubmit.Location = new System.Drawing.Point(157, 338);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(117, 40);
             this.btnSubmit.TabIndex = 3;
@@ -95,12 +101,24 @@
             this.gbxLogin.Controls.Add(this.lblPassword);
             this.gbxLogin.Controls.Add(this.lblUsername);
             this.gbxLogin.Controls.Add(this.tbxUsername);
-            this.gbxLogin.Location = new System.Drawing.Point(38, 129);
+            this.gbxLogin.Location = new System.Drawing.Point(38, 176);
             this.gbxLogin.Name = "gbxLogin";
             this.gbxLogin.Size = new System.Drawing.Size(354, 156);
             this.gbxLogin.TabIndex = 1;
             this.gbxLogin.TabStop = false;
             this.gbxLogin.Text = "Login Information";
+            // 
+            // lblPasswordWarning
+            // 
+            this.lblPasswordWarning.AutoSize = true;
+            this.lblPasswordWarning.BackColor = System.Drawing.Color.Red;
+            this.lblPasswordWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblPasswordWarning.Location = new System.Drawing.Point(157, 134);
+            this.lblPasswordWarning.Name = "lblPasswordWarning";
+            this.lblPasswordWarning.Size = new System.Drawing.Size(145, 15);
+            this.lblPasswordWarning.TabIndex = 36;
+            this.lblPasswordWarning.Text = "Must Enter Valid Password";
+            this.lblPasswordWarning.Visible = false;
             // 
             // tbxEmail
             // 
@@ -108,6 +126,30 @@
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(218, 23);
             this.tbxEmail.TabIndex = 0;
+            // 
+            // lblEmailWarning
+            // 
+            this.lblEmailWarning.AutoSize = true;
+            this.lblEmailWarning.BackColor = System.Drawing.Color.Red;
+            this.lblEmailWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblEmailWarning.Location = new System.Drawing.Point(157, 48);
+            this.lblEmailWarning.Name = "lblEmailWarning";
+            this.lblEmailWarning.Size = new System.Drawing.Size(124, 15);
+            this.lblEmailWarning.TabIndex = 34;
+            this.lblEmailWarning.Text = "Must Enter Valid Email";
+            this.lblEmailWarning.Visible = false;
+            // 
+            // lblUsernameWarning
+            // 
+            this.lblUsernameWarning.AutoSize = true;
+            this.lblUsernameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblUsernameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblUsernameWarning.Location = new System.Drawing.Point(157, 91);
+            this.lblUsernameWarning.Name = "lblUsernameWarning";
+            this.lblUsernameWarning.Size = new System.Drawing.Size(148, 15);
+            this.lblUsernameWarning.TabIndex = 35;
+            this.lblUsernameWarning.Text = "Must Enter Valid Username";
+            this.lblUsernameWarning.Visible = false;
             // 
             // tbxPassword
             // 
@@ -160,12 +202,24 @@
             this.gbxStudentContact.Controls.Add(this.lblFirstName);
             this.gbxStudentContact.Controls.Add(this.lblLastName);
             this.gbxStudentContact.Controls.Add(this.tbxLastName);
-            this.gbxStudentContact.Location = new System.Drawing.Point(38, 14);
+            this.gbxStudentContact.Location = new System.Drawing.Point(38, 61);
             this.gbxStudentContact.Name = "gbxStudentContact";
             this.gbxStudentContact.Size = new System.Drawing.Size(354, 99);
             this.gbxStudentContact.TabIndex = 0;
             this.gbxStudentContact.TabStop = false;
             this.gbxStudentContact.Text = "Contact Information";
+            // 
+            // lblNameWarning
+            // 
+            this.lblNameWarning.AutoSize = true;
+            this.lblNameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblNameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblNameWarning.Location = new System.Drawing.Point(157, 77);
+            this.lblNameWarning.Name = "lblNameWarning";
+            this.lblNameWarning.Size = new System.Drawing.Size(127, 15);
+            this.lblNameWarning.TabIndex = 33;
+            this.lblNameWarning.Text = "Must Enter Valid Name";
+            this.lblNameWarning.Visible = false;
             // 
             // tbxFirstName
             // 
@@ -201,60 +255,55 @@
             this.tbxLastName.Size = new System.Drawing.Size(218, 23);
             this.tbxLastName.TabIndex = 1;
             // 
-            // lblNameWarning
+            // mnuStrip
             // 
-            this.lblNameWarning.AutoSize = true;
-            this.lblNameWarning.BackColor = System.Drawing.Color.Red;
-            this.lblNameWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblNameWarning.Location = new System.Drawing.Point(157, 77);
-            this.lblNameWarning.Name = "lblNameWarning";
-            this.lblNameWarning.Size = new System.Drawing.Size(127, 15);
-            this.lblNameWarning.TabIndex = 33;
-            this.lblNameWarning.Text = "Must Enter Valid Name";
-            this.lblNameWarning.Visible = false;
+            this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(430, 24);
+            this.mnuStrip.TabIndex = 8;
+            this.mnuStrip.Text = "menuStrip1";
             // 
-            // lblPasswordWarning
+            // fileToolStripMenuItem
             // 
-            this.lblPasswordWarning.AutoSize = true;
-            this.lblPasswordWarning.BackColor = System.Drawing.Color.Red;
-            this.lblPasswordWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblPasswordWarning.Location = new System.Drawing.Point(157, 134);
-            this.lblPasswordWarning.Name = "lblPasswordWarning";
-            this.lblPasswordWarning.Size = new System.Drawing.Size(145, 15);
-            this.lblPasswordWarning.TabIndex = 36;
-            this.lblPasswordWarning.Text = "Must Enter Valid Password";
-            this.lblPasswordWarning.Visible = false;
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
             // 
-            // lblUsernameWarning
+            // exitToolStripMenuItem
             // 
-            this.lblUsernameWarning.AutoSize = true;
-            this.lblUsernameWarning.BackColor = System.Drawing.Color.Red;
-            this.lblUsernameWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblUsernameWarning.Location = new System.Drawing.Point(157, 91);
-            this.lblUsernameWarning.Name = "lblUsernameWarning";
-            this.lblUsernameWarning.Size = new System.Drawing.Size(148, 15);
-            this.lblUsernameWarning.TabIndex = 35;
-            this.lblUsernameWarning.Text = "Must Enter Valid Username";
-            this.lblUsernameWarning.Visible = false;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // lblEmailWarning
+            // helpToolStripMenuItem
             // 
-            this.lblEmailWarning.AutoSize = true;
-            this.lblEmailWarning.BackColor = System.Drawing.Color.Red;
-            this.lblEmailWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblEmailWarning.Location = new System.Drawing.Point(157, 48);
-            this.lblEmailWarning.Name = "lblEmailWarning";
-            this.lblEmailWarning.Size = new System.Drawing.Size(124, 15);
-            this.lblEmailWarning.TabIndex = 34;
-            this.lblEmailWarning.Text = "Must Enter Valid Email";
-            this.lblEmailWarning.Visible = false;
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManualToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // userManualToolStripMenuItem
+            // 
+            this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmEditTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 344);
+            this.ClientSize = new System.Drawing.Size(430, 401);
             this.ControlBox = false;
+            this.Controls.Add(this.mnuStrip);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
@@ -270,7 +319,10 @@
             this.gbxLogin.PerformLayout();
             this.gbxStudentContact.ResumeLayout(false);
             this.gbxStudentContact.PerformLayout();
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -295,5 +347,10 @@
         private System.Windows.Forms.Label lblUsernameWarning;
         private System.Windows.Forms.Label lblNameWarning;
         private System.Windows.Forms.Label lblPasswordWarning;
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
     }
 }

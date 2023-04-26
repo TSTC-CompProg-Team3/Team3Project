@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Hosting;
 
 namespace Team3MiddleSchool
 {
@@ -51,6 +52,8 @@ namespace Team3MiddleSchool
             lblGuardianCell.ForeColor = ColorTranslator.FromHtml("#191919");
             lblGuardianWork.ForeColor = ColorTranslator.FromHtml("#191919");
             lblGuardianWorkPl.ForeColor = ColorTranslator.FromHtml("#191919");
+            mnuStrip.BackColor = ColorTranslator.FromHtml("#E6E8E6");
+            mnuStrip.ForeColor = ColorTranslator.FromHtml("#191919");
 
 
         }
@@ -325,6 +328,16 @@ namespace Team3MiddleSchool
         private void tbxCity_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !clsValidation.ValidateString(e.KeyChar);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("addStudent.html");
         }
     }
 }
