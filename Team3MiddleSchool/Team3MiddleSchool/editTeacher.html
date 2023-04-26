@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Help Menu</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="banner">
+        <img src="Logo.png" alt="" />
+        <h1>Edit Teacher</h1>
+      </div>
+    </header>
+    <main class="content">
+      <nav class="navigation">
+        <a href="login.html" class="btn">LOGIN</a>
+        <a href="forgotPassword.html" class="btn">FORGOT PASSWORD</a>
+        <a href="menu.html" class="btn">MENU</a>
+        <a href="admin.html" class="btn">ADMIN MENU</a>
+        <a href="addCourse.html" class="subBtn">- ADD COURSE</a>
+        <a href="editCourse.html" class="subBtn">- EDIT COURSE</a>
+        <a href="addTeacher.html" class="subBtn">- ADD TEACHER</a>
+        <a href="editTeacher.html" class="subBtn">- EDIT TEACHER</a>
+        <a href="addStudent.html" class="subBtn">- ADD STUDENT</a>
+        <a href="editStudent.html" class="subBtn">- EDIT STUDENT</a>
+        <a href="officer.html" class="btn">OFFICER MENU</a>
+        <a href="addCourse.html" class="subBtn">- ADD COURSE</a>
+        <a href="editCourse.html" class="subBtn">- EDIT COURSE</a>
+        <a href="addTeacher.html" class="subBtn">- ADD TEACHER</a>
+        <a href="editTeacher.html" class="subBtn">- EDIT TEACHER</a>
+        <a href="addSubject.html" class="subBtn">- ADD SUBJECT</a>
+        <a href="editSubject.html" class="subBtn">- EDIT SUBJECT</a>
+        <a href="addStudent.html" class="subBtn">- ADD STUDENT</a>
+        <a href="editStudent.html" class="subBtn">- EDIT STUDENT</a>
+        <a href="addParent.html" class="subBtn">- ADD PARENT</a>
+        <a href="editParent.html" class="subBtn">- EDIT PARENT</a>
+        <a href="assignClasses.html" class="btn">ASSIGN CLASSES</a>
+        <a href="gradebook.html" class="btn">GRADEBOOK</a>
+        <a href="attendance.html" class="btn">ATTENDANCE</a>
+        <a href="seatingChart.html" class="btn">SEATING CHART</a>
+      </nav>
+      <div class="content-text">
+        <h2>Buttons</h2>
+        <dl>
+          <dt>Clear</dt>
+          <dd>
+            - When clicked the program will clear all textboxes and dropdown
+            menus in the current form.
+          </dd>
+          <dt>Submit</dt>
+          <dd>
+            - When clicked the program will gather all of the information from
+            the text boxes and drop-down menus and add them to the database to
+            edit the currently selected teacher.
+          </dd>
+          <dt>Back</dt>
+          <dd>
+            - When clicked the program will send the user back to the
+            Admin/Officer menu.
+          </dd>
+        </dl>
+        <h2>Text Boxes</h2>
+        <dl>
+          <dt>First Name</dt>
+          <dd>
+            - The First Name of the currently selected teacher will be populated
+            in the text box, and the user can chose to edit or keep the original
+            first name. This textbox will not allow numbers or special
+            characters.
+          </dd>
+          <dt>Last Name</dt>
+          <dd>
+            - The Last Name of the currently selected teacher will be populated
+            in the text box, and the user can chose to edit or keep the original
+            last name. This textbox will not allow numbers or special
+            characters.
+          </dd>
+          <dt>Email</dt>
+          <dd>
+            - The Email of the currently selected teacher will be populated in
+            the text box, and the user can chose to edit or keep the original
+            email. This textbox will check if the email is valid before it can
+            be submitted.
+          </dd>
+          <dt>Username</dt>
+          <dd>
+            - The Username of the currently selected teacher will be populated
+            in the text box, and the user can chose to edit or keep the original
+            username. This textbox will check if the username is null or empty,
+            contains whitespace, has characters other than letters, digits,
+            underscore and hyphen, and if it's length is between 3 and 20
+            characters. If the criteria is met then the program will upload the
+            data to the database otherwise the user will be presented with a
+            warning.
+          </dd>
+          <dt>Password</dt>
+          <dd>
+            - The Password of the currently selected teacher will be populated
+            in the text box, and the user can chose to edit or keep the original
+            password. This textbox will check if the password is null or empty,
+            contains whitespace, has atleast one character that is uppercase,
+            and one number. It will also check to see if the length is between 8
+            and 20 characters. If the criteria is met then the program will
+            upload the data to the database otherwise the user will be presented
+            with a warning.
+          </dd>
+        </dl>
+      </div>
+    </main>
+  </body>
+</html>

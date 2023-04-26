@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.gbxAddress = new System.Windows.Forms.GroupBox();
+            this.cbxState = new System.Windows.Forms.ComboBox();
+            this.lblZipWarning = new System.Windows.Forms.Label();
+            this.lblCityWarning = new System.Windows.Forms.Label();
+            this.lblAddressWarning = new System.Windows.Forms.Label();
             this.tbxMailingAddress = new System.Windows.Forms.TextBox();
             this.lblMailingAddress = new System.Windows.Forms.Label();
             this.lblStreetAddress = new System.Windows.Forms.Label();
@@ -42,6 +46,9 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.gbxLogin = new System.Windows.Forms.GroupBox();
+            this.lblPasswordWarning = new System.Windows.Forms.Label();
+            this.lblUsernameWarning = new System.Windows.Forms.Label();
+            this.lblEmailWarning = new System.Windows.Forms.Label();
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -49,6 +56,8 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.gbxStudentContact = new System.Windows.Forms.GroupBox();
+            this.lblPhoneNumberWarning1 = new System.Windows.Forms.Label();
+            this.lblNameWarning1 = new System.Windows.Forms.Label();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblMiddleName = new System.Windows.Forms.Label();
@@ -60,37 +69,34 @@
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.tbxPhoneNumber = new System.Windows.Forms.TextBox();
             this.gbxEmergencyContact = new System.Windows.Forms.GroupBox();
-            this.tbxGuardianWorkPl = new System.Windows.Forms.TextBox();
-            this.lblNameWarning1 = new System.Windows.Forms.Label();
-            this.lblPhoneNumberWarning1 = new System.Windows.Forms.Label();
-            this.lblAddressWarning = new System.Windows.Forms.Label();
-            this.lblCityWarning = new System.Windows.Forms.Label();
-            this.lblZipWarning = new System.Windows.Forms.Label();
-            this.lblEmailWarning = new System.Windows.Forms.Label();
-            this.lblUsernameWarning = new System.Windows.Forms.Label();
-            this.lblPasswordWarning = new System.Windows.Forms.Label();
-            this.lblNameWarning2 = new System.Windows.Forms.Label();
-            this.tbxEmerContactName = new System.Windows.Forms.TextBox();
-            this.lblGuardianWork = new System.Windows.Forms.Label();
-            this.tbxEmerContactPhone = new System.Windows.Forms.TextBox();
-            this.lblGuardianCell = new System.Windows.Forms.Label();
-            this.tbxGuardianName = new System.Windows.Forms.TextBox();
-            this.lblGuardianName = new System.Windows.Forms.Label();
-            this.tbxGuardianCell = new System.Windows.Forms.TextBox();
-            this.lblGuardianWorkPl = new System.Windows.Forms.Label();
-            this.tbxGuardianWork = new System.Windows.Forms.TextBox();
-            this.lblEmerContactPhone = new System.Windows.Forms.Label();
-            this.lblEmerContactName = new System.Windows.Forms.Label();
-            this.lblPhoneNumberWarning2 = new System.Windows.Forms.Label();
-            this.lblPhoneNumberWarning3 = new System.Windows.Forms.Label();
-            this.lblPhoneNumberWarning4 = new System.Windows.Forms.Label();
-            this.lblNameWarning3 = new System.Windows.Forms.Label();
             this.lblWorkplaceWarning = new System.Windows.Forms.Label();
-            this.cbxState = new System.Windows.Forms.ComboBox();
+            this.lblNameWarning3 = new System.Windows.Forms.Label();
+            this.lblNameWarning2 = new System.Windows.Forms.Label();
+            this.lblPhoneNumberWarning4 = new System.Windows.Forms.Label();
+            this.lblPhoneNumberWarning3 = new System.Windows.Forms.Label();
+            this.lblPhoneNumberWarning2 = new System.Windows.Forms.Label();
+            this.lblEmerContactName = new System.Windows.Forms.Label();
+            this.tbxGuardianWorkPl = new System.Windows.Forms.TextBox();
+            this.lblEmerContactPhone = new System.Windows.Forms.Label();
+            this.tbxGuardianWork = new System.Windows.Forms.TextBox();
+            this.lblGuardianWorkPl = new System.Windows.Forms.Label();
+            this.tbxGuardianCell = new System.Windows.Forms.TextBox();
+            this.lblGuardianName = new System.Windows.Forms.Label();
+            this.tbxGuardianName = new System.Windows.Forms.TextBox();
+            this.lblGuardianCell = new System.Windows.Forms.Label();
+            this.tbxEmerContactPhone = new System.Windows.Forms.TextBox();
+            this.lblGuardianWork = new System.Windows.Forms.Label();
+            this.tbxEmerContactName = new System.Windows.Forms.TextBox();
+            this.mnuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbxAddress.SuspendLayout();
             this.gbxLogin.SuspendLayout();
             this.gbxStudentContact.SuspendLayout();
             this.gbxEmergencyContact.SuspendLayout();
+            this.mnuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxAddress
@@ -114,6 +120,107 @@
             this.gbxAddress.TabIndex = 2;
             this.gbxAddress.TabStop = false;
             this.gbxAddress.Text = "Address";
+            // 
+            // cbxState
+            // 
+            this.cbxState.FormattingEnabled = true;
+            this.cbxState.Items.AddRange(new object[] {
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "AS",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "DC",
+            "FL",
+            "GA",
+            "GU",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NC",
+            "ND",
+            "MP",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "PR",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "TT",
+            "UT",
+            "VT",
+            "VA",
+            "VI",
+            "WA",
+            "WV",
+            "WI",
+            "WY"});
+            this.cbxState.Location = new System.Drawing.Point(185, 150);
+            this.cbxState.Name = "cbxState";
+            this.cbxState.Size = new System.Drawing.Size(157, 23);
+            this.cbxState.TabIndex = 3;
+            // 
+            // lblZipWarning
+            // 
+            this.lblZipWarning.AutoSize = true;
+            this.lblZipWarning.BackColor = System.Drawing.Color.Red;
+            this.lblZipWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblZipWarning.Location = new System.Drawing.Point(197, 212);
+            this.lblZipWarning.Name = "lblZipWarning";
+            this.lblZipWarning.Size = new System.Drawing.Size(112, 15);
+            this.lblZipWarning.TabIndex = 61;
+            this.lblZipWarning.Text = "Must Enter Valid Zip";
+            this.lblZipWarning.Visible = false;
+            // 
+            // lblCityWarning
+            // 
+            this.lblCityWarning.AutoSize = true;
+            this.lblCityWarning.BackColor = System.Drawing.Color.Red;
+            this.lblCityWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblCityWarning.Location = new System.Drawing.Point(197, 126);
+            this.lblCityWarning.Name = "lblCityWarning";
+            this.lblCityWarning.Size = new System.Drawing.Size(116, 15);
+            this.lblCityWarning.TabIndex = 60;
+            this.lblCityWarning.Text = "Must Enter Valid City";
+            this.lblCityWarning.Visible = false;
+            // 
+            // lblAddressWarning
+            // 
+            this.lblAddressWarning.AutoSize = true;
+            this.lblAddressWarning.BackColor = System.Drawing.Color.Red;
+            this.lblAddressWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblAddressWarning.Location = new System.Drawing.Point(197, 76);
+            this.lblAddressWarning.Name = "lblAddressWarning";
+            this.lblAddressWarning.Size = new System.Drawing.Size(137, 15);
+            this.lblAddressWarning.TabIndex = 59;
+            this.lblAddressWarning.Text = "Must Enter Valid Address";
+            this.lblAddressWarning.Visible = false;
             // 
             // tbxMailingAddress
             // 
@@ -245,6 +352,42 @@
             this.gbxLogin.TabStop = false;
             this.gbxLogin.Text = "Login Information";
             // 
+            // lblPasswordWarning
+            // 
+            this.lblPasswordWarning.AutoSize = true;
+            this.lblPasswordWarning.BackColor = System.Drawing.Color.Red;
+            this.lblPasswordWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblPasswordWarning.Location = new System.Drawing.Point(194, 142);
+            this.lblPasswordWarning.Name = "lblPasswordWarning";
+            this.lblPasswordWarning.Size = new System.Drawing.Size(145, 15);
+            this.lblPasswordWarning.TabIndex = 37;
+            this.lblPasswordWarning.Text = "Must Enter Valid Password";
+            this.lblPasswordWarning.Visible = false;
+            // 
+            // lblUsernameWarning
+            // 
+            this.lblUsernameWarning.AutoSize = true;
+            this.lblUsernameWarning.BackColor = System.Drawing.Color.Red;
+            this.lblUsernameWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblUsernameWarning.Location = new System.Drawing.Point(194, 95);
+            this.lblUsernameWarning.Name = "lblUsernameWarning";
+            this.lblUsernameWarning.Size = new System.Drawing.Size(148, 15);
+            this.lblUsernameWarning.TabIndex = 36;
+            this.lblUsernameWarning.Text = "Must Enter Valid Username";
+            this.lblUsernameWarning.Visible = false;
+            // 
+            // lblEmailWarning
+            // 
+            this.lblEmailWarning.AutoSize = true;
+            this.lblEmailWarning.BackColor = System.Drawing.Color.Red;
+            this.lblEmailWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblEmailWarning.Location = new System.Drawing.Point(194, 48);
+            this.lblEmailWarning.Name = "lblEmailWarning";
+            this.lblEmailWarning.Size = new System.Drawing.Size(124, 15);
+            this.lblEmailWarning.TabIndex = 35;
+            this.lblEmailWarning.Text = "Must Enter Valid Email";
+            this.lblEmailWarning.Visible = false;
+            // 
             // tbxEmail
             // 
             this.tbxEmail.Location = new System.Drawing.Point(180, 22);
@@ -316,6 +459,30 @@
             this.gbxStudentContact.TabIndex = 0;
             this.gbxStudentContact.TabStop = false;
             this.gbxStudentContact.Text = "Contact Information";
+            // 
+            // lblPhoneNumberWarning1
+            // 
+            this.lblPhoneNumberWarning1.AutoSize = true;
+            this.lblPhoneNumberWarning1.BackColor = System.Drawing.Color.Red;
+            this.lblPhoneNumberWarning1.ForeColor = System.Drawing.Color.Black;
+            this.lblPhoneNumberWarning1.Location = new System.Drawing.Point(197, 204);
+            this.lblPhoneNumberWarning1.Name = "lblPhoneNumberWarning1";
+            this.lblPhoneNumberWarning1.Size = new System.Drawing.Size(129, 15);
+            this.lblPhoneNumberWarning1.TabIndex = 45;
+            this.lblPhoneNumberWarning1.Text = "Must Enter Valid Phone";
+            this.lblPhoneNumberWarning1.Visible = false;
+            // 
+            // lblNameWarning1
+            // 
+            this.lblNameWarning1.AutoSize = true;
+            this.lblNameWarning1.BackColor = System.Drawing.Color.Red;
+            this.lblNameWarning1.ForeColor = System.Drawing.Color.Black;
+            this.lblNameWarning1.Location = new System.Drawing.Point(197, 107);
+            this.lblNameWarning1.Name = "lblNameWarning1";
+            this.lblNameWarning1.Size = new System.Drawing.Size(127, 15);
+            this.lblNameWarning1.TabIndex = 44;
+            this.lblNameWarning1.Text = "Must Enter Valid Name";
+            this.lblNameWarning1.Visible = false;
             // 
             // tbxFirstName
             // 
@@ -432,254 +599,17 @@
             this.gbxEmergencyContact.TabStop = false;
             this.gbxEmergencyContact.Text = "Emergency Contact Information";
             // 
-            // tbxGuardianWorkPl
+            // lblWorkplaceWarning
             // 
-            this.tbxGuardianWorkPl.Location = new System.Drawing.Point(298, 252);
-            this.tbxGuardianWorkPl.Name = "tbxGuardianWorkPl";
-            this.tbxGuardianWorkPl.Size = new System.Drawing.Size(157, 23);
-            this.tbxGuardianWorkPl.TabIndex = 5;
-            this.tbxGuardianWorkPl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxGuardianWorkPl_KeyPress);
-            // 
-            // lblNameWarning1
-            // 
-            this.lblNameWarning1.AutoSize = true;
-            this.lblNameWarning1.BackColor = System.Drawing.Color.Red;
-            this.lblNameWarning1.ForeColor = System.Drawing.Color.Black;
-            this.lblNameWarning1.Location = new System.Drawing.Point(197, 107);
-            this.lblNameWarning1.Name = "lblNameWarning1";
-            this.lblNameWarning1.Size = new System.Drawing.Size(127, 15);
-            this.lblNameWarning1.TabIndex = 44;
-            this.lblNameWarning1.Text = "Must Enter Valid Name";
-            this.lblNameWarning1.Visible = false;
-            // 
-            // lblPhoneNumberWarning1
-            // 
-            this.lblPhoneNumberWarning1.AutoSize = true;
-            this.lblPhoneNumberWarning1.BackColor = System.Drawing.Color.Red;
-            this.lblPhoneNumberWarning1.ForeColor = System.Drawing.Color.Black;
-            this.lblPhoneNumberWarning1.Location = new System.Drawing.Point(197, 204);
-            this.lblPhoneNumberWarning1.Name = "lblPhoneNumberWarning1";
-            this.lblPhoneNumberWarning1.Size = new System.Drawing.Size(129, 15);
-            this.lblPhoneNumberWarning1.TabIndex = 45;
-            this.lblPhoneNumberWarning1.Text = "Must Enter Valid Phone";
-            this.lblPhoneNumberWarning1.Visible = false;
-            // 
-            // lblAddressWarning
-            // 
-            this.lblAddressWarning.AutoSize = true;
-            this.lblAddressWarning.BackColor = System.Drawing.Color.Red;
-            this.lblAddressWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblAddressWarning.Location = new System.Drawing.Point(197, 76);
-            this.lblAddressWarning.Name = "lblAddressWarning";
-            this.lblAddressWarning.Size = new System.Drawing.Size(137, 15);
-            this.lblAddressWarning.TabIndex = 59;
-            this.lblAddressWarning.Text = "Must Enter Valid Address";
-            this.lblAddressWarning.Visible = false;
-            // 
-            // lblCityWarning
-            // 
-            this.lblCityWarning.AutoSize = true;
-            this.lblCityWarning.BackColor = System.Drawing.Color.Red;
-            this.lblCityWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblCityWarning.Location = new System.Drawing.Point(197, 126);
-            this.lblCityWarning.Name = "lblCityWarning";
-            this.lblCityWarning.Size = new System.Drawing.Size(116, 15);
-            this.lblCityWarning.TabIndex = 60;
-            this.lblCityWarning.Text = "Must Enter Valid City";
-            this.lblCityWarning.Visible = false;
-            // 
-            // lblZipWarning
-            // 
-            this.lblZipWarning.AutoSize = true;
-            this.lblZipWarning.BackColor = System.Drawing.Color.Red;
-            this.lblZipWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblZipWarning.Location = new System.Drawing.Point(197, 212);
-            this.lblZipWarning.Name = "lblZipWarning";
-            this.lblZipWarning.Size = new System.Drawing.Size(112, 15);
-            this.lblZipWarning.TabIndex = 61;
-            this.lblZipWarning.Text = "Must Enter Valid Zip";
-            this.lblZipWarning.Visible = false;
-            // 
-            // lblEmailWarning
-            // 
-            this.lblEmailWarning.AutoSize = true;
-            this.lblEmailWarning.BackColor = System.Drawing.Color.Red;
-            this.lblEmailWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblEmailWarning.Location = new System.Drawing.Point(194, 48);
-            this.lblEmailWarning.Name = "lblEmailWarning";
-            this.lblEmailWarning.Size = new System.Drawing.Size(124, 15);
-            this.lblEmailWarning.TabIndex = 35;
-            this.lblEmailWarning.Text = "Must Enter Valid Email";
-            this.lblEmailWarning.Visible = false;
-            // 
-            // lblUsernameWarning
-            // 
-            this.lblUsernameWarning.AutoSize = true;
-            this.lblUsernameWarning.BackColor = System.Drawing.Color.Red;
-            this.lblUsernameWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblUsernameWarning.Location = new System.Drawing.Point(194, 95);
-            this.lblUsernameWarning.Name = "lblUsernameWarning";
-            this.lblUsernameWarning.Size = new System.Drawing.Size(148, 15);
-            this.lblUsernameWarning.TabIndex = 36;
-            this.lblUsernameWarning.Text = "Must Enter Valid Username";
-            this.lblUsernameWarning.Visible = false;
-            // 
-            // lblPasswordWarning
-            // 
-            this.lblPasswordWarning.AutoSize = true;
-            this.lblPasswordWarning.BackColor = System.Drawing.Color.Red;
-            this.lblPasswordWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblPasswordWarning.Location = new System.Drawing.Point(194, 142);
-            this.lblPasswordWarning.Name = "lblPasswordWarning";
-            this.lblPasswordWarning.Size = new System.Drawing.Size(145, 15);
-            this.lblPasswordWarning.TabIndex = 37;
-            this.lblPasswordWarning.Text = "Must Enter Valid Password";
-            this.lblPasswordWarning.Visible = false;
-            // 
-            // lblNameWarning2
-            // 
-            this.lblNameWarning2.AutoSize = true;
-            this.lblNameWarning2.BackColor = System.Drawing.Color.Red;
-            this.lblNameWarning2.ForeColor = System.Drawing.Color.Black;
-            this.lblNameWarning2.Location = new System.Drawing.Point(312, 48);
-            this.lblNameWarning2.Name = "lblNameWarning2";
-            this.lblNameWarning2.Size = new System.Drawing.Size(127, 15);
-            this.lblNameWarning2.TabIndex = 60;
-            this.lblNameWarning2.Text = "Must Enter Valid Name";
-            this.lblNameWarning2.Visible = false;
-            // 
-            // tbxEmerContactName
-            // 
-            this.tbxEmerContactName.Location = new System.Drawing.Point(298, 22);
-            this.tbxEmerContactName.Name = "tbxEmerContactName";
-            this.tbxEmerContactName.Size = new System.Drawing.Size(157, 23);
-            this.tbxEmerContactName.TabIndex = 0;
-            this.tbxEmerContactName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxEmerContactName_KeyPress);
-            // 
-            // lblGuardianWork
-            // 
-            this.lblGuardianWork.AutoSize = true;
-            this.lblGuardianWork.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuardianWork.Location = new System.Drawing.Point(17, 204);
-            this.lblGuardianWork.Name = "lblGuardianWork";
-            this.lblGuardianWork.Size = new System.Drawing.Size(211, 25);
-            this.lblGuardianWork.TabIndex = 53;
-            this.lblGuardianWork.Text = "Guardian Work Phone";
-            // 
-            // tbxEmerContactPhone
-            // 
-            this.tbxEmerContactPhone.Location = new System.Drawing.Point(298, 68);
-            this.tbxEmerContactPhone.Name = "tbxEmerContactPhone";
-            this.tbxEmerContactPhone.Size = new System.Drawing.Size(157, 23);
-            this.tbxEmerContactPhone.TabIndex = 1;
-            // 
-            // lblGuardianCell
-            // 
-            this.lblGuardianCell.AutoSize = true;
-            this.lblGuardianCell.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuardianCell.Location = new System.Drawing.Point(17, 158);
-            this.lblGuardianCell.Name = "lblGuardianCell";
-            this.lblGuardianCell.Size = new System.Drawing.Size(194, 25);
-            this.lblGuardianCell.TabIndex = 51;
-            this.lblGuardianCell.Text = "Guardian Cell Phone";
-            // 
-            // tbxGuardianName
-            // 
-            this.tbxGuardianName.Location = new System.Drawing.Point(298, 114);
-            this.tbxGuardianName.Name = "tbxGuardianName";
-            this.tbxGuardianName.Size = new System.Drawing.Size(157, 23);
-            this.tbxGuardianName.TabIndex = 2;
-            this.tbxGuardianName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxGuardianName_KeyPress);
-            // 
-            // lblGuardianName
-            // 
-            this.lblGuardianName.AutoSize = true;
-            this.lblGuardianName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuardianName.Location = new System.Drawing.Point(17, 112);
-            this.lblGuardianName.Name = "lblGuardianName";
-            this.lblGuardianName.Size = new System.Drawing.Size(152, 25);
-            this.lblGuardianName.TabIndex = 49;
-            this.lblGuardianName.Text = "Guardian Name";
-            // 
-            // tbxGuardianCell
-            // 
-            this.tbxGuardianCell.Location = new System.Drawing.Point(298, 160);
-            this.tbxGuardianCell.Name = "tbxGuardianCell";
-            this.tbxGuardianCell.Size = new System.Drawing.Size(157, 23);
-            this.tbxGuardianCell.TabIndex = 3;
-            // 
-            // lblGuardianWorkPl
-            // 
-            this.lblGuardianWorkPl.AutoSize = true;
-            this.lblGuardianWorkPl.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuardianWorkPl.Location = new System.Drawing.Point(17, 250);
-            this.lblGuardianWorkPl.Name = "lblGuardianWorkPl";
-            this.lblGuardianWorkPl.Size = new System.Drawing.Size(200, 25);
-            this.lblGuardianWorkPl.TabIndex = 55;
-            this.lblGuardianWorkPl.Text = "Guardian Work Place";
-            // 
-            // tbxGuardianWork
-            // 
-            this.tbxGuardianWork.Location = new System.Drawing.Point(298, 206);
-            this.tbxGuardianWork.Name = "tbxGuardianWork";
-            this.tbxGuardianWork.Size = new System.Drawing.Size(157, 23);
-            this.tbxGuardianWork.TabIndex = 4;
-            // 
-            // lblEmerContactPhone
-            // 
-            this.lblEmerContactPhone.AutoSize = true;
-            this.lblEmerContactPhone.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmerContactPhone.Location = new System.Drawing.Point(17, 66);
-            this.lblEmerContactPhone.Name = "lblEmerContactPhone";
-            this.lblEmerContactPhone.Size = new System.Drawing.Size(246, 25);
-            this.lblEmerContactPhone.TabIndex = 47;
-            this.lblEmerContactPhone.Text = "Emergency Contact Phone";
-            // 
-            // lblEmerContactName
-            // 
-            this.lblEmerContactName.AutoSize = true;
-            this.lblEmerContactName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmerContactName.Location = new System.Drawing.Point(17, 20);
-            this.lblEmerContactName.Name = "lblEmerContactName";
-            this.lblEmerContactName.Size = new System.Drawing.Size(241, 25);
-            this.lblEmerContactName.TabIndex = 45;
-            this.lblEmerContactName.Text = "Emergency Contact Name";
-            // 
-            // lblPhoneNumberWarning2
-            // 
-            this.lblPhoneNumberWarning2.AutoSize = true;
-            this.lblPhoneNumberWarning2.BackColor = System.Drawing.Color.Red;
-            this.lblPhoneNumberWarning2.ForeColor = System.Drawing.Color.Black;
-            this.lblPhoneNumberWarning2.Location = new System.Drawing.Point(312, 94);
-            this.lblPhoneNumberWarning2.Name = "lblPhoneNumberWarning2";
-            this.lblPhoneNumberWarning2.Size = new System.Drawing.Size(129, 15);
-            this.lblPhoneNumberWarning2.TabIndex = 61;
-            this.lblPhoneNumberWarning2.Text = "Must Enter Valid Phone";
-            this.lblPhoneNumberWarning2.Visible = false;
-            // 
-            // lblPhoneNumberWarning3
-            // 
-            this.lblPhoneNumberWarning3.AutoSize = true;
-            this.lblPhoneNumberWarning3.BackColor = System.Drawing.Color.Red;
-            this.lblPhoneNumberWarning3.ForeColor = System.Drawing.Color.Black;
-            this.lblPhoneNumberWarning3.Location = new System.Drawing.Point(312, 186);
-            this.lblPhoneNumberWarning3.Name = "lblPhoneNumberWarning3";
-            this.lblPhoneNumberWarning3.Size = new System.Drawing.Size(129, 15);
-            this.lblPhoneNumberWarning3.TabIndex = 62;
-            this.lblPhoneNumberWarning3.Text = "Must Enter Valid Phone";
-            this.lblPhoneNumberWarning3.Visible = false;
-            // 
-            // lblPhoneNumberWarning4
-            // 
-            this.lblPhoneNumberWarning4.AutoSize = true;
-            this.lblPhoneNumberWarning4.BackColor = System.Drawing.Color.Red;
-            this.lblPhoneNumberWarning4.ForeColor = System.Drawing.Color.Black;
-            this.lblPhoneNumberWarning4.Location = new System.Drawing.Point(312, 232);
-            this.lblPhoneNumberWarning4.Name = "lblPhoneNumberWarning4";
-            this.lblPhoneNumberWarning4.Size = new System.Drawing.Size(129, 15);
-            this.lblPhoneNumberWarning4.TabIndex = 63;
-            this.lblPhoneNumberWarning4.Text = "Must Enter Valid Phone";
-            this.lblPhoneNumberWarning4.Visible = false;
+            this.lblWorkplaceWarning.AutoSize = true;
+            this.lblWorkplaceWarning.BackColor = System.Drawing.Color.Red;
+            this.lblWorkplaceWarning.ForeColor = System.Drawing.Color.Black;
+            this.lblWorkplaceWarning.Location = new System.Drawing.Point(314, 278);
+            this.lblWorkplaceWarning.Name = "lblWorkplaceWarning";
+            this.lblWorkplaceWarning.Size = new System.Drawing.Size(151, 15);
+            this.lblWorkplaceWarning.TabIndex = 65;
+            this.lblWorkplaceWarning.Text = "Must Enter Valid Workplace";
+            this.lblWorkplaceWarning.Visible = false;
             // 
             // lblNameWarning3
             // 
@@ -693,82 +623,200 @@
             this.lblNameWarning3.Text = "Must Enter Valid Name";
             this.lblNameWarning3.Visible = false;
             // 
-            // lblWorkplaceWarning
+            // lblNameWarning2
             // 
-            this.lblWorkplaceWarning.AutoSize = true;
-            this.lblWorkplaceWarning.BackColor = System.Drawing.Color.Red;
-            this.lblWorkplaceWarning.ForeColor = System.Drawing.Color.Black;
-            this.lblWorkplaceWarning.Location = new System.Drawing.Point(314, 278);
-            this.lblWorkplaceWarning.Name = "lblWorkplaceWarning";
-            this.lblWorkplaceWarning.Size = new System.Drawing.Size(151, 15);
-            this.lblWorkplaceWarning.TabIndex = 65;
-            this.lblWorkplaceWarning.Text = "Must Enter Valid Workplace";
-            this.lblWorkplaceWarning.Visible = false;
+            this.lblNameWarning2.AutoSize = true;
+            this.lblNameWarning2.BackColor = System.Drawing.Color.Red;
+            this.lblNameWarning2.ForeColor = System.Drawing.Color.Black;
+            this.lblNameWarning2.Location = new System.Drawing.Point(312, 48);
+            this.lblNameWarning2.Name = "lblNameWarning2";
+            this.lblNameWarning2.Size = new System.Drawing.Size(127, 15);
+            this.lblNameWarning2.TabIndex = 60;
+            this.lblNameWarning2.Text = "Must Enter Valid Name";
+            this.lblNameWarning2.Visible = false;
             // 
-            // cbxState
+            // lblPhoneNumberWarning4
             // 
-            this.cbxState.FormattingEnabled = true;
-            this.cbxState.Items.AddRange(new object[] {
-            "AL",
-            "AK",
-            "AZ",
-            "AR",
-            "AS",
-            "CA",
-            "CO",
-            "CT",
-            "DE",
-            "DC",
-            "FL",
-            "GA",
-            "GU",
-            "HI",
-            "ID",
-            "IL",
-            "IN",
-            "IA",
-            "KS",
-            "KY",
-            "LA",
-            "ME",
-            "MD",
-            "MA",
-            "MI",
-            "MN",
-            "MS",
-            "MO",
-            "MT",
-            "NE",
-            "NV",
-            "NH",
-            "NJ",
-            "NM",
-            "NC",
-            "ND",
-            "MP",
-            "OH",
-            "OK",
-            "OR",
-            "PA",
-            "PR",
-            "RI",
-            "SC",
-            "SD",
-            "TN",
-            "TX",
-            "TT",
-            "UT",
-            "VT",
-            "VA",
-            "VI",
-            "WA",
-            "WV",
-            "WI",
-            "WY"});
-            this.cbxState.Location = new System.Drawing.Point(185, 150);
-            this.cbxState.Name = "cbxState";
-            this.cbxState.Size = new System.Drawing.Size(157, 23);
-            this.cbxState.TabIndex = 3;
+            this.lblPhoneNumberWarning4.AutoSize = true;
+            this.lblPhoneNumberWarning4.BackColor = System.Drawing.Color.Red;
+            this.lblPhoneNumberWarning4.ForeColor = System.Drawing.Color.Black;
+            this.lblPhoneNumberWarning4.Location = new System.Drawing.Point(312, 232);
+            this.lblPhoneNumberWarning4.Name = "lblPhoneNumberWarning4";
+            this.lblPhoneNumberWarning4.Size = new System.Drawing.Size(129, 15);
+            this.lblPhoneNumberWarning4.TabIndex = 63;
+            this.lblPhoneNumberWarning4.Text = "Must Enter Valid Phone";
+            this.lblPhoneNumberWarning4.Visible = false;
+            // 
+            // lblPhoneNumberWarning3
+            // 
+            this.lblPhoneNumberWarning3.AutoSize = true;
+            this.lblPhoneNumberWarning3.BackColor = System.Drawing.Color.Red;
+            this.lblPhoneNumberWarning3.ForeColor = System.Drawing.Color.Black;
+            this.lblPhoneNumberWarning3.Location = new System.Drawing.Point(312, 186);
+            this.lblPhoneNumberWarning3.Name = "lblPhoneNumberWarning3";
+            this.lblPhoneNumberWarning3.Size = new System.Drawing.Size(129, 15);
+            this.lblPhoneNumberWarning3.TabIndex = 62;
+            this.lblPhoneNumberWarning3.Text = "Must Enter Valid Phone";
+            this.lblPhoneNumberWarning3.Visible = false;
+            // 
+            // lblPhoneNumberWarning2
+            // 
+            this.lblPhoneNumberWarning2.AutoSize = true;
+            this.lblPhoneNumberWarning2.BackColor = System.Drawing.Color.Red;
+            this.lblPhoneNumberWarning2.ForeColor = System.Drawing.Color.Black;
+            this.lblPhoneNumberWarning2.Location = new System.Drawing.Point(312, 94);
+            this.lblPhoneNumberWarning2.Name = "lblPhoneNumberWarning2";
+            this.lblPhoneNumberWarning2.Size = new System.Drawing.Size(129, 15);
+            this.lblPhoneNumberWarning2.TabIndex = 61;
+            this.lblPhoneNumberWarning2.Text = "Must Enter Valid Phone";
+            this.lblPhoneNumberWarning2.Visible = false;
+            // 
+            // lblEmerContactName
+            // 
+            this.lblEmerContactName.AutoSize = true;
+            this.lblEmerContactName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmerContactName.Location = new System.Drawing.Point(17, 20);
+            this.lblEmerContactName.Name = "lblEmerContactName";
+            this.lblEmerContactName.Size = new System.Drawing.Size(241, 25);
+            this.lblEmerContactName.TabIndex = 45;
+            this.lblEmerContactName.Text = "Emergency Contact Name";
+            // 
+            // tbxGuardianWorkPl
+            // 
+            this.tbxGuardianWorkPl.Location = new System.Drawing.Point(298, 252);
+            this.tbxGuardianWorkPl.Name = "tbxGuardianWorkPl";
+            this.tbxGuardianWorkPl.Size = new System.Drawing.Size(157, 23);
+            this.tbxGuardianWorkPl.TabIndex = 5;
+            this.tbxGuardianWorkPl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxGuardianWorkPl_KeyPress);
+            // 
+            // lblEmerContactPhone
+            // 
+            this.lblEmerContactPhone.AutoSize = true;
+            this.lblEmerContactPhone.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmerContactPhone.Location = new System.Drawing.Point(17, 66);
+            this.lblEmerContactPhone.Name = "lblEmerContactPhone";
+            this.lblEmerContactPhone.Size = new System.Drawing.Size(246, 25);
+            this.lblEmerContactPhone.TabIndex = 47;
+            this.lblEmerContactPhone.Text = "Emergency Contact Phone";
+            // 
+            // tbxGuardianWork
+            // 
+            this.tbxGuardianWork.Location = new System.Drawing.Point(298, 206);
+            this.tbxGuardianWork.Name = "tbxGuardianWork";
+            this.tbxGuardianWork.Size = new System.Drawing.Size(157, 23);
+            this.tbxGuardianWork.TabIndex = 4;
+            // 
+            // lblGuardianWorkPl
+            // 
+            this.lblGuardianWorkPl.AutoSize = true;
+            this.lblGuardianWorkPl.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuardianWorkPl.Location = new System.Drawing.Point(17, 250);
+            this.lblGuardianWorkPl.Name = "lblGuardianWorkPl";
+            this.lblGuardianWorkPl.Size = new System.Drawing.Size(200, 25);
+            this.lblGuardianWorkPl.TabIndex = 55;
+            this.lblGuardianWorkPl.Text = "Guardian Work Place";
+            // 
+            // tbxGuardianCell
+            // 
+            this.tbxGuardianCell.Location = new System.Drawing.Point(298, 160);
+            this.tbxGuardianCell.Name = "tbxGuardianCell";
+            this.tbxGuardianCell.Size = new System.Drawing.Size(157, 23);
+            this.tbxGuardianCell.TabIndex = 3;
+            // 
+            // lblGuardianName
+            // 
+            this.lblGuardianName.AutoSize = true;
+            this.lblGuardianName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuardianName.Location = new System.Drawing.Point(17, 112);
+            this.lblGuardianName.Name = "lblGuardianName";
+            this.lblGuardianName.Size = new System.Drawing.Size(152, 25);
+            this.lblGuardianName.TabIndex = 49;
+            this.lblGuardianName.Text = "Guardian Name";
+            // 
+            // tbxGuardianName
+            // 
+            this.tbxGuardianName.Location = new System.Drawing.Point(298, 114);
+            this.tbxGuardianName.Name = "tbxGuardianName";
+            this.tbxGuardianName.Size = new System.Drawing.Size(157, 23);
+            this.tbxGuardianName.TabIndex = 2;
+            this.tbxGuardianName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxGuardianName_KeyPress);
+            // 
+            // lblGuardianCell
+            // 
+            this.lblGuardianCell.AutoSize = true;
+            this.lblGuardianCell.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuardianCell.Location = new System.Drawing.Point(17, 158);
+            this.lblGuardianCell.Name = "lblGuardianCell";
+            this.lblGuardianCell.Size = new System.Drawing.Size(194, 25);
+            this.lblGuardianCell.TabIndex = 51;
+            this.lblGuardianCell.Text = "Guardian Cell Phone";
+            // 
+            // tbxEmerContactPhone
+            // 
+            this.tbxEmerContactPhone.Location = new System.Drawing.Point(298, 68);
+            this.tbxEmerContactPhone.Name = "tbxEmerContactPhone";
+            this.tbxEmerContactPhone.Size = new System.Drawing.Size(157, 23);
+            this.tbxEmerContactPhone.TabIndex = 1;
+            // 
+            // lblGuardianWork
+            // 
+            this.lblGuardianWork.AutoSize = true;
+            this.lblGuardianWork.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGuardianWork.Location = new System.Drawing.Point(17, 204);
+            this.lblGuardianWork.Name = "lblGuardianWork";
+            this.lblGuardianWork.Size = new System.Drawing.Size(211, 25);
+            this.lblGuardianWork.TabIndex = 53;
+            this.lblGuardianWork.Text = "Guardian Work Phone";
+            // 
+            // tbxEmerContactName
+            // 
+            this.tbxEmerContactName.Location = new System.Drawing.Point(298, 22);
+            this.tbxEmerContactName.Name = "tbxEmerContactName";
+            this.tbxEmerContactName.Size = new System.Drawing.Size(157, 23);
+            this.tbxEmerContactName.TabIndex = 0;
+            this.tbxEmerContactName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxEmerContactName_KeyPress);
+            // 
+            // mnuStrip
+            // 
+            this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mnuStrip.Name = "mnuStrip";
+            this.mnuStrip.Size = new System.Drawing.Size(884, 24);
+            this.mnuStrip.TabIndex = 8;
+            this.mnuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManualToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // userManualToolStripMenuItem
+            // 
+            this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userManualToolStripMenuItem.Text = "User Manual";
+            this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // frmEditStudent
             // 
@@ -777,6 +825,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.mnuStrip);
             this.Controls.Add(this.gbxAddress);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
@@ -798,7 +847,10 @@
             this.gbxStudentContact.PerformLayout();
             this.gbxEmergencyContact.ResumeLayout(false);
             this.gbxEmergencyContact.PerformLayout();
+            this.mnuStrip.ResumeLayout(false);
+            this.mnuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -863,5 +915,10 @@
         private System.Windows.Forms.Label lblGuardianWork;
         private System.Windows.Forms.TextBox tbxEmerContactName;
         private System.Windows.Forms.ComboBox cbxState;
+        private System.Windows.Forms.MenuStrip mnuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
     }
 }
