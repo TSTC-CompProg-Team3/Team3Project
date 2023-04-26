@@ -84,6 +84,7 @@ namespace Team3MiddleSchool
             {
                 tbxPassword.Clear();
                 tbxUsername.Clear();
+
             }
         }
 
