@@ -57,7 +57,7 @@ namespace Team3MiddleSchool
                 case "Officer":
                     btnOfficer.Visible = true;
 
-                    btnAssignClass.Visible = true;
+                    btnAssignClass.Visible = false;
 
                     clsDatabaseHandler.LoadAdminOfficer(cbxCourseSelect);
 
