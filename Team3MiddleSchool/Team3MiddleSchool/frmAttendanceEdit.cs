@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -192,12 +193,57 @@ namespace Team3MiddleSchool
         private void btnSubmitAttendEdit_Click(object sender, EventArgs e)
         {
             DateTime date = DateTime.Parse(dateSelection);
-            database.UpdateAttendance(dgvAttendanceEdit, dateSelection);
+            database.UpdateAttendance(dgvAttendanceEdit);
 
             MessageBox.Show("The records have been updated.", "Records Update", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             NewQuery(firstName, lastName, dateSelection);
             dtpAttendanceEdit.Value = date;
+        }
+
+        private void attendanceReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (cmbNamesEdit.SelectedIndex < 1) 
+            {
+                MessageBox.Show("Please select a student from the drop down box to generate a report");
+            }
+            else
+            {
+                
+                string studentName = cmbNamesEdit.SelectedItem.ToString();
+                
+                studentID = database.GetStudentIDByName(studentName);
+                int spaceIndex = classSelect.IndexOf("-");
+                string className = classSelect.Substring(0, spaceIndex - 1);
+                string teacher = database.LoggedTeacher(classID);
+                List<string> attendanceData = database.GetTotalAttendance(studentID, classID);
+                float totalDays = float.Parse(attendanceData[0]);
+                float absentDays = 0;
+                if (attendanceData[1].Equals("none"))
+                {
+                    absentDays = 0;
+                }
+                else
+                {
+                    absentDays = float.Parse(attendanceData[1]);
+                }
+
+                float presentDays = totalDays - absentDays;
+                float percentageDays = (presentDays / totalDays) * 100;
+                string percentage = (totalDays - absentDays) + " of " + totalDays + " - " + percentageDays.ToString("#.##");
+                List<string> daysMissed = new List<string>();
+                if (attendanceData.Count > 2)
+                {
+                    for (int i = 2; i < attendanceData.Count; i++)
+                    {
+                        spaceIndex = attendanceData[i].IndexOf(" ");
+                        string addDay = attendanceData[i].Substring(0, spaceIndex);
+                        daysMissed.Add(addDay);
+                    }
+                }
+                generateAttendanceReport(studentName, className, teacher, percentage, daysMissed);
+            }
+            
         }
 
         private void FillUserInfo()
@@ -207,6 +253,53 @@ namespace Team3MiddleSchool
 
             lblAttendTeacher.Text = "Teacher: " + database.LoggedTeacher(classID);
             lblAttendClass.Text = "Class: " + className;
+        }
+
+        private void generateAttendanceReport(string studentName, string className, string teacher, string attendance, List<string> daysMissed)
+        {
+            string template = "attendanceReportTemplate.html";
+
+            StreamReader sr = new StreamReader(template);
+            string content = sr.ReadToEnd();
+            sr.Close();
+
+
+            string daysMissedString = "";
+
+            foreach (string day in daysMissed)
+            {
+                daysMissedString += "<br>&emsp;&emsp;" + day;
+            }
+
+            string search = "<h2 id=\"studentNameHeader\">Student Name</h2>";
+            string replace = "<h2 id=\"studentNameHeader\">" + studentName + "</h2>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"c1\"></dt>";
+            replace = "<dt id=\"c1\">Class: " + className + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"t1\"></dt>";
+            replace = "<dt id=\"t1\">Teacher: " + teacher + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"a1\"></dt>";
+            replace = "<dt id=\"a1\">Attendance: " + attendance + "%</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"d1\"></dt>";
+            replace = "<dt id=\"d1\">Days Missed: " + daysMissedString + "</dt>";
+            content = content.Replace(search, replace);
+
+
+
+            string report = "reportGenerator.html";
+            StreamWriter sw = new StreamWriter(report, false);
+            sw.Write(content);
+            sw.Close();
+
+            System.Diagnostics.Process.Start("reportGenerator.html");
+
         }
     }
 }

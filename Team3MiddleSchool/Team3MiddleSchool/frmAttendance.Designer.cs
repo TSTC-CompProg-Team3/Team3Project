@@ -36,8 +36,12 @@
             this.btnBackAttend = new System.Windows.Forms.Button();
             this.dtpAttendance = new System.Windows.Forms.DateTimePicker();
             this.btnSubmitAttend = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.attendanceReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlAttendance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlAttendance
@@ -45,7 +49,7 @@
             this.pnlAttendance.Controls.Add(this.dgvAttendance);
             this.pnlAttendance.Controls.Add(this.lblAttendTeacher);
             this.pnlAttendance.Controls.Add(this.lblAttendClass);
-            this.pnlAttendance.Location = new System.Drawing.Point(12, 0);
+            this.pnlAttendance.Location = new System.Drawing.Point(13, 51);
             this.pnlAttendance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlAttendance.Name = "pnlAttendance";
             this.pnlAttendance.Size = new System.Drawing.Size(742, 600);
@@ -89,7 +93,7 @@
             // btnEditAttend
             // 
             this.btnEditAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAttend.Location = new System.Drawing.Point(160, 620);
+            this.btnEditAttend.Location = new System.Drawing.Point(161, 671);
             this.btnEditAttend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditAttend.Name = "btnEditAttend";
             this.btnEditAttend.Size = new System.Drawing.Size(112, 43);
@@ -101,7 +105,7 @@
             // btnBackAttend
             // 
             this.btnBackAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackAttend.Location = new System.Drawing.Point(20, 620);
+            this.btnBackAttend.Location = new System.Drawing.Point(21, 671);
             this.btnBackAttend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackAttend.Name = "btnBackAttend";
             this.btnBackAttend.Size = new System.Drawing.Size(112, 43);
@@ -112,7 +116,7 @@
             // 
             // dtpAttendance
             // 
-            this.dtpAttendance.Location = new System.Drawing.Point(428, 630);
+            this.dtpAttendance.Location = new System.Drawing.Point(429, 681);
             this.dtpAttendance.Name = "dtpAttendance";
             this.dtpAttendance.Size = new System.Drawing.Size(309, 26);
             this.dtpAttendance.TabIndex = 19;
@@ -121,7 +125,7 @@
             // btnSubmitAttend
             // 
             this.btnSubmitAttend.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitAttend.Location = new System.Drawing.Point(300, 620);
+            this.btnSubmitAttend.Location = new System.Drawing.Point(301, 671);
             this.btnSubmitAttend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSubmitAttend.Name = "btnSubmitAttend";
             this.btnSubmitAttend.Size = new System.Drawing.Size(112, 43);
@@ -130,18 +134,47 @@
             this.btnSubmitAttend.UseVisualStyleBackColor = true;
             this.btnSubmitAttend.Click += new System.EventHandler(this.btnSubmitAttend_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(768, 33);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.attendanceReportsToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // attendanceReportsToolStripMenuItem
+            // 
+            this.attendanceReportsToolStripMenuItem.Name = "attendanceReportsToolStripMenuItem";
+            this.attendanceReportsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.attendanceReportsToolStripMenuItem.Text = "Attendance Report";
+            this.attendanceReportsToolStripMenuItem.Click += new System.EventHandler(this.attendanceReportsToolStripMenuItem_Click);
+            // 
             // frmAttendance
             // 
             this.AcceptButton = this.btnEditAttend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 691);
+            this.ClientSize = new System.Drawing.Size(768, 742);
             this.ControlBox = false;
             this.Controls.Add(this.btnSubmitAttend);
             this.Controls.Add(this.dtpAttendance);
             this.Controls.Add(this.pnlAttendance);
             this.Controls.Add(this.btnEditAttend);
             this.Controls.Add(this.btnBackAttend);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAttendance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attendance";
@@ -149,7 +182,10 @@
             this.Load += new System.EventHandler(this.frmAttendance_Load);
             this.pnlAttendance.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -162,5 +198,8 @@
         private System.Windows.Forms.Label lblAttendClass;
         private System.Windows.Forms.DateTimePicker dtpAttendance;
         private System.Windows.Forms.Button btnSubmitAttend;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem attendanceReportsToolStripMenuItem;
     }
 }

@@ -1978,9 +1978,91 @@ namespace Team3MiddleSchool
             return studentID;
         }
 
-        public void UpdateAttendance(DataGridView dgv, string date)
+        public string GetStudentName(int studentID)
+        {
+            string studentName = "";
+            string query = "SELECT CONCAT(FirstName, ' ', LastName) AS Name FROM team3sp232330.Student where StudentID = " + studentID + ";";
+
+            SqlCommand commandID = new SqlCommand(query, connection);
+
+
+            SqlDataReader reader = commandID.ExecuteReader();
+
+            while (reader.Read())
+            {
+                studentName = $"{reader["Name"]}";
+            }
+
+            reader.Close();
+
+            return studentName;
+        }
+
+        public int GetStudentIDByName(string name)
+        {
+            int studentID = 0;
+            string studentIDString = "";
+            int spaceIndex = name.IndexOf(" ");
+            string first = name.Substring(0, spaceIndex);
+            string last = name.Substring(spaceIndex + 1);
+            string query = "SELECT StudentID FROM team3sp232330.Student where FirstName = '" + first + "' AND LastName = '" + last + "';";
+
+            SqlCommand commandID = new SqlCommand(query, connection);
+
+
+            SqlDataReader reader = commandID.ExecuteReader();
+
+            while (reader.Read())
+            {
+                studentIDString = $"{reader["StudentID"]}";
+            }
+            reader.Close();
+
+            studentID = Int32.Parse(studentIDString);
+
+            return studentID;
+        }
+
+        public List<string> GetTotalAttendance(int studentID, int classID)
+        {
+            List<string> attendanceData = new List<string>() { "none", "none" };
+            string query = "SELECT COUNT(StudentID) AS Total FROM team3sp232330.Attendance WHERE StudentID = " + studentID.ToString() + " AND ClassID = " + classID.ToString() + " GROUP BY StudentID;";
+
+            SqlCommand commandID = new SqlCommand(query, connection);
+            SqlDataReader reader = commandID.ExecuteReader();
+            while (reader.Read())
+            {
+                attendanceData[0] = $"{reader["Total"]}";
+            }
+            reader.Close();
+
+
+            query = "SELECT COUNT(StudentID) AS Absent FROM team3sp232330.Attendance WHERE StudentID = " + studentID.ToString() + " AND ClassID = " + classID.ToString() + " AND Present = 0 GROUP BY StudentID;";
+            commandID = new SqlCommand(query, connection);
+            reader = commandID.ExecuteReader();
+            while (reader.Read())
+            {
+                attendanceData[1] = $"{reader["Absent"]}";
+            }
+            reader.Close();
+
+
+            query = "SELECT AttendanceDate FROM team3sp232330.Attendance WHERE StudentID = " + studentID.ToString() + " AND ClassID = " + classID.ToString() + " AND Present = 0;";
+            commandID = new SqlCommand(query, connection);
+            reader = commandID.ExecuteReader();
+            while (reader.Read())
+            {
+                attendanceData.Add($"{reader["AttendanceDate"]}");
+            }
+            reader.Close();
+
+            return attendanceData;
+        }
+
+        public void UpdateAttendance(DataGridView dgv)
         {
             List<string> studentID = new List<string>();
+            List<string> dates = new List<string>();
             List<int> present = new List<int>();
 
             string updateQuery = "";
@@ -1988,6 +2070,7 @@ namespace Team3MiddleSchool
             for (int i = 0; i <= dgv.Rows.Count - 1; i++)
             {
                 studentID.Add(dgv.Rows[i].Cells[1].Value.ToString());
+                dates.Add(dgv.Rows[i].Cells[3].Value.ToString());
                 string convertPresent = dgv.Rows[i].Cells[4].Value.ToString().ToLower();
                 if (convertPresent.Equals("true"))
                 {
@@ -2001,7 +2084,8 @@ namespace Team3MiddleSchool
 
             for (int i = 0; i < studentID.Count; i++)
             {
-                updateQuery += "UPDATE team3sp232330.Attendance SET Present = " + present[i] + " WHERE StudentId = " + studentID[i] + " AND AttendanceDate = '" + date + "';";
+                Console.WriteLine("UPDATE team3sp232330.Attendance SET Present = " + present[i] + " WHERE StudentId = " + studentID[i] + " AND AttendanceDate = '" + dates[i] + "';");
+                updateQuery += "UPDATE team3sp232330.Attendance SET Present = " + present[i] + " WHERE StudentId = " + studentID[i] + " AND AttendanceDate = '" + dates[i] + "';";
             }
 
             SqlCommand command = new SqlCommand(updateQuery, connection);

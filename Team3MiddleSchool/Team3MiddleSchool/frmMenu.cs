@@ -82,7 +82,7 @@ namespace Team3MiddleSchool
                     btnAdmin.Visible = false;
                     btnOfficer.Visible = false;
                     
-                    btnAttendance.Visible = false;
+                    btnAttendance.Visible = true;
                     clsDatabaseHandler.LoadStudentMenu(cbxCourseSelect, loginID);
                     studentID = clsDatabaseHandler.GetStudentID(loginID);
 

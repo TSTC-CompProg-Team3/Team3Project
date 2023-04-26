@@ -37,14 +37,18 @@
             this.pnlAttendanceEdit = new System.Windows.Forms.Panel();
             this.lblAttendTeacher = new System.Windows.Forms.Label();
             this.lblAttendClass = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.attendanceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendanceEdit)).BeginInit();
             this.pnlAttendanceEdit.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBackAttendEdit
             // 
             this.btnBackAttendEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackAttendEdit.Location = new System.Drawing.Point(39, 622);
+            this.btnBackAttendEdit.Location = new System.Drawing.Point(40, 660);
             this.btnBackAttendEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackAttendEdit.Name = "btnBackAttendEdit";
             this.btnBackAttendEdit.Size = new System.Drawing.Size(112, 43);
@@ -56,7 +60,7 @@
             // btnClearAttendEdit
             // 
             this.btnClearAttendEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearAttendEdit.Location = new System.Drawing.Point(174, 622);
+            this.btnClearAttendEdit.Location = new System.Drawing.Point(175, 660);
             this.btnClearAttendEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClearAttendEdit.Name = "btnClearAttendEdit";
             this.btnClearAttendEdit.Size = new System.Drawing.Size(112, 43);
@@ -68,7 +72,7 @@
             // btnSubmitAttendEdit
             // 
             this.btnSubmitAttendEdit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitAttendEdit.Location = new System.Drawing.Point(309, 622);
+            this.btnSubmitAttendEdit.Location = new System.Drawing.Point(310, 660);
             this.btnSubmitAttendEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSubmitAttendEdit.Name = "btnSubmitAttendEdit";
             this.btnSubmitAttendEdit.Size = new System.Drawing.Size(112, 43);
@@ -91,7 +95,7 @@
             // 
             // dtpAttendanceEdit
             // 
-            this.dtpAttendanceEdit.Location = new System.Drawing.Point(450, 648);
+            this.dtpAttendanceEdit.Location = new System.Drawing.Point(451, 686);
             this.dtpAttendanceEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpAttendanceEdit.Name = "dtpAttendanceEdit";
             this.dtpAttendanceEdit.Size = new System.Drawing.Size(278, 26);
@@ -101,7 +105,7 @@
             // cmbNamesEdit
             // 
             this.cmbNamesEdit.FormattingEnabled = true;
-            this.cmbNamesEdit.Location = new System.Drawing.Point(450, 611);
+            this.cmbNamesEdit.Location = new System.Drawing.Point(451, 649);
             this.cmbNamesEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbNamesEdit.Name = "cmbNamesEdit";
             this.cmbNamesEdit.Size = new System.Drawing.Size(278, 28);
@@ -113,7 +117,7 @@
             this.pnlAttendanceEdit.Controls.Add(this.dgvAttendanceEdit);
             this.pnlAttendanceEdit.Controls.Add(this.lblAttendTeacher);
             this.pnlAttendanceEdit.Controls.Add(this.lblAttendClass);
-            this.pnlAttendanceEdit.Location = new System.Drawing.Point(12, 0);
+            this.pnlAttendanceEdit.Location = new System.Drawing.Point(13, 38);
             this.pnlAttendanceEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlAttendanceEdit.Name = "pnlAttendanceEdit";
             this.pnlAttendanceEdit.Size = new System.Drawing.Size(742, 600);
@@ -141,12 +145,39 @@
             this.lblAttendClass.Text = "Class: ";
             this.lblAttendClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(768, 33);
+            this.menuStrip1.TabIndex = 23;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.attendanceReportToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // attendanceReportToolStripMenuItem
+            // 
+            this.attendanceReportToolStripMenuItem.Name = "attendanceReportToolStripMenuItem";
+            this.attendanceReportToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.attendanceReportToolStripMenuItem.Text = "Attendance Report";
+            this.attendanceReportToolStripMenuItem.Click += new System.EventHandler(this.attendanceReportToolStripMenuItem_Click);
+            // 
             // frmAttendanceEdit
             // 
             this.AcceptButton = this.btnSubmitAttendEdit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 691);
+            this.ClientSize = new System.Drawing.Size(768, 735);
             this.ControlBox = false;
             this.Controls.Add(this.btnBackAttendEdit);
             this.Controls.Add(this.pnlAttendanceEdit);
@@ -154,6 +185,8 @@
             this.Controls.Add(this.cmbNamesEdit);
             this.Controls.Add(this.dtpAttendanceEdit);
             this.Controls.Add(this.btnClearAttendEdit);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAttendanceEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -161,7 +194,10 @@
             this.Load += new System.EventHandler(this.frmAttendanceEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendanceEdit)).EndInit();
             this.pnlAttendanceEdit.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -176,5 +212,8 @@
         private System.Windows.Forms.Panel pnlAttendanceEdit;
         private System.Windows.Forms.Label lblAttendClass;
         private System.Windows.Forms.Label lblAttendTeacher;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem attendanceReportToolStripMenuItem;
     }
 }
