@@ -333,7 +333,7 @@
             // 
             this.tbxName.Location = new System.Drawing.Point(500, 63);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(176, 23);
+            this.tbxName.Size = new System.Drawing.Size(176, 31);
             this.tbxName.TabIndex = 44;
             // 
             // lblID
@@ -357,7 +357,7 @@
             this.lblClass.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblClass.Location = new System.Drawing.Point(12, 25);
             this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(38, 22);
+            this.lblClass.Size = new System.Drawing.Size(53, 32);
             this.lblClass.TabIndex = 46;
             this.lblClass.Text = "Null";
             // 
@@ -394,7 +394,7 @@
             this.helpToolStripMenuItem});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuStrip.Name = "mnuStrip";
-            this.mnuStrip.Size = new System.Drawing.Size(852, 24);
+            this.mnuStrip.Size = new System.Drawing.Size(852, 33);
             this.mnuStrip.TabIndex = 49;
             this.mnuStrip.Text = "menuStrip1";
             // 
@@ -403,13 +403,13 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 34);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -418,14 +418,18 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
+
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
+
             this.userManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userManualToolStripMenuItem.Text = "&User Manual";
+
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
             // btnMidtermGrades
@@ -443,7 +447,7 @@
             // 
             // frmGradebook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
