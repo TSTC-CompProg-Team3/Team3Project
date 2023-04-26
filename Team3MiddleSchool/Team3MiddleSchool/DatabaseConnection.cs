@@ -2105,7 +2105,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName as Assignment_Name ,AssignmentType as Assignment_Type ,Grade From team3sp232330.Grades Where StudentID='" + StudentID + "' and ClassID="+classID+"", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName as Assignment_Name ,AssignmentType as Assignment_Type ,Grade From team3sp232330.Grades Where StudentID='" + StudentID + "' and ClassID="+classID+" Order by Assignment_Type asc", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -2142,7 +2142,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Where StudentID=" + studentID + " and ClassID=" + classID + " ", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName as  Assignment_Name  ,AssignmentType as  Assignment_Type,Grade from team3sp232330.Grades Where StudentID=" + studentID + " and ClassID=" + classID + " Order by Assignment_Type asc  ", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -2160,7 +2160,7 @@ namespace Team3MiddleSchool
         {
             try
             {
-                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName,AssignmentType,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where ParentID=" + parentID + " and ClassID=" + classID + " ", connection);
+                SqlDataAdapter gradeBookDataAdapter = new SqlDataAdapter("Select AssignmentName as  Assignment_Name  ,AssignmentType as  Assignment_Type,Grade from team3sp232330.Grades Join team3sp232330.StudentParent on Grades.StudentID=StudentParent.StudentID Where ParentID=" + parentID +" and ClassID="+ classID+ " Order by Assignment_Type asc ", connection);
 
                 _gradeBookDataTable = new DataTable();
                 gradeBookDataAdapter.Fill(_gradeBookDataTable);
@@ -2904,7 +2904,7 @@ namespace Team3MiddleSchool
                 {
                     finalTotal = total / countTotal;
                 }
-                lbltotalGrades.Text = String.Format("{0:N2}",Convert.ToDecimal(finalTotal));
+                lbltotalGrades.Text = String.Format("{0:N2}",Convert.ToDecimal(finalTotal))+"%";
 
             }
             catch (Exception ex)

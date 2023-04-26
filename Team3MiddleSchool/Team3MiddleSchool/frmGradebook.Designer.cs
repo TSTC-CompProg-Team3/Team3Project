@@ -345,6 +345,7 @@
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(52, 28);
             this.lblID.TabIndex = 45;
+            this.lblID.Text = "82";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblClass
@@ -388,6 +389,7 @@
             // 
             // mnuStrip
             // 
+            this.mnuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
