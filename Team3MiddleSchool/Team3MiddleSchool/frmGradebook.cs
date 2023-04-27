@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Team3MiddleSchool
 {
@@ -399,6 +400,81 @@ namespace Team3MiddleSchool
         private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("gradebook.html");
+        }
+
+
+       
+
+
+
+
+
+        private void generateMidtermReport(TextBox tbxName, Label lblParticipation, Label lblHomework, Label lblQuiz, Label lblLab, Label lblTest, Label lblFinal, Label lblTotal)
+        {
+            string template = "midtermReportTemplate.html";
+            string report = "reportGenerator.html";
+
+            StreamReader sr = new StreamReader(template);
+            string content = sr.ReadToEnd();
+            sr.Close();
+
+            string search = "<h2 id=\"studentNameHeader\">Student Name</h2>";
+            string replace = "<h2 id=\"studentNameHeader\">This Midterm Report is for the parents of " + tbxName.Text + "</h2>";
+            content = content.Replace(search, replace);
+
+            //search = "<dt id=\"midtermGradeHeader\">Midterm: </dt>";
+            //replace = "<dt id=\"midtermGradeHeader\">Midterm Grade: " + lblmidTerm.Text + "</dt>";
+            //content = content.Replace(search, replace);
+
+
+            search = "<dt id=\"classP\">Class Participation: </dt>";
+            replace = "<dt id=\"classP\">Class Participation: " + lblParticipation.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"homework\">Homework: </dt>";
+            replace = "<dt id=\"homework\">Homework: " + lblHomework.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"quiz\">Quiz: </dt>";
+            replace = "<dt id=\"quiz\">Quiz: " + lblQuiz.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"lab\">Lab: </dt>";
+            replace = "<dt id=\"lab\">Lab: " + lblLab.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+
+            search = "<dt id=\"test\">Test: </dt>";
+            replace = "<dt id=\"test\">Test: " + lblTest.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"final\">Final: </dt>";
+            replace = "<dt id=\"final\">Final: " + lblFinal.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+            search = "<dt id=\"totalG\">Total Grade: </dt>";
+            replace = "<dt id=\"totalG\">Total Grade: " + lblTotal.Text + "</dt>";
+            content = content.Replace(search, replace);
+
+
+
+            
+
+            StreamWriter sw = new StreamWriter(report, false);
+            sw.Write(content);
+            sw.Close();
+
+            System.Diagnostics.Process.Start("reportGenerator.html");
+
+        }
+
+
+
+
+
+        private void btnMidtermGrades_Click(object sender, EventArgs e)
+        {
+            generateMidtermReport(tbxName, lblParticipation, lblHomework, lblQuiz, lblLab, lblTest, lblFinal, lblTotal);
         }
     }
 }

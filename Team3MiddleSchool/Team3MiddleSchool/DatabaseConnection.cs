@@ -2912,6 +2912,54 @@ namespace Team3MiddleSchool
                 lbltotalGrades.Text = "0";
             }
         }
+
+
+        public void displayMidtermGrade(Label lblmidtermGrades)
+        {
+
+
+            try
+            {
+                //Get the Count of the assignment Types and times those by the weight
+                decimal tempH = decGHomework, tempT = decGTest, tempQ = decGQuiz, tempL = decGLab, tempP = decGPar, tempF = decGFinal, totalP = 0, finalTotalP = 0;
+                int countH = intHomework * 10, countT = intTest * 25, countQ = intQuiz * 15, countL = intLab * 25, countP = intPar * 5, countF = intFinal * 20, countTotal = 0;
+
+                //decimal finalTotalP = 0;
+                int numAssign = 0;
+
+
+                //lab 1- 4 get percentage, total labs / counter and divide in half -- avg
+                //counter for specific assignment 
+
+
+                countTotal = countH + countF + countL + countP + countQ + countT;
+                totalP = tempH + tempF + tempL + tempP + tempQ + tempT;
+                finalTotalP = totalP / 6;
+                if (finalTotalP >= 100)
+                {
+                    finalTotalP = 100;
+                }
+
+
+                // midTG = Math.Round(midTG, 2);
+
+                else
+                {
+                    finalTotalP = totalP / 6;
+                }
+                lblmidtermGrades.Text = String.Format("{0:N2}", Convert.ToDecimal(finalTotalP));
+            }
+            catch (Exception ex)
+            {
+                lblmidtermGrades.Text = "0";
+            }
+        }
+
+
+
+
+
+
         public static void RemoveGradeBook(DataGridView dgvGradebook, string studentID, int classID)
         {
             try

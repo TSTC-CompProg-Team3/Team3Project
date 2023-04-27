@@ -155,7 +155,7 @@
             this.lblTotalCap.CausesValidation = false;
             this.lblTotalCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotalCap.Location = new System.Drawing.Point(681, 378);
+            this.lblTotalCap.Location = new System.Drawing.Point(685, 378);
             this.lblTotalCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalCap.Name = "lblTotalCap";
             this.lblTotalCap.Size = new System.Drawing.Size(149, 35);
@@ -170,7 +170,7 @@
             this.lblTestCap.CausesValidation = false;
             this.lblTestCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTestCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTestCap.Location = new System.Drawing.Point(681, 286);
+            this.lblTestCap.Location = new System.Drawing.Point(685, 286);
             this.lblTestCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTestCap.Name = "lblTestCap";
             this.lblTestCap.Size = new System.Drawing.Size(149, 35);
@@ -185,7 +185,7 @@
             this.lblLabCap.CausesValidation = false;
             this.lblLabCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLabCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblLabCap.Location = new System.Drawing.Point(680, 242);
+            this.lblLabCap.Location = new System.Drawing.Point(684, 242);
             this.lblLabCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLabCap.Name = "lblLabCap";
             this.lblLabCap.Size = new System.Drawing.Size(149, 35);
@@ -200,7 +200,7 @@
             this.lblQuizCap.CausesValidation = false;
             this.lblQuizCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuizCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblQuizCap.Location = new System.Drawing.Point(681, 198);
+            this.lblQuizCap.Location = new System.Drawing.Point(685, 198);
             this.lblQuizCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuizCap.Name = "lblQuizCap";
             this.lblQuizCap.Size = new System.Drawing.Size(149, 35);
@@ -215,7 +215,7 @@
             this.lblHomeworkCap.CausesValidation = false;
             this.lblHomeworkCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHomeworkCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblHomeworkCap.Location = new System.Drawing.Point(681, 151);
+            this.lblHomeworkCap.Location = new System.Drawing.Point(685, 151);
             this.lblHomeworkCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHomeworkCap.Name = "lblHomeworkCap";
             this.lblHomeworkCap.Size = new System.Drawing.Size(149, 35);
@@ -230,7 +230,7 @@
             this.lblParticipationCap.CausesValidation = false;
             this.lblParticipationCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblParticipationCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblParticipationCap.Location = new System.Drawing.Point(680, 109);
+            this.lblParticipationCap.Location = new System.Drawing.Point(684, 109);
             this.lblParticipationCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblParticipationCap.Name = "lblParticipationCap";
             this.lblParticipationCap.Size = new System.Drawing.Size(149, 35);
@@ -242,7 +242,7 @@
             // 
             this.lblTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotal.Location = new System.Drawing.Point(501, 378);
+            this.lblTotal.Location = new System.Drawing.Point(505, 378);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(176, 35);
@@ -252,7 +252,7 @@
             // 
             this.lblTest.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTest.Location = new System.Drawing.Point(572, 286);
+            this.lblTest.Location = new System.Drawing.Point(576, 286);
             this.lblTest.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTest.Name = "lblTest";
             this.lblTest.Size = new System.Drawing.Size(104, 29);
@@ -262,7 +262,7 @@
             // 
             this.lblLab.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblLab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblLab.Location = new System.Drawing.Point(571, 245);
+            this.lblLab.Location = new System.Drawing.Point(575, 245);
             this.lblLab.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLab.Name = "lblLab";
             this.lblLab.Size = new System.Drawing.Size(104, 29);
@@ -272,7 +272,7 @@
             // 
             this.lblQuiz.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblQuiz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblQuiz.Location = new System.Drawing.Point(572, 201);
+            this.lblQuiz.Location = new System.Drawing.Point(576, 201);
             this.lblQuiz.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuiz.Name = "lblQuiz";
             this.lblQuiz.Size = new System.Drawing.Size(104, 29);
@@ -282,7 +282,7 @@
             // 
             this.lblHomework.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblHomework.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblHomework.Location = new System.Drawing.Point(572, 151);
+            this.lblHomework.Location = new System.Drawing.Point(576, 151);
             this.lblHomework.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHomework.Name = "lblHomework";
             this.lblHomework.Size = new System.Drawing.Size(104, 29);
@@ -292,7 +292,7 @@
             // 
             this.lblParticipation.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblParticipation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblParticipation.Location = new System.Drawing.Point(571, 109);
+            this.lblParticipation.Location = new System.Drawing.Point(575, 109);
             this.lblParticipation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblParticipation.Name = "lblParticipation";
             this.lblParticipation.Size = new System.Drawing.Size(104, 29);
@@ -305,7 +305,7 @@
             this.lblNameCap.CausesValidation = false;
             this.lblNameCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNameCap.Location = new System.Drawing.Point(681, 59);
+            this.lblNameCap.Location = new System.Drawing.Point(685, 59);
             this.lblNameCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNameCap.Name = "lblNameCap";
             this.lblNameCap.Size = new System.Drawing.Size(149, 35);
@@ -331,9 +331,9 @@
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(500, 63);
+            this.tbxName.Location = new System.Drawing.Point(504, 63);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(176, 31);
+            this.tbxName.Size = new System.Drawing.Size(176, 23);
             this.tbxName.TabIndex = 44;
             // 
             // lblID
@@ -358,7 +358,7 @@
             this.lblClass.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblClass.Location = new System.Drawing.Point(12, 25);
             this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(53, 32);
+            this.lblClass.Size = new System.Drawing.Size(38, 22);
             this.lblClass.TabIndex = 46;
             this.lblClass.Text = "Null";
             // 
@@ -369,7 +369,7 @@
             this.lblFinalCap.CausesValidation = false;
             this.lblFinalCap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFinalCap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFinalCap.Location = new System.Drawing.Point(680, 332);
+            this.lblFinalCap.Location = new System.Drawing.Point(684, 332);
             this.lblFinalCap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFinalCap.Name = "lblFinalCap";
             this.lblFinalCap.Size = new System.Drawing.Size(149, 35);
@@ -381,7 +381,7 @@
             // 
             this.lblFinal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFinal.Location = new System.Drawing.Point(571, 332);
+            this.lblFinal.Location = new System.Drawing.Point(575, 332);
             this.lblFinal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFinal.Name = "lblFinal";
             this.lblFinal.Size = new System.Drawing.Size(104, 29);
@@ -389,14 +389,13 @@
             // 
             // mnuStrip
             // 
-            this.mnuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mnuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.mnuStrip.Location = new System.Drawing.Point(0, 0);
             this.mnuStrip.Name = "mnuStrip";
-            this.mnuStrip.Size = new System.Drawing.Size(852, 33);
+            this.mnuStrip.Size = new System.Drawing.Size(852, 24);
             this.mnuStrip.TabIndex = 49;
             this.mnuStrip.Text = "menuStrip1";
             // 
@@ -405,13 +404,13 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -420,13 +419,13 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userManualToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
-            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(212, 34);
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.userManualToolStripMenuItem.Text = "User Manual";
             this.userManualToolStripMenuItem.Click += new System.EventHandler(this.userManualToolStripMenuItem_Click);
             // 
@@ -440,12 +439,13 @@
             this.btnMidtermGrades.Name = "btnMidtermGrades";
             this.btnMidtermGrades.Size = new System.Drawing.Size(111, 44);
             this.btnMidtermGrades.TabIndex = 50;
-            this.btnMidtermGrades.Text = "MidTerm Grades";
+            this.btnMidtermGrades.Text = "MidTerm Report";
             this.btnMidtermGrades.UseVisualStyleBackColor = false;
+            this.btnMidtermGrades.Click += new System.EventHandler(this.btnMidtermGrades_Click);
             // 
             // frmGradebook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Team3MiddleSchool.Properties.Resources.Logo1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
